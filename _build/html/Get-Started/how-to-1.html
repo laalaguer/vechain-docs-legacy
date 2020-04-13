@@ -1,0 +1,309 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Intro &mdash; VeChain Documentation Legacy 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VeChain Documentation Legacy
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Intro</a><ul>
+<li><a class="reference internal" href="#whats-web-application"><strong>What’s Web Application?</strong></a></li>
+<li><a class="reference internal" href="#what-is-dapp"><strong>What is DApp?</strong></a></li>
+<li><a class="reference internal" href="#write-a-dapp-sync-and-connex"><strong>Write a DApp: Sync and Connex</strong></a></li>
+<li><a class="reference internal" href="#token-transfer-a-simple-dapp-in-javascript"><strong>Token Transfer: A Simple DApp in Javascript</strong></a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VeChain Documentation Legacy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Intro</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Get-Started/how-to-1.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="intro">
+<h1>Intro<a class="headerlink" href="#intro" title="Permalink to this headline">¶</a></h1>
+<p>Author: A Byte Ahead URL:https://medium.com/&#64;laalaguer/how-to-develop-a-dapp-on-vechain-i-intro-86ccc48ef079</p>
+<p>Many people ask me as a blockchain developer, what is a <em><strong>DApp</strong></em>? In one of my simpler version of the answers, “<strong>DApp = Web + Blockchain</strong>”. Yep, the current web technologies are still heavily used. We simply move some data and authentications onto the blockchain, that’s it. It’s the same idea behind <a class="reference external" href="https://github.com/ethereum/web3.js/">Web3.js</a>, as well as the <a class="reference external" href="https://www.npmjs.com/package/&#64;vechain/connex">Connex.js</a> we will be talking about later.</p>
+<p>To answer that, we first look at what a traditional <em><strong>web application</strong></em> looks like:
+[block:image]
+{
+“images”: [
+{
+“image”: [
+“https://files.readme.io/f64d775-Web_app_client_server_and_database.jpeg”,
+“Web app, client, server and database.jpeg”,
+1600,
+930,
+“#edebf6”
+],
+“caption”: “Web app: client, server and database.”
+}
+]
+}
+[/block]</p>
+<div class="section" id="whats-web-application">
+<h2><strong>What’s Web Application?</strong><a class="headerlink" href="#whats-web-application" title="Permalink to this headline">¶</a></h2>
+<p>A <em><strong>web application</strong></em> in a simplified scenario is a typical client-server application. It contains several critical parts:</p>
+<ul class="simple">
+<li><strong>Client</strong>: web browsers.</li>
+<li><strong>Server</strong>: operates the database, serves the clients data.</li>
+<li><strong>Database</strong>: stores the data as valuable assets. 😛</li>
+</ul>
+<p>Interestingly, in a web application, <em><strong>data is at the core heart</strong></em>. It flows, displayed, transformed and stored in the system. End users view the data from the web pages on the browsers.</p>
+<p>A web application also has several characteristics in common:</p>
+<ul class="simple">
+<li>The server interfaces with the database, <em><strong>not</strong></em> clients.</li>
+<li>The database is hidden and holds <em><strong>valuable</strong></em> assets.</li>
+<li>The user has <em><strong>no direct control</strong></em> of the data, only the server can. 😛</li>
+</ul>
+<p>So blockchain promises the future of “<strong>Users in charge of their data</strong>”, what does a DApp look like exactly?</p>
+<p>Simple. It looks like a web app, except we have one add-on: Blockchain.
+[block:image]
+{
+“images”: [
+{
+“image”: [
+“https://files.readme.io/b4fa0f8-DAPP_webblockchain.jpeg”,
+“DAPP web+blockchain.jpeg”,
+1600,
+1265,
+“#eceef1”
+],
+“caption”: “DApp: Web + Blockchain”
+}
+]
+}
+[/block]</p>
+</div>
+<div class="section" id="what-is-dapp">
+<h2><strong>What is DApp?</strong><a class="headerlink" href="#what-is-dapp" title="Permalink to this headline">¶</a></h2>
+<p><em><strong>DApp</strong></em> is an application that is backed up by a distributed blockchain service. To make an analog to the web apps we use today, <em><strong>DApp relies partially on blockchain data</strong></em> but still is a web application (or web page).</p>
+<ul>
+<li><p class="first">Client: Browser/IoT devices.</p>
+</li>
+<li><p class="first">Server: Serves code fragments or static assets like images.</p>
+</li>
+<li><p class="first">Blockchain: <strong>Partial replacement</strong> of database, stores/processes critical user data.</p>
+<blockquote>
+<div><p><em>A public blockchain is a openly readable, slow, expensive database running by a network consists of hundreds of nodes.</em></p>
+</div></blockquote>
+</li>
+</ul>
+<p><em><strong>DApp</strong></em> also has several characteristics in common:</p>
+<ul class="simple">
+<li>DApp interfaces with <strong>both</strong> blockchain and traditional server.</li>
+<li>The blockchain <strong>cannot</strong> be easily shut down as it contains multiple nodes.</li>
+<li>The user can <strong>directly control</strong> data on the blockchain via DApp.</li>
+</ul>
+<p>Great, now you know what does a DApp do and where the data is coming from, let us focus on how to write one.</p>
+</div>
+<div class="section" id="write-a-dapp-sync-and-connex">
+<h2><strong>Write a DApp: Sync and Connex</strong><a class="headerlink" href="#write-a-dapp-sync-and-connex" title="Permalink to this headline">¶</a></h2>
+<p>[block:image]
+{
+“images”: [
+{
+“image”: [
+“https://files.readme.io/e50c4b4-1_rbq_5MkZBujA3qDGsvsvWw.png”,
+“1_rbq_5MkZBujA3qDGsvsvWw.png”,
+1600,
+1164,
+“#d7d8d8”
+],
+“caption”: “Sync: Browser of VeChain apps.”
+}
+]
+}
+[/block]</p>
+<blockquote>
+<div><em>DApp shall both know how to communicate with traditional server backend as well as read/write from a blockchain network. Connex.js helps with the blockchain part, makes the developer life easier.</em></div></blockquote>
+<p>VeChain published <strong>Connex.js</strong> to substitute <strong>Web3.js</strong> in Ethereum. It is a huge step from Web3 and I am glad to use it in my first VeChain project:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://env.vechain.org/"><strong>Sync</strong></a>: Web browser of VeChain apps.</li>
+<li><a class="reference external" href="https://www.npmjs.com/package/&#64;vechain/connex"><strong>Connex.js</strong></a>: Standard Javascript library that helps to communicate with VeChain, <em><strong>included</strong></em> in Sync.</li>
+</ul>
+</div>
+<div class="section" id="token-transfer-a-simple-dapp-in-javascript">
+<h2><strong>Token Transfer: A Simple DApp in Javascript</strong><a class="headerlink" href="#token-transfer-a-simple-dapp-in-javascript" title="Permalink to this headline">¶</a></h2>
+<p>Starting from the next part of the tutorial, we will start to build a demo DApp named as “Token Transfer”. We will use <a class="reference external" href="https://github.com/laalaguer/vechain-token-transfer">an existing smart contract</a> on VeChain as the data source. And I will help you to familiar with the environment:</p>
+<ul class="simple">
+<li>How to read data from a VeChain blockchain smart contract.</li>
+<li>How to display data to the user.</li>
+<li>How to update data on blockchain via Javascript calls.</li>
+<li>With the help of <strong>Connex</strong> in the <strong>Sync</strong> browser, we will do it in the blink of an eye! Follow the hands-on tutorials below to start coding!</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VeChain Developers
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

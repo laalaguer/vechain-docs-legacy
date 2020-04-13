@@ -1,0 +1,10 @@
+---
+title: "Setup the Connex environment"
+slug: "setup-your-connex-environment"
+hidden: false
+createdAt: "2019-03-29T07:10:04.301Z"
+updatedAt: "2019-08-16T07:51:15.235Z"
+type: "link"
+link_url: "https://env.vechain.org/"
+link_external: true
+---

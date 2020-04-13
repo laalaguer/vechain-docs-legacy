@@ -1,0 +1,696 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Smart Contrac Standard and Library &mdash; VeChain Documentation Legacy 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Smart contract development best practice" href="best-practice.html" />
+    <link rel="prev" title="Setup &amp; Walk Around" href="../GetStarted/how-to-3.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VeChain Documentation Legacy
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../VeChainThorBlockchain/index.html">VeChainThor Blockchain</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../VeChainThorBlockchain/overview.html">What is VeChainThor?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../VeChainThorBlockchain/overview.html#business-friendly-meta-transaction-features">Business Friendly Meta-transaction Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VeChainThorBlockchain/overview.html#proof-of-authority-poa">Proof of Authority (“PoA”)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VeChainThorBlockchain/overview.html#governance">Governance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VeChainThorBlockchain/overview.html#economic-model">Economic Model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../VeChainThorBlockchain/two.html">Two-token design</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../VeChainThorBlockchain/two.html#vet">VET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VeChainThorBlockchain/two.html#vtho">VTHO</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../VeChainThorBlockchain/block.html">Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VeChainThorBlockchain/tx-model.html">Transaction Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VeChainThorBlockchain/mpp.html">Multi-party Payment Protocol (MPP)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../VeChainThorBlockchain/mpp.html#functions-related-to-user">Functions related to <em>User</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VeChainThorBlockchain/mpp.html#functions-related-to-the-credit-plan">Functions related to the <em>credit plan</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VeChainThorBlockchain/mpp.html#functions-related-master">Functions related <em>Master</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VeChainThorBlockchain/mpp.html#functions-related-to-sponsor">Functions related to <em>Sponsor</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../VeChainThorBlockchain/poa.html">Proof of Authority (PoA)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../VeChainThorBlockchain/poa.html#when">When</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VeChainThorBlockchain/poa.html#who">Who</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VeChainThorBlockchain/poa.html#am-status-updating">AM Status Updating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../VeChainThorBlockchain/poa.html#trunk">Trunk</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../VeChainThorBlockchain/built-in.html">Built-in Smart Contracts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../GetStarted/index.html">Get Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../GetStarted/how-to-node.html">How to deploy a VeChainThor node</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../GetStarted/docker.html">Docker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../GetStarted/docker.html#run-vechainthor-authority-masternode-in-docker">Run VeChainThor Authority Masternode in docker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../GetStarted/docker.html#run-node-in-docker">Run node in docker</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../GetStarted/aws.html">AWS Marketplace</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../GetStarted/aws.html#this-is-an-example-of-solo-node-deployment">This is an example of “solo node” deployment.</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../GetStarted/source.html">Source code</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../GetStarted/source.html#installation">Installation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../GetStarted/public.html">Public VeChainThor nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GetStarted/how-to-deploy.html">How to deploy a smart contract</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../GetStarted/how-to-deploy.html#quick-start">Quick Start</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../GetStarted/how-to-develop.html">How to develop a dApp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../GetStarted/how-to-1.html">Intro</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../GetStarted/how-to-1.html#whats-web-application"><strong>What’s Web Application?</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../GetStarted/how-to-1.html#what-is-dapp"><strong>What is DApp?</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../GetStarted/how-to-1.html#write-a-dapp-sync-and-connex"><strong>Write a DApp: Sync and Connex</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../GetStarted/how-to-1.html#token-transfer-a-simple-dapp-in-javascript"><strong>Token Transfer: A Simple DApp in Javascript</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../GetStarted/how-to-2.html">Components and Coding</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../GetStarted/how-to-2.html#preparation"><strong>Preparation</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../GetStarted/how-to-2.html#setup-in-3-minutes"><strong>Setup in 3 minutes</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../GetStarted/how-to-2.html#coding"><strong>Coding</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../GetStarted/how-to-2.html#put-things-together"><strong>Put Things Together</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../GetStarted/how-to-2.html#test-the-app"><strong>Test the App</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../GetStarted/how-to-2.html#one-more-thing"><strong>One More Thing</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../GetStarted/how-to-3.html">Setup &amp; Walk Around</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../GetStarted/how-to-3.html#setup-in-3-minutes"><strong>Setup in 3 minutes</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../GetStarted/how-to-3.html#poke-around-familiar-with-sync"><strong>Poke around: Familiar with Sync</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../GetStarted/how-to-3.html#play-with-connex-js-apis"><strong>Play with Connex.js APIs</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../GetStarted/how-to-3.html#summary"><strong>Summary</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Smart Contrac Standard and Library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="best-practice.html">Smart contract development best practice</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="best-practice.html#vechainthor-solidity-the-right-way">VeChainThor Solidity The Right Way</a></li>
+<li class="toctree-l3"><a class="reference internal" href="best-practice.html#motivation">Motivation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="best-practice.html#general-philosophy">General Philosophy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="best-practice/recommendations.html">Recommendations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="best-practice/design-patterns.html">Design Patterns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="best-practice/security.html">Security</a></li>
+<li class="toctree-l4"><a class="reference internal" href="best-practice/resources.html">Resources</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="vip180-token.html">VIP180 fungible token</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vip180-token.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vip180-token.html#specification">Specification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vip180-token.html#methods">Methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="vip180-token.html#name">name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vip180-token.html#symbol">symbol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vip180-token.html#decimals">decimals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vip180-token.html#totalsupply">totalSupply</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vip180-token.html#balanceof">balanceOf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vip180-token.html#transfer">transfer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vip180-token.html#transferfrom">transferFrom</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vip180-token.html#approve">approve</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vip180-token.html#allowance">allowance</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="vip180-token.html#events">Events</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="vip180-token.html#id1">Transfer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vip180-token.html#approval">Approval</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="list-of-vip180-token.html">List of VIP180 tokens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vip181-token.html">VIP181 non-fungible token</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vip181-token.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vip181-token.html#specification">Specification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vip181-token.html#methods">Methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="vip181-token.html#name">name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vip181-token.html#symbol">symbol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vip181-token.html#totalsupply">totalSupply</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vip181-token.html#balanceof">balanceOf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vip181-token.html#ownerof">ownerOf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vip181-token.html#transferfrom">transferFrom</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vip181-token.html#approve">approve</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vip181-token.html#getapproved">getApproved</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="vip181-token.html#setapprovalforall">setApprovalForAll</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vip181-token.html#isapprovedforall">isApprovedForAll</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vip181-token.html#events">Events</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="vip181-token.html#transfer">Transfer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vip181-token.html#approval">Approval</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vip181-token.html#approvalforall">ApprovalForAll</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="vechain-thornode-contract.html">VeChainThor Node token contract</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vechain-thornode-contract.html#getmetadata">getMetadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vechain-thornode-contract.html#applyupgrade">applyUpgrade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vechain-thornode-contract.html#cancelupgrade">cancelUpgrade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vechain-thornode-contract.html#gettokenparams">getTokenParams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vechain-thornode-contract.html#idtoowner">idToOwner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vechain-thornode-contract.html#ownertoid">ownerToId</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vechain-thornode-contract.html#createsaleauction">createSaleAuction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vechain-thornode-contract.html#createdirectionalsaleauction">createDirectionalSaleAuction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vechain-thornode-contract.html#bid">bid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vechain-thornode-contract.html#cancelauction">cancelAuction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vechain-thornode-contract.html#addauctionwhitelist">addAuctionWhiteList</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vechain-thornode-contract.html#removeauctionwhitelist">removeAuctionWhiteList</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Connex-js/index.html">Connex-js</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Connex-js/connex.html">What is Connex?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Connex-js/connex.html#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Connex-js/connex.html#get-started">Get Started</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Connex-js/connex.html#vechain-app-bootstrapping">VeChain App Bootstrapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Connex-js/connex.html#install">Install</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Connex-js/connex.html#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Connex-js/connex.html#resource">Resource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Connex-js/connex.html#architecture-explained">Architecture explained</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Connex-js/connex.html#faq">FAQ</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Connex-js/connex.html#typescript-complier-does-not-find-connex">TypeScript complier does not find Connex</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Connex-js/connex.html#license">License</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Connex-js/connex-api-reference.html">Connex API reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Connex-js/setup-your-connex-environment.html">Setup the Connex environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Connex-js/connex-framework.html">Connex Framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Connex-js/connex-framework.html#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Connex-js/connex-framework.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Connex-js/connex-framework.html#see-also">See also</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Connex-js/connex-framework.html#driver-implementations">Driver implementations:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Connex-js/connex-framework.html#connex-playground">Connex playground</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Connex-js/connex-implementation-test.html">Connex implementation test</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Connex-js/connex-implementation-test.html#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Connex-js/connex-implementation-test.html#project-setup">Project setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Connex-js/connex-implementation-test.html#compiles-and-hot-reloads-for-development">Compiles and hot-reloads for development</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Connex-js/connex-implementation-test.html#compiles-and-minifies-for-production">Compiles and minifies for production</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Connex-js/connex-implementation-test.html#run-your-tests">Run your tests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Connex-js/connex-implementation-test.html#lints-and-fixes-files">Lints and fixes files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Connex-js/connex-implementation-test.html#customize-configuration">Customize configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Connex-js/demo.html">Example Connex app</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Connex-js/demo/vechain-insight.html">Insight</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Connex-js/demo/vechain-insight.html#what-is-insight">What is Insight?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Connex-js/demo/vechain-insight.html#screenshots">Screenshots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Connex-js/demo/vechain-insight.html#project-setup">Project setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Connex-js/demo/vechain-insight.html#contribute">Contribute</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Connex-js/demo/inspector.html">Inspector</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Connex-js/demo/inspector.html#project-setup">Project setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Connex-js/demo/inspector.html#contribute">Contribute</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Connex-js/demo/buy-me-a-coffee.html">Buy Me A Coffee</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Connex-js/demo/buy-me-a-coffee.html#generate-one-for-you">Generate One For You</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Connex-js/demo/buy-me-a-coffee.html#development">Development</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Connex-js/demo/buy-me-a-coffee.html#contribute">Contribute</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Connex-js/demo/energy-station.html">Energy Station (testnet only)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Connex-js/demo/energy-station.html#what-is-energy-station">What is Energy Station</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Connex-js/demo/energy-station.html#concept">Concept</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Connex-js/demo/energy-station.html#deployment">Deployment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Connex-js/demo/energy-station.html#usage">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Connex-js/demo/energy-station.html#contribute">Contribute</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Development-Tools/index.html">Development Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Development-Tools/java-sdk-introduction.html">Thor Java Client SDK?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/java-sdk-introduction.html#get-started">Get Started</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/java-sdk-introduction.html#create-jar">Create JAR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/java-sdk-introduction.html#add-jar-to-project">Add JAR to project</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/java-sdk-introduction.html#license">License</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/java-sdk-introduction.html#set-blockchain-nodes-provider">Set blockchain nodes provider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/java-sdk-introduction.html#you-can-find-the-clients-toolkit-under-the-directory">You can find the clients toolkit under the directory :</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/java-sdk-introduction.html#walletutils">WalletUtils</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/java-sdk-introduction.html#accountclient">AccountClient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/java-sdk-introduction.html#transactionclient">TransactionClient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/java-sdk-introduction.html#blockclient">BlockClient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/java-sdk-introduction.html#logsclient">LogsClient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/java-sdk-introduction.html#blockchainclient">BlockchainClient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/java-sdk-introduction.html#prototypeclient">ProtoTypeClient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/java-sdk-introduction.html#run-the-test">Run the test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/java-sdk-introduction.html#java-console-approach">4. Java console approach</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Development-Tools/thorify-introduction.html">Thorify</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/thorify-introduction.html#install">Install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/thorify-introduction.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/thorify-introduction.html#web3-method-supported">Web3 method supported</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/thorify-introduction.html#send-transaction">Send Transaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/thorify-introduction.html#documentation">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/thorify-introduction.html#play-with-multi-clause">Play with multi-clause</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/thorify-introduction.html#faq">FAQ</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/thorify-introduction.html#web3-gear-vs-thorify">Web3-Gear vs Thorify</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/thorify-introduction.html#how-do-i-send-vtho-token">How do I send VTHO token</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/thorify-introduction.html#multi-party-payment-protocol-or-sponsored-contract">Multi party payment protocol or sponsored contract</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/thorify-introduction.html#method-not-supported">Method not supported</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/thorify-introduction.html#subscriptions-support">Subscriptions support</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/thorify-introduction.html#notes">Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/thorify-introduction.html#compatibility">Compatibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/thorify-introduction.html#license">License</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Development-Tools/web3-gear.html">Web3-gear</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/web3-gear.html#installation">Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/web3-gear.html#on-os-x">On OS x</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/web3-gear.html#on-ubuntu">On Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/web3-gear.html#on-window">On Window</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/web3-gear.html#run">Run</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/web3-gear.html#use-remix">Use Remix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/web3-gear.html#use-truffle">Use Truffle</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Development-Tools/dev-kit.html">Thor DevKit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/dev-kit.html#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/dev-kit.html#usage">Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/dev-kit.html#crypto-methods">Crypto methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/dev-kit.html#rlp">RLP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/dev-kit.html#transaction">Transaction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/dev-kit.html#certificate">Certificate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/dev-kit.html#abi">ABI</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/dev-kit.html#license">License</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Development-Tools/ide.html">VIDE (VeChain-IDE)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/ide.html#installation">INSTALLATION:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/ide.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Development-Tools/consistency.html">Smart Contract Consistency Verification</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/consistency.html#install">Install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/consistency.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/consistency.html#example">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/consistency.html#download-compiler">Download Compiler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/consistency.html#methods">Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/consistency.html#references">References</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/consistency.html#license">License</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Development-Tools/clients.html">Compatible Clients</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/clients/comet.html">Comet</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/clients/comet.html#what-is-comet">What is Comet?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/clients/comet.html#comet-compatibility-guide">Comet Compatibility Guide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/clients/comet.html#requirements">Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/clients/comet.html#best-practices">Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Development-Tools/clients/sdk.html">Sync</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/clients/sdk.html#build-from-source">Build From Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/clients/sdk.html#contributing">Contributing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/clients/sdk.html#acknowledgement">Acknowledgement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/clients/sdk.html#license">License</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/clients/sdk.html#user-guide">User Guide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/clients/sdk.html#resources">Resources</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Development-Tools/clients/sdk.html#contribute">Contribute</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Development-Tools/faucet.html">TestNet Faucet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Tutorials/how-to-setup-the-development-environment.html">Setup the development environment using Truffle</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/how-to-setup-the-development-environment.html#getting-started">Getting Started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/how-to-setup-the-development-environment.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/how-to-setup-the-development-environment.html#development-stack">Development Stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/how-to-setup-the-development-environment.html#installing">Installing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorials/how-to-setup-the-development-environment.html#running-the-vechainthor-local-node">Running the VeChainThor Local Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorials/how-to-setup-the-development-environment.html#web3-gear">Web3-Gear</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorials/how-to-setup-the-development-environment.html#truffle">Truffle</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Tutorials/custom-network.html">Setup VeChainThor custom network</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/custom-network.html#requirement">Requirement：</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/custom-network.html#before-you-start">Before You Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/custom-network.html#configure-your-genesis-file">Configure Your Genesis File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/custom-network.html#genesis-description-object">Genesis Description Object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/custom-network.html#authority">Authority</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/custom-network.html#params">Params</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/custom-network.html#launch-custom-network">Launch Custom Network</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorials/custom-network/sample-customnetwork.html">Sample CustomNetwork</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Tutorials/solo.html">Install VeChain SOLO development environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/solo.html#part-1-install-vechain-thor-software">Part 1 — Install VeChain Thor software</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/solo.html#part-1-1-install-debian-9-x64">Part 1.1 — Install Debian 9 x64</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/solo.html#part-1-2-install-vechain-thor-node-software">Part 1.2 — Install VeChain Thor Node software</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/solo.html#part-2-connect-sync-to-the-solo-network">Part 2 —Connect Sync to the SOLO network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/solo.html#part-2-1-install-sync-and-connect-it-to-the-solo-networks">Part 2.1 — Install Sync and connect it to the SOLO networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/solo.html#part-3-interact-with-the-solo-node-using-sync">Part 3 — Interact with the SOLO Node using Sync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/solo.html#part-3-1-send-vet-vthor-using-sync">Part 3.1 — Send VET/VTHOR using Sync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/solo.html#part-3-2-deploy-a-smart-contract-to-the-solo-network-through-sync">Part 3.2 — Deploy a smart contract to the SOLO network through Sync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/solo.html#part-3-3-interact-with-the-smart-contract">Part 3.3 — Interact with the Smart Contract</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Tutorials/built-in.html">How to use built-in contracts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/built-in.html#sample-code">Sample code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/built-in.html#thor-builtins">thor-builtins</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorials/built-in.html#builtin-contracts">builtin contracts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorials/built-in.html#library-builtin">Library Builtin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorials/built-in.html#how-to-use-it">How to use it</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorials/built-in.html#instance-contracts">instance contracts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Tutorials/vip180.html">How to add your VIP180 token to wallets, explorer and applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Tutorials/vip191.html">How to Integrate VIP-191</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/vip191/intro.html">Intro</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorials/vip191/intro.html#what-is-vip-191">What is VIP-191?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorials/vip191/intro.html#why-is-vip-191-important">Why is VIP-191 Important?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorials/vip191/intro.html#where-does-vip-191-come-to-play">Where does VIP-191 Come to Play?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorials/vip191/intro.html#how-does-vip-191-work">How does VIP-191 Work?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/vip191/1.html">User’s side</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorials/vip191/1.html#deploy-the-smart-contract">Deploy the Smart Contract</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorials/vip191/1.html#build-a-transaction-body">Build a Transaction Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorials/vip191/1.html#generate-a-user-signature">Generate a User Signature</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorials/vip191/1.html#get-a-sponsor-signature">Get a Sponsor Signature</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorials/vip191/1.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/vip191/2.html">Sponsor’s side</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorials/vip191/2.html#sponsors-server-code">Sponsor’s Server Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorials/vip191/2.html#back-to-the-users-side">Back to the User’s side</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorials/vip191/2.html#an-example-result">An Example Result</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Tutorials/vip191/2.html#conclusion">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Turnkey-Solutions/index.html">Turnkey Solutions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Turnkey-Solutions/overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Turnkey-Solutions/wallet.html">The VeChainThor Wallet SDKs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Turnkey-Solutions/wallet/android.html">Wallet - Android</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Turnkey-Solutions/wallet/android.html#gradle-compiler-environment-android-studio">Gradle compiler environment（Android Studio）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Turnkey-Solutions/wallet/android.html#api-reference">API Reference：</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Turnkey-Solutions/wallet/android.html#several-main-data-structures">Several main data structures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Turnkey-Solutions/wallet/android.html#license">License</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Turnkey-Solutions/wallet/ios.html">Wallet - iOS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Turnkey-Solutions/wallet/ios.html#requires-ios-10">Requires iOS 10</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Turnkey-Solutions/wallet/ios.html#latest-version-1-0-0">Latest version 1.0.0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Turnkey-Solutions/wallet/ios.html#support-installation-with-cocoapods">Support installation with CocoaPods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Turnkey-Solutions/wallet/ios.html#set-up-the-node-environment-test-node-environment-main-node-environment-and-custom-node-environment">Set up the node environment. (<code class="docutils literal notranslate"><span class="pre">Test_Node</span> <span class="pre">environment</span></code> , <code class="docutils literal notranslate"><span class="pre">Main_Node</span> <span class="pre">environment</span></code> and custom node environment)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Turnkey-Solutions/wallet/ios.html#how-to-run-simple-demo">How to run simple demo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Turnkey-Solutions/wallet/ios.html#api-reference">API Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Turnkey-Solutions/wallet/ios.html#support-dapp-development-environment-in-webview-by-calling-class-walletdapphandle">Support DApp development environment in Webview by calling class: WalletDAppHandle</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Turnkey-Solutions/vekey.html">VeKey based Secure Identity Turnkey Solution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Turnkey-Solutions/vekey/mac.html">VeKey Bridge Tool Manual (Mac)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Turnkey-Solutions/vekey/mac.html#tool-feature-list">2.1. Tool Feature List</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Turnkey-Solutions/vekey/mac.html#requirements">2.2. Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Turnkey-Solutions/vekey/mac.html#install-vekey-bridge-tool">3.1. Install VeKey Bridge Tool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Turnkey-Solutions/vekey/mac.html#vekey-bridge-tool-operation">3.2. VeKey Bridge Tool Operation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Turnkey-Solutions/vekey/mac.html#vekey-device-firmware-upgrade">3.3. VeKey device firmware upgrade</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Turnkey-Solutions/vekey/mac.html#vekey-bridge-tool-upgrade">3.4. VeKey Bridge Tool upgrade</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Turnkey-Solutions/vekey/mac.html#vekey-bridge-tool-menu">3.5. VeKey Bridge Tool Menu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Turnkey-Solutions/vekey/mac.html#other-settings">3.6. Other settings</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Turnkey-Solutions/vekey/windows.html">VeKey Bridge Tool Manual (Windows)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Turnkey-Solutions/vekey/windows.html#tool-feature-list">2.1. Tool Feature List</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Turnkey-Solutions/vekey/windows.html#requirements">2.2. Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Turnkey-Solutions/vekey/windows.html#install-vekey-bridge-tool">3.1. Install VeKey Bridge Tool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Turnkey-Solutions/vekey/windows.html#vekey-bridge-tool-operation">3.2 VeKey Bridge Tool Operation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Turnkey-Solutions/vekey/windows.html#windows-tray-zone">3.3 Windows tray zone</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Turnkey-Solutions/vekey/windows.html#vekey-device-firmware-upgrade">3.4 VeKey device firmware upgrade</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Turnkey-Solutions/vekey/windows.html#vekey-bridge-tool-upgrade">3.5 VeKey Bridge Tool upgrade</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Turnkey-Solutions/vekey/windows.html#vekey-bridge-tool-menu">3.6 VeKey Bridge Tool Menu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Turnkey-Solutions/vekey/windows.html#other-settings">3.7. Other settings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Turnkey-Solutions/hsm.html">HSM based Key Escrow Turnkey Solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Turnkey-Solutions/share.html">VeKey based Threshold Signature Turnkey Solution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Hardware/index.html">Hardware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Hardware/chips.html">Passive IoT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Hardware/vekey.html">VeKey Manual</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Hardware/vekey.html#first-time-to-set-pin-code">First time to set PIN code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Hardware/vekey.html#first-time-to-set-fingerprint">First time to set fingerprint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Hardware/vekey.html#pin-code-verification">PIN code verification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Hardware/vekey.html#fingerprint-verification">Fingerprint verification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Hardware/vekey.html#daily-starting-up">Daily starting up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Hardware/vekey.html#main-menu">Main menu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Hardware/vekey.html#signature">Signature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Hardware/vekey.html#about">About</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Hardware/security.html">VeKey - Secure Identity Device</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Contribute/index.html">Contribute</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VeChain Documentation Legacy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Smart Contrac Standard and Library</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Smart-Contrac-Standard-and-Library/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="smart-contrac-standard-and-library">
+<h1>Smart Contrac Standard and Library<a class="headerlink" href="#smart-contrac-standard-and-library" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="best-practice.html">Smart contract development best practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vip180-token.html">VIP180 fungible token</a></li>
+<li class="toctree-l1"><a class="reference internal" href="list-of-vip180-token.html">List of VIP180 tokens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vip181-token.html">VIP181 non-fungible token</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vechain-thornode-contract.html">VeChainThor Node token contract</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="best-practice.html" class="btn btn-neutral float-right" title="Smart contract development best practice" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../GetStarted/how-to-3.html" class="btn btn-neutral float-left" title="Setup &amp; Walk Around" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VeChain Developers
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

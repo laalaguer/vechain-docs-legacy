@@ -1,0 +1,399 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; VeChain Documentation Legacy 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> VeChain Documentation Legacy
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul class="simple">
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">VeChain Documentation Legacy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/letvego-2020-4-13/v1.1/Tutorials/custom-network/sample-customnetwork.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>—
+title: “Sample CustomNetwork”
+slug: “sample-customnetwork”
+excerpt: “Author: MiReinMedium: <a class="reference external" href="https://medium.com/&#64;michael_81043/vechain-customnetwork-the-bfc-story-f6ede804c94d">https://medium.com/&#64;michael_81043/vechain-customnetwork-the-bfc-story-f6ede804c94d</a>; <a class="reference external" href="https://medium.com/&#64;michael_81043/vechain-customnetwork-the-bfc-story-part-2-bd98d0fc5f4">https://medium.com/&#64;michael_81043/vechain-customnetwork-the-bfc-story-part-2-bd98d0fc5f4</a>”
+hidden: false
+createdAt: “2019-06-24T05:40:41.689Z”
+updatedAt: “2020-01-14T06:00:25.701Z”
+—
+VeChain already has two very smooth running blockchains: The [mainnet](<a class="reference external" href="https://explore.vechain.org/">https://explore.vechain.org/</a>) and the [testnet](<a class="reference external" href="https://explore-testnet.vechain.org/">https://explore-testnet.vechain.org/</a>). Obviously, testing in mainnet is pricy, because you actually need to buy VTHOR. Testing in testnet is a valid option but the testnet currently has a 16 Million GAS limit per block. And we want to go beyond that. FAR beyond!</p>
+<blockquote>
+<div><strong>Tweaking the client!</strong></div></blockquote>
+<p>I did some changes in the source code to enable me to test faster. You can look through my GIT repo and clone it yourself but I will also walk you through the changes.</p>
+<ol class="arabic simple">
+<li>[TX Pool Size](<a class="reference external" href="https://github.com/mirei83/thor/commit/a8d5c42111a9897e273659691b0017a3620323ce">https://github.com/mirei83/thor/commit/a8d5c42111a9897e273659691b0017a3620323ce</a>): I change the maximum size of transactions in the TX-Pool from 64KB to 256KB. This is to be able to send bigger transactions.</li>
+<li>[BodyRequest Size](<a class="reference external" href="https://github.com/mirei83/thor/commit/189b7aa1528370e0d379be36601fa3172edce615">https://github.com/mirei83/thor/commit/189b7aa1528370e0d379be36601fa3172edce615</a>): I changed the maximum site of the Requestbody from 200KB to 1MB. Also to send bigger transactions….</li>
+<li>[TX Pool Amount and duration](<a class="reference external" href="https://github.com/mirei83/thor/commit/74ad0790cccc287f827f968f91e166a8643d6e6c">https://github.com/mirei83/thor/commit/74ad0790cccc287f827f968f91e166a8643d6e6c</a>): On the normal mainnet, a unique sender could “only” have 16 transactions in the TX Pool. This is plenty for real users, even for big players. But I needed more, so I increased that amount from 16 to 64 and the maximal age of a transaction from 20 to 80 minutes.</li>
+</ol>
+<p>Thats it. Although there are more changes in the GIT Repo, they are not related to the features of the chain.</p>
+<p><strong>How to setup a custom network?</strong></p>
+<p>To be able to run a custom VeChain network, you need to set up at least two (software) nodes and start the Thor client with some special settings. VeChain already described the process here: [CustomNets](<a class="reference external" href="https://github.com/vechain/thor-wiki/blob/master/Custom%20Network.md">https://github.com/vechain/thor-wiki/blob/master/Custom%20Network.md</a>)</p>
+<p>So let’s start with the server: We need <strong>at least two</strong> server running the Thor client and at least one of them has to sign blocks. So I set up two “Debian 9” VPS at my favorite hoster [Vultr](<a class="reference external" href="https://www.vultr.com/?ref=7097618">https://www.vultr.com/?ref=7097618</a>). The VPS are from the 10$ plan with <strong>1 CPU, 2GB RAM and 25GB SSD</strong>. Keep those numbers in mind!</p>
+<p>Now we need to install the Vechain Thor Client. You can do this by following this [script](<a class="reference external" href="https://github.com/mirei83/vechain-deploy/blob/master/VechainThorMiRei-deploy.sh">https://github.com/mirei83/vechain-deploy/blob/master/VechainThorMiRei-deploy.sh</a>) (tested with Debian 9). The last line in the script will pull the [config file](<a class="reference external" href="https://github.com/mirei83/vechain-customnet/blob/master/MiRei.json">https://github.com/mirei83/vechain-customnet/blob/master/MiRei.json</a>) for my custom network. This config sets the GAS Limit to 500 million and the relation of gas to VTHOR from 1.000 to 10.000, so a transaction only costs 2,1 VTHOR instead of 21. This can do some BIG blocks. This also sets the Authority Nodes to addresses which private keys I own. To be able to sign blocks, at least one Node needs to have a private key put in <em>/home/thor-node/.org.vechain.thor/master.key.</em></p>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>WARNING: <a href="#id3"><span class="problematic" id="id4">**</span></a>This script will install a modified Vechain Client, not approved by VeChain. Only use the for testing!</p>
+<p>Also: This network and the coins in it are not worth any money.</p>
+<p>When done installing the two machines, you can fire up your own VeChain network by starting the client like this.</p>
+<p><em>/home/thor-node/go/src/VeChain/thor/bin/thor — network /home/thor-node/go/src/VeChain/thor/genesis/MiRei.json — api-addr 0.0.0.0:8669</em></p>
+<p><strong>Connect to the CustomNetwork</strong></p>
+<p>Now that I have my own network running, I need to connect and interact with it; and I want other people to be able to connect (and interact) with it, too. So I set up a nice hostname: [<a class="reference external" href="https://bfc.veblocks.net](https://bfc.veblocks.net/">https://bfc.veblocks.net](https://bfc.veblocks.net/</a>)
+The play API is of course not very fancy to use but VeChain has already released [Sync](<a class="reference external" href="https://github.com/vechain/thor-sync.electron/releases">https://github.com/vechain/thor-sync.electron/releases</a>) and I can add CustomNetworks to Sync! All I need to do is to click on the green “Main”, say “Add Node” and enter the settings as shown below. You can do that too ;)
+[block:image]
+{</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>“images”: [</dt>
+<dd><dl class="first docutils">
+<dt>{</dt>
+<dd><dl class="first docutils">
+<dt>“image”: [</dt>
+<dd>“<a class="reference external" href="https://files.readme.io/e001b7e-24.1.png">https://files.readme.io/e001b7e-24.1.png</a>”,
+“24.1.png”,
+960,
+730,
+“#f0f0f1”</dd>
+</dl>
+<p class="last">],
+“caption”: “Adding a CustomNetwork to Sync”</p>
+</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>]</p>
+</div></blockquote>
+<p>}
+[/block]
+<strong>Browsing the CustomNetwork</strong></p>
+<p>Sync is already a BlockExplorer and it is an absolute charm to use it on my own network. As you can see below, my very own genesis block on a VeChain CustomNetwork!
+[block:image]
+{</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>“images”: [</dt>
+<dd><dl class="first docutils">
+<dt>{</dt>
+<dd><dl class="first docutils">
+<dt>“image”: [</dt>
+<dd>“<a class="reference external" href="https://files.readme.io/c2e1cb8-20200114-1.png">https://files.readme.io/c2e1cb8-20200114-1.png</a>”,
+“20200114-1.png”,
+1416,
+840,
+“#eceded”</dd>
+</dl>
+<p class="last">],
+“caption”: “Genesis Block of the BFC CustomNetwork”</p>
+</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>]</p>
+</div></blockquote>
+<p>}
+[/block]
+So, a private Chain with nothing in it. Boring!!!! I need to change that; and change it really good! So I wrote myself a little something. As you can see on the Genesis Config File, there are six addresses in total containing VET and VTHOR. We will focus on the last five (yea, I used some GPU power to get these addresses :D ):</p>
+<blockquote>
+<div><ul class="simple">
+<li>0x000000007b5001b903c318d7c3ea08c2122f3cc5</li>
+<li>0x00000000dd4c260a48dd4cee9ce0ed886b2c885a</li>
+<li>0x0000000026734229f89cf4510a6c032af9aa44b3</li>
+<li>0x000000002f119af6efe941a0c82dfa2d0b2c29e7</li>
+<li>0x000000005dff479885f529f3a7e0a7029e83f74e</li>
+</ul>
+</div></blockquote>
+<p>To be able to have more sender/recipients, I wrote a basic “Wallet Management and Distribution System” and added 20.000 Adresses to it. And with a maximum GAS Limit of 500.000.000 per Block I can distribute VET/VTHO to those addresses really quick.</p>
+<p>In the video below I send 800.000 VET and 20.000 VTHOR to 20.000 addresses each in a total of 40 transactions. And I did that again for VTHOR from another wallet, so every address has 800.000 VET and at least 40.000 VTHOR.
+[block:embed]
+{</p>
+<blockquote>
+<div>“html”: “&lt;iframe class=”embedly-embed” src=”//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FuSffNkwqiM8%3Ffeature%3Doembed&amp;url=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DuSffNkwqiM8&amp;image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FuSffNkwqiM8%2Fhqdefault.jpg&amp;key=f2aa6fc3595946d0afc3d76cbbd25dc3&amp;type=text%2Fhtml&amp;schema=youtube” width=”640” height=”480” scrolling=”no” frameborder=”0” allow=”autoplay; fullscreen” allowfullscreen=”true”&gt;&lt;/iframe&gt;”,
+“url”: “<a class="reference external" href="https://www.youtube.com/watch?v=uSffNkwqiM8&amp;feature=youtu.be">https://www.youtube.com/watch?v=uSffNkwqiM8&amp;feature=youtu.be</a>”,
+“title”: “VeChain BFC CustomNetwork - Distributing VET to 1000 Addresses in one transaction”,
+“favicon”: “<a class="reference external" href="https://s.ytimg.com/yts/img/favicon-vfl8qSV2F.ico">https://s.ytimg.com/yts/img/favicon-vfl8qSV2F.ico</a>”,
+“image”: “<a class="reference external" href="https://i.ytimg.com/vi/uSffNkwqiM8/hqdefault.jpg">https://i.ytimg.com/vi/uSffNkwqiM8/hqdefault.jpg</a>”</div></blockquote>
+<p>}
+[/block]
+As you can see in the video, I have</p>
+<blockquote>
+<div><ul class="simple">
+<li>created transactions containing 1000 clauses <strong>each</strong>.</li>
+<li>created blocks consuming 96M gas and including 6 transactions with a total of 6000 clauses</li>
+<li>distributed a total of 16 Billion VET to 20.000 addresses in four blocks and that took 40 seconds</li>
+<li>done all this with two VPS with 1 CPU and 2 GB of RAM.</li>
+<li><strong>NOT</strong> changed any mechanic of the chain to work any different than the mainnet. The VeChain Thor mainnet can do that!</li>
+</ul>
+</div></blockquote>
+<p>The tests in this part are purely to max out the technology. To give you a perspective about whats going on and why these numbers are important for the technology but not so much for the actual mainnet, I need to explain a feature unique to Vechain.
+[block:image]
+{</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>“images”: [</dt>
+<dd><dl class="first docutils">
+<dt>{</dt>
+<dd>“image”: []</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>]</p>
+</div></blockquote>
+<p>}
+[/block]
+<strong>What are Multi-Task-Transactions?</strong></p>
+<p>VeChain has a build-in technology called Multi-Task-Transactions or [MTT](<a class="reference external" href="https://github.com/vechain/thor-wiki/blob/master/Transaction%20Model.md">https://github.com/vechain/thor-wiki/blob/master/Transaction%20Model.md</a>). With MTT a transaction can contain multiple clauses. You can get an idea of that if you imagine a transaction as an Excel-file. In Ethereum, the “father” of VeChain, the Excel-file itself contains the “sender” and additionally contains exactly one row. In this row are the colums “to”, “amount” and “data” (simplyfied). In VeChain the same Excel-file can contain multiple rows. Like thousands of them.</p>
+<p>Now imagine your Ethereum-boss gives you a task to put 5.000 sets of data from the same “sender” into 5.000 Excel-files. You have to create the file, put in the data, save the file to the appropriate place and repeat for 4.999 times. If your VeChain-boss gives you that same task, you don’t have the overhead of doing ”create the file” and “save the file” all over again. You create one Excel-file, put in the 5.000 sets of data and save it. Boom. Done.</p>
+<p>That’s the same thing I am doing here. I am creating incredible big transactions with unrealistic high amounts of clauses, becauses I only have to create one transaction with 5.000 clauses instead of 5.000 transactions with 1 clause each. My litte Ryzen 5 can do those small amounts of big transactions but for a more natural reflection of the actual usage of the mainnet, much more CPU-power is needed (maybe in part 3 ;) ).</p>
+<p>So it is important to know the difference between TPS (<a href="#id5"><span class="problematic" id="id6">**</span></a>T**ransactions <a href="#id7"><span class="problematic" id="id8">**</span></a>P**er <a href="#id9"><span class="problematic" id="id10">**</span></a>S**econd) and CPS (<a href="#id11"><span class="problematic" id="id12">**</span></a>C**lauses <a href="#id13"><span class="problematic" id="id14">**</span></a>P**er <a href="#id15"><span class="problematic" id="id16">**</span></a>S**econd). Although CPS can reflect natural usage, the ratio between transactions and clauses will never be like it is in my tests. TPS and CPS is also the difference between the blue and the yellow chart .</p>
+<p>[block:image]
+{</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>“images”: [</dt>
+<dd><dl class="first docutils">
+<dt>{</dt>
+<dd><dl class="first docutils">
+<dt>“image”: [</dt>
+<dd>“<a class="reference external" href="https://files.readme.io/26524a1-20200113-1.png">https://files.readme.io/26524a1-20200113-1.png</a>”,
+“20200113-1.png”,
+769,
+171,
+“#fbfbfa”</dd>
+</dl>
+<p class="last">],
+“caption”: “VeChain Transactions and Clauses”</p>
+</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>]</p>
+</div></blockquote>
+<p>}
+[/block]
+<strong>Infrastructure upgrade</strong></p>
+<p>The tests above were done using two nodes with 1 CPU and 2 GB RAM. For the testing in this part I had to upgrade my nodes. The load of the chain forced me to upgrade to 4 CPUs and 8 GB RAM. The monthly infrastructure costs went up from 20$ to 80$.</p>
+<p><strong>The Blockexplorer</strong></p>
+<p>To pull statistics of my tests I need the results of transactions and clauses in each block. A few months ago, I wrote a [blockexplorer](<a class="reference external" href="https://github.com/mirei83/VeBlocks">https://github.com/mirei83/VeBlocks</a>) for myself that imports the chain into MySQL. That way I can do easy SQL queries over the chain. That came in handy now.</p>
+<p><strong>Show the numbers already!</strong></p>
+<p>Okay, here we go. In my tests I was able to get astonishing results. You can check them yourself at [<a class="reference external" href="https://bfc.veblocks.net](https://bfc.veblocks.net/">https://bfc.veblocks.net](https://bfc.veblocks.net/</a>)</p>
+<p>In the chart below I took statistics of a blockrange to not overload the chart. The complete information can also be [downloaded](<a class="reference external" href="https://s3.eu-central-1.amazonaws.com/cdn.veblocks.net/mirei_blocks.csv">https://s3.eu-central-1.amazonaws.com/cdn.veblocks.net/mirei_blocks.csv</a>). I was able to push around 30–40 transactions with <strong>25.000 clauses in each block</strong> all the time. The block algorhythem did not allow more at the time. You can see in the csv file that there were some drops because of chaincrashes (due to limited resources) or restart of the clause-generating-script.
+[block:image]
+{</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>“images”: [</dt>
+<dd><dl class="first docutils">
+<dt>{</dt>
+<dd><dl class="first docutils">
+<dt>“image”: [</dt>
+<dd>“<a class="reference external" href="https://files.readme.io/89fd775-24.4.png">https://files.readme.io/89fd775-24.4.png</a>”,
+“24.4.png”,
+1600,
+760,
+“#f9fafa”</dd>
+</dl>
+<p class="last">],
+“caption”: “Transactions and Clauses of my BFC Testchain”</p>
+</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>]</p>
+</div></blockquote>
+<p>}
+[/block]
+If you open the links below in Sync connected to [<a class="reference external" href="https://bfc.veblocks.net](https://bfc.veblocks.net/">https://bfc.veblocks.net](https://bfc.veblocks.net/</a>) you can see them directly.</p>
+<p><strong>Highest transactions in one block:</strong>
+64 transactions were put in [Block 337](<a class="reference external" href="https://insight.vecha.in/#/blocks/0x00000151d60343137425efab311697117507ce35d5f73de922c52d7dc0d62b3a">https://insight.vecha.in/#/blocks/0x00000151d60343137425efab311697117507ce35d5f73de922c52d7dc0d62b3a</a>). This is nothing special. This happened on the mainnet already.</p>
+<p><strong>Biggest Block:</strong>
+[Block 325](<a class="reference external" href="https://insight.vecha.in/#/blocks/0x0000014550fbf280552327c8ce1f0ebdfebcb89c5b554e49849d225e652e00ef">https://insight.vecha.in/#/blocks/0x0000014550fbf280552327c8ce1f0ebdfebcb89c5b554e49849d225e652e00ef</a>) is 867.465 Byte (867KB) big. Remember that Bitcoin does 1MB blocks every 10 minutes.</p>
+<p><strong>Highest amount of gas used in a block:</strong>
+[Block 325](<a class="reference external" href="https://insight.vecha.in/#/blocks/0x0000014550fbf280552327c8ce1f0ebdfebcb89c5b554e49849d225e652e00ef">https://insight.vecha.in/#/blocks/0x0000014550fbf280552327c8ce1f0ebdfebcb89c5b554e49849d225e652e00ef</a>) has also burned the most gas with 431.087.680 (431M) in total. An equivalent of 431.087 VTHO on mainnet.</p>
+<p><strong>Highest amount of clauses in one block:</strong>
+Again [block 325](<a class="reference external" href="https://insight.vecha.in/#/blocks/0x0000014550fbf280552327c8ce1f0ebdfebcb89c5b554e49849d225e652e00ef">https://insight.vecha.in/#/blocks/0x0000014550fbf280552327c8ce1f0ebdfebcb89c5b554e49849d225e652e00ef</a>). It had 26.920 Clauses in it.</p>
+<p><strong>Highest amount of clauses in a transactions:</strong>
+The highest amount I tested was 5.000 clauses in a single transaction. This happened the first time at [block 19](<a class="reference external" href="https://insight.vecha.in/#/blocks/0x00000013bb4b07127f4313b0b0e5078a6126a21182653ad82efe2ebee4332a24">https://insight.vecha.in/#/blocks/0x00000013bb4b07127f4313b0b0e5078a6126a21182653ad82efe2ebee4332a24</a>).</p>
+<p><strong>Average CPS over one hour:</strong>
+Over 360 blocks (from block 188 to block 548) the average Clauses Per Second were <strong>2.370,9 CPS</strong>! Scaled up to one day (86.400 seconds) this results in a theoretically amount of unbelievable <strong>204 million clauses per day</strong>, done with two VPS and 2x4 CPUs.</p>
+<p><strong>Conclusion</strong>
+Although I am sure that these are not the maximum values of the chain, I am very confident, that TPS or CPS will not be a problem in the near future. Also including the clean source code and the Vechain [Tech Deep Dive Series](<a class="reference external" href="https://www.youtube.com/watch?v=aAc-kbXfDyA&amp;list=PLUjflF1-UjDN7wIMPqvQ7vv969jHwHzG7&amp;index=2">https://www.youtube.com/watch?v=aAc-kbXfDyA&amp;list=PLUjflF1-UjDN7wIMPqvQ7vv969jHwHzG7&amp;index=2</a>) on Youtube it makes me even more confident that VeChain will deliver high-quality solutions; down from the smallest technological aspect up to complete BaaS environments (Blockchain-as-a-Service).</p>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VeChain Developers
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+---
+title: "Recommended Authority Masternode specification"
+slug: "deploy-environment"
+hidden: true
+createdAt: "2019-03-07T02:26:33.120Z"
+updatedAt: "2019-03-27T11:25:16.547Z"
+---
+[block:api-header]
+{
+  "title": "Recommended hardware configuration"
+}
+[/block]
+The minimum requirement for developers to run authority node program locally is as below:
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/aad5dd4-1.png",
+        "1.png",
+        547,
+        230,
+        "#bac7e2"
+      ],
+      "sizing": "80",
+      "border": true
+    }
+  ]
+}
+[/block]
+To host a VeChainThor Authority Masternode, you need 
+
+-A server or VPS (virtual private server) running Linux: You can choose to host your own server or use the VPS service to set up your server. We recommend cloud services such as AWS, Microsoft Azure and Alibaba Cloud. In order to meet the performance and availability requirements of the Authority Masternode, the server should meet the following hardware requirements. The hardware requirement may increase in the future as the platform enhances its scalability based on business needs.
+
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/62ff6ce-recommended_hardware_config.png",
+        "recommended hardware config.png",
+        1050,
+        402,
+        "#c3cde2"
+      ]
+    }
+  ]
+}
+[/block]
+-A secure environment: The server should not be exposed to any critical or high-risk vulnerabilities based on the industry-recognized vulnerability scanning tools such as Nessus, Qualys. The Foundation will perform a vulnerability test of the node environment during the onboarding process.
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/725dd21-mainnetfor_aws-en-for_innovation_lab_1.png",
+        "mainnet网络架构图for aws-en-for innovation lab (1).png",
+        1375,
+        1211,
+        "#f3f5f6"
+      ]
+    }
+  ]
+}
+[/block]

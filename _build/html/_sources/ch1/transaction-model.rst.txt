@@ -1,0 +1,319 @@
+Transaction Model
+==========================
+
+VeChainThor adopts a new transaction model to tackle some of the fundamental problems that currently hinder a broad adoption of blockchain. The model is defined in Golang as:
+
+[block:code]
+
+{
+
+  "codes": [
+
+	{
+
+	  "code": "// transaction.go\\n\\ntype Transaction struct {\\n\\tbody body\\n}\\n\\ntype body struct {\\n\\tChainTag     byte\\t\\t\\t\\n\\tBlockRef     uint64\\n\\tExpiration   uint32\\n\\tClauses      []\*Clause\\n\\tGasPriceCoef uint8\\n\\tGas          uint64\\n\\tDependsOn    \*thor.Bytes32 `rlp:\\"nil\\"`\\n\\tNonce        uint64\\n\\tReserved     reserved\\n\\tSignature    []byte\\n}",
+
+	  "language": "text"
+
+	}
+
+  ]
+}
+
+[/block]
+
+Fields within the transaction *body*, **Ω**, are defined as:
+
+- `ChainTag` – last byte of the genesis block ID which is used to identify a blockchain to prevent the cross-chain replay attack;
+- `BlockRef` - reference to a specific block;
+- `Expiration` – how long, in terms of the number of blocks, the transaction will be allowed to be mined in VeChainThor;
+- `Clauses` – an array of *Clause* objects each of which contains fields `To`, `Value` and `Data` to enable a single transaction to carry multiple tasks issued by the transaction sender;
+- `GasPriceCoef` – coefficient used to calculate the gas price for the transaction.
+- `Gas` – maximum amount of gas allowed to pay for the transaction;
+- `DependsOn` – ID of the transaction on which the current transaction depends;
+- `Nonce` – number set by user;
+- `Reserved` - *reserved* Object contains two fields: `Features` and `Unused`. 
+  - `Feature` as 32-bit unsigned integer and default set as `0`.For Designated Gas Payer(VIP191) must be set as `1`
+
+  - `Unused` : an array of reserved field for backward compatibility,it **MUST** be set empty as empty array for now otherwise the transaction will be considered invalid.
+- `Signature` - transaction signature, !`](https://files.readme.io/d290d0c-sig.PNG) where ![ <https://files.readme.io/36c3b06-sk.PNG>`_ where ![](https://files.readme.io/36c3b06-sk.PNG) is the transaction sender's private key.
+[block:api-header]
+
+{
+
+  "title": "Transaction ID"
+}
+
+[/block]
+
+Every blockchain system must find a way to uniquely identify each transaction. Otherwise the system would be vulnerable to the transaction replay attack. In VeChainThor, we give every transaction a unique ID to identify itself. In particular, the transaction ID, ![](https://files.readme.io/b2076fb-TxID.PNG), can be calculated as:
+
+![](https://files.readme.io/5537ac7-TxID_formula.PNG)
+
+When validating a given transaction, VeChainThor computes its ![](https://files.readme.io/b2076fb-TxID.PNG) and checks whether it has been used before. 
+
+Suppose Alice has signed a transaction that sends 10 VET to Bob and Bob wants to re-use the transaction to get 10 VET from Alice. Obviously, this is not going to work for Bob. Since the two transactions have exactly the same ID, the one broadcast by Bob would be rejected due to the existing transaction ID. 
+
+For any two transactions, as long as they had a field in ![](https://files.readme.io/7c0f622-omega.PNG) with different values, their transaction IDs would be different. Moreover, we can always adjust the *Nonce* field to result in a new ID. In contrast to Ethereum, VeChainThor users can easily assemble multiple transactions sent from the same account with different IDs, which means that they can be sent off at the same time and would be processed by VeChainThor independently.
+
+[block:api-header]
+
+{
+
+  "title": "Multi-Task Transaction"
+}
+
+[/block]
+
+VeChainThor allows a single transaction to carry out multiple tasks. To do that, we introduce the `Clause` structure to represent a single task and allow multiple tasks defined in one transaction. 
+
+The structure is defined in Golang as follows:
+
+[block:code]
+
+{
+
+  "codes": [
+
+	{
+
+	  "code": "type Clause struct {\\n\\tbody clauseBody\\n}\\n\\ntype clauseBody struct {\\n\\tTo    \*thor.Address `rlp:\\"nil\\"`\\n\\tValue \*big.Int\\n\\tData  []byte\\n}",
+
+	  "language": "text"
+
+	}
+
+  ]
+}
+
+[/block]
+
+and contains three fields:
+
+- `To` – recipient’s address;
+- `Value` – amount transferred to the recipient;
+- `Data` – input data.
+[block:api-header]
+
+{}
+
+[/block]
+
+We then define `Clauses` as a `Clause` array in the transaction model to make it possible for a transaction to conduct multiple tasks. 
+
+The multi-task mechanism has two interesting characteristics:
+
+- Since tasks (clauses) are included in a single transaction, their executions can be considered as atomic, meaning that, they either all succeed, or all fail.
+- Tasks (clauses) are processed one by one in the exact order defined in `Clauses`.
+
+The multi-task mechanism provides us a secure and efficient way to handle, for instance, tasks such as fund distribution, token airdrops, mass product registration, etc. Moreover, due to the fact that the tasks are processed sequentially, MTT can be used to conduct a multi-step process. 
+
+[block:api-header]
+
+{
+
+  "title": "Transaction Gas Calculation"
+}
+
+[/block]
+
+The total gas, !`$g_{\textrm{total}}$ <https://files.readme.io/f09fcd6-gtotal.PNG>`_, required for a transaction can be computed as:
+
+!`$g*{\textrm{total}}=g*0+\sum*i\big(g*{\textrm{type}}^i+g*{\textrm{data}}^i+g*{\textrm{vm}}^i\big)$ <https://files.readme.io/d51e669-gidataformula.PNG>`_$](https://files.readme.io/d51e669-gidataformula.PNG)
+
+where 
+
+!`g0-5,000 <https://files.readme.io/840442f-g0.PNG>`_, 
+
+!`$g*{\textrm{type}}^i=48,000$](https://files.readme.io/62e9c77-gitype.PNG) if the ![$i^{\textrm{th}}$](https://files.readme.io/5b822be-i-th.PNG)clause is to create a contract or ![$g*{\textrm{type}}^i=16,000$ <https://files.readme.io/ba5cb6d-gitype-16000.PNG>`* if the !`$i^{\textrm{th}}$](https://files.readme.io/5b822be-i-th.PNG)clause is to create a contract or ![$g*{\textrm{type}}^i=16,000$ <https://files.readme.io/ba5cb6d-gitype-16000.PNG>`*clause is to create a contract or !`$g*{\textrm{type}}^i=16,000$ <https://files.readme.io/ba5cb6d-gitype-16000.PNG>`_ otherwise,
+
+!`$g*{\textrm{data}}^i = 4 * n*{z}^i + 68 * n_{nz}^i$](https://files.readme.io/d1fc598-gtotal_formula.PNG) where ![$n_{z}^i$](https://files.readme.io/b5f1270-n-iz.PNG) is the number of bytes equal to zero within the data in the ![$i^{\,\textrm{th}}$](https://files.readme.io/5b822be-i-th.PNG) clause and ![$n_{nz}^i$ <https://files.readme.io/b5f1270-n-iz.PNG>`_ where !`$n_{z}^i$](https://files.readme.io/b5f1270-n-iz.PNG) is the number of bytes equal to zero within the data in the ![$i^{\,\textrm{th}}$](https://files.readme.io/5b822be-i-th.PNG) clause and ![$n_{nz}^i$ <https://files.readme.io/b5f1270-n-iz.PNG>`_ is the number of bytes equal to zero within the data in the !`$i^{\,\textrm{th}}$](https://files.readme.io/5b822be-i-th.PNG) clause and ![$n_{nz}^i$ <https://files.readme.io/b5f1270-n-iz.PNG>`_ clause and !`$n_{nz}^i$ <https://files.readme.io/b5f1270-n-iz.PNG>`_ the number of bytes not equal to zero,
+
+and !`$g_{\textrm{data}}^i$](https://files.readme.io/5b2601f-gidata.PNG) is the gas cost returned by the virtual machine for executing the ![$i^{\,\textrm{th}}$ <https://files.readme.io/5b822be-i-th.PNG>`_ is the gas cost returned by the virtual machine for executing the !`$i^{\,\textrm{th}}$ <https://files.readme.io/5b822be-i-th.PNG>`_ clause.
+
+[block:api-header]
+
+{
+
+  "title": "Other New Features"
+}
+
+[/block]
+
+Besides *Clauses*, VeChainThor's transaction model includes the fields `DependsOn`, `BlockRef` and `Expiration` to allow us to further empower a transaction. 
+
+- `DependsOn` stores the ID of the transaction on which the current transaction depends. In other words, the current transaction cannot be processed without the success of the transaction referred to by `DependsOn`. Here, by “success”, we mean that the referred transaction has been executed without state reversion.
+- `BlockRef` stores the reference to a particular block whose next block is the earliest block the current transaction can be included. In particular, the first four bytes of `BlockRef` contains the block height, ***h***, while the second four bytes can be used to prove that the referred block is known before the transaction is assembled. If that is the case, the value of `BlockRef` should match the first eight bytes of the ID of the block with height ***h***. See `func ID()` in `header.go` for details of how to compute a block ID.
+- `Expiration` stores a number that can be used, together with `BlockRef`, to specify when the transaction expires. Specifically, the sum of `Expiration` and the first four bytes of `BlockRef` defines the height of the last block that the transaction can be included.
+
+`DependsOn` allows us to systematically define an order for a sequence of transactions and such an order is guaranteed by the rules hard-coded as part of the consensus of VeChainTor. Moreover, the system requires the prior transaction depended on by the current transaction to be truly executed, adding another useful layer of security on the dependency.
+
+`BlockRef` and `Expiration` allows us to set the life cycle of a transaction that has not been included in a block. The former defines the starting point and the latter its active period. With such a useful feature, we would no longer be troubled by the situation that a transaction was stuck for hours or even days waiting to be processed and we could not do anything about it. The inclusion of two fields also makes transactions safer since it prevents them from being hijacked and later re-used to cause problems.
+
+[block:api-header]
+
+{
+
+  "title": "Proof of Work"
+}
+
+[/block]
+
+VeChainThor allows the transaction-level proof of work and converts the proved work into extra gas price that will be used by the system to generate more reward to the block generator that validates the transaction. In other words, users can utilize their local computational power to make their transactions more likely to be included in a new block. 
+
+In particular, the computational work can be proved through fields `Nonce` and `BlockRef` in the transaction model. Let *n* and *g* represent the values of TX fields `Nonce` and `Gas`, respectively. We use *b* to denote the number of the block indexed by TX field `BlockRef` and *h* the number of the block that includes the TX. Let &Omega; denote the TX without fields `Nonce` and  `Signature`, *S* the TX sender's account address, *P* the `base gas price <https://doc.vechainworld.io/docs/vechainthor-docs>`_, *H* the hash function and *E* the RLP encoding function.
+
+The PoW, *w*, is defined as:
+
+[block:image]
+
+{
+
+  "images": [
+
+	{
+
+	  "image": [
+
+		"https://files.readme.io/8150440\-gif\_1.gif",
+
+		"gif (1).gif",
+
+		332,
+
+		69,
+
+		"#696969"
+
+	  ]
+
+	}
+
+  ]
+}
+
+[/block]
+
+The extra gas price, &Delta;<i>P</i>, is computed as:
+
+[block:image]
+
+{
+
+  "images": [
+
+	{
+
+	  "image": [
+
+		"https://files.readme.io/c1b820e\-gif.gif",
+
+		"gif.gif",
+
+		338,
+
+		55,
+
+		"#6e6e6e"
+
+	  ]
+
+	}
+
+  ]
+}
+
+[/block]
+
+with the following constraint
+
+[block:image]
+
+{
+
+  "images": [
+
+	{
+
+	  "image": [
+
+		"https://files.readme.io/150291e\-gif\_2.gif",
+
+		"gif (2).gif",
+
+		91,
+
+		19,
+
+		"#777777"
+
+	  ]
+
+	}
+
+  ]
+}
+
+[/block]
+
+The VTHO reward <i>r</i> for packing the TX into a new block is computed as:
+
+[block:image]
+
+{
+
+  "images": [
+
+	{
+
+	  "image": [
+
+		"https://files.readme.io/8474d5b\-gif\_3.gif",
+
+		"gif (3).gif",
+
+		213,
+
+		38,
+
+		"#777777"
+
+	  ]
+
+	}
+
+  ]
+}
+
+[/block]
+
+where <i>&phi;</i> &isin; [0, 1] is the gas price coefficient and <i>g</i><sup>*</sup> the actual amount of gas used for executing the TX.
+
+From the above equations, we know that 
+
+1. Since *b* is a valid block number, `BlockRef` must refer to an existing block, that is, its value must equal the first four bytes of an existing block ID;
+
+2. The TX must be packed into a block within the period of 30 blocks after block *b*, or otherwise, the PoW would not be recognized by the system;
+
+3. The extra gas price &Delta;*P* can not be greater than base gas price *P*.
+
+[block:api-header]
+
+{
+
+  "title": "Total Gas Price"
+}
+
+[/block]
+
+The total gas price for the transaction sender is computed as:
+
+!`ptotal <https://files.readme.io/2bd048f-ptotal.PNG>`_
+
+and the total price for block generators as 
+
+!`ptotal2 <https://files.readme.io/5b806bf-Ptotal2.PNG>`_
+
+where !`$\phi$](https://files.readme.io/eb1891c-theta.PNG) is the value of field `GasPriceCoef` and ![\Delta p <https://files.readme.io/b78045e-delta_P.PNG>`_ is the value of field `GasPriceCoef` and !`\Delta p <https://files.readme.io/b78045e-delta_P.PNG>`_ the extra gas price converted from the proven local computational work. 
+
+It can be seen that the gas price used to calculate the transaction cost depends solely on the input gas-price coefficient while the reward for packing the transaction into a block varies due to the transaction-level proof-of-work mechanism.

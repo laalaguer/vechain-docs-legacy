@@ -1,0 +1,434 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Setup &amp; Walk Around &mdash; VeChain Documentation Legacy 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VeChain Documentation Legacy
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Setup &amp; Walk Around</a><ul>
+<li><a class="reference internal" href="#setup-in-3-minutes"><strong>Setup in 3 minutes</strong></a></li>
+<li><a class="reference internal" href="#poke-around-familiar-with-sync"><strong>Poke around: Familiar with Sync</strong></a><ul>
+<li><a class="reference internal" href="#create-a-testing-wallet">Create a Testing Wallet</a></li>
+<li><a class="reference internal" href="#fuel-the-wallet-with-vtho"><strong>Fuel the wallet with VTHO</strong></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#play-with-connex-js-apis"><strong>Play with Connex.js APIs</strong></a><ul>
+<li><a class="reference internal" href="#play-with-account"><strong>Play with account()</strong></a></li>
+<li><a class="reference internal" href="#play-with-ticker"><strong>Play with ticker()</strong></a></li>
+<li><a class="reference internal" href="#play-with-call"><strong>Play with call()</strong></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#summary"><strong>Summary</strong></a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VeChain Documentation Legacy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Setup &amp; Walk Around</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Get-Started/how-to-3.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="setup-walk-around">
+<h1>Setup &amp; Walk Around<a class="headerlink" href="#setup-walk-around" title="Permalink to this headline">¶</a></h1>
+<p>Author: A Byte Ahead https://medium.com/&#64;laalaguer/how-to-develop-a-dapp-on-vechain-ii-setup-walk-around-109a01bf7ae9</p>
+<p>[block:image]
+{
+“images”: [
+{
+“image”: [
+“https://files.readme.io/34f7ee7-1_c2uuq00IOapunjTMQN3scw.png”,
+“1_c2uuq00IOapunjTMQN3scw.png”,
+1600,
+692,
+“#f1f1f3”
+],
+“caption”: “<a class="reference external" href="https://env.vechain.org/">Sync: Desktop VeChain DApp environment</a>.”
+}
+]
+}
+[/block]</p>
+<div class="section" id="setup-in-3-minutes">
+<h2><strong>Setup in 3 minutes</strong><a class="headerlink" href="#setup-in-3-minutes" title="Permalink to this headline">¶</a></h2>
+<p>Great! I see you have survived the last tutorial, now it is time to start programming. The first thing we need is a <a class="reference external" href="https://env.vechain.org/">Sync</a> environment.</p>
+<p>Okay now let’s clone the Sync project source code in a terminal and spin it up in <em><strong>dev mode</strong></em>:
+[block:code]
+{
+“codes”: [
+{
+“code”: “&gt;mkdir playgrounds\n&gt;cd playgrounds/\n&gt;git clone https://github.com/vechain/thor-sync.electron\n&gt;cd thor-sync.electron/\n&gt;node -v # Make sure you have node.js &gt;V10.0.0 installed\n&gt;npm install # Install dependencies\n&gt;npm run dev # Boot the Sync in dev mode”,
+“language”: “text”,
+“name”: “Sync project source code”
+}
+]
+}
+[/block]
+When you see the Sync electron window popping up, we are all set!
+[block:image]
+{
+“images”: [
+{
+“image”: [
+“https://files.readme.io/0eef449-1_FacLnaprgduDltjvHP4w_w.png”,
+“1_FacLnaprgduDltjvHP4w_w.png”,
+1600,
+1094,
+“#eeeeee”
+],
+“caption”: “Boot up: npm run dev”
+}
+]
+}
+[/block]</p>
+</div>
+<div class="section" id="poke-around-familiar-with-sync">
+<h2><strong>Poke around: Familiar with Sync</strong><a class="headerlink" href="#poke-around-familiar-with-sync" title="Permalink to this headline">¶</a></h2>
+<p>Okay, now let us put aside the terminal and focus more on the GUI window. Sync is a browser-like wallet that embedded with Connex.js library which can offer the web page running inside it the ability to communicate with VeChain blockchain.</p>
+<div class="section" id="create-a-testing-wallet">
+<h3>Create a Testing Wallet<a class="headerlink" href="#create-a-testing-wallet" title="Permalink to this headline">¶</a></h3>
+<p>First, Let us set up a testing wallet for ourselves:
+[block:image]
+{
+“images”: [
+{
+“image”: [
+“https://files.readme.io/0b2e702-1_vfVH2dlr_32_sno4-0HZLg.jpeg”,
+“1_vfVH2dlr_32_sno4-0HZLg.jpeg”,
+1600,
+1296,
+“#ececec”
+],
+“caption”: “Go to wallet panel to view existing wallets.”
+}
+]
+}
+[/block]
+Great, now click on the upper-right “<strong>wallets</strong>” icon, if you are on test net, there are already 3 wallets available for testing: “Foo”, “Baz” and “Bar”. Leave them alone, let us click the “<strong>Create</strong>” button to create a fresh one.
+[block:image]
+{
+“images”: [
+{
+“image”: [
+“https://files.readme.io/9e6c9cf-WeChat_Image_20190322104818.png”,
+“WeChat Image_20190322104818.png”,
+1805,
+645,
+“#f3f3f3”
+],
+“caption”: “Create a new wallet for our testing”
+}
+]
+}
+[/block]</p>
+<blockquote>
+<div><em>You can also import your existing wallet of Ethereum into Sync, as well as using a third party generator to create a wallet, like <a class="reference external" href="https://laalaguer.github.io/VeChain-Address/">VeChain Address Generator</a> on github.</em></div></blockquote>
+<p>Follow the instructions on Sync now I have a wallet with a public address, it currently contains 0 VET and 0 VTHO:</p>
+<blockquote>
+<div><em>0xa7a609b928c4eac077d0e5640f3fa650746c4fcf</em></div></blockquote>
+</div>
+<div class="section" id="fuel-the-wallet-with-vtho">
+<h3><strong>Fuel the wallet with VTHO</strong><a class="headerlink" href="#fuel-the-wallet-with-vtho" title="Permalink to this headline">¶</a></h3>
+<p><strong>Next</strong>, we fill up the newly created wallet by adding some VTHO funds to it. VTHO is used as the fee fueling the transactions and on test net. Where to get it? The VeChain core team’s DApp demo: <strong>VET/VTHO faucet</strong>!</p>
+<p>Go on, visit the web URL: https://faucet.vecha.in in Sync, and you will see an interesting web page that gives out VTHO on test net for free:
+[block:image]
+{
+“images”: [
+{
+“image”: [
+“https://files.readme.io/8721f65-WeChat_Image_20190322105508.png”,
+“WeChat Image_20190322105508.png”,
+1807,
+696,
+“#eae9ea”
+],
+“caption”: “Get free VET/VTHO on test net”
+}
+]
+}
+[/block]
+Follow the “<strong>Claim Tokens</strong>” button in the middle of the web page and let’s get some free VET/VTHO for testing. Do remember to choose the wallet you created, and input the password accordingly to claim the tokens. I have already claimed 500 VET with 500 VTHO. 😉
+[block:image]
+{
+“images”: [
+{
+“image”: [
+“https://files.readme.io/c120b33-1_tMo5kR-BoY9ATD7AEb1XxA.jpeg”,
+“1_tMo5kR-BoY9ATD7AEb1XxA.jpeg”,
+908,
+864,
+“#deddde”
+]
+}
+]
+}
+[/block]</p>
+</div>
+</div>
+<div class="section" id="play-with-connex-js-apis">
+<h2><strong>Play with Connex.js APIs</strong><a class="headerlink" href="#play-with-connex-js-apis" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have money on test net, let’s move on to explore the blockchain functionalities provided by Sync, the <strong>connex.js</strong> library. Let us <strong>open up a new blank tab</strong>, then toggle the developer tools to see what is connex used for:
+[block:image]
+{
+“images”: [
+{
+“image”: [
+“https://files.readme.io/bc75f06-WeChat_Image_20190322105751.png”,
+“WeChat Image_20190322105751.png”,
+1801,
+647,
+“#f2f1f0”
+],
+“caption”: “Open Developer Tools to visit Connex.”
+}
+]
+}
+[/block]
+Once on the console of the developer tools (Just like Chrome developer tools), type in following code:
+[block:code]
+{
+“codes”: [
+{
+“code”: “&gt; connex\n {version: “1.2.0”, thor: {…}, vendor: {…}}\nthor:{ticker: ƒ, account: ƒ, block: ƒ, …}\nvendor:{sign: ƒ, owned: ƒ}\nversion:”1.2.0”\n__proto__:Object”,
+“language”: “text”,
+“name”: “Connex”
+}
+]
+}
+[/block]
+Yep, each and every window <strong>has already implanted the connex object</strong> in the web page. And this connex object can do a lot of things with VeChain network, Let us explore some simple ones:</p>
+<div class="section" id="play-with-account">
+<h3><strong>Play with account()</strong><a class="headerlink" href="#play-with-account" title="Permalink to this headline">¶</a></h3>
+<p>[block:code]
+{
+“codes”: [
+{
+“code”: “&gt; var acc = connex.thor.account(‘0xa7a609b928c4eac077d0e5640f3fa650746c4fcf’)\n&gt; acc.get().then(info=&gt;{console.log(info)})\nPromise {<pending>}\n{balance: “0x1b1ae4d6e2ef500000”, energy: “0x1b1af7398584067000”, hasCode: false}\n&gt; parseInt(‘0x1b1ae4d6e2ef500000’) \n500000000000000000000\n&gt; parseInt(‘0x1b1af7398584067000’)\n500005175000000000000”,
+“language”: “text”
+}
+]
+}
+[/block]
+Here I just queried my newly created wallet, which results in a response object of “balance”, “energy” and “hasCode” fields. “balance” is the VET this account holds, and “energy” is the VTHO amount.</p>
+</div>
+<div class="section" id="play-with-ticker">
+<h3><strong>Play with ticker()</strong><a class="headerlink" href="#play-with-ticker" title="Permalink to this headline">¶</a></h3>
+<p>In VeChain network, we don’t know exactly <em><strong>when</strong></em> a new block is produced, but we surely want to be notified when it is produced. <code class="docutils literal notranslate"><span class="pre">ticker</span></code> gives us this peek hole to get notified. We still use the debug console in Sync:
+[block:code]
+{
+“codes”: [
+{
+“code”: “&gt; var t = connex.thor.ticker()\nundefined\n&gt; t.next().then(()=&gt;{console.log(‘new block!’)})\nnew block!”,
+“language”: “text”
+}
+]
+}
+[/block]
+Cool right? After around 3–10 seconds this “new block!” message is printed and we know there is a new block added to the top of the chain.</p>
+<blockquote>
+<div><code class="docutils literal notranslate"><span class="pre">ticker</span></code> is a Promise that is never rejected, so we only need to supply a resolve function. We no longer need <code class="docutils literal notranslate"><span class="pre">setTimeout</span></code> function!</div></blockquote>
+</div>
+<div class="section" id="play-with-call">
+<h3><strong>Play with call()</strong><a class="headerlink" href="#play-with-call" title="Permalink to this headline">¶</a></h3>
+<p>Actually, the <strong>VTHO contract itself is an <a class="reference external" href="https://en.wikipedia.org/wiki/ERC-20">ERC20</a>/<a class="reference external" href="https://github.com/vechain/VIPs/blob/master/VIP-180-EN">VIP180 </a> compatible contract</strong> living on the VeChain! And you know what, I happen to know the address of it on the test net: 😜</p>
+<blockquote>
+<div><em>0x0000000000000000000000000000456e65726779</em></div></blockquote>
+<p>For those who don’t understand ERC20/VIP180, a contract is a long living object on the blockchain. Thinking of it as a set of program instructions and a simple free-form permanent storage that the program controls it. ERC20/VIP180 contracts are simple “virtual bank” program which keeps track on each client and his balance of a specific virtual coin/token.</p>
+<p>So, we have the address of a contract, how do we call it? Very simple.
+[block:code]
+{
+“codes”: [
+{
+“code”: “&gt; const balanceOfABI = {\n  ‘constant’: true,\n  ‘inputs’: [\n    { \n      ‘name’: ‘_owner’,\n      ‘type’: ‘address’\n    }\n  ],    \n  ‘name’: ‘balanceOf’,\n  ‘outputs’: [\n    { \n     ‘name’: ‘balance’,\n     ‘type’: ‘uint256’\n    }\n  ],\n  ‘payable’: false,\n  ‘stateMutability’: ‘view’,\n  ‘type’: ‘function’\n}\n&gt; const balanceOfMethod = connex.thor.account(‘0x0000000000000000000000000000456e65726779’).method(balanceOfABI)\n&gt; const balanceInfo = await balanceOfMethod.call(‘0xa7a609b928c4eac077d0e5640f3fa650746c4fcf’)\n&gt; console.log(balanceInfo)\n{data: “0x00000000000000000000000000000000000000000000001b1b428acf29437000”, events: Array(0), transfers: Array(0), gasUsed: 870, reverted: false, …}\n”,
+“language”: “text”
+}
+]
+}
+[/block]
+We first supply the contract method ABI (function signature) and then create a handler with the contract deploy address. Finally, we call the contract method with <code class="docutils literal notranslate"><span class="pre">call()</span></code> and supply it with a parameter, an address of the account we are interested. Great! Now we have the result!</p>
+</div>
+</div>
+<div class="section" id="summary">
+<h2><strong>Summary</strong><a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>Enough for today’s study!</p>
+<p>To recap, we have:</p>
+<ol class="simple">
+<li>Walked you through the installation of Sync.</li>
+<li>Run an example DApp in Sync and get some free VET/VTHO.</li>
+<li>Play with VeChain blockchain with the pre-implanted <code class="docutils literal notranslate"><span class="pre">connex</span></code> javascript object.</li>
+</ol>
+<p>Starting from the next tutorial, we will use our knowledge learned today and build a web page (front-end) of <em><strong>an existing smart contract</strong></em>, VTHO contract (Yes, some good guy has done it for us, we simply borrow it). Be ready and let’s go!</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VeChain Developers
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

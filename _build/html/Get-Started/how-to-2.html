@@ -1,0 +1,454 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Components and Coding &mdash; VeChain Documentation Legacy 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VeChain Documentation Legacy
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Components and Coding</a><ul>
+<li><a class="reference internal" href="#preparation"><strong>Preparation</strong></a></li>
+<li><a class="reference internal" href="#setup-in-3-minutes"><strong>Setup in 3 minutes</strong></a></li>
+<li><a class="reference internal" href="#coding"><strong>Coding</strong></a><ul>
+<li><a class="reference internal" href="#the-appearance"><strong>The Appearance</strong></a></li>
+<li><a class="reference internal" href="#query-the-vtho-balance"><strong>Query the VTHO Balance</strong></a></li>
+<li><a class="reference internal" href="#sign-transaction-and-send-vtho"><strong>Sign Transaction and Send VTHO</strong></a></li>
+<li><a class="reference internal" href="#formatting-numbers"><strong>Formatting Numbers</strong></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#put-things-together"><strong>Put Things Together</strong></a></li>
+<li><a class="reference internal" href="#test-the-app"><strong>Test the App</strong></a></li>
+<li><a class="reference internal" href="#one-more-thing"><strong>One More Thing</strong></a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VeChain Documentation Legacy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Components and Coding</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Get-Started/how-to-2.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="components-and-coding">
+<h1>Components and Coding<a class="headerlink" href="#components-and-coding" title="Permalink to this headline">¶</a></h1>
+<p>Author: A Byte Ahead https://medium.com/&#64;laalaguer/how-to-develop-a-dapp-on-vechain-iii-components-coding-8c4eea965684</p>
+<p>Congratulations! You have made to the last episode of this tutorial. Here we will put everything we know together and make a useful program: a VTHO token transfer tool. The official <a class="reference external" href="https://env.vechain.org/">Sync</a> only provides the VET transfer functionality, our VTHO tools is a very good supplement to the status quo.</p>
+<div class="section" id="preparation">
+<h2><strong>Preparation</strong><a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
+<p>Make sure you have the following things ready:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://env.vechain.org/">Sync</a> set up and running on your computer.</li>
+<li>A testing account, which is already presented in Sync.</li>
+<li>Some VET and VTHO in your testing account.</li>
+<li>Sync running on test net.
+[block:image]
+{
+“images”: [
+{
+“image”: [
+“https://files.readme.io/e3d2843-1_5sGTMuzQ8gaIiPG9COavjw.jpeg”,
+“1_5sGTMuzQ8gaIiPG9COavjw.jpeg”,
+1600,
+1359,
+“#eceaea”
+]
+}
+]
+}
+[/block]</li>
+</ul>
+<blockquote>
+<div><em>If you don’t know how above requirements are done, check the previous episode: https://medium.com/&#64;laalaguer/how-to-develop-a-dapp-on-vechain-ii-setup-walk-around-109a01bf7ae9</em></div></blockquote>
+</div>
+<div class="section" id="setup-in-3-minutes">
+<h2><strong>Setup in 3 minutes</strong><a class="headerlink" href="#setup-in-3-minutes" title="Permalink to this headline">¶</a></h2>
+<p>Great! Now we start to build the real web page DApp. Let us set up the project and necessities first. We will use <a class="reference external" href="https://vuejs.org/">Vue</a>.js and <a class="reference external" href="https://bootstrap-vue.js.org/">BootstrapVue</a> as our foundation.
+[block:code]
+{
+“codes”: [
+{
+“code”: “&gt; mkdir vtho-transfer\n&gt; cd vtho-transfer/\n&gt; npm install -g &#64;vue/cli # Install vue-cli.\n\n&gt; vue create -b -n my-project # Create a clean Vue project.\n&gt; cd my-project # Now you are in a Vue workspace!\n&gt; npm install vue bootstrap-vue bootstrap # Install BootstrapVue.\n&gt; npm install bignumber.js # Math library.\n&gt; npm run serve # Start development server on background.”,
+“language”: “text”,
+“name”: null
+}
+]
+}
+[/block]
+We are all set! Now let us view our precious project in Sync. Open a tab and navigate to http://localhost:8080. It should be like this:
+[block:image]
+{
+“images”: [
+{
+“image”: [
+“https://files.readme.io/20a7a0d-1_Sg-YkK-8W-WWbt8WV4F_uA.jpeg”,
+“1_Sg-YkK-8W-WWbt8WV4F_uA.jpeg”,
+1600,
+1335,
+“#f1f2f2”
+]
+}
+]
+}
+[/block]</p>
+</div>
+<div class="section" id="coding">
+<h2><strong>Coding</strong><a class="headerlink" href="#coding" title="Permalink to this headline">¶</a></h2>
+<p>Due to the length of this tutorial, we write <strong>one core component</strong> and demo the key functions. The rest of the code and a more complicated example can be found <strong>at the bottom of this tutorial</strong>.</p>
+<div class="section" id="the-appearance">
+<h3><strong>The Appearance</strong><a class="headerlink" href="#the-appearance" title="Permalink to this headline">¶</a></h3>
+<p>The app must be stylish! Clean up the default <strong>main.js</strong> and add a BootstrapVue library, quite simple:
+[block:code]
+{
+“codes”: [
+{
+“code”: “import Vue from ‘vue’\nimport BootstrapVue from ‘bootstrap-vue’ // Here\nimport ‘bootstrap/dist/css/bootstrap.css’ // Here\nimport ‘bootstrap-vue/dist/bootstrap-vue.css’ // Here\nimport App from ‘./App.vue’\n\nVue.use(BootstrapVue) // Here\n\nVue.config.productionTip = false\n\nnew Vue({\n  render: h =&gt; h(App),\n}).$mount(‘#app’)”,
+“language”: “javascript”
+}
+]
+}
+[/block]
+Put the component on the radar screen by editing the <strong>App.vue</strong>:
+[block:code]
+{
+“codes”: [
+{
+“code”: “<template>\n  &lt;div id=”app”&gt;\n    <div>\n      &lt;b-card style=”max-width: 30rem;” header=”My Address Here”&gt;\n        <p>My Amount Here &lt;span class=”text-primary”&gt;VTHO</span></p>\n\n        &lt;b-form-group label=”To Address:” label-for=”toaddress”&gt;\n          &lt;b-form-input id=”toaddress” v-model.trim=”toaddress”&gt;</b-form-input>\n        </b-form-group>\n\n        &lt;b-form-group label=”Transfer Amount” label-for=”toamount”&gt;\n          &lt;b-input-group append=”VTHO”&gt;\n            &lt;b-form-input id=”toamount” type=”number” min=”0” v-model.number=”toamount”&gt;\n            </b-form-input>\n          </b-input-group>\n        </b-form-group>\n\n        &lt;b-button variant=”primary” v-on:click=”transfer”&gt;\n          Transfer\n        </b-button>\n      </b-card>\n    </div>\n  </div>\n</template>\n\n<script>\nexport default {\n  \n}\n</script>”,
+“language”: “javascript”
+}
+]
+}
+[/block]
+Great! Now save both the files and refresh the Sync tab, the dummy web page pretty much looks like this now:
+[block:image]
+{
+“images”: [
+{
+“image”: [
+“https://files.readme.io/b7cbb6e-1_MiQdFr5KYgT8NglI_f6_qg.jpeg”,
+“1_MiQdFr5KYgT8NglI_f6_qg.jpeg”,
+1600,
+1434,
+“#f6f6f7”
+]
+}
+]
+}
+[/block]
+Now that we have the skeleton, let’s move on to make the functions to make the app alive. Create a separate empty file alongside the <strong>main.js</strong>, name it <strong>operations.js</strong>, then put several functions into it.</p>
+</div>
+<div class="section" id="query-the-vtho-balance">
+<h3><strong>Query the VTHO Balance</strong><a class="headerlink" href="#query-the-vtho-balance" title="Permalink to this headline">¶</a></h3>
+<p>Okay, let us first create a function queries the VTHO balance from the VTHO contract on test net, actually, it can be used to query any contract that is VIP180 compatible. It should be like this:
+[block:code]
+{
+“codes”: [
+{
+“code”: “/**\n * Get token amount of holder from a contract.\n * &#64;param {String} addressContract 0x started address.\n * &#64;param {String} addressHolder 0x started address.\n */\nasync function getTokenBalance (addressContract, addressHolder) {\n  const balanceOfABI = {\n      ‘constant’: true,\n      ‘inputs’: [\n      {\n          ‘name’: ‘_owner’,\n          ‘type’: ‘address’\n      }\n      ],\n      ‘name’: ‘balanceOf’,\n      ‘outputs’: [\n      {\n          ‘name’: ‘balance’,\n          ‘type’: ‘uint256’\n      }\n      ],\n      ‘payable’: false,\n      ‘stateMutability’: ‘view’,\n      ‘type’: ‘function’\n  }\n  // eslint-disable-next-line\n  const balanceOfMethod = connex.thor.account(addressContract).method(balanceOfABI)\n  const balanceInfo = await balanceOfMethod.call(addressHolder)\n  return balanceInfo\n}”,
+“language”: “javascript”
+}
+]
+}
+[/block]
+Quite self-explanatory, this <code class="docutils literal notranslate"><span class="pre">getTokenBalance</span></code> function queries the contract about how much token the user holds, when we call it, we feed it with the actual contract address and user’s account address. Notice that we used the <code class="docutils literal notranslate"><span class="pre">call()</span></code> function of connex.js, which we introduced in the previous episode.</p>
+</div>
+<div class="section" id="sign-transaction-and-send-vtho">
+<h3><strong>Sign Transaction and Send VTHO</strong><a class="headerlink" href="#sign-transaction-and-send-vtho" title="Permalink to this headline">¶</a></h3>
+<p>How to sign the transaction and send it to the other person? Simple, we just use the sign-and-send API embedded in the <strong>connex.js</strong>. Let’s create a function for that, too. Still, in the <strong>operation.js</strong>, append this code:
+[block:code]
+{
+“codes”: [
+{
+“code”: “/**\n * Transfer token from one to another.\n * &#64;param {String} addressContract Contract address.\n * &#64;param {String} signerAddress Enforce who signs the transaction.\n * &#64;param {String} toAddress Receiver of transfer.\n * &#64;param {String} amountEVM Big number in string.\n * &#64;param {Number} amountHuman Normal number in Javascript.\n * &#64;param {String} symbol Symbol of token.\n */\nasync function transferToken (addressContract, signerAddress, toAddress, amountEVM, amountHuman, symbol) {\n    const transferABI = {\n      ‘constant’: false,\n      ‘inputs’: [\n        {\n          ‘name’: ‘_to’,\n          ‘type’: ‘address’\n        },\n        {\n          ‘name’: ‘_value’,\n          ‘type’: ‘uint256’\n        }\n      ],\n      ‘name’: ‘transfer’,\n      ‘outputs’: [\n        {\n          ‘name’: ‘’,\n          ‘type’: ‘bool’\n        }\n      ],\n      ‘payable’: false,\n      ‘stateMutability’: ‘nonpayable’,\n      ‘type’: ‘function’\n    }\n    // eslint-disable-next-line\n    const transferMethod = connex.thor.account(addressContract).method(transferABI)\n    const transferClause = transferMethod.asClause(toAddress, amountEVM)\n    // eslint-disable-next-line\n    const signingService = connex.vendor.sign(‘tx’)\n    signingService\n      .signer(signerAddress) // Enforce signer\n      .comment(‘Token transfer: ‘ + amountHuman.toString() + ‘ ‘ + symbol)\n  \n    let transactionInfo = await signingService.request([\n      {\n        comment: ‘Hello! Transfer Demo!’,\n        …transferClause\n      }\n    ])\n    return transactionInfo\n  }”,
+“language”: “javascript”
+}
+]
+}
+[/block]
+The above snippet is mainly about <code class="docutils literal notranslate"><span class="pre">transferToken</span></code>, which is a general purpose transfer action. It takes the contract address, sender address, receiver address, amount of transfer, then asks the <strong>connex</strong> to sign the transaction and send out!</p>
+<p>Now finish the <strong>operations.js</strong> file with the export section as usual:
+[block:code]
+{
+“codes”: [
+{
+“code”: “  export {\n    getTokenBalance,\n    transferToken\n  }”,
+“language”: “javascript”
+}
+]
+}
+[/block]</p>
+</div>
+<div class="section" id="formatting-numbers">
+<h3><strong>Formatting Numbers</strong><a class="headerlink" href="#formatting-numbers" title="Permalink to this headline">¶</a></h3>
+<p>In the smart contract, the decimals don’t exist. All numbers are integers. To present the numbers right to the decimal, we power it with 10 times precision. So when we say: <strong>123.456</strong> in human language, it should be presented in:</p>
+<blockquote>
+<div><em>123.456 * (10 ^ 18) and then send to EVM. And vice versa.</em></div></blockquote>
+<p>So we need some utilities as a broker to help us with number formatting. Create a new file <strong>utils.js</strong> and place the following content inside:
+[block:code]
+{
+“codes”: [
+{
+“code”: “const BigNumber = require(‘bignumber.js’)\nconst DECIMALS = function (points) {\n  return new BigNumber(10 ** points) // Decimals = 18 on VTHO and most contracts.\n}\n\n/<strong>\n * Turn a string to big number.\n * &#64;param {String} aString a number string.\n */\nconst makeBN = function (aString) {\n  return BigNumber(aString)\n}\n\n/</strong>\n * Turn a BigNumber into a printable string.\n * &#64;param {BigNumer} aBigNumber A big number.\n * &#64;param {Integer} dp An integer of percision, default is 2.\n */\nconst printBN = function (aBigNumber, dp = 2) {\n  return aBigNumber.toFixed(dp)\n}\n\n/<strong>\n * Turn an EVM big number into normal human understandable percision.\n * &#64;param {BigNumber} aBigNumber An EVM big number.\n * &#64;param {Number} decimals Percisions that EVM number has. Default is 18.\n */\nconst evmToHuman = function (aBigNumber, decimals = 18) {\n  return aBigNumber.dividedBy(DECIMALS(decimals))\n}\n\n/</strong>\n * Turn a human understandable number to an EVM Big number.\n * &#64;param {String} aNumber A normal float/int from user input.\n * &#64;param {Number} decimals Percisions that EVM number has. Default is 18.\n * &#64;returns {String} String represented number.\n */\nconst humanToEVM = function (aNumber, decimals = 18) {\n  const a = makeBN(aNumber)\n  return a.multipliedBy(DECIMALS(decimals)).toString(10)\n}\n\n/**\n * Shortcut turing EVM big number string into human readable short format.\n * &#64;param {String} aString String representing the EVM big number.\n * &#64;param {Number} decimals Percisions that EVM number has. Default is 18.\n * &#64;param {BigNumber} dp decimal points that result shall keep.\n */\nconst evmToPrintable = function (aString, decimals = 18, dp = 2) {\n  const evmNumber = makeBN(aString)\n  const humanNumber = evmToHuman(evmNumber, decimals)\n  return printBN(humanNumber, dp)\n}\n\nexport {\n  makeBN,\n  printBN,\n  evmToHuman,\n  humanToEVM,\n  evmToPrintable\n}”,
+“language”: “javascript”
+}
+]
+}
+[/block]
+Great! All is done, now we put things together and make our app alive!</p>
+</div>
+</div>
+<div class="section" id="put-things-together">
+<h2><strong>Put Things Together</strong><a class="headerlink" href="#put-things-together" title="Permalink to this headline">¶</a></h2>
+<p>Time to go back to <strong>App.vue</strong> to fill up the Javascript section.</p>
+<p>Firstly, let’s call the VTHO contract and display our VTHO balance, here is what I did in code:</p>
+<ul class="simple">
+<li>Fix in the VTHO smart contract address.</li>
+<li>Fix in my account address. (Generated from the previous episode of tutorials)</li>
+<li>Initialization the VTHO balance query before the component is mounted.
+[block:code]
+{
+“codes”: [
+{
+“code”: “<!-- Continue with the App.vue -->\n<script>\nconst operations = require(‘./operations.js’)\nconst utils = require(‘./utils.js’)\n\nexport default {\n  data() {\n    return {\n      myaddress: ‘0xa7a609b928c4eac077d0e5640f3fa650746c4fcf’,\n      myamount: 0,\n      contract: ‘0x0000000000000000000000000000456e65726779’\n    }\n  },\n  beforeMount () {\n    this.refreshTokenBalance()\n  },\n  methods: {\n    refreshTokenBalance () {\n      operations.getTokenBalance(this.contract, this.myaddress)\n        .then(result =&gt; {\n          this.myamount = utils.evmToPrintable(result[‘decoded’][‘balance’], this.decimals)\n        })\n        .then(() =&gt; {\n          // eslint-disable-next-line\n          const ticker = connex.thor.ticker()\n          ticker.next().then(() =&gt; { this.refreshTokenBalance() })\n        })\n    }\n  }\n}\n</script>”,
+“language”: “javascript”
+}
+]
+}
+[/block]</li>
+</ul>
+<blockquote>
+<div><em>Note: you can always use ticker() instead of setTimeout() to recursively query the balance of your account. 😉</em></div></blockquote>
+<p>Secondly, we add the function of sending VTHO token transactions to the button, so we can get alert whenever it succeeds or fails.
+[block:code]
+{
+“codes”: [
+{
+“code”: “<script>\nmethods: {\n // … add after refreshTokenBalance()\n  transfer () { // Confrim and send out a transfer.\n    const evmAmount = utils.humanToEVM(this.toamount.toString(), 18)\n    operations.transferToken(this.contract, this.myaddress, this.toaddress, evmAmount, this.toamount, ‘VTHO’)\n      .then(result =&gt; {alert(‘success!’)})\n      .catch(e =&gt; {alert(‘failed!’)})\n  }\n}\n</script>”,
+“language”: “javascript”
+}
+]
+}
+[/block]
+Great! Now update our template to bind to those data:
+[block:code]
+{
+“codes”: [
+{
+“code”: “<template>\n  &lt;div id=”app”&gt;\n    <div>\n      &lt;b-card style=”max-width: 30rem;” :header=”myaddress”&gt;\n        <p>{{myamount}} &lt;span class=”text-primary”&gt;VTHO</span></p>\n\n        &lt;b-form-group label=”To Address:” label-for=”toaddress”&gt;\n          &lt;b-form-input id=”toaddress” v-model.trim=”toaddress”&gt;</b-form-input>\n        </b-form-group>\n\n        &lt;b-form-group label=”Transfer Amount” label-for=”toamount”&gt;\n          &lt;b-input-group append=”VTHO”&gt;\n            &lt;b-form-input id=”toamount” type=”number” min=”0” v-model.number=”toamount”&gt;\n            </b-form-input>\n          </b-input-group>\n        </b-form-group>\n\n        &lt;b-button variant=”primary” v-on:click=”transfer”&gt;\n          Transfer\n        </b-button>\n      </b-card>\n    </div>\n  </div>\n</template>”,
+“language”: “javascript”
+}
+]
+}
+[/block]
+Now all the code is finished, make sure you have saved the same:</p>
+<blockquote>
+<div><em>GitHub repo of all the source code: [<a class="reference external" href="https://github.com/laalaguer/token-transfer-demo">GitHub Link</a>]</em></div></blockquote>
+</div>
+<div class="section" id="test-the-app">
+<h2><strong>Test the App</strong><a class="headerlink" href="#test-the-app" title="Permalink to this headline">¶</a></h2>
+<p>Now let us view our first triumph on the VeChain DApp journey!</p>
+<p>On Sync browser, visit http://localhost:8080, then do the following:</p>
+<ol class="simple">
+<li>Input a receiver: 0x422D582C08d7965cD5Fefef1572faaA15783f473</li>
+<li>Input the amount: 10 VTHO</li>
+<li>Clicking the little “Transfer” blue button.</li>
+</ol>
+<p>Then wait for it…. the magic time! Sync prompts me to unlock my account to send the transaction:
+[block:image]
+{
+“images”: [
+{
+“image”: [
+“https://files.readme.io/2fa3faf-1_1g_INpWjOspyEiFR_x2zdQ.png”,
+“1_1g_INpWjOspyEiFR_x2zdQ.png”,
+1600,
+1200,
+“#e7e8e8”
+]
+}
+]
+}
+[/block]
+Of course, I input the password correctly, and you can see the transaction details on test net here:</p>
+<p><a class="reference external" href="https://testnet.veforge.com/transactions/0xcd46a2ae14d44b612d9ee628770d4a65932352a9bb9861ca32ece4811878a5c8/"><img alt="https://files.readme.io/840d6d9-WeChat_Image_20190322112559.png" src="https://files.readme.io/840d6d9-WeChat_Image_20190322112559.png" /></a></p>
+<p>Finally, our example has finished! Thanks for hard working!</p>
+</div>
+<div class="section" id="one-more-thing">
+<h2><strong>One More Thing</strong><a class="headerlink" href="#one-more-thing" title="Permalink to this headline">¶</a></h2>
+<p>If you are interested, this source code also is available at the GitHub below:</p>
+<p>https://github.com/laalaguer/token-transfer-demo</p>
+<p>The full VeChain token transfer is more complicated, the GitHub is below:</p>
+<p>https://github.com/laalaguer/vechain-token-transfer</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VeChain Developers
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

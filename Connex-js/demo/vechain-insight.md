@@ -1,0 +1,34 @@
+# Insight
+
+## What is Insight? 
+
+Insight is a **serverless** VeChain explorer. It allows you to explore and search for blocks, transactions and accounts. 
+
+[Try it out!](https://insight.vecha.in/#/)
+
+## Screenshots
+
+![Homepage](https://files.readme.io/baaab39-homepage.png)
+
+![Block Info](https://files.readme.io/7e152e3-blockinfo.png)
+
+![Transaction Details](https://files.readme.io/04bf3a1-txdetails.png)
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+## Contribute
+
+Everyone is always welcome to contribute to the [codebase](https://github.com/vechain/insight-app).

@@ -1,0 +1,18 @@
+---
+title: "Contribute New Contents"
+slug: "contribute-to-the-developer-info-center"
+hidden: false
+createdAt: "2019-06-11T02:53:14.137Z"
+updatedAt: "2019-06-11T03:25:27.390Z"
+---
+You are welcomed to contribute new contents to the Developer Info Center and we also provide bounties for quality contents such as technical documentation, development guide, tutorials, developer tools or translation of existing contents to other languages. 
+
+We would like to invite you to create technical documentation or developer tools to be added to the VeChainWorld developer information center. Please submit your contents via the form below. 
+[block:html]
+{
+  "html": "<div class=\"typeform-widget\" data-url=\"https://vechain.typeform.com/to/vyyrZl\" style=\"width: 100%; height: 500px;\"></div> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id=\"typef_orm\", b=\"https://embed.typeform.com/\"; if(!gi.call(d,id)) { js=ce.call(d,\"script\"); js.id=id; js.src=b+\"embed.js\"; q=gt.call(d,\"script\")[0]; q.parentNode.insertBefore(js,q) } })() </script>"
+}
+[/block]
+Based on the quality of the submission, the program administration team will determine acceptance and award at least $100 worth of VET per each new entry to the VeChainWorld developer information center. For submissions similar to the existing publicly visible documentation, we will reward those based on their added effort as deemed by the program administration team. Successful submissions will be incorporated into the developer information center. 
+
+If you would like to translate the documentation in the VeChainWorld info center, please contact bounty@vechain.com first.

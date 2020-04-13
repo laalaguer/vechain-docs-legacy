@@ -1,0 +1,393 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>title: “Web3-gear” slug: “web3-gear” excerpt: “https://github.com/vechain/web3-gear” hidden: false createdAt: “2019-02-27T05:37:25.336Z” updatedAt: “2019-04-09T12:14:26.024Z” &mdash; VeChain Documentation Legacy 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VeChain Documentation Legacy
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ch1/index.html">VeChainThor Blockchain</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/overview.html">What is VeChainThor?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ch1/overview.html#business-friendly-meta-transaction-features">Business Friendly Meta-transaction Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ch1/overview.html#proof-of-authority-poa">Proof of Authority (“PoA”)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ch1/overview.html#governance">Governance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ch1/overview.html#economic-model">Economic Model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/two.html">Two-token design</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ch1/two.html#vet">VET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ch1/two.html#vtho">VTHO</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/block.html">Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/tx-model.html">Transaction Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/mpp.html">Multi-party Payment Protocol (MPP)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ch1/mpp.html#functions-related-to-user">Functions related to <em>User</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ch1/mpp.html#functions-related-to-the-credit-plan">Functions related to the <em>credit plan</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ch1/mpp.html#functions-related-master">Functions related <em>Master</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ch1/mpp.html#functions-related-to-sponsor">Functions related to <em>Sponsor</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/poa.html">Proof of Authority (PoA)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ch1/poa.html#when">When</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ch1/poa.html#who">Who</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ch1/poa.html#am-status-updating">AM Status Updating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ch1/poa.html#trunk">Trunk</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/built-in.html">Built-in Smart Contracts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ch2/index.html">Get Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/how-to-node.html">How to deploy a VeChainThor node</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ch2/docker.html">Docker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/docker.html#run-vechainthor-authority-masternode-in-docker">Run VeChainThor Authority Masternode in docker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/docker.html#run-node-in-docker">Run node in docker</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../ch2/aws.html">AWS Marketplace</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/aws.html#this-is-an-example-of-solo-node-deployment">This is an example of “solo node” deployment.</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../ch2/source.html">Source code</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/source.html#installation">Installation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/public.html">Public VeChainThor nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/how-to-deploy.html">How to deploy a smart contract</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ch2/how-to-deploy.html#quick-start">Quick Start</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/how-to-develop.html">How to develop a dApp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ch2/how-to-1.html">Intro</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-1.html#whats-web-application"><strong>What’s Web Application?</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-1.html#what-is-dapp"><strong>What is DApp?</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-1.html#write-a-dapp-sync-and-connex"><strong>Write a DApp: Sync and Connex</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-1.html#token-transfer-a-simple-dapp-in-javascript"><strong>Token Transfer: A Simple DApp in Javascript</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../ch2/how-to-2.html">Components and Coding</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-2.html#preparation"><strong>Preparation</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-2.html#setup-in-3-minutes"><strong>Setup in 3 minutes</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-2.html#coding"><strong>Coding</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-2.html#put-things-together"><strong>Put Things Together</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-2.html#test-the-app"><strong>Test the App</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-2.html#one-more-thing"><strong>One More Thing</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../ch2/how-to-3.html">Setup &amp; Walk Around</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-3.html#setup-in-3-minutes"><strong>Setup in 3 minutes</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-3.html#poke-around-familiar-with-sync"><strong>Poke around: Familiar with Sync</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-3.html#play-with-connex-js-apis"><strong>Play with Connex.js APIs</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-3.html#summary"><strong>Summary</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VeChain Documentation Legacy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>title: “Web3-gear”
+slug: “web3-gear”
+excerpt: “https://github.com/vechain/web3-gear”
+hidden: false
+createdAt: “2019-02-27T05:37:25.336Z”
+updatedAt: “2019-04-09T12:14:26.024Z”</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Development Tools/web3-gear.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <hr class="docutils" />
+<div class="section" id="title-web3-gear-slug-web3-gear-excerpt-https-github-com-vechain-web3-gear-hidden-false-createdat-2019-02-27t05-37-25-336z-updatedat-2019-04-09t12-14-26-024z">
+<h1>title: “Web3-gear”
+slug: “web3-gear”
+excerpt: “https://github.com/vechain/web3-gear”
+hidden: false
+createdAt: “2019-02-27T05:37:25.336Z”
+updatedAt: “2019-04-09T12:14:26.024Z”<a class="headerlink" href="#title-web3-gear-slug-web3-gear-excerpt-https-github-com-vechain-web3-gear-hidden-false-createdat-2019-02-27t05-37-25-336z-updatedat-2019-04-09t12-14-26-024z" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="what-is-web3-gear">
+<h1>What is Web3-gear?<a class="headerlink" href="#what-is-web3-gear" title="Permalink to this headline">¶</a></h1>
+<p>Web3-gear is used to proxy <a class="reference external" href="https://github.com/vechain/thor">Thor</a>’ s RESTful API to Eth JSON-RPC, to support Remix, Truffle and more (You should give priority to using Thor’s RESTful API).</p>
+<p>Working with <a class="reference external" href="https://github.com/vechain/thor-builtins">Thor Builtins</a> will make Web3-Gear more usable.</p>
+</div>
+<div class="section" id="quick-start">
+<h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<div class="section" id="on-os-x">
+<h3>On OS x<a class="headerlink" href="#on-os-x" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Python 3.6+ support<ol>
+<li>Install the system-dependecies:</li>
+</ol>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">brew</span> <span class="n">install</span> <span class="n">openssl</span>
+    <span class="n">export</span> <span class="n">CFLAGS</span><span class="o">=</span><span class="s2">&quot;-I$(brew --prefix openssl)/include $CFLAGS&quot;</span>
+    <span class="n">export</span> <span class="n">LDFLAGS</span><span class="o">=</span><span class="s2">&quot;-L$(brew --prefix openssl)/lib $LDFLAGS&quot;</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li>Installation of Web3-Gear and it’s dependent Python packages via PyPI:</li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">pip3</span> <span class="n">install</span> <span class="n">web3</span><span class="o">-</span><span class="n">gear</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="on-ubuntu">
+<h3>On Ubuntu<a class="headerlink" href="#on-ubuntu" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Python 3.6+ support</li>
+</ul>
+<ol class="simple">
+<li>Install the system-dependecies:</li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>     <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">libssl</span><span class="o">-</span><span class="n">dev</span> <span class="n">python</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li>Installation of Web3-Gear and it’s dependent Python packages via PyPI:</li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>     <span class="n">pip3</span> <span class="n">install</span> <span class="n">web3</span><span class="o">-</span><span class="n">gear</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="on-window">
+<h3>On Window<a class="headerlink" href="#on-window" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Python 3.6 support</li>
+</ul>
+<ol class="simple">
+<li>Install Visual C++ Build Tools.</li>
+<li>Install <a class="reference external" href="https://pypi.org/project/scrypt/#files">scrypt-py</a> use the precompiled wheels.</li>
+<li>Installation of Web3-Gear and it’s dependent Python packages via PyPI:</li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">pip3</span> <span class="n">install</span> <span class="n">web3</span><span class="o">-</span><span class="n">gear</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="run">
+<h2>Run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h2>
+<p>Installing through pip will make the <code class="docutils literal notranslate"><span class="pre">web3-gear</span></code> command available on your machine (must run thor client first.):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">web3</span><span class="o">-</span><span class="n">gear</span>
+</pre></div>
+</div>
+<p>This will run web3-gear on <code class="docutils literal notranslate"><span class="pre">127.0.0.1:8545</span></code>.</p>
+<p>You can change its default behavior with the following parameters:</p>
+<p><code class="docutils literal notranslate"><span class="pre">--host</span></code>      rpc service host, eg: <code class="docutils literal notranslate"><span class="pre">--host</span> <span class="pre">127.0.0.1</span></code>
+<code class="docutils literal notranslate"><span class="pre">--port</span></code>      rpc service port, eg: <code class="docutils literal notranslate"><span class="pre">--port</span> <span class="pre">8545</span></code>
+<code class="docutils literal notranslate"><span class="pre">--endpoint</span></code>  thor restful service endpoint, eg: <code class="docutils literal notranslate"><span class="pre">--endpoint</span> <span class="pre">http://127.0.0.1:8669</span></code>
+<code class="docutils literal notranslate"><span class="pre">--keystore</span></code>  keystore file path, eg: <code class="docutils literal notranslate"><span class="pre">--keystore</span> <span class="pre">/Users/(username)/keystore)</span></code>, default=thor stand-alone(solo) built-in accounts
+<code class="docutils literal notranslate"><span class="pre">--passcode</span></code>  passcode of keystore, eg: <code class="docutils literal notranslate"><span class="pre">--passcode</span> <span class="pre">xxxxxxxx</span></code></p>
+</div>
+<div class="section" id="use-remix">
+<h2>Use Remix<a class="headerlink" href="#use-remix" title="Permalink to this headline">¶</a></h2>
+<p>Change the Remix environment to Web3 provide.</p>
+<p><img alt="image" src="https://files.readme.io/66753dd-USE_REMIX.jpg" /></p>
+</div>
+<div class="section" id="use-truffle">
+<h2>Use Truffle<a class="headerlink" href="#use-truffle" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Truffle 4.0.6+ support</li>
+</ul>
+<p>Modify the configuration of truffle first(<code class="docutils literal notranslate"><span class="pre">truffle.js</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span><span class="o">.</span><span class="n">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">networks</span><span class="p">:</span> <span class="p">{</span>
+        <span class="n">development</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">host</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+            <span class="n">port</span><span class="p">:</span> <span class="mi">8545</span><span class="p">,</span>
+            <span class="n">network_id</span><span class="p">:</span> <span class="s2">&quot;*&quot;</span> <span class="o">//</span> <span class="n">Match</span> <span class="nb">any</span> <span class="n">network</span> <span class="nb">id</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Then you can use truffle’s command line tool.</p>
+<p>There are some projects based on truffle, can use them for testing:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/vechain/crowdsale-contracts">Crowdsale Contracts</a>.</li>
+<li><a class="reference external" href="https://github.com/libotony/token-distribution">Token Distribution</a>.</li>
+<li><a class="reference external" href="https://github.com/miguelmota/solidity-idiosyncrasies">Solidity Idiosyncrasies</a>.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VeChain Developers
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

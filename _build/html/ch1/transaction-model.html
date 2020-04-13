@@ -1,0 +1,453 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Transaction Model &mdash; VeChain Documentation Legacy 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Multi-party Payment Protocol (MPP)" href="mpp.html" />
+    <link rel="prev" title="Block" href="block.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VeChain Documentation Legacy
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">VeChainThor Blockchain</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="block.html">Block</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Transaction Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpp.html">Multi-party Payment Protocol (MPP)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mpp.html#functions-related-to-user">Functions related to <em>User</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mpp.html#functions-related-to-the-credit-plan">Functions related to the <em>credit plan</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mpp.html#functions-related-master">Functions related <em>Master</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mpp.html#functions-related-to-sponsor">Functions related to <em>Sponsor</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="poa.html">Proof of Authority (PoA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="built-in-smart-contracts.html">Built-in Smart Contracts</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VeChain Documentation Legacy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">VeChainThor Blockchain</a> &raquo;</li>
+        
+      <li>Transaction Model</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/ch1/transaction-model.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="transaction-model">
+<h1>Transaction Model<a class="headerlink" href="#transaction-model" title="Permalink to this headline">¶</a></h1>
+<p>VeChainThor adopts a new transaction model to tackle some of the fundamental problems that currently hinder a broad adoption of blockchain. The model is defined in Golang as:</p>
+<p>[block:code]</p>
+<p>{</p>
+<blockquote>
+<div><p>“codes”: [</p>
+<blockquote>
+<div><p>{</p>
+<blockquote>
+<div><p>“code”: “// transaction.go\n\ntype Transaction struct {\n\tbody body\n}\n\ntype body struct {\n\tChainTag     byte\t\t\t\n\tBlockRef     uint64\n\tExpiration   uint32\n\tClauses      []*Clause\n\tGasPriceCoef uint8\n\tGas          uint64\n\tDependsOn    *thor.Bytes32 <cite>rlp:&quot;nil&quot;</cite>\n\tNonce        uint64\n\tReserved     reserved\n\tSignature    []byte\n}”,</p>
+<p>“language”: “text”</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>}</p>
+<p>[/block]</p>
+<p>Fields within the transaction <em>body</em>, <strong>Ω</strong>, are defined as:</p>
+<ul class="simple">
+<li><cite>ChainTag</cite> – last byte of the genesis block ID which is used to identify a blockchain to prevent the cross-chain replay attack;</li>
+<li><cite>BlockRef</cite> - reference to a specific block;</li>
+<li><cite>Expiration</cite> – how long, in terms of the number of blocks, the transaction will be allowed to be mined in VeChainThor;</li>
+<li><cite>Clauses</cite> – an array of <em>Clause</em> objects each of which contains fields <cite>To</cite>, <cite>Value</cite> and <cite>Data</cite> to enable a single transaction to carry multiple tasks issued by the transaction sender;</li>
+<li><cite>GasPriceCoef</cite> – coefficient used to calculate the gas price for the transaction.</li>
+<li><cite>Gas</cite> – maximum amount of gas allowed to pay for the transaction;</li>
+<li><cite>DependsOn</cite> – ID of the transaction on which the current transaction depends;</li>
+<li><cite>Nonce</cite> – number set by user;</li>
+<li><cite>Reserved</cite> - <em>reserved</em> Object contains two fields: <cite>Features</cite> and <cite>Unused</cite>.
+- <cite>Feature</cite> as 32-bit unsigned integer and default set as <cite>0</cite>.For Designated Gas Payer(VIP191) must be set as <cite>1</cite><ul>
+<li><cite>Unused</cite> : an array of reserved field for backward compatibility,it <strong>MUST</strong> be set empty as empty array for now otherwise the transaction will be considered invalid.</li>
+</ul>
+</li>
+<li><cite>Signature</cite> - transaction signature, !`](<a class="reference external" href="https://files.readme.io/d290d0c-sig.PNG">https://files.readme.io/d290d0c-sig.PNG</a>) where ![ &lt;<a class="reference external" href="https://files.readme.io/36c3b06-sk.PNG">https://files.readme.io/36c3b06-sk.PNG</a>&gt;`_ where ![](<a class="reference external" href="https://files.readme.io/36c3b06-sk.PNG">https://files.readme.io/36c3b06-sk.PNG</a>) is the transaction sender’s private key.</li>
+</ul>
+<p>[block:api-header]</p>
+<p>{</p>
+<blockquote>
+<div>“title”: “Transaction ID”</div></blockquote>
+<p>}</p>
+<p>[/block]</p>
+<p>Every blockchain system must find a way to uniquely identify each transaction. Otherwise the system would be vulnerable to the transaction replay attack. In VeChainThor, we give every transaction a unique ID to identify itself. In particular, the transaction ID, ![](<a class="reference external" href="https://files.readme.io/b2076fb-TxID.PNG">https://files.readme.io/b2076fb-TxID.PNG</a>), can be calculated as:</p>
+<p>![](<a class="reference external" href="https://files.readme.io/5537ac7-TxID_formula.PNG">https://files.readme.io/5537ac7-TxID_formula.PNG</a>)</p>
+<p>When validating a given transaction, VeChainThor computes its ![](<a class="reference external" href="https://files.readme.io/b2076fb-TxID.PNG">https://files.readme.io/b2076fb-TxID.PNG</a>) and checks whether it has been used before.</p>
+<p>Suppose Alice has signed a transaction that sends 10 VET to Bob and Bob wants to re-use the transaction to get 10 VET from Alice. Obviously, this is not going to work for Bob. Since the two transactions have exactly the same ID, the one broadcast by Bob would be rejected due to the existing transaction ID.</p>
+<p>For any two transactions, as long as they had a field in ![](<a class="reference external" href="https://files.readme.io/7c0f622-omega.PNG">https://files.readme.io/7c0f622-omega.PNG</a>) with different values, their transaction IDs would be different. Moreover, we can always adjust the <em>Nonce</em> field to result in a new ID. In contrast to Ethereum, VeChainThor users can easily assemble multiple transactions sent from the same account with different IDs, which means that they can be sent off at the same time and would be processed by VeChainThor independently.</p>
+<p>[block:api-header]</p>
+<p>{</p>
+<blockquote>
+<div>“title”: “Multi-Task Transaction”</div></blockquote>
+<p>}</p>
+<p>[/block]</p>
+<p>VeChainThor allows a single transaction to carry out multiple tasks. To do that, we introduce the <cite>Clause</cite> structure to represent a single task and allow multiple tasks defined in one transaction.</p>
+<p>The structure is defined in Golang as follows:</p>
+<p>[block:code]</p>
+<p>{</p>
+<blockquote>
+<div><p>“codes”: [</p>
+<blockquote>
+<div><p>{</p>
+<blockquote>
+<div><p>“code”: “type Clause struct {\n\tbody clauseBody\n}\n\ntype clauseBody struct {\n\tTo    *thor.Address <cite>rlp:&quot;nil&quot;</cite>\n\tValue *big.Int\n\tData  []byte\n}”,</p>
+<p>“language”: “text”</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>}</p>
+<p>[/block]</p>
+<p>and contains three fields:</p>
+<ul class="simple">
+<li><cite>To</cite> – recipient’s address;</li>
+<li><cite>Value</cite> – amount transferred to the recipient;</li>
+<li><cite>Data</cite> – input data.</li>
+</ul>
+<p>[block:api-header]</p>
+<p>{}</p>
+<p>[/block]</p>
+<p>We then define <cite>Clauses</cite> as a <cite>Clause</cite> array in the transaction model to make it possible for a transaction to conduct multiple tasks.</p>
+<p>The multi-task mechanism has two interesting characteristics:</p>
+<ul class="simple">
+<li>Since tasks (clauses) are included in a single transaction, their executions can be considered as atomic, meaning that, they either all succeed, or all fail.</li>
+<li>Tasks (clauses) are processed one by one in the exact order defined in <cite>Clauses</cite>.</li>
+</ul>
+<p>The multi-task mechanism provides us a secure and efficient way to handle, for instance, tasks such as fund distribution, token airdrops, mass product registration, etc. Moreover, due to the fact that the tasks are processed sequentially, MTT can be used to conduct a multi-step process.</p>
+<p>[block:api-header]</p>
+<p>{</p>
+<blockquote>
+<div>“title”: “Transaction Gas Calculation”</div></blockquote>
+<p>}</p>
+<p>[/block]</p>
+<p>The total gas, !`$g_{textrm{total}}$ &lt;<a class="reference external" href="https://files.readme.io/f09fcd6-gtotal.PNG">https://files.readme.io/f09fcd6-gtotal.PNG</a>&gt;`_, required for a transaction can be computed as:</p>
+<p>!`$g*{textrm{total}}=g*0+sum*ibig(g*{textrm{type}}^i+g*{textrm{data}}^i+g*{textrm{vm}}^ibig)$ &lt;<a class="reference external" href="https://files.readme.io/d51e669-gidataformula.PNG">https://files.readme.io/d51e669-gidataformula.PNG</a>&gt;`_$](<a class="reference external" href="https://files.readme.io/d51e669-gidataformula.PNG">https://files.readme.io/d51e669-gidataformula.PNG</a>)</p>
+<p>where</p>
+<p>!`g0-5,000 &lt;<a class="reference external" href="https://files.readme.io/840442f-g0.PNG">https://files.readme.io/840442f-g0.PNG</a>&gt;`_,</p>
+<p>!`$g*{textrm{type}}^i=48,000$](<a class="reference external" href="https://files.readme.io/62e9c77-gitype.PNG">https://files.readme.io/62e9c77-gitype.PNG</a>) if the ![$i^{textrm{th}}$](<a class="reference external" href="https://files.readme.io/5b822be-i-th.PNG)clause">https://files.readme.io/5b822be-i-th.PNG)clause</a> is to create a contract or ![$g*{textrm{type}}^i=16,000$ &lt;<a class="reference external" href="https://files.readme.io/ba5cb6d-gitype-16000.PNG">https://files.readme.io/ba5cb6d-gitype-16000.PNG</a>&gt;`* if the !`$i^{textrm{th}}$](<a class="reference external" href="https://files.readme.io/5b822be-i-th.PNG)clause">https://files.readme.io/5b822be-i-th.PNG)clause</a> is to create a contract or ![$g*{textrm{type}}^i=16,000$ &lt;<a class="reference external" href="https://files.readme.io/ba5cb6d-gitype-16000.PNG">https://files.readme.io/ba5cb6d-gitype-16000.PNG</a>&gt;`*clause is to create a contract or !`$g*{textrm{type}}^i=16,000$ &lt;<a class="reference external" href="https://files.readme.io/ba5cb6d-gitype-16000.PNG">https://files.readme.io/ba5cb6d-gitype-16000.PNG</a>&gt;`_ otherwise,</p>
+<p>!`$g*{textrm{data}}^i = 4 * n*{z}^i + 68 * n_{nz}^i$](<a class="reference external" href="https://files.readme.io/d1fc598-gtotal_formula.PNG">https://files.readme.io/d1fc598-gtotal_formula.PNG</a>) where ![$n_{z}^i$](<a class="reference external" href="https://files.readme.io/b5f1270-n-iz.PNG">https://files.readme.io/b5f1270-n-iz.PNG</a>) is the number of bytes equal to zero within the data in the ![$i^{,textrm{th}}$](<a class="reference external" href="https://files.readme.io/5b822be-i-th.PNG">https://files.readme.io/5b822be-i-th.PNG</a>) clause and ![$n_{nz}^i$ &lt;<a class="reference external" href="https://files.readme.io/b5f1270-n-iz.PNG">https://files.readme.io/b5f1270-n-iz.PNG</a>&gt;`_ where !`$n_{z}^i$](<a class="reference external" href="https://files.readme.io/b5f1270-n-iz.PNG">https://files.readme.io/b5f1270-n-iz.PNG</a>) is the number of bytes equal to zero within the data in the ![$i^{,textrm{th}}$](<a class="reference external" href="https://files.readme.io/5b822be-i-th.PNG">https://files.readme.io/5b822be-i-th.PNG</a>) clause and ![$n_{nz}^i$ &lt;<a class="reference external" href="https://files.readme.io/b5f1270-n-iz.PNG">https://files.readme.io/b5f1270-n-iz.PNG</a>&gt;`_ is the number of bytes equal to zero within the data in the !`$i^{,textrm{th}}$](<a class="reference external" href="https://files.readme.io/5b822be-i-th.PNG">https://files.readme.io/5b822be-i-th.PNG</a>) clause and ![$n_{nz}^i$ &lt;<a class="reference external" href="https://files.readme.io/b5f1270-n-iz.PNG">https://files.readme.io/b5f1270-n-iz.PNG</a>&gt;`_ clause and !`$n_{nz}^i$ &lt;<a class="reference external" href="https://files.readme.io/b5f1270-n-iz.PNG">https://files.readme.io/b5f1270-n-iz.PNG</a>&gt;`_ the number of bytes not equal to zero,</p>
+<p>and !`$g_{textrm{data}}^i$](<a class="reference external" href="https://files.readme.io/5b2601f-gidata.PNG">https://files.readme.io/5b2601f-gidata.PNG</a>) is the gas cost returned by the virtual machine for executing the ![$i^{,textrm{th}}$ &lt;<a class="reference external" href="https://files.readme.io/5b822be-i-th.PNG">https://files.readme.io/5b822be-i-th.PNG</a>&gt;`_ is the gas cost returned by the virtual machine for executing the !`$i^{,textrm{th}}$ &lt;<a class="reference external" href="https://files.readme.io/5b822be-i-th.PNG">https://files.readme.io/5b822be-i-th.PNG</a>&gt;`_ clause.</p>
+<p>[block:api-header]</p>
+<p>{</p>
+<blockquote>
+<div>“title”: “Other New Features”</div></blockquote>
+<p>}</p>
+<p>[/block]</p>
+<p>Besides <em>Clauses</em>, VeChainThor’s transaction model includes the fields <cite>DependsOn</cite>, <cite>BlockRef</cite> and <cite>Expiration</cite> to allow us to further empower a transaction.</p>
+<ul class="simple">
+<li><cite>DependsOn</cite> stores the ID of the transaction on which the current transaction depends. In other words, the current transaction cannot be processed without the success of the transaction referred to by <cite>DependsOn</cite>. Here, by “success”, we mean that the referred transaction has been executed without state reversion.</li>
+<li><cite>BlockRef</cite> stores the reference to a particular block whose next block is the earliest block the current transaction can be included. In particular, the first four bytes of <cite>BlockRef</cite> contains the block height, <strong>*h*</strong>, while the second four bytes can be used to prove that the referred block is known before the transaction is assembled. If that is the case, the value of <cite>BlockRef</cite> should match the first eight bytes of the ID of the block with height <strong>*h*</strong>. See <cite>func ID()</cite> in <cite>header.go</cite> for details of how to compute a block ID.</li>
+<li><cite>Expiration</cite> stores a number that can be used, together with <cite>BlockRef</cite>, to specify when the transaction expires. Specifically, the sum of <cite>Expiration</cite> and the first four bytes of <cite>BlockRef</cite> defines the height of the last block that the transaction can be included.</li>
+</ul>
+<p><cite>DependsOn</cite> allows us to systematically define an order for a sequence of transactions and such an order is guaranteed by the rules hard-coded as part of the consensus of VeChainTor. Moreover, the system requires the prior transaction depended on by the current transaction to be truly executed, adding another useful layer of security on the dependency.</p>
+<p><cite>BlockRef</cite> and <cite>Expiration</cite> allows us to set the life cycle of a transaction that has not been included in a block. The former defines the starting point and the latter its active period. With such a useful feature, we would no longer be troubled by the situation that a transaction was stuck for hours or even days waiting to be processed and we could not do anything about it. The inclusion of two fields also makes transactions safer since it prevents them from being hijacked and later re-used to cause problems.</p>
+<p>[block:api-header]</p>
+<p>{</p>
+<blockquote>
+<div>“title”: “Proof of Work”</div></blockquote>
+<p>}</p>
+<p>[/block]</p>
+<p>VeChainThor allows the transaction-level proof of work and converts the proved work into extra gas price that will be used by the system to generate more reward to the block generator that validates the transaction. In other words, users can utilize their local computational power to make their transactions more likely to be included in a new block.</p>
+<p>In particular, the computational work can be proved through fields <cite>Nonce</cite> and <cite>BlockRef</cite> in the transaction model. Let <em>n</em> and <em>g</em> represent the values of TX fields <cite>Nonce</cite> and <cite>Gas</cite>, respectively. We use <em>b</em> to denote the number of the block indexed by TX field <cite>BlockRef</cite> and <em>h</em> the number of the block that includes the TX. Let &amp;Omega; denote the TX without fields <cite>Nonce</cite> and  <cite>Signature</cite>, <em>S</em> the TX sender’s account address, <em>P</em> the <a class="reference external" href="https://doc.vechainworld.io/docs/vechainthor-docs">base gas price</a>, <em>H</em> the hash function and <em>E</em> the RLP encoding function.</p>
+<p>The PoW, <em>w</em>, is defined as:</p>
+<p>[block:image]</p>
+<p>{</p>
+<blockquote>
+<div><p>“images”: [</p>
+<blockquote>
+<div><p>{</p>
+<blockquote>
+<div><p>“image”: [</p>
+<blockquote>
+<div><p>“<a class="reference external" href="https://files.readme.io/8150440-gif_1.gif">https://files.readme.io/8150440-gif_1.gif</a>”,</p>
+<p>“gif (1).gif”,</p>
+<p>332,</p>
+<p>69,</p>
+<p>“#696969”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>}</p>
+<p>[/block]</p>
+<p>The extra gas price, &amp;Delta;&lt;i&gt;P&lt;/i&gt;, is computed as:</p>
+<p>[block:image]</p>
+<p>{</p>
+<blockquote>
+<div><p>“images”: [</p>
+<blockquote>
+<div><p>{</p>
+<blockquote>
+<div><p>“image”: [</p>
+<blockquote>
+<div><p>“<a class="reference external" href="https://files.readme.io/c1b820e-gif.gif">https://files.readme.io/c1b820e-gif.gif</a>”,</p>
+<p>“gif.gif”,</p>
+<p>338,</p>
+<p>55,</p>
+<p>“#6e6e6e”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>}</p>
+<p>[/block]</p>
+<p>with the following constraint</p>
+<p>[block:image]</p>
+<p>{</p>
+<blockquote>
+<div><p>“images”: [</p>
+<blockquote>
+<div><p>{</p>
+<blockquote>
+<div><p>“image”: [</p>
+<blockquote>
+<div><p>“<a class="reference external" href="https://files.readme.io/150291e-gif_2.gif">https://files.readme.io/150291e-gif_2.gif</a>”,</p>
+<p>“gif (2).gif”,</p>
+<p>91,</p>
+<p>19,</p>
+<p>“#777777”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>}</p>
+<p>[/block]</p>
+<p>The VTHO reward &lt;i&gt;r&lt;/i&gt; for packing the TX into a new block is computed as:</p>
+<p>[block:image]</p>
+<p>{</p>
+<blockquote>
+<div><p>“images”: [</p>
+<blockquote>
+<div><p>{</p>
+<blockquote>
+<div><p>“image”: [</p>
+<blockquote>
+<div><p>“<a class="reference external" href="https://files.readme.io/8474d5b-gif_3.gif">https://files.readme.io/8474d5b-gif_3.gif</a>”,</p>
+<p>“gif (3).gif”,</p>
+<p>213,</p>
+<p>38,</p>
+<p>“#777777”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>}</p>
+<p>[/block]</p>
+<p>where &lt;i&gt;&amp;phi;&lt;/i&gt; &amp;isin; [0, 1] is the gas price coefficient and &lt;i&gt;g&lt;/i&gt;&lt;sup&gt;*&lt;/sup&gt; the actual amount of gas used for executing the TX.</p>
+<p>From the above equations, we know that</p>
+<ol class="arabic simple">
+<li>Since <em>b</em> is a valid block number, <cite>BlockRef</cite> must refer to an existing block, that is, its value must equal the first four bytes of an existing block ID;</li>
+<li>The TX must be packed into a block within the period of 30 blocks after block <em>b</em>, or otherwise, the PoW would not be recognized by the system;</li>
+<li>The extra gas price &amp;Delta;*P* can not be greater than base gas price <em>P</em>.</li>
+</ol>
+<p>[block:api-header]</p>
+<p>{</p>
+<blockquote>
+<div>“title”: “Total Gas Price”</div></blockquote>
+<p>}</p>
+<p>[/block]</p>
+<p>The total gas price for the transaction sender is computed as:</p>
+<p>!`ptotal &lt;<a class="reference external" href="https://files.readme.io/2bd048f-ptotal.PNG">https://files.readme.io/2bd048f-ptotal.PNG</a>&gt;`_</p>
+<p>and the total price for block generators as</p>
+<p>!`ptotal2 &lt;<a class="reference external" href="https://files.readme.io/5b806bf-Ptotal2.PNG">https://files.readme.io/5b806bf-Ptotal2.PNG</a>&gt;`_</p>
+<p>where !`$phi$](<a class="reference external" href="https://files.readme.io/eb1891c-theta.PNG">https://files.readme.io/eb1891c-theta.PNG</a>) is the value of field <cite>GasPriceCoef</cite> and ![Delta p &lt;<a class="reference external" href="https://files.readme.io/b78045e-delta_P.PNG">https://files.readme.io/b78045e-delta_P.PNG</a>&gt;`_ is the value of field <cite>GasPriceCoef</cite> and !`Delta p &lt;<a class="reference external" href="https://files.readme.io/b78045e-delta_P.PNG">https://files.readme.io/b78045e-delta_P.PNG</a>&gt;`_ the extra gas price converted from the proven local computational work.</p>
+<p>It can be seen that the gas price used to calculate the transaction cost depends solely on the input gas-price coefficient while the reward for packing the transaction into a block varies due to the transaction-level proof-of-work mechanism.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mpp.html" class="btn btn-neutral float-right" title="Multi-party Payment Protocol (MPP)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="block.html" class="btn btn-neutral float-left" title="Block" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VeChain Developers
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

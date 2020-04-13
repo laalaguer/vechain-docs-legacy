@@ -1,0 +1,123 @@
+# User's side
+
+From the previous episode, we have learned the basic “terminologies” of VeChain VIP-191 fee delegation. To summarize, the process can be simply described as below:
+
+  * The “user” creates a transaction body.
+  * The “user” generates a “user signature”.
+  * The transaction is sent to a “sponsor” to get a “sponsor signature”.
+  * The two signatures are combined to forge a “final signature”.
+  * The final transaction is posted to the VeChain network.
+
+To get an overview, the idea is depicting as below:
+
+
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/f0aeb7d-Overview_of_VIP-191_Fee_Delegation.png",
+        "Overview of VIP-191 Fee Delegation.png",
+        820,
+        594,
+        "#f2f4f9"
+      ],
+      "caption": "Overview of VIP-191 Fee Delegation"
+    }
+  ]
+}
+[/block]
+Our example will involve a user with an “empty wallet” tries to call a smart contract (which costs gas) then the sponsor pays for the operation. Let’s break it down step by step.
+
+### Deploy the Smart Contract
+
+First, we need to deploy a simple contract on test-net for us to interact with. The source code of the smart contract is as simple as below. It contains a counter variable which will be increased each time the function increaseAmount is called by any user.
+[block:code]
+{
+  "codes": [
+    {
+      "code": "\npragma solidity ^0.5.11;\n\ncontract Hello {\n    uint public counter;\n\n    constructor () public {\n        counter = 0;\n    }\n\n    function increaseAmount () public {\n        counter = counter + 1;\n    }\n}",
+      "language": "text",
+      "name": "https://gist.github.com/laalaguer/5d7dd6889e70e8784f4448f529dc8976"
+    }
+  ]
+}
+[/block]
+Many tools can be used to deploy the smart contract, we won’t cover the process in this article, but you can read it from [this tutorial](https://medium.com/@abyteahead/how-to-fast-deploy-a-smart-contract-on-vechain-with-bare-hands-eab8d7d96b43).
+> Also, I have deployed it on test-net already, on address: 0x6d48628bb5bf20e5b4e591c948e0394e0d5bb078
+We will go with this address in the rest of the article.
+
+### Build a Transaction Body
+
+We employ the thor-devkit.js library to help us with the building of a transaction. To call the method, we build a simple transaction like this:
+[block:code]
+{
+  "codes": [
+    {
+      "code": "// Using thor-devkit.js\nconst Transaction = require('thor-devkit/dist/transaction').Transaction\n\n// Construct transaction body.\nconst txBody = {\n    // Test-net: 0x27,  Main-net: 0x4a.\n    chainTag: 0x27,\n    // After which block this tx should happen?\n    // 16 characters of block ID.\n    blockRef: '0x004984e1064ed410',\n    // Expires after 30 days.\n    expiration: 30 * 8640,\n    // Call the contract method \"increaseAmount\"\n    clauses: [{\n        to: '0x6d48628bb5bf20e5b4e591c948e0394e0d5bb078',\n        value: 0,\n        data: '0x74f667c4'\n    }],\n    gasPriceCoef: 0,\n    gas: 50000,\n    dependsOn: null,\n    nonce: '0xa3b6232f', // Random number\n    // Must include this field to activate VIP-191.\n    reserved: { \n        features: 1\n    }\n}\n\n// Construct a transaction.\nconst tx = new Transaction(txBody)",
+      "language": "text",
+      "name": "https://gist.github.com/laalaguer/4aa1787887cc7d5aa23c85dd2a59d1d9"
+    }
+  ]
+}
+[/block]
+Some fields need clarification:
+
+In the above, to the field is pointing to the contract we want to call;
+
+The data field (data: ‘0x74f667c4’) is exactly the encoded method increaseAmount that we want to call.
+
+The nonce field needs to be a random hex number, don’t repeat yourself!
+
+The reserved field is included to notify that this transaction is using the feature of vip-191 fee delegation.
+
+### Generate a User Signature
+
+Since the user wants to call the smart contract, a signature from the user is required. We import an empty wallet and generate a “user signature” of the transaction.
+> The user wallet is as below:
+> Public address: 0x881Ab2380017870C49a9A114806C05F3CFE406e2
+> Private key: 2a0cbfe49ea7c18e89b87be4237e1717823fc16b52dc02e91fb30af122fba9b3
+> Balance: [[Link](https://explore-testnet.vechain.org/accounts/0x881ab2380017870c49a9a114806c05f3cfe406e2)]
+[block:code]
+{
+  "codes": [
+    {
+      "code": "// Import library\nconst cry = require('thor-devkit/dist/cry')\nconst Transaction = require('thor-devkit/dist/transaction').Transaction\n\n// User private key.\nconst originPriv = Buffer.from(\n    '2a0cbfe49ea7c18e89b87be4237e1717823fc16b52dc02e91fb30af122fba9b3',\n    'hex'\n)\n// User public address: 0x881Ab2380017870C49a9A114806C05F3CFE406e2\nconst originAddress = cry.publicKeyToAddress(cry.secp256k1.derivePublicKey(originPriv))\n\n// Construct the hash for signing.\nconst originHash = tx.signingHash()\n\n// Construct the user signature.\nconst originSignature = cry.secp256k1.sign(originHash, originPriv)",
+      "language": "text",
+      "name": "https://gist.github.com/laalaguer/1eaea9354eb2deba769a92296814e4f1"
+    }
+  ]
+}
+[/block]
+From the above code, the program has obtained a“user” signature as originSignature. Next step we need to obtain the “sponsor” signature. Usually, the sponsor exists over the internet as a service. So we will use the HTTP protocol to obtain it.
+
+### Get a Sponsor Signature
+
+This step requires us to send the original transaction to the sponsoring service and let the sponsor generate a signature for us. On the user’s side, the network operation is can be wrapped into a getSponsorSignature function:
+[block:code]
+{
+  "codes": [
+    {
+      "code": "// HTTP function definition\nasync function getSponosrSignature(sender, txBody) {\n    const url = 'http://localhost:3000/'\n    const response = await fetch(url, {\n        method: 'POST',\n        headers: {\n            'Accept': 'application/json',\n            'Content-Type': 'application/json'\n        },\n        body: JSON.stringify({\n            'sender': sender,\n            'txBody': txBody\n        })\n    })\n\n    const r = await response.json()\n    return r['sponsor_signature']\n}\n\n// Fetch the sponsor signature.\nconst sponsorSignature = await getSponosrSignature(\n    '0x'+originAddress.toString('hex'),\n    txBody\n)",
+      "language": "text"
+    }
+  ]
+}
+[/block]
+Pay attention to the following details:
+
+[http://localhost:3000/](http://localhost:3000/) is the destination we post our request;
+
+We have posted two things: sender which is the user’s address, and txBody is the original transaction itself;
+
+We expect sponsorSignature to be sent back from the sponsor and the user can finally assemble the signature.
+
+## Next Steps
+
+If you have followed the above steps faithfully, then the job on the user’s side is almost done. The remote sponsor needs to react to the request and return the signature or reject it. We will continue in the next tutorial about:
+
+* Write a sponsor service to generate “sponsor signature”.
+
+* Combine the user signature with the sponsor’s signature.
+
+* Assemble the final transaction and post to the VeChain network.

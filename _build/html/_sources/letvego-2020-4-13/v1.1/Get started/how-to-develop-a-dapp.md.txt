@@ -1,0 +1,13 @@
+---
+title: "How to develop a dApp"
+slug: "how-to-develop-a-dapp"
+excerpt: "Author: A Byte Ahead"
+hidden: false
+createdAt: "2019-04-04T03:47:56.882Z"
+updatedAt: "2019-12-26T03:58:17.349Z"
+---
+Thanks for the contribution of A Byte Ahead. This is a guide about how to build up a VIP180 standard token transfer web page on VeChainThor blockchain. It splits into 3 parts:
+
+* [Intro](doc:how-to-develop-a-dapp-on-vechain-1) 
+* [Setup & Walk Around](doc:how-to-develop-a-dapp-on-vechain-3) 
+* [Components and Coding](doc:how-to-develop-a-dapp-on-vechain-2)

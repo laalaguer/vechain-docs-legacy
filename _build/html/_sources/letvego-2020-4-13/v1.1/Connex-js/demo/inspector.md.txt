@@ -1,0 +1,36 @@
+---
+title: "Inspector"
+slug: "inspector"
+excerpt: "https://inspector.vecha.in/"
+hidden: false
+createdAt: "2019-03-05T08:48:07.784Z"
+updatedAt: "2019-04-03T06:50:35.876Z"
+---
+## What is Inspector?
+
+Inspector is a static web site for contract call with ABI and contract address.
+
+[Try it out!](https://inspector.vecha.in/)
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+## Contribute
+
+Everyone is always welcome to contribute to the [codebase](https://github.com/vechain/inspector-app).

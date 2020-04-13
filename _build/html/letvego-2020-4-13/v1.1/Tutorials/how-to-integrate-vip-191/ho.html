@@ -1,0 +1,336 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; VeChain Documentation Legacy 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> VeChain Documentation Legacy
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul class="simple">
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">VeChain Documentation Legacy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/letvego-2020-4-13/v1.1/Tutorials/how-to-integrate-vip-191/ho.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>—
+title: “How to integrate VIP-191 - User’s side”
+slug: “ho”
+hidden: false
+createdAt: “2020-01-13T00:24:35.018Z”
+updatedAt: “2020-01-13T10:53:18.926Z”
+—
+From the previous episode, we have learned the basic “terminologies” of VeChain VIP-191 fee delegation. To summarize, the process can be simply described as below:</p>
+<blockquote>
+<div><ul class="simple">
+<li>The “user” creates a transaction body.</li>
+<li>The “user” generates a “user signature”.</li>
+<li>The transaction is sent to a “sponsor” to get a “sponsor signature”.</li>
+<li>The two signatures are combined to forge a “final signature”.</li>
+<li>The final transaction is posted to the VeChain network.</li>
+</ul>
+</div></blockquote>
+<p>To get an overview, the idea is depicting as below:</p>
+<p>[block:image]
+{</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>“images”: [</dt>
+<dd><dl class="first docutils">
+<dt>{</dt>
+<dd><dl class="first docutils">
+<dt>“image”: [</dt>
+<dd>“<a class="reference external" href="https://files.readme.io/f0aeb7d-Overview_of_VIP-191_Fee_Delegation.png">https://files.readme.io/f0aeb7d-Overview_of_VIP-191_Fee_Delegation.png</a>”,
+“Overview of VIP-191 Fee Delegation.png”,
+820,
+594,
+“#f2f4f9”</dd>
+</dl>
+<p class="last">],
+“caption”: “Overview of VIP-191 Fee Delegation”</p>
+</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>]</p>
+</div></blockquote>
+<p>}
+[/block]
+Our example will involve a user with an “empty wallet” tries to call a smart contract (which costs gas) then the sponsor pays for the operation. Let’s break it down step by step.</p>
+<p>### Deploy the Smart Contract</p>
+<p>First, we need to deploy a simple contract on test-net for us to interact with. The source code of the smart contract is as simple as below. It contains a counter variable which will be increased each time the function increaseAmount is called by any user.
+[block:code]
+{</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>“codes”: [</dt>
+<dd><dl class="first docutils">
+<dt>{</dt>
+<dd>“code”: “npragma solidity ^0.5.11;nncontract Hello {n    uint public counter;nn    constructor () public {n        counter = 0;n    }nn    function increaseAmount () public {n        counter = counter + 1;n    }n}”,
+“language”: “text”,
+“name”: “<a class="reference external" href="https://gist.github.com/laalaguer/5d7dd6889e70e8784f4448f529dc8976">https://gist.github.com/laalaguer/5d7dd6889e70e8784f4448f529dc8976</a>”</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>]</p>
+</div></blockquote>
+<p>}
+[/block]
+Many tools can be used to deploy the smart contract, we won’t cover the process in this article, but you can read it from [this tutorial](<a class="reference external" href="https://medium.com/&#64;abyteahead/how-to-fast-deploy-a-smart-contract-on-vechain-with-bare-hands-eab8d7d96b43">https://medium.com/&#64;abyteahead/how-to-fast-deploy-a-smart-contract-on-vechain-with-bare-hands-eab8d7d96b43</a>).
+&gt; Also, I have deployed it on test-net already, on address: 0x6d48628bb5bf20e5b4e591c948e0394e0d5bb078
+We will go with this address in the rest of the article.</p>
+<p>### Build a Transaction Body</p>
+<p>We employ the thor-devkit.js library to help us with the building of a transaction. To call the method, we build a simple transaction like this:
+[block:code]
+{</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>“codes”: [</dt>
+<dd><dl class="first docutils">
+<dt>{</dt>
+<dd>“code”: “// Using thor-devkit.jsnconst Transaction = require(‘thor-devkit/dist/transaction’).Transactionnn// Construct transaction body.nconst txBody = {n    // Test-net: 0x27,  Main-net: 0x4a.n    chainTag: 0x27,n    // After which block this tx should happen?n    // 16 characters of block ID.n    blockRef: ‘0x004984e1064ed410’,n    // Expires after 30 days.n    expiration: 30 * 8640,n    // Call the contract method “increaseAmount”n    clauses: [{n        to: ‘0x6d48628bb5bf20e5b4e591c948e0394e0d5bb078’,n        value: 0,n        data: ‘0x74f667c4’n    }],n    gasPriceCoef: 0,n    gas: 50000,n    dependsOn: null,n    nonce: ‘0xa3b6232f’, // Random numbern    // Must include this field to activate VIP-191.n    reserved: { n        features: 1n    }n}nn// Construct a transaction.nconst tx = new Transaction(txBody)”,
+“language”: “text”,
+“name”: “<a class="reference external" href="https://gist.github.com/laalaguer/4aa1787887cc7d5aa23c85dd2a59d1d9">https://gist.github.com/laalaguer/4aa1787887cc7d5aa23c85dd2a59d1d9</a>”</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>]</p>
+</div></blockquote>
+<p>}
+[/block]
+Some fields need clarification:</p>
+<p>In the above, to the field is pointing to the contract we want to call;</p>
+<p>The data field (data: ‘0x74f667c4’) is exactly the encoded method increaseAmount that we want to call.</p>
+<p>The nonce field needs to be a random hex number, don’t repeat yourself!</p>
+<p>The reserved field is included to notify that this transaction is using the feature of vip-191 fee delegation.</p>
+<p>### Generate a User Signature</p>
+<p>Since the user wants to call the smart contract, a signature from the user is required. We import an empty wallet and generate a “user signature” of the transaction.
+&gt; The user wallet is as below:
+&gt; Public address: 0x881Ab2380017870C49a9A114806C05F3CFE406e2
+&gt; Private key: 2a0cbfe49ea7c18e89b87be4237e1717823fc16b52dc02e91fb30af122fba9b3
+&gt; Balance: [[Link](<a class="reference external" href="https://explore-testnet.vechain.org/accounts/0x881ab2380017870c49a9a114806c05f3cfe406e2">https://explore-testnet.vechain.org/accounts/0x881ab2380017870c49a9a114806c05f3cfe406e2</a>)]
+[block:code]
+{</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>“codes”: [</dt>
+<dd><dl class="first docutils">
+<dt>{</dt>
+<dd>“code”: “// Import librarynconst cry = require(‘thor-devkit/dist/cry’)nconst Transaction = require(‘thor-devkit/dist/transaction’).Transactionnn// User private key.nconst originPriv = Buffer.from(n    ‘2a0cbfe49ea7c18e89b87be4237e1717823fc16b52dc02e91fb30af122fba9b3’,n    ‘hex’n)n// User public address: 0x881Ab2380017870C49a9A114806C05F3CFE406e2nconst originAddress = cry.publicKeyToAddress(cry.secp256k1.derivePublicKey(originPriv))nn// Construct the hash for signing.nconst originHash = tx.signingHash()nn// Construct the user signature.nconst originSignature = cry.secp256k1.sign(originHash, originPriv)”,
+“language”: “text”,
+“name”: “<a class="reference external" href="https://gist.github.com/laalaguer/1eaea9354eb2deba769a92296814e4f1">https://gist.github.com/laalaguer/1eaea9354eb2deba769a92296814e4f1</a>”</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>]</p>
+</div></blockquote>
+<p>}
+[/block]
+From the above code, the program has obtained a“user” signature as originSignature. Next step we need to obtain the “sponsor” signature. Usually, the sponsor exists over the internet as a service. So we will use the HTTP protocol to obtain it.</p>
+<p>### Get a Sponsor Signature</p>
+<p>This step requires us to send the original transaction to the sponsoring service and let the sponsor generate a signature for us. On the user’s side, the network operation is can be wrapped into a getSponsorSignature function:
+[block:code]
+{</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>“codes”: [</dt>
+<dd><dl class="first docutils">
+<dt>{</dt>
+<dd>“code”: “// HTTP function definitionnasync function getSponosrSignature(sender, txBody) {n    const url = ‘<a class="reference external" href="http://localhost:3000/'n">http://localhost:3000/’n</a>    const response = await fetch(url, {n        method: ‘POST’,n        headers: {n            ‘Accept’: ‘application/json’,n            ‘Content-Type’: ‘application/json’n        },n        body: JSON.stringify({n            ‘sender’: sender,n            ‘txBody’: txBodyn        })n    })nn    const r = await response.json()n    return r[‘sponsor_signature’]n}nn// Fetch the sponsor signature.nconst sponsorSignature = await getSponosrSignature(n    ‘0x’+originAddress.toString(‘hex’),n    txBodyn)”,
+“language”: “text”</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>]</p>
+</div></blockquote>
+<p>}
+[/block]
+Pay attention to the following details:</p>
+<p>[<a class="reference external" href="http://localhost:3000/](http://localhost:3000/">http://localhost:3000/](http://localhost:3000/</a>) is the destination we post our request;</p>
+<p>We have posted two things: sender which is the user’s address, and txBody is the original transaction itself;</p>
+<p>We expect sponsorSignature to be sent back from the sponsor and the user can finally assemble the signature.</p>
+<p>## Next Steps</p>
+<p>If you have followed the above steps faithfully, then the job on the user’s side is almost done. The remote sponsor needs to react to the request and return the signature or reject it. We will continue in the next tutorial about:</p>
+<ul class="simple">
+<li>Write a sponsor service to generate “sponsor signature”.</li>
+<li>Combine the user signature with the sponsor’s signature.</li>
+<li>Assemble the final transaction and post to the VeChain network.</li>
+</ul>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VeChain Developers
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

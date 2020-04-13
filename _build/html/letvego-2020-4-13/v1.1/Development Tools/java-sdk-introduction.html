@@ -1,0 +1,1292 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>} &mdash; VeChain Documentation Legacy 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> VeChain Documentation Legacy
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">}</a></li>
+<li><a class="reference internal" href="#id80">]</a></li>
+<li><a class="reference internal" href="#id83">]</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">VeChain Documentation Legacy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>}</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/letvego-2020-4-13/v1.1/Development Tools/java-sdk-introduction.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>—
+title: “Thor Java Client SDK”
+slug: “java-sdk-introduction”
+excerpt: “<a class="reference external" href="https://github.com/vechain/thor-client-sdk4j">https://github.com/vechain/thor-client-sdk4j</a>”
+hidden: false
+createdAt: “2019-02-22T03:49:27.680Z”
+updatedAt: “2019-04-09T12:12:57.820Z”
+—
+# What is Thor Java Client SDK?</p>
+<p>A SDK toolkit for client to call VeChainThor Restful API.</p>
+<ul class="simple">
+<li><ul class="first">
+<li><ul class="first">
+<li><ul class="first">
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Requires JDK8.</p>
+<ul class="simple">
+<li><ul class="first">
+<li><ul class="first">
+<li><ul class="first">
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>latest version 0.0.8</p>
+<ul class="simple">
+<li><ul class="first">
+<li><ul class="first">
+<li><ul class="first">
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>default package jar without dependencies,use -Pall to build all in one jar</p>
+<p>## Get Started</p>
+<p>### Create JAR</p>
+<ul class="simple">
+<li>git clone <a class="reference external" href="https://github.com/vechain/thor-client-sdk4j">https://github.com/vechain/thor-client-sdk4j</a></li>
+<li>cd thor-client-sdk4j &amp;&amp; mvn install</li>
+</ul>
+<p>### Add JAR to project</p>
+<p>Note: Here we demonstrate with IDEA, it is roughly the same in Eclipse.</p>
+<ul class="simple">
+<li>File &gt; Project Structure</li>
+<li>Project Setting s &gt; Modules &gt; Dependencies &gt; <cite>+</cite>  &gt; JARS or directories</li>
+<li>Select the jar file and click on <cite>Open</cite>, then click <cite>OK</cite> button to confirm</li>
+</ul>
+<p>## License
+Thor Java Client SDK is licensed under the GNU Lesser General Public License v3.0, also included in LICENSE file in repository.
+- - - -</p>
+<p>## Set blockchain nodes provider
+Set blockchain nodes sample as follows</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">NodeProvider</span> <span class="pre">nodeProvider</span> <span class="pre">=</span> <span class="pre">NodeProvider.getNodeProvider();</span>
+<span class="pre">nodeProvider.setProvider(&quot;http://localhost:8669&quot;);</span>
+<span class="pre">nodeProvider.setTimeout(10000);</span>
+<span class="pre">`</span></code></p>
+<dl class="docutils">
+<dt>##  You can find the clients toolkit under the directory :</dt>
+<dd><strong>src/main/java/com/vechain/thorclients/clients</strong></dd>
+</dl>
+<p>There are some SDK specifications &lt;a href=”<a class="reference external" href="https://github.com/vechain/thor-client-sdk4j/blob/dev/doc">https://github.com/vechain/thor-client-sdk4j/blob/dev/doc</a>”&gt; sdk4j doc &lt;/a&gt;</p>
+<p>For JUnit Test example: there are some required parameters in config.properties file to support JUnit Test running.</p>
+<p>### WalletUtils</p>
+<p>Create Wallet and ouput keystore:</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>`
+WalletInfo walletInfo = WalletUtils.createWallet(“123456”);
+String keyStoreString = walletInfo.toKeystoreString();</p>
+<p>logger.info(“KeyStore:” + keyStoreString);
+logger.info(“privKey:” + BytesUtils.toHexString(walletInfo.getKeyPair().getRawPrivateKey(), Prefix.ZeroLowerX));
+logger.info(“pubKey:” + BytesUtils.toHexString(walletInfo.getKeyPair().getRawPublicKey(), Prefix.ZeroLowerX));
+logger.info(“address:” + walletInfo.getKeyPair().getHexAddress());</p>
+<p>KeyStore:
+{</p>
+<blockquote>
+<div><p>“address”: “0x2a200dd7a805db17e9cecbb8e33067306dca143b”,
+“crypto”: {</p>
+<blockquote>
+<div><p>“cipher”: “aes-128-ctr”,
+“cipherparams”: {</p>
+<blockquote>
+<div>“iv”: “f8ab97c61fa736a5cb040b1912f9075c”</div></blockquote>
+<p>},
+“ciphertext”: “0def4f8fad25b5169178f02c93b53c1a7fcbcdbe6b7e960b2e8badcf8098d878”,
+“kdf”: “scrypt”,
+“kdfparams”: {</p>
+<blockquote>
+<div>“dklen”: 32,
+“n”: 262144,
+“p”: 1,
+“r”: 8,
+“salt”: “e7c337c143029a8ce4ea41153747fc3b103e7c416040a907c36c32f9ca34dbb6”</div></blockquote>
+<p>},
+“mac”: “af1fc6fed812610ce13daaae8bb5dd1e83eba3d100675a9ae07de9357952fc8e”</p>
+</div></blockquote>
+<p>},
+“id”: “8df9173d-4c05-4a7e-b847-69ccf490db06”,
+“version”: 3</p>
+</div></blockquote>
+<p>}
+privKey:0xe5a7eec8266f6b5ed3c9578944e22d396228d9cd9ef36d26497edc89237104f0
+pubKey:0x60c40e63d06929b338812757462f3f7b54ddb888f9acc1d4b269c553d423169e8efd06e914d180def23150dbdca76eceee18ea19ec7c7ab11b2747e17a8a960f
+address:0x2a200dd7a805db17e9cecbb8e33067306dca143b</p>
+<p><a href="#id3"><span class="problematic" id="id4">``</span></a><a href="#id5"><span class="problematic" id="id6">`</span></a></p>
+<p>#### Load keystore:</p>
+<p><a href="#id7"><span class="problematic" id="id8">``</span></a><a href="#id9"><span class="problematic" id="id10">`</span></a></p>
+<p>String keyStore = “{“address”:”0x2a200dd7a805db17e9cecbb8e33067306dca143b”,”crypto”:{“cipher”:”aes-128-ctr”,”cipherparams”:{“iv”:”f8ab97c61fa736a5cb040b1912f9075c”},”ciphertext”:”0def4f8fad25b5169178f02c93b53c1a7fcbcdbe6b7e960b2e8badcf8098d878”,”kdf”:”scrypt”,”kdfparams”:{“dklen”:32,”n”:262144,”p”:1,”r”:8,”salt”:”e7c337c143029a8ce4ea41153747fc3b103e7c416040a907c36c32f9ca34dbb6”},”mac”:”af1fc6fed812610ce13daaae8bb5dd1e83eba3d100675a9ae07de9357952fc8e”},”id”:”8df9173d-4c05-4a7e-b847-69ccf490db06”,”version”:3}”;
+WalletInfo walletInfo = WalletUtils.loadKeystore(keyStore, “123456”);</p>
+<p>privateKey: BytesUtils.toHexString(walletInfo.getKeyPair().getRawPrivateKey(), Prefix.ZeroLowerX));
+publicKey: BytesUtils.toHexString(walletInfo.getKeyPair().getRawPublicKey(), Prefix.ZeroLowerX));
+Get address: walletInfo.getKeyPair().getHexAddress());
+<a href="#id11"><span class="problematic" id="id12">``</span></a><a href="#id13"><span class="problematic" id="id14">`</span></a></p>
+<p>### AccountClient</p>
+<p>User can use this client :</p>
+<p>#### Get Account information: VET balance and VTHO balance</p>
+<p><a href="#id15"><span class="problematic" id="id16">``</span></a>`
+Address address = Address.fromHexString(fromAddress);
+Account account = AccountClient.getAccountInfo(address, null);
+logger.info(“account info:” + JSON.toJSONString(account));
+Assert.assertNotNull(account);</p>
+<p>eg.
+Address address = Address.fromHexString(“0xD3EF28DF6b553eD2fc47259E8134319cB1121A2A”);
+Account account = AccountClient.getAccountInfo(</p>
+<blockquote>
+<div>address,  // account address
+null      // null = Revision.BEST
+);</div></blockquote>
+<p>logger.info(“account info:” + JSON.toJSONString(account));
+account info:
+{“balance”:”0x42aeda6af58002f600000”,”energy”:”0x14234c71f08e4db8e504”,”hasCode”:false}</p>
+<p><a href="#id17"><span class="problematic" id="id18">``</span></a><a href="#id19"><span class="problematic" id="id20">`</span></a></p>
+<p>#### Get code on a address：</p>
+<p><a href="#id21"><span class="problematic" id="id22">``</span></a>`
+Address tokenAddr = Address.VTHO_Address;
+AccountCode code = AccountClient.getAccountCode(tokenAddr, null);
+logger.info(“code:” + JSON.toJSONString(code));
+code:
+{</p>
+<blockquote>
+<div>“code”: “0x6080604052600436106100af576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306fdde03146100b4578063095ea7b31461014457806318160ddd146101a957806323b872dd146101d4578063313ce5671461025957806370a082311461028a57806395d89b41146102e1578063a9059cbb14610371578063bb35783b146103d6578063d89135cd1461045b578063dd62ed3e14610486575b600080fd5b3480156100c057600080fd5b506100c96104fd565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156101095780820151818401526020810190506100ee565b50505050905090810190601f1680156101365780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b34801561015057600080fd5b5061018f600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291908035906020019092919050505061053a565b604051808215151515815260200191505060405180910390f35b3480156101b557600080fd5b506101be61062b565b6040518082815260200191505060405180910390f35b3480156101e057600080fd5b5061023f600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291905050506106d1565b604051808215151515815260200191505060405180910390f35b34801561026557600080fd5b5061026e610865565b604051808260ff1660ff16815260200191505060405180910390f35b34801561029657600080fd5b506102cb600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061086e565b6040518082815260200191505060405180910390f35b3480156102ed57600080fd5b506102f661094d565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561033657808201518184015260208101905061031b565b50505050905090810190601f1680156103635780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b34801561037d57600080fd5b506103bc600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291908035906020019092919050505061098a565b604051808215151515815260200191505060405180910390f35b3480156103e257600080fd5b50610441600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291905050506109a1565b604051808215151515815260200191505060405180910390f35b34801561046757600080fd5b50610470610b67565b6040518082815260200191505060405180910390f35b34801561049257600080fd5b506104e7600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610c0d565b6040518082815260200191505060405180910390f35b60606040805190810160405280600681526020017f566554686f720000000000000000000000000000000000000000000000000000815250905090565b6000816000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055508273ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167f8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925846040518082815260200191505060405180910390a36001905092915050565b60003073ffffffffffffffffffffffffffffffffffffffff1663592b389c6040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b15801561069157600080fd5b505af11580156106a5573d6000803e3d6000fd5b505050506040513d60208110156106bb57600080fd5b8101908080519060200190929190505050905090565b6000816000808673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054101515156107c6576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252601f8152602001807f6275696c74696e3a20696e73756666696369656e7420616c6c6f77616e63650081525060200191505060405180910390fd5b816000808673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000828254039250508190555061085a848484610c93565b600190509392505050565b60006012905090565b60003073ffffffffffffffffffffffffffffffffffffffff1663ee660480836040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050602060405180830381600087803b15801561090b57600080fd5b505af115801561091f573d6000803e3d6000fd5b505050506040513d602081101561093557600080fd5b81019080805190602001909291905050509050919050565b60606040805190810160405280600481526020017f5654484f00000000000000000000000000000000000000000000000000000000815250905090565b6000610997338484610c93565b6001905092915050565b60003373ffffffffffffffffffffffffffffffffffffffff168473ffffffffffffffffffffffffffffffffffffffff161480610add57503373ffffffffffffffffffffffffffffffffffffffff163073ffffffffffffffffffffffffffffffffffffffff1663059950e9866040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050602060405180830381600087803b158015610a8a57600080fd5b505af1158015610a9e573d6000803e3d6000fd5b505050506040513d6020811015610ab457600080fd5b810190808051906020019092919050505073ffffffffffffffffffffffffffffffffffffffff16145b1515610b51576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260208152602001807f6275696c74696e3a2073656c66206f72206d617374657220726571756972656481525060200191505060405180910390fd5b610b5c848484610c93565b600190509392505050565b60003073ffffffffffffffffffffffffffffffffffffffff1663138d4d0c6040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b158015610bcd57600080fd5b505af1158015610be1573d6000803e3d6000fd5b505050506040513d6020811015610bf757600080fd5b8101908080519060200190929190505050905090565b60008060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054905092915050565b6000811115610eaa573073ffffffffffffffffffffffffffffffffffffffff166339ed08d584836040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200182815260200192505050602060405180830381600087803b158015610d3f57600080fd5b505af1158015610d53573d6000803e3d6000fd5b505050506040513d6020811015610d6957600080fd5b81019080805190602001909291905050501515610dee576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252601d8152602001807f6275696c74696e3a20696e73756666696369656e742062616c616e636500000081525060200191505060405180910390fd5b3073ffffffffffffffffffffffffffffffffffffffff16631cedfac183836040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200182815260200192505050600060405180830381600087803b158015610e9157600080fd5b505af1158015610ea5573d6000803e3d6000fd5b505050505b8173ffffffffffffffffffffffffffffffffffffffff168373ffffffffffffffffffffffffffffffffffffffff167fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef836040518082815260200191505060405180910390a35050505600a165627a7a72305820bd55cb9aff347dc60fe8280ae6b08a6f6deacc85a4e1c89ba0a8ef31fbcaecc60029”</div></blockquote>
+<div class="section" id="id23">
+<h1>}<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h1>
+<p>### TransactionClient</p>
+<p>#### Sign VET transaction:</p>
+<p><a href="#id24"><span class="problematic" id="id25">``</span></a>`
+byte chainTag = BlockchainClient.getChainTag();
+byte[] blockRef = BlockchainClient.getBlockRef(Revision.BEST).toByteArray();
+Amount amount = Amount.createFromToken(AbstractToken.VET);
+amount.setDecimalAmount(“1.12”);
+ToClause clause = TransactionClient.buildVETToClause(Address.fromHexString(“0xD3EF28DF6b553eD2fc47259E8134319cB1121A2A”), amount, ToData.ZERO);
+RawTransaction rawTransaction = RawTransactionFactory.getInstance().createRawTransaction(chainTag, blockRef, 720, 21000, (byte) 0x0, CryptoUtils.generateTxNonce(), clause);</p>
+<p>String raw = BytesUtils.toHexString(rawTransaction.encode(), Prefix.ZeroLowerX);</p>
+<p>logger.info(“raw=” + raw);</p>
+<p>raw=0xf902d6819a8702288058b9af928202d0f90273e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f800008001830616988088ff9198c817655decc0b841bd61e198f126adddb169eebf5cd3da25ae3a3f07102e574bcd1368440d1e307c4c47884364e2abc66ef6940c4953758dd1c57f8255025639702104ce83e9a3b501</p>
+<p>TransferResult result = TransactionClient.signThenTransfer(rawTransaction, ECKeyPair.create(privateKey));
+logger.info(“SendVET result:” + JSON.toJSONString(result));
+Assert.assertNotNull(result);
+// you can generate transaction id local and verify transfer result
+String hexAddress = ECKeyPair.create(privateKey).getHexAddress();
+String txIdHex = BlockchainUtils.generateTransactionId(rawTransaction, Address.fromHexString(hexAddress));
+logger.info(“Calculate transaction txid:” + txIdHex);
+Assert.assertEquals(txIdHex, result.getId());</p>
+<p><a href="#id26"><span class="problematic" id="id27">``</span></a><a href="#id28"><span class="problematic" id="id29">`</span></a></p>
+<p>#### Sign VTHO transaction:</p>
+<p><a href="#id30"><span class="problematic" id="id31">``</span></a><a href="#id32"><span class="problematic" id="id33">`</span></a></p>
+<p>byte chainTag = BlockchainClient.getChainTag();
+byte[] blockRef = BlockClient.getBlock(null).blockRef().toByteArray();
+Amount amount = Amount.createFromToken(ERC20Token.VTHO);
+amount.setDecimalAmount(“11.12”);
+ToClause clause = ERC20Contract.buildTranferToClause(ERC20Token.VTHO, Address.fromHexString(“0xc71ADC46c5891a8963Ea5A5eeAF578E0A2959779”), amount);
+RawTransaction rawTransaction = RawTransactionFactory.getInstance().createRawTransaction(chainTag, blockRef, 720, 80000, (byte) 0x0, CryptoUtils.generateTxNonce(), clause);</p>
+<p>String raw = BytesUtils.toHexString(rawTransaction.encode(), Prefix.ZeroLowerX);</p>
+<p>logger.info(“raw=” + raw);</p>
+<p>raw=0xf902d6819a8702288058b9af928202d0f90273e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f800008001830616988088ff9198c817655decc0b841bd61e198f126adddb169eebf5cd3da25ae3a3f07102e574bcd1368440d1e307c4c47884364e2abc66ef6940c4953758dd1c57f8255025639702104ce83e9a3b501</p>
+<p>TransferResult result = TransactionClient.signThenTransfer(rawTransaction, ECKeyPair.create(privateKey));
+logger.info(“SendVTHO Result:” + JSON.toJSONString(result));
+Assert.assertNotNull(result);
+// you can generate transaction id local and verify transfer result
+String hexAddress = ECKeyPair.create(privateKey).getHexAddress();
+String txIdHex = BlockchainUtils.generateTransactionId(rawTransaction, Address.fromHexString(hexAddress));
+logger.info(“Calculate transaction txid:” + txIdHex);
+Assert.assertEquals(txIdHex, result.getId());</p>
+<p><a href="#id34"><span class="problematic" id="id35">``</span></a><a href="#id36"><span class="problematic" id="id37">`</span></a></p>
+<p>#### Send VET to account：</p>
+<p><a href="#id38"><span class="problematic" id="id39">``</span></a>`
+byte chainTag = BlockchainClient.getChainTag();
+byte[] blockRef = BlockchainClient.getBlockRef( Revision.BEST).toByteArray();
+Amount amount = Amount.createFromToken( AbstractToken.VET);
+amount.setDecimalAmount( “21.12” );
+ToClause clause = TransactionClient.buildVETToClause(</p>
+<blockquote>
+<div>Address.fromHexString( “0xc71ADC46c5891a8963Ea5A5eeAF578E0A2959779” ),  // reveiver address
+amount,                                                                 // transfer amount
+ToData.ZERO );                                                          // The default value ToData.ZERO</div></blockquote>
+<p>//construct RawTransaction
+RawTransaction rawTransaction = RawTransactionFactory.getInstance().createRawTransaction( chainTag, blockRef, 720, 21000, (byte)0x0, CryptoUtils.generateTxNonce(), clause);</p>
+<p>String raw = BytesUtils.toHexString(rawTransaction.encode(), Prefix.ZeroLowerX);</p>
+<p>logger.info(“raw=” + raw);</p>
+<p>raw=0xf902d6819a8702288058b9af928202d0f90273e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f800008001830616988088ff9198c817655decc0b841bd61e198f126adddb169eebf5cd3da25ae3a3f07102e574bcd1368440d1e307c4c47884364e2abc66ef6940c4953758dd1c57f8255025639702104ce83e9a3b501</p>
+<p><a href="#id40"><span class="problematic" id="id41">``</span></a><a href="#id42"><span class="problematic" id="id43">`</span></a></p>
+<p>#### Send VTHO to account:</p>
+<p><a href="#id44"><span class="problematic" id="id45">``</span></a>`
+byte chainTag = BlockchainClient.getChainTag();
+// null means the best block
+byte[] blockRef = BlockClient.getBlock( null ).blockRef().toByteArray();
+Amount amount = Amount.createFromToken( ERC20Token.VTHO);
+amount.setDecimalAmount( “11.12” );
+// construct transaction clause
+ToClause clause = ERC20Contract.buildTranferToClause(</p>
+<blockquote>
+<div>ERC20Token.VTHO,                                                        // the default ERC20Token.VTHO
+Address.fromHexString(“0xc71ADC46c5891a8963Ea5A5eeAF578E0A2959779”),    // receiver address
+amount);                                                                // transfer amount</div></blockquote>
+<p>RawTransaction rawTransaction = RawTransactionFactory.getInstance().createRawTransaction( chainTag, blockRef, 720, 80000, (byte)0x0, CryptoUtils.generateTxNonce(), clause);</p>
+<p>TransferResult result = TransactionClient.signThenTransfer( rawTransaction, ECKeyPair.create( privateKey ) );
+logger.info( “transfer vethor result:” + JSON.toJSONString( result ) );
+result:{“id”:”0xbae8e1cf5d61e6d8a9765dd21cdf35abe919fefc8335d9f9ead13aa3e7f12c83”}</p>
+<p><a href="#id46"><span class="problematic" id="id47">``</span></a><a href="#id48"><span class="problematic" id="id49">`</span></a></p>
+<p>#### Call Contract view method:</p>
+<p><a href="#id50"><span class="problematic" id="id51">``</span></a><a href="#id52"><span class="problematic" id="id53">`</span></a></p>
+<p>Address contractAddr = ERC20Token.VTHO.getContractAddress();
+Address address = Address.fromHexString(fromAddress);
+Revision currRevision = Revision.BEST;
+AbiDefinition abiDefinition = ERC20Contract.defaultERC20Contract.findAbiDefinition(“balanceOf”);
+ContractCall call = ERC20Contract.buildCall(abiDefinition, address.toHexString(null));
+ContractCallResult contractCallResult = ERC20ContractClient.callContract(call, contractAddr, currRevision);</p>
+<p>contractCallResult:
+{</p>
+<blockquote>
+<div><p>“data”: “0x00000000000000000000000000000000000000000000001e0c2fcee984ee5c00”,
+“events”: [</p>
+<p>],
+“gasUsed”: 870,
+“reverted”: false,
+“transfers”: [</p>
+<p>],
+“vmError”: “”</p>
+</div></blockquote>
+<p>}</p>
+<p><a href="#id54"><span class="problematic" id="id55">``</span></a>`
+#### Query transaction:</p>
+<p><a href="#id56"><span class="problematic" id="id57">``</span></a>`
+Transaction transaction = TransactionClient.getTransaction(txId, isRaw, Revision);</p>
+<p>eg.
+Transaction transaction = TransactionClient.getTransaction(“0x2c405851ca789f48c51c8ede5fadf682fc6636a9aa7ca366328332a3472326ae”, true, null);
+logger.info(“Transaction:” + JSON.toJSONString(transaction));
+transaction:
+{</p>
+<blockquote>
+<div><p>“chainTag”: 0,
+“expiration”: 0,
+“gas”: 0,
+“gasPriceCoef”: 0,
+“meta”: {</p>
+<blockquote>
+<div>“pos”: “0x000068536517b9017f2e39fd3b6811c60aa30ffbb4f7da102a76d9285133ba91”,
+“blockNumber”: 26707,
+“blockTimestamp”: 1530281470</div></blockquote>
+<p>},
+“raw”: “0xf87e2786685288d071cd8202d0e0df94d3ef28df6b553ed2fc47259e8134319cb1121a2a880de0b6b3a764000080808252088088c5ca5b42e2071935c0b841d05e70cb0e59416db4e59d7d5f5db3908596c4140fa2d47ef082ab2405125726345ef4d58fdc895828feebba7295335aee60818425ed37ee7140e892dc21c1b001”,
+“size”: 0</p>
+</div></blockquote>
+<p>}</p>
+<p><a href="#id58"><span class="problematic" id="id59">``</span></a><a href="#id60"><span class="problematic" id="id61">`</span></a></p>
+<p>#### Query transaction receipt</p>
+<p><a href="#id62"><span class="problematic" id="id63">``</span></a>`
+Receipt receipt = TransactionClient.getTransactionReceipt(txid, Revision);</p>
+<p>eg.
+//query receipt info
+Receipt receipt = TransactionClient.getTransactionReceipt(“0x6b99c0f1ebfa3b9d93dcfc503f468104ac74271728841551aaa44115d080f5b5”, null);
+logger.info(“Receipt:” + JSON.toJSONString(receipt));
+Receipt:
+{</p>
+<blockquote>
+<div><p>“gasPayer”: “0x866a849122133888214ac9fc59550077adf14975”,
+“gasUsed”: 21000,
+“meta”: {</p>
+<blockquote>
+<div>“pos”: “0x000066e58079163edacb0bfe06b52a4d16cc646ce8039a2b7cf5136cbc9fb186”,
+“blockNumber”: 26341,
+“blockTimestamp”: 1530277810,
+“txID”: “0x6b99c0f1ebfa3b9d93dcfc503f468104ac74271728841551aaa44115d080f5b5”,
+“txOrigin”: “0x866a849122133888214ac9fc59550077adf14975”</div></blockquote>
+<p>},
+“outputs”: [</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>{</dt>
+<dd><p class="first">“events”: [</p>
+<p>],
+“transfers”: [</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>{</dt>
+<dd>“amount”: “0xde0b6b3a7640000”,
+“recipient”: “0xd3ef28df6b553ed2fc47259e8134319cb1121a2a”,
+“sender”: “0x866a849122133888214ac9fc59550077adf14975”</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p class="last">]</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>],
+“paid”: “0x1236efcbcbb340000”,
+“reverted”: false,
+“reward”: “0x576e189f04f60000”</p>
+</div></blockquote>
+<p>}</p>
+<p><a href="#id64"><span class="problematic" id="id65">``</span></a>`
+#### Generate TransactionId local</p>
+<p><a href="#id66"><span class="problematic" id="id67">``</span></a>`
+// you can generate transaction id and verify the transfer result
+String hexAddress = ECKeyPair.create(privateKey).getHexAddress();
+String txIdHex = BlockchainUtils.generateTransactionId(rawTransaction, Address.fromHexString(hexAddress));
+logger.info(“Calculate transaction txid:” + txIdHex);</p>
+<p><a href="#id68"><span class="problematic" id="id69">``</span></a><a href="#id70"><span class="problematic" id="id71">`</span></a></p>
+<ul class="simple">
+<li><ul class="first">
+<li><ul class="first">
+<li><ul class="first">
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>### BlockClient</p>
+<p>#### Get block:</p>
+<p><a href="#id72"><span class="problematic" id="id73">``</span></a>`
+Get specified block:
+Revision revision = Revision.create(0);
+Block block = BlockClient.getBlock(revision);
+logger.info(“block:” + JSON.toJSONString(block));
+block:
+{</p>
+<blockquote>
+<div>“beneficiary”: “0x0000000000000000000000000000000000000000”,
+“gasLimit”: 10000000,
+“gasUsed”: 0,
+“id”: “0x00000000ef3b214ad627b051f42add3b93b2f913f2594b94a64b2377b0f9159a”,
+“isTrunk”: true,
+“number”: “0”,
+“parentID”: “0xffffffff00000000000000000000000000000000000000000000000000000000”,
+“receiptsRoot”: “0x45b0cfc220ceec5b7c1c62c4d4193d38e4eba48e8815729ce75f9c0ab0e4c1c0”,
+“signer”: “0x0000000000000000000000000000000000000000”,
+“size”: 170,
+“stateRoot”: “0x120df3368f409525ed30fd98c999af8d66bfa553cae14005fc3b7f00bcc60de1”,
+“timestamp”: 1528387200,
+“totalScore”: 0,
+“transactions”: [],
+“txsRoot”: “0x45b0cfc220ceec5b7c1c62c4d4193d38e4eba48e8815729ce75f9c0ab0e4c1c0”</div></blockquote>
+<p>}</p>
+<p>or</p>
+<p>Get best block:
+Block block = BlockClient.getBlock(Revision.BEST);
+logger.info(“block:” + JSON.toJSONString(block));
+block:
+{</p>
+<blockquote>
+<div>“beneficiary”: “0xafbd76f9cdd19015c2d322a35bbea0480f5d70e1”,
+“gasLimit”: 10448965,
+“gasUsed”: 0,
+“id”: “0x00026bfa7cbbd7c8cf643e45eadff1ddce1395cc47a5c08c521498f693381840”,
+“isTrunk”: true,
+“number”: “158714”,
+“parentID”: “0x00026bf9c0828062b25d0b23df0c99f6571af389d273961b82c90906a0a96b1b”,
+“receiptsRoot”: “0x45b0cfc220ceec5b7c1c62c4d4193d38e4eba48e8815729ce75f9c0ab0e4c1c0”,
+“signer”: “0xafbd76f9cdd19015c2d322a35bbea0480f5d70e1”,
+“size”: 239,
+“stateRoot”: “0xa8dd31b95e227b92e800d65c824d2fb124a36e924b398252ec995d3611a69d43”,
+“timestamp”: 1530016140,
+“totalScore”: 1034108,
+“transactions”: [],
+“txsRoot”: “0x45b0cfc220ceec5b7c1c62c4d4193d38e4eba48e8815729ce75f9c0ab0e4c1c0”</div></blockquote>
+<p>}</p>
+<p><a href="#id74"><span class="problematic" id="id75">``</span></a><a href="#id76"><span class="problematic" id="id77">`</span></a></p>
+<ul class="simple">
+<li><ul class="first">
+<li><ul class="first">
+<li><ul class="first">
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>### LogsClient
+You can get events logs and transfer logs, the api is also supporting pagination query.</p>
+<p>#### Query events logs</p>
+<p><a href="#id78"><span class="problematic" id="id79">``</span></a>`
+EventFilter filter = EventFilter.createFilter( Range.createBlockRange(1000, 20000), Options.create( 0, 10 ) );
+// you also can filter even logs by topics
+// get abiMethodHexString
+List&lt;String &gt; eventsTransferInputs = new ArrayList&lt;String&gt;(  );
+eventsTransferInputs.add( “address” );
+eventsTransferInputs.add( “address” );
+eventsTransferInputs.add( “uint256” );
+AbiDefinition abiDefinition = ERC20Contract.defaultERC20Contract.findAbiDefinition( “Transfer”, “event” , eventsTransferInputs);
+String abiMethodHexString = BytesUtils.toHexString( abiDefinition.getBytesMethodHashed(), Prefix.ZeroLowerX);
+// filter even logs by topics
+filter.addTopicSet( abiMethodHexString, “0x000000000000000000000000866a849122133888214ac9fc59550077adf14975”, null, null, null );
+filter.addTopicSet( abiMethodHexString, null, “0x000000000000000000000000866a849122133888214ac9fc59550077adf14975”, null, null );
+ArrayList&lt;?&gt; filteredEvents = LogsClient.filterEvents(filter, Order.DESC, Address.VTHO_Address);
+filteredEvents:
+[</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>{</dt>
+<dd><p class="first">“data”: “0x00000000000000000000000000000000000000000000d3c21bcecceda1000000”,
+“topics”: [</p>
+<blockquote>
+<div>“0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef”,
+“0x000000000000000000000000e59d475abe695c7f67a8a2321f33a856b0b4c71d”,
+“0x000000000000000000000000866a849122133888214ac9fc59550077adf14975”</div></blockquote>
+<p>],
+“meta”: {</p>
+<blockquote>
+<div>“pos”: “0x000059bfeded8c115511608311f8c9574f197712cc934564979fe6a0abeb46e2”,
+“txOrigin”: “0xe59d475abe695c7f67a8a2321f33a856b0b4c71d”,
+“blockNumber”: 22975,
+“txID”: “0x56bbf4d86dfaebcf37fa6d2a56532b3cff4dcaeab9590606eb37d1d9d175b58a”,
+“blockTimestamp”: 1530244150</div></blockquote>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>},
+{</p>
+<blockquote>
+<div><p>“data”: “0x00000000000000000000000000000000000000000000d3c21bcecceda1000000”,
+“topics”: [</p>
+<blockquote>
+<div>“0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef”,
+“0x000000000000000000000000866a849122133888214ac9fc59550077adf14975”,
+“0x000000000000000000000000e2c3b55d8aa9920058030f73bacece582f2123ff”</div></blockquote>
+<p>],
+“meta”: {</p>
+<blockquote>
+<div>“pos”: “0x00005bca771336117946a24fd52cfb4d8d94ca4409762a04187a18440527d3c0”,
+“txOrigin”: “0x866a849122133888214ac9fc59550077adf14975”,
+“blockNumber”: 23498,
+“txID”: “0xe290b4f86a57ba859277117613046fb7159e7ac35bf708c213ef38ac2b7faafd”,
+“blockTimestamp”: 1530249380</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“data”: “0x000000000000000000000000000000000000000000000cb49b44ba602d800000”,
+“topics”: [</p>
+<blockquote>
+<div>“0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef”,
+“0x000000000000000000000000866a849122133888214ac9fc59550077adf14975”,
+“0x0000000000000000000000005034aa590125b64023a0262112b98d72e3c8e40e”</div></blockquote>
+<p>],
+“meta”: {</p>
+<blockquote>
+<div>“pos”: “0x00005d8d601ee2af2566f41eeab03003e6c1f2bcc9c80628dce02d2445d21df8”,
+“txOrigin”: “0x866a849122133888214ac9fc59550077adf14975”,
+“blockNumber”: 23949,
+“txID”: “0xe2c8df790a210093ca271f40335930593b8fc40e8978b9ec5bbf1865b64ab765”,
+“blockTimestamp”: 1530253890</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“data”: “0x0000000000000000000000000000000000000000000000000de0b6b3a7640000”,
+“topics”: [</p>
+<blockquote>
+<div>“0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef”,
+“0x000000000000000000000000866a849122133888214ac9fc59550077adf14975”,
+“0x000000000000000000000000f881a94423f22ee9a0e3e1442f515f43c966b7ed”</div></blockquote>
+<p>],
+“meta”: {</p>
+<blockquote>
+<div>“pos”: “0x00006263e8cda3d2f89479e652e24acac0f032cae59d78b3fb8125634e4cf85c”,
+“txOrigin”: “0x866a849122133888214ac9fc59550077adf14975”,
+“blockNumber”: 25187,
+“txID”: “0xc502170ce2516bbb52428714fa2ee9f4a157ca3f2ce779dbba2bb9fb639d82ad”,
+“blockTimestamp”: 1530266270</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“data”: “0x00000000000000000000000000000000000000000000003635c9adc5dea00000”,
+“topics”: [</p>
+<blockquote>
+<div>“0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef”,
+“0x000000000000000000000000866a849122133888214ac9fc59550077adf14975”,
+“0x000000000000000000000000f881a94423f22ee9a0e3e1442f515f43c966b7ed”</div></blockquote>
+<p>],
+“meta”: {</p>
+<blockquote>
+<div>“pos”: “0x000062724a2e8939846a99bf300a76c3ccba11f1b3dcc49e7469e5d4540748e6”,
+“txOrigin”: “0x866a849122133888214ac9fc59550077adf14975”,
+“blockNumber”: 25202,
+“txID”: “0x63aa0c84478536f43353df520e70aa91490530ee9ef3d462a514bd3006b0b8e7”,
+“blockTimestamp”: 1530266420</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“data”: “0x00000000000000000000000000000000000000000000003635c9adc5dea00000”,
+“topics”: [</p>
+<blockquote>
+<div>“0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef”,
+“0x000000000000000000000000866a849122133888214ac9fc59550077adf14975”,
+“0x000000000000000000000000f881a94423f22ee9a0e3e1442f515f43c966b7ed”</div></blockquote>
+<p>],
+“meta”: {</p>
+<blockquote>
+<div>“pos”: “0x0000627c7d117bd770083d8525f392feeba052a9c85301402f6ed526255444ba”,
+“txOrigin”: “0x866a849122133888214ac9fc59550077adf14975”,
+“blockNumber”: 25212,
+“txID”: “0x1f2b669a965e656ba853830f21a4200a96c96b572436d9e0a9a924f2e6084f43”,
+“blockTimestamp”: 1530266520</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“data”: “0x00000000000000000000000000000000000000000000003635c9adc5dea00000”,
+“topics”: [</p>
+<blockquote>
+<div>“0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef”,
+“0x000000000000000000000000866a849122133888214ac9fc59550077adf14975”,
+“0x000000000000000000000000d3ef28df6b553ed2fc47259e8134319cb1121a2a”</div></blockquote>
+<p>],
+“meta”: {</p>
+<blockquote>
+<div>“pos”: “0x000066427e0728c29e3945408e9f25671873feb8b9743be8d454a6fcbab265eb”,
+“txOrigin”: “0x866a849122133888214ac9fc59550077adf14975”,
+“blockNumber”: 26178,
+“txID”: “0x5dee9e3db6a9f53992314dfbf41197a5f6405cf0fd421a5427c274ae6d2479a4”,
+“blockTimestamp”: 1530276180</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“data”: “0x0000000000000000000000000000000000000000000000000de0b6b3a7640000”,
+“topics”: [</p>
+<blockquote>
+<div>“0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef”,
+“0x000000000000000000000000866a849122133888214ac9fc59550077adf14975”,
+“0x000000000000000000000000d3ef28df6b553ed2fc47259e8134319cb1121a2a”</div></blockquote>
+<p>],
+“meta”: {</p>
+<blockquote>
+<div>“pos”: “0x000066d0b71d88edfacfdb2ec33654dc98fd771cf349667e8225f167135a4bac”,
+“txOrigin”: “0x866a849122133888214ac9fc59550077adf14975”,
+“blockNumber”: 26320,
+“txID”: “0x396d4940947ea65283da2c20f6e655e8f95abaa26075cea33520d867c89d9afa”,
+“blockTimestamp”: 1530277600</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“data”: “0x0000000000000000000000000000000000000000000000000de0b6b3a7640000”,
+“topics”: [</p>
+<blockquote>
+<div>“0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef”,
+“0x000000000000000000000000866a849122133888214ac9fc59550077adf14975”,
+“0x000000000000000000000000d3ef28df6b553ed2fc47259e8134319cb1121a2a”</div></blockquote>
+<p>],
+“meta”: {</p>
+<blockquote>
+<div>“pos”: “0x000066e58079163edacb0bfe06b52a4d16cc646ce8039a2b7cf5136cbc9fb186”,
+“txOrigin”: “0x866a849122133888214ac9fc59550077adf14975”,
+“blockNumber”: 26341,
+“txID”: “0xb978482708ca35556a3d2872e11849b9aa60a81bc6c7e1d97dfec54db3470d2f”,
+“blockTimestamp”: 1530277810</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“data”: “0x0000000000000000000000000000000000000000000000000de0b6b3a7640000”,
+“topics”: [</p>
+<blockquote>
+<div>“0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef”,
+“0x000000000000000000000000866a849122133888214ac9fc59550077adf14975”,
+“0x000000000000000000000000d3ef28df6b553ed2fc47259e8134319cb1121a2a”</div></blockquote>
+<p>],
+“meta”: {</p>
+<blockquote>
+<div>“pos”: “0x000066eb51b4e2955a9bb4ea287890c34489eeade60840ecfb7959a3352b433f”,
+“txOrigin”: “0x866a849122133888214ac9fc59550077adf14975”,
+“blockNumber”: 26347,
+“txID”: “0x1a9e9106174e8e54debd2552cf0665a2ffefb62f13d3c1d3e3d01faf88920fbc”,
+“blockTimestamp”: 1530277870</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+</div>
+<div class="section" id="id80">
+<h1>]<a class="headerlink" href="#id80" title="Permalink to this headline">¶</a></h1>
+<p>#### Query transfer logs</p>
+<p><a href="#id81"><span class="problematic" id="id82">``</span></a>`
+TransferFilter filter = TransferFilter.createFilter(Range.createBlockRange( 1000, 20000 ) ,Options.create( 0, 10 ) );
+// you can filter condition by sender address or recipient address
+filter.addAddressSet(null, Address.fromHexString(“0xe59d475abe695c7f67a8a2321f33a856b0b4c71d”), null);
+filter.addAddressSet(null, null, Address.fromHexString(“0xe59d475abe695c7f67a8a2321f33a856b0b4c71d”));
+ArrayList transferLogs = LogsClient.filterTransferLogs( filter, Order.DESC);
+transferLogs:
+[</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>{</dt>
+<dd><p class="first">“amount”: “0x152d02c7e14af6800000”,
+“sender”: “0xe59d475abe695c7f67a8a2321f33a856b0b4c71d”,
+“meta”: {</p>
+<blockquote>
+<div>“pos”: “0x00003abbf8435573e0c50fed42647160eabbe140a87efbe0ffab8ef895b7686e”,
+“txOrigin”: “0xe59d475abe695c7f67a8a2321f33a856b0b4c71d”,
+“blockNumber”: 15035,
+“txID”: “0x9daa5b584a98976dfca3d70348b44ba5332f966e187ba84510efb810a0f9f851”,
+“blockTimestamp”: 1530164750</div></blockquote>
+<p class="last">},
+“recipient”: “0x7567d83b7b8d80addcb281a71d54fc7b3364ffed”</p>
+</dd>
+</dl>
+<p>},
+{</p>
+<blockquote>
+<div><p>“amount”: “0x204fb9313b5d211619800000”,
+“sender”: “0xe59d475abe695c7f67a8a2321f33a856b0b4c71d”,
+“meta”: {</p>
+<blockquote>
+<div>“pos”: “0x00003acbdaa137ddf8e2ebee923caebe8f82dece89b67b4f1cae85c097274f3b”,
+“txOrigin”: “0xe59d475abe695c7f67a8a2321f33a856b0b4c71d”,
+“blockNumber”: 15051,
+“txID”: “0xf01eb38ccbe4111c8b80a34cf864ba3e23a1ba4ab0707415b9efe74d3ab54859”,
+“blockTimestamp”: 1530164910</div></blockquote>
+<p>},
+“recipient”: “0x4f6fc409e152d33843cf4982d414c1dd0879277e”</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“amount”: “0x10f0cf064dd59200000”,
+“sender”: “0xe59d475abe695c7f67a8a2321f33a856b0b4c71d”,
+“meta”: {</p>
+<blockquote>
+<div>“pos”: “0x00003dd7d7820959bee931778065e33d418a88ceed23e5b13a59514ae4a9598d”,
+“txOrigin”: “0xe59d475abe695c7f67a8a2321f33a856b0b4c71d”,
+“blockNumber”: 15831,
+“txID”: “0x5a907f0912656d7bf76a7635c1420454da497e6beec4f025500c1778dd043906”,
+“blockTimestamp”: 1530172710</div></blockquote>
+<p>},
+“recipient”: “0x50262b2622a5e75d57c5c26770bf4aebf076a9a9”</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+</div>
+<div class="section" id="id83">
+<h1>]<a class="headerlink" href="#id83" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><ul class="first">
+<li><ul class="first">
+<li><ul class="first">
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>### BlockchainClient</p>
+<p>You can get the chain tag and block reference.</p>
+<p>#### Get chain tag:</p>
+<p><a href="#id84"><span class="problematic" id="id85">``</span></a>`
+byte chainTag = BlockchainClient.getChainTag();
+int chainTagInt = chainTag &amp; 0xff;
+logger.info( “chainTag: ” + chainTagInt);
+chainTag: 39</p>
+<p><a href="#id86"><span class="problematic" id="id87">``</span></a>`
+#### Get block reference:</p>
+<p><a href="#id88"><span class="problematic" id="id89">``</span></a><a href="#id90"><span class="problematic" id="id91">`</span></a></p>
+<p>Revision revision = Revision.create(0);
+Block block = BlockClient.getBlock(revision);
+logger.info(“blockRef;” + BytesUtils.toHexString(block.blockRef().toByteArray(), Prefix.ZeroLowerX));
+blockRef:0x000000000b2bce3c</p>
+<p><a href="#id92"><span class="problematic" id="id93">``</span></a><a href="#id94"><span class="problematic" id="id95">`</span></a></p>
+<ul class="simple">
+<li><ul class="first">
+<li><ul class="first">
+<li><ul class="first">
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>### ProtoTypeClient
+The detail information you can refer to the page[ProtoType Wiki](<a class="reference external" href="https://github.com/vechain/thor/wiki/Prototype(CN">https://github.com/vechain/thor/wiki/Prototype(CN</a>))</p>
+<p>#### Get master address:</p>
+<p><a href="#id96"><span class="problematic" id="id97">``</span></a><a href="#id98"><span class="problematic" id="id99">`</span></a></p>
+<p>ContractCallResult callResult = ProtoTypeContractClient.getMasterAddress( Address.fromHexString( “0x866a849122133888214ac9fc59550077adf14975” ) , Revision.BEST);
+logger.info( “testGetMaster result:” + JSON.toJSONString( callResult ) );
+{</p>
+<blockquote>
+<div><p>“data”: “0x000000000000000000000000f881a94423f22ee9a0e3e1442f515f43c966b7ed”,
+“events”: [</p>
+<p>],
+“gasUsed”: 1058,
+“reverted”: false,
+“transfers”: [</p>
+<p>],
+“vmError”: “”</p>
+</div></blockquote>
+<p>}</p>
+<p><a href="#id100"><span class="problematic" id="id101">``</span></a><a href="#id102"><span class="problematic" id="id103">`</span></a></p>
+<p>#### Set master address:</p>
+<p><a href="#id104"><span class="problematic" id="id105">``</span></a>`
+String fromAddress = “0x866a849122133888214ac9fc59550077adf14975”;
+String privateKey = “0x4aa49af0d1c105e70eb71d31e066d8d0f06e46927194e561ea302d57ad0c9ad1”;
+ECKeyPair aECKeyPair = ECKeyPair.create(privateKey);
+TransferResult result = ProtoTypeContractClient.setMasterAddress(</p>
+<blockquote>
+<div>new Address[] { Address.fromHexString(fromAddress) },
+new Address[] { Address.fromHexString(masterAddress) }, TransactionClient.ContractGasLimit, (byte) 0x0,
+720, aECKeyPair);</div></blockquote>
+<p>result: {“id”:”0xbd4d94595b500bc9217839cc5b1987f4a277a277b6ede317a740480a28978ae2”}</p>
+<p><a href="#id106"><span class="problematic" id="id107">``</span></a><a href="#id108"><span class="problematic" id="id109">`</span></a></p>
+<p>#### Add user:</p>
+<p><a href="#id110"><span class="problematic" id="id111">``</span></a>`
+String fromAddress = “0x866a849122133888214ac9fc59550077adf14975”;
+String privateKey = “0x4aa49af0d1c105e70eb71d31e066d8d0f06e46927194e561ea302d57ad0c9ad1”;
+ECKeyPair aECKeyPair = ECKeyPair.create(privateKey);
+String userAddress = “0xc71ADC46c5891a8963Ea5A5eeAF578E0A2959779”;
+TransferResult transferResult = ProtoTypeContractClient.addUser(</p>
+<blockquote>
+<div>new Address[]{Address.fromHexString( fromAddress )},
+new Address[]{Address.fromHexString( userAddress )},
+70000, (byte)0x0, 720, aECKeyPair );</div></blockquote>
+<p>logger.info(“Add user:” + JSON.toJSONString( transferResult ));
+transferResult:{“id”:”0x1eb2927e48d497d70f4530471abe62aa5700086e54af75ad8523d08005eab45f”}</p>
+<p><a href="#id112"><span class="problematic" id="id113">``</span></a><a href="#id114"><span class="problematic" id="id115">`</span></a></p>
+<p>#### Check if it is user:</p>
+<p><a href="#id116"><span class="problematic" id="id117">``</span></a>`
+ContractCallResult isUserResult = ProtoTypeContractClient.isUser(Address.fromHexString(fromAddress),</p>
+<blockquote>
+<div>Address.fromHexString(userAddress), Revision.BEST);</div></blockquote>
+<p>logger.info( “Get isUser result:” + JSON.toJSONString( callResult ) );
+{</p>
+<blockquote>
+<div><p>“data”: “0x0000000000000000000000000000000000000000000000000000000000000001”,
+“events”: [</p>
+<p>],
+“gasUsed”: 664,
+“reverted”: false,
+“transfers”: [</p>
+<p>],
+“vmError”: “”</p>
+</div></blockquote>
+<p>}</p>
+<p><a href="#id118"><span class="problematic" id="id119">``</span></a><a href="#id120"><span class="problematic" id="id121">`</span></a></p>
+<p>#### Remove user:</p>
+<p><a href="#id122"><span class="problematic" id="id123">``</span></a><a href="#id124"><span class="problematic" id="id125">`</span></a></p>
+<dl class="docutils">
+<dt>TransferResult transferResult = ProtoTypeContractClient.removeUsers(</dt>
+<dd><p class="first">new Address[]{Address.fromHexString( fromAddress )},
+new Address[]{Address.fromHexString( userAddress)},</p>
+<blockquote class="last">
+<div>70000, (byte)0x0, 720, ECKeyPair.create( privateKey ) );</div></blockquote>
+</dd>
+</dl>
+<p>logger.info( “Remove user:”  + JSON.toJSONString( transferResult ));
+transferResult:{“id”:”0x1eb2927e48d497d70f4530471abe62aa5700086e54af75ad8523d08005eab45f”}</p>
+<p><a href="#id126"><span class="problematic" id="id127">``</span></a>`
+#### Set Credit Plan:</p>
+<p><a href="#id128"><span class="problematic" id="id129">``</span></a>`
+Amount credit = Amount.VTHO();
+credit.setDecimalAmount(“10.00”);
+Amount recovery = Amount.VTHO();
+recovery.setDecimalAmount(“0.00001”);</p>
+<dl class="docutils">
+<dt>TransferResult setCreditPlansResult = ProtoTypeContractClient.setCreditPlans(</dt>
+<dd>new Address[] { Address.fromHexString(fromAddress) }, new Amount[] { credit },
+new Amount[] { recovery }, TransactionClient.ContractGasLimit, (byte) 0x0, 720, aECKeyPair);</dd>
+</dl>
+<p>logger.info(“set user plans:” + JSON.toJSONString(setCreditPlansResult));
+{“id”:”0xafe89d896b993efc98cda84add6ded39ea264a19b8a886fcc3f769e54964e990”}</p>
+<p><a href="#id130"><span class="problematic" id="id131">``</span></a>`
+#### Get Credit plan:</p>
+<p><a href="#id132"><span class="problematic" id="id133">``</span></a>`
+ContractCallResult callResult = ProtoTypeContractClient.getCreditPlan(Address.fromHexString(fromAddress),</p>
+<blockquote>
+<div>Revision.BEST);</div></blockquote>
+<p>logger.info(“Get user plan result:” + JSON.toJSONString(callResult));
+getUserCreditCallResult:
+{</p>
+<blockquote>
+<div><p>“data”: “0x0000000000000000000000000000000000000000000000008ac7230489e80000000000000000000000000000000000000000000000000000000009184e72a000”,
+“events”: [</p>
+<p>],
+“gasUsed”: 832,
+“reverted”: false,
+“transfers”: [</p>
+<p>],
+“vmError”: “”</p>
+</div></blockquote>
+<p>}</p>
+<p><a href="#id134"><span class="problematic" id="id135">``</span></a><a href="#id136"><span class="problematic" id="id137">`</span></a></p>
+<p>#### Get User Credit:</p>
+<p><a href="#id138"><span class="problematic" id="id139">``</span></a>`
+ContractCallResult getUserCreditCallResult = ProtoTypeContractClient</p>
+<blockquote>
+<div>.getUserCredit(Address.fromHexString(fromAddress), Address.fromHexString(userAddress), Revision.BEST);</div></blockquote>
+<p>logger.info(“Get user plan result:” + JSON.toJSONString(getUserCreditCallResult));
+{</p>
+<blockquote>
+<div><p>“data”: “0x0000000000000000000000000000000000000000000000008ac7230489e80000”,
+“events”: [</p>
+<p>],
+“gasUsed”: 1138,
+“reverted”: false,
+“transfers”: [</p>
+<p>],
+“vmError”: “”</p>
+</div></blockquote>
+<p>}</p>
+<p><a href="#id140"><span class="problematic" id="id141">``</span></a><a href="#id142"><span class="problematic" id="id143">`</span></a></p>
+<p>#### Multiple Party Payment:</p>
+<p><a href="#id144"><span class="problematic" id="id145">``</span></a>`
+String targetAddress = “0xD3EF28DF6b553eD2fc47259E8134319cB1121A2A”;
+String userAddress = “0xba5f00a28f732f23ba946c594716496ebdc9aef5”;
+String privateKey = “0xeb78d6405ba1a28ccd938a72195e0802dfbe1de463bc6e5dd491b2c7562b5e3f”;
+// set expiration block
+int expirationBlock = 720;</p>
+<p>long start = System.currentTimeMillis();
+//add user(UserAddress) to owner (fromAddress)
+TransferResult transferResult = ProtoTypeContractClient.addUser(</p>
+<blockquote>
+<div>new Address[] { Address.fromHexString(targetAddress) },   //target address to add user
+new Address[] { Address.fromHexString(userAddress) },     //user address to be added
+TransactionClient.ContractGasLimit,                       //TransactionClient.ContractGasLimit = 70000 gas
+(byte) 0x0,                                               //gasCoef
+expirationBlock,                                          //720 block
+ECKeyPair.create(privateKey));</div></blockquote>
+<dl class="docutils">
+<dt>if (transferResult != null) {</dt>
+<dd>logger.info(“Add user:” + JSON.toJSONString(transferResult));</dd>
+</dl>
+<p>}</p>
+<p>start = System.currentTimeMillis();
+Amount credit = Amount.VTHO();
+credit.setDecimalAmount(“100.00”);
+Amount recovery = Amount.VTHO();
+recovery.setDecimalAmount(“0.00001”);
+//set user plan
+TransferResult setUserPlansResult = ProtoTypeContractClient.setUserPlans(</p>
+<blockquote>
+<div>new Address[] { Address.fromHexString(targetAddress) },
+new Amount[] { credit },
+new Amount[] { recovery },
+TransactionClient.ContractGasLimit,
+(byte) 0x0, 720,
+ECKeyPair.create(privateKey));</div></blockquote>
+<dl class="docutils">
+<dt>if (setUserPlansResult != null) {</dt>
+<dd>logger.info(“set user plans:” + JSON.toJSONString(setUserPlansResult));</dd>
+</dl>
+<p>}</p>
+<p><a href="#id146"><span class="problematic" id="id147">``</span></a><a href="#id148"><span class="problematic" id="id149">`</span></a></p>
+<ul class="simple">
+<li><ul class="first">
+<li><ul class="first">
+<li><ul class="first">
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>### Run the test</p>
+<p>Use maven to run full test case, which many need about 15 minutes to wait for the test case run, some case may be failed because of the account or block is not existed on your blockchain env.</p>
+<p><a href="#id150"><span class="problematic" id="id151">``</span></a>`
+mvn clean install</p>
+<p><a href="#id152"><span class="problematic" id="id153">``</span></a><a href="#id154"><span class="problematic" id="id155">`</span></a></p>
+<p>or you can skip test with</p>
+<p><a href="#id156"><span class="problematic" id="id157">``</span></a>`
+mvn clean install -Dmaven.test.skip=true</p>
+<p><a href="#id158"><span class="problematic" id="id159">``</span></a><a href="#id160"><span class="problematic" id="id161">`</span></a></p>
+<p>### 4. Java console approach</p>
+<p>The SDK support the command line approach to get chainTag, blockRef, create wallet, sign transaction, send transaction, get transaction, query transaction receipt;</p>
+<p>Package the jar with maven</p>
+<p><a href="#id162"><span class="problematic" id="id163">``</span></a>`
+mvn clean package -Dmaven.test.skip=true</p>
+<p>The maven will generate the jar file in folder target: thor-client-sdk4j-0.0.8.jar</p>
+<p><a href="#id164"><span class="problematic" id="id165">``</span></a><a href="#id166"><span class="problematic" id="id167">`</span></a></p>
+<p>Run the following command with jar</p>
+<p>There is a example transaction file in src/main/resources/exchange_example.xlsx, you need to replace the blockRef in this file.</p>
+<p>#### Get chainTag:</p>
+<p><a href="#id168"><span class="problematic" id="id169">``</span></a><a href="#id170"><span class="problematic" id="id171">`</span></a></p>
+<p>java -jar thor-client-sdk4j-0.0.8.jar getChainTag {blockchain-server-url}</p>
+<p>eg. java -jar thor-client-sdk4j-0.0.8.jar getChainTag <a class="reference external" href="http://localhost:8669">http://localhost:8669</a></p>
+<p>ChainTag:
+0x27</p>
+<p><a href="#id172"><span class="problematic" id="id173">``</span></a><a href="#id174"><span class="problematic" id="id175">`</span></a></p>
+<p>#### Get blockRef:</p>
+<p><a href="#id176"><span class="problematic" id="id177">``</span></a>`
+java -jar thor-client-sdk4j-0.0.8.jar getBlockRef {blockchain-server-url}</p>
+<p>eg. java -jar thor-client-sdk4j-0.0.8.jar getBlockRef <a class="reference external" href="http://localhost:8669">http://localhost:8669</a></p>
+<p>BlockRef:
+0x0000695540f491a5</p>
+<p><a href="#id178"><span class="problematic" id="id179">``</span></a><a href="#id180"><span class="problematic" id="id181">`</span></a></p>
+<p>#### Create wallet:</p>
+<p><a href="#id182"><span class="problematic" id="id183">``</span></a>`
+java -jar thor-client-sdk4j-0.0.8.jar createWallet {wallet-password} {keystore-file-path}(optional, defalut: ./keystore.json)</p>
+<p>eg. java -jar thor-client-sdk4j-0.0.8.jar createWallet &lt;your password&gt; &lt;keystore-file-path&gt;</p>
+<p>The keystore.json file will generate in current folder.</p>
+<p>The wallet created successfully and the key store is:</p>
+<dl class="docutils">
+<dt>{</dt>
+<dd><p class="first">“address”: “0x2a200dd7a805db17e9cecbb8e33067306dca143b”,
+“crypto”: {</p>
+<blockquote>
+<div><p>“cipher”: “aes-128-ctr”,
+“cipherparams”: {</p>
+<blockquote>
+<div>“iv”: “f8ab97c61fa736a5cb040b1912f9075c”</div></blockquote>
+<p>},
+“ciphertext”: “0def4f8fad25b5169178f02c93b53c1a7fcbcdbe6b7e960b2e8badcf8098d878”,
+“kdf”: “scrypt”,
+“kdfparams”: {</p>
+<blockquote>
+<div>“dklen”: 32,
+“n”: 262144,
+“p”: 1,
+“r”: 8,
+“salt”: “e7c337c143029a8ce4ea41153747fc3b103e7c416040a907c36c32f9ca34dbb6”</div></blockquote>
+<p>},
+“mac”: “af1fc6fed812610ce13daaae8bb5dd1e83eba3d100675a9ae07de9357952fc8e”</p>
+</div></blockquote>
+<p class="last">},
+“id”: “8df9173d-4c05-4a7e-b847-69ccf490db06”,
+“version”: 3</p>
+</dd>
+</dl>
+<p>}</p>
+<blockquote>
+<div>The wallet created successfully and the privateKey is:
+0xe5a7eec8266f6b5ed3c9578944e22d396228d9cd9ef36d26497edc89237104f0</div></blockquote>
+<p><a href="#id184"><span class="problematic" id="id185">``</span></a><a href="#id186"><span class="problematic" id="id187">`</span></a></p>
+<p>#### Get block:</p>
+<dl class="docutils">
+<dt><a href="#id188"><span class="problematic" id="id189">``</span></a><a href="#id190"><span class="problematic" id="id191">`</span></a></dt>
+<dd>java -jar thor-client-sdk4j-0.0.8.jar getBlock {blockchain-server-url}</dd>
+</dl>
+<p>eg. java -jar thor-client-sdk4j-0.0.8.jar getBlock <a class="reference external" href="http://localhost:8669">http://localhost:8669</a></p>
+<p>Block:
+{</p>
+<blockquote>
+<div><p>“beneficiary”: “0xb4094c25f86d628fdd571afc4077f0d0196afb48”,
+“gasLimit”: 10000000,
+“gasUsed”: 0,
+“id”: “0x00006971f2f8306fbc37d9b797c083d3966c494520edba1dd77a57eae03be50d”,
+“isTrunk”: true,
+“number”: “26993”,
+“parentID”: “0x0000697038c5f563c8a7f68ae064424580cae01342e4d432321f875d18c779a0”,
+“receiptsRoot”: “0x45b0cfc220ceec5b7c1c62c4d4193d38e4eba48e8815729ce75f9c0ab0e4c1c0”,
+“signer”: “0x25ae0ef84da4a76d5a1dfe80d3789c2c46fee30a”,
+“size”: 238,
+“stateRoot”: “0x282794403cfe505528360a98e9bc6cab151b8ccf9e2812b7c316493a8504afa3”,
+“timestamp”: 1530284330,
+“totalScore”: 27016,
+“transactions”: [</p>
+<p>],
+“txsRoot”: “0x45b0cfc220ceec5b7c1c62c4d4193d38e4eba48e8815729ce75f9c0ab0e4c1c0”</p>
+</div></blockquote>
+<p>}</p>
+<p><a href="#id192"><span class="problematic" id="id193">``</span></a><a href="#id194"><span class="problematic" id="id195">`</span></a></p>
+<p>#### Get transaction:</p>
+<p><a href="#id196"><span class="problematic" id="id197">``</span></a><a href="#id198"><span class="problematic" id="id199">`</span></a></p>
+<p>java -jar thor-client-sdk4j-0.0.8.jar getTransaction {transaction-id} {blockchain-server-url}</p>
+<p>eg. java -jar thor-client-sdk4j-0.0.8.jar getTransaction 0x19dd77d28ef70be8c924319a6c08b996dd456fa36f29f2427dbda90087a8a897 <a class="reference external" href="http://localhost:8669">http://localhost:8669</a></p>
+<p>Transaction:
+{</p>
+<blockquote>
+<div><p>“chainTag”: 0,
+“expiration”: 0,
+“gas”: 0,
+“gasPriceCoef”: 0,
+“meta”: {</p>
+<blockquote>
+<div>“pos”: “0x00005c31bcdf0f3de6dd10ad776bc4313b98b5d90e81428345a87c04e5ab2924”,
+“blockNumber”: 23601,
+“blockTimestamp”: 1530250410</div></blockquote>
+<p>},
+“raw”: “0xf88227865c309a71f9d28202d0e4e3945034aa590125b64023a0262112b98d72e3c8e40e8c0675869909f169d17cc00000808082520880888cd02f9cd3a2af07c0b8412097cdeebb3219df52345c5cdc251bd07f359435164019ada5041416014f7f046ccbb615d24a0d342c5001578aa788cb11ace0891f540bdb0bc7b110f2b6d7d900”,
+“size”: 0</p>
+</div></blockquote>
+<p>}</p>
+<p><a href="#id200"><span class="problematic" id="id201">``</span></a><a href="#id202"><span class="problematic" id="id203">`</span></a></p>
+<p>#### Get transaction receipt:</p>
+<p><a href="#id204"><span class="problematic" id="id205">``</span></a><a href="#id206"><span class="problematic" id="id207">`</span></a></p>
+<p>java -jar thor-client-sdk4j-0.0.8.jar getTransactionReceipt {transaction-id} {blockchain-server-url}</p>
+<p>eg. java -jar thor-client-sdk4j-0.0.8.jar getTransactionReceipt 0x6b99c0f1ebfa3b9d93dcfc503f468104ac74271728841551aaa44115d080f5b5 <a class="reference external" href="http://localhost:8669">http://localhost:8669</a></p>
+<p>Receipt:
+{</p>
+<blockquote>
+<div><p>“gasPayer”: “0x866a849122133888214ac9fc59550077adf14975”,
+“gasUsed”: 21000,
+“meta”: {</p>
+<blockquote>
+<div>“pos”: “0x000066e58079163edacb0bfe06b52a4d16cc646ce8039a2b7cf5136cbc9fb186”,
+“blockNumber”: 26341,
+“blockTimestamp”: 1530277810,
+“txID”: “0x6b99c0f1ebfa3b9d93dcfc503f468104ac74271728841551aaa44115d080f5b5”,
+“txOrigin”: “0x866a849122133888214ac9fc59550077adf14975”</div></blockquote>
+<p>},
+“outputs”: [</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>{</dt>
+<dd><p class="first">“events”: [</p>
+<p>],
+“transfers”: [</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>{</dt>
+<dd>“amount”: “0xde0b6b3a7640000”,
+“recipient”: “0xd3ef28df6b553ed2fc47259e8134319cb1121a2a”,
+“sender”: “0x866a849122133888214ac9fc59550077adf14975”</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p class="last">]</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>],
+“paid”: “0x1236efcbcbb340000”,
+“reverted”: false,
+“reward”: “0x576e189f04f60000”</p>
+</div></blockquote>
+<p>}</p>
+<p><a href="#id208"><span class="problematic" id="id209">``</span></a><a href="#id210"><span class="problematic" id="id211">`</span></a></p>
+<p>#### Sign transactions:</p>
+<p><a href="#id212"><span class="problematic" id="id213">``</span></a>`
+java -jar thor-client-sdk4j-0.0.8.jar sign {your-file-path} {privateKey}</p>
+<p>eg. java -jar thor-client-sdk4j-0.0.8.jar sign src/main/resources/exchange_example.xlsx 0xe0b80216ba7b880d85966b38fcd8f7253882bb1386b68b33a8e0b60775e947c0</p>
+<p>Raw Transaction:
+0xf8a3819a8702819f5cfc12d38202d0f842e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f80000808082a4108088f06f91293e58610dc0b84173346fba62605d510895a0d240b89a38e0b87fd8a58df2ce17075cd493e8e316528b4ed0f049cef1710936bbd4bd3af23eb3ffb3740dc0fb59db585714dbeaa001</p>
+<p><a href="#id214"><span class="problematic" id="id215">``</span></a>`
+#### Sign VTHO transactions:</p>
+<p><a href="#id216"><span class="problematic" id="id217">``</span></a>`
+java -jar thor-client-sdk4j-0.0.8.jar signVTHO {your-file-path} {privateKey}</p>
+<p>eg. java -jar thor-client-sdk4j-0.0.8.jar signVTHO src/main/resources/exchange_example.xlsx 0xdce1443bd2ef0c2631adc1c67e5c93f13dc23a41c18b536effbbdcbcdb96fb65</p>
+<p>Raw Transaction:
+0xf9011d81c787015e41be43bb958202d0f8bcf85c940000000000000000000000000000456e6572677980b844a9059cbb000000000000000000000000d3ef28df6b553ed2fc47259e8134319cb1121a2a0000000000000000000000000000000000000000000027cf801b9d4f7d800000f85c940000000000000000000000000000456e6572677980b844a9059cbb000000000000000000000000f881a94423f22ee9a0e3e1442f515f43c966b7ed0000000000000000000000000000000000000000000027cf801b9d4f7d8000008082a41080887650b326b78e0c57c0b841fe27b8866d8a658a66a2d8241a310d1ef72e2954d397fc52aa5b4295f9686d0f6705301acc9a0aac6e9e0f93e3aa6fe0a07ff48e4e3287d0db45905d8a0756eb01</p>
+<p><a href="#id218"><span class="problematic" id="id219">``</span></a><a href="#id220"><span class="problematic" id="id221">`</span></a></p>
+<p>#### Send and Sign transactions:</p>
+<p><a href="#id222"><span class="problematic" id="id223">``</span></a><a href="#id224"><span class="problematic" id="id225">`</span></a></p>
+<p>java -jar thor-client-sdk4j-0.0.8.jar signAndSend {blockchain-server-url} {privateKey} {your-file-path}</p>
+<p>eg. java -jar thor-client-sdk4j-0.0.8.jar signAndSend <a class="reference external" href="http://localhost:8669">http://localhost:8669</a> 0xe0b80216ba7b880d85966b38fcd8f7253882bb1386b68b33a8e0b60775e947c0 src/main/resources/exchange_example.xlsx</p>
+<p>Send Result:
+{“id”:”0xd751c50b81c1f13ebd86f4fcd0028a501b6c792fa8b5bbf64028b924a6b2efc9”}</p>
+<p><a href="#id226"><span class="problematic" id="id227">``</span></a><a href="#id228"><span class="problematic" id="id229">`</span></a></p>
+<p>#### Send raw transactions:</p>
+<p><a href="#id230"><span class="problematic" id="id231">``</span></a><a href="#id232"><span class="problematic" id="id233">`</span></a></p>
+<p>java -jar thor-client-sdk4j-0.0.8.jar sendRaw {blockchain-server-url} {raw}</p>
+<p>eg. java -jar thor-client-sdk4j-0.0.8.jar sendRaw <a class="reference external" href="http://localhost:8669">http://localhost:8669</a> 0xf8a3819a8702819f5cfc12d38202d0f842e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f8000080e094d3ef28df6b553ed2fc47259e8134319cb1121a2a89364200111c48f80000808082a4108088f06f91293e58610dc0b84173346fba62605d510895a0d240b89a38e0b87fd8a58df2ce17075cd493e8e316528b4ed0f049cef1710936bbd4bd3af23eb3ffb3740dc0fb59db585714dbeaa001</p>
+<p>Send Result:
+{“id”:”0xd751c50b81c1f13ebd86f4fcd0028a501b6c792fa8b5bbf64028b924a6b2efc9”}</p>
+<p><a href="#id234"><span class="problematic" id="id235">``</span></a><a href="#id236"><span class="problematic" id="id237">`</span></a></p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VeChain Developers
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

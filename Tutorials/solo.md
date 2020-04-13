@@ -1,0 +1,725 @@
+# Install VeChain SOLO development environment
+[block:api-header]
+{
+  "type": "basic",
+  "title": ""
+}
+[/block]
+This guide will show every step to install a VeChain Thor environment based on a solo network. It is intended to get everything up and running fast and show how the different programs interact with each other. The SOLO network is a sandbox development mode for the VeChain Thor blockchain, that can be started (and is only available) on a single server. It is not publicly accessible and the generated blocks will be lost if the SOLO node is stopped.
+
+## Part 1 — Install VeChain Thor software
+
+## Part 1.1 — Install Debian 9 x64
+
+VeChain can run on many different systems, including various Linux distributions and Windows. This guide however will focus on Debian 9 but should be easily adaptable to any other distribution. The installation of the base system will not be described here, since there are a lot of good guides out there but the following points should be kept in mind before the installation of the base system:
+
+  * VeChain Thor can be I/O intensive and should be installed on SSD-based storage with at least 30GB
+  * At least 2 CPUs and 4GB of RAM should be avalible (for this SOLO setup)
+
+After the installation is done, the system will be updated and the needed packages will be added.
+[block:code]
+{
+  "codes": [
+    {
+      "code": "### Update System and install dependencies (as root)\napt-get update\napt-get -y install build-essential libgflags-dev libsnappy-dev zlib1g-dev libbz2-dev liblz4-dev git libcap2-bin\napt autoremove -y\napt-get clean",
+      "language": "text"
+    }
+  ]
+}
+[/block]
+## Part 1.2 — Install VeChain Thor Node software
+
+VeChain is build in GO. So before installing VeChain, GO needs to be set up. Since there is no appropriate Debian package for GO, it will be installed as followed:
+[block:code]
+{
+  "codes": [
+    {
+      "code": "### Install go (as root)\ncd ~\nwget https://dl.google.com/go/go1.10.3.linux-amd64.tar.gz\ntar -C /usr/local -xzf go1.10.3.linux-amd64.tar.gz\nchmod +x /usr/local/go/bin/go\nrm go1.10.3.linux-amd64.tar.gz\n### Install dep (as root)\ncd /usr/local/bin/\nwget https://github.com/golang/dep/releases/download/v0.5.0/dep-linux-amd64\nln -s dep-linux-amd64 dep\nchmod +x /usr/local/bin/*",
+      "language": "text"
+    }
+  ]
+}
+[/block]
+For security reasons, the VeChain Thor software itself will not run as root. Therefore a new user “thor-node” will be added and the needed environmet variables for GO will be set:
+[block:code]
+{
+  "codes": [
+    {
+      "code": "### Add Thor-Node user (as root)\nuseradd -m -d /home/thor-node -s /bin/bash thor-node\nsu - thor-node\n### Set environment paths (as thor-node)\ncd ~\ntouch ${HOME}/.profile\necho \"export PATH=$PATH:/usr/local/go/bin\" >> ${HOME}/.profile\necho \"export GOPATH=$HOME/go\" >> ${HOME}/.profile\nexport PATH=$PATH:/usr/local/go/bin\nexport GOPATH=$HOME/go\nmkdir -p $GOPATH/src\nsource .profile",
+      "language": "text"
+    }
+  ]
+}
+[/block]
+The Vechain software is downloaded from the official github and then installed:
+[block:code]
+{
+  "codes": [
+    {
+      "code": "### Install VeChain (as thor-node)\ngit clone https://github.com/vechain/thor.git $GOPATH/src/VeChain/thor\ncd $GOPATH/src/VeChain/thor\nmake dep\nmake all",
+      "language": "text"
+    }
+  ]
+}
+[/block]
+##Part 1.3 — Start VeChain Thor SOLO node
+
+Now that everything is set up, the solo node can be started.
+
+The following command will run the solo node in the terminal and make it accessible on every IP on the system:
+[block:code]
+{
+  "codes": [
+    {
+      "code": "./go/src/VeChain/thor/bin/thor solo --api-addr 0.0.0.0:8669",
+      "language": "text"
+    }
+  ]
+}
+[/block]
+After this command, the following output should appear:
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/7e6142e-AF27EFFD-8CA1-4B48-9266-6712CA1677B2.png",
+        "AF27EFFD-8CA1-4B48-9266-6712CA1677B2.png",
+        1952,
+        1028,
+        "#0f0f0f"
+      ],
+      "caption": "Start of the VeChain Thor Solo Node"
+    }
+  ]
+}
+[/block]
+##Part 1.4 — Understanding the SOLO node
+
+The SOLO mode has some special features that need to be known before working with it:
+
+1. A SOLO network has always **the same ten “MasterWallets”**. VET/VTHOR is generated on these addresses in the genesis block. A list of these addresses is shown on each start of the SOLO network.
+2. A SOLO network has a **fixed Block-Gas-Limit** of 10.000.000
+3. If the Thor-Node process is stopped, **all data will be lost!** 
+
+
+## Part 2 —Connect Sync to the SOLO network
+
+[Sync](https://env.vechain.org/#sync) is a multi-purpose wallet for the VeChain Thor Blockchain. It also has an integrated serverless blockexplorer that can be connected to the SOLO network. Sync is availible for Windows/Mac/Linux. In this guide, the Windows version will be used.
+
+## Part 2.1 — Install Sync and connect it to the SOLO networks
+Sync can be downloaded here: [VeChain Website](https://env.vechain.org/#sync)
+After the installation, Sync should look like this:
+
+
+
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/1e09e19-D2B0C123-A0CB-48FA-A901-6A2AACF0A5C3.png",
+        "D2B0C123-A0CB-48FA-A901-6A2AACF0A5C3.png",
+        1998,
+        1400,
+        "#f4f4f4"
+      ]
+    }
+  ]
+}
+[/block]
+To make Sync interact with the SOLO network, the ip-address of the system where thor was installed is needed. On Linux systems this can be done with “ifconfig”, on Windows systems this can be done with “ipconfig”. For this guide the ip-address will be 172.17.7.29
+
+To change the Sync-Server, the green “Main” button and the gearwheel needs to be clicked.
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/7e31d8d-A3F3F972-9899-42BA-A552-C5141397916D.png",
+        "A3F3F972-9899-42BA-A552-C5141397916D.png",
+        2006,
+        1382,
+        "#f3f3f4"
+      ],
+      "caption": "Add a SOLO Node to Sync"
+    }
+  ]
+}
+[/block]
+Through “add Node” the connection details can be entered.
+
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/ce90bc1-0E1F3B7B-EDC3-4AB0-B996-459EB8718FDD.png",
+        "0E1F3B7B-EDC3-4AB0-B996-459EB8718FDD.png",
+        1986,
+        1396,
+        "#eff0f0"
+      ],
+      "caption": "Add a SOLO Node to Sync"
+    }
+  ]
+}
+[/block]
+The SOLO node can be activated by clicking the green “Main” and choose the newly added node.
+
+
+
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/38f80f6-2DDA3A40-684D-4753-AA85-75ED25ABF23B.png",
+        "2DDA3A40-684D-4753-AA85-75ED25ABF23B.png",
+        1996,
+        1388,
+        "#f9f9f9"
+      ]
+    }
+  ]
+}
+[/block]
+If done correctly, insight will display blocks from the solo node
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/626355f-4A31833E-BE38-416F-A328-7B84887ACD68.png",
+        "4A31833E-BE38-416F-A328-7B84887ACD68.png",
+        1998,
+        1392,
+        "#bcc0c3"
+      ]
+    }
+  ]
+}
+[/block]
+##Part 2.2 — Add MasterWallets to Sync
+
+To interact with the SOLO node, addresses with VET/VTHOR are needed. As mentioned earlier, a SOLO node always has ten Masterwallets. These addresses are static to everyone and must not be used in Test- or Mainnet! At least one Wallet is needed in Sync to interact with it. These are the ten MasterWallets:
+[block:parameters]
+{
+  "data": {
+    "h-0": "Address",
+    "h-1": "Privatekey",
+    "0-0": "0x7567d83b7b8d80addcb281a71d54fc7b3364ffed",
+    "1-0": "0xd3ae78222beadb038203be21ed5ce7c9b1bff602",
+    "0-1": "0xdce1443bd2ef0c2631adc1c67e5c93f13dc23a41c18b536effbbdcbcdb96fb65",
+    "1-1": "0x321d6443bc6177273b5abf54210fe806d451d6b7973bccc2384ef78bbcd0bf51",
+    "2-0": "0x733b7269443c70de16bbf9b0615307884bcc5636",
+    "2-1": "0x2d7c882bad2a01105e36dda3646693bc1aaaa45b0ed63fb0ce23c060294f3af2",
+    "3-0": "0x115eabb4f62973d0dba138ab7df5c0375ec87256",
+    "3-1": "0x593537225b037191d322c3b1df585fb1e5100811b71a6f7fc7e29cca1333483e",
+    "4-0": "0x199b836d8a57365baccd4f371c1fabb7be77d389",
+    "4-1": "0xca7b25fc980c759df5f3ce17a3d881d6e19a38e651fc4315fc08917edab41058",
+    "5-0": "0x5e4efedf3d71232340280d8bc475421352994b63",
+    "5-1": "0x88d2d80b12b92feaa0da6d62309463d20408157723f2d7e799b6a74ead9a673b",
+    "6-0": "0x29f72dc07224a4c6270407bfd6b8fec559d29f6c",
+    "6-1": "0xfbb9e7ba5fe9969a71c6599052237b91adeb1e5fc0c96727b66e56ff5d02f9d0",
+    "7-0": "0x47109a193c49862c89bd76fe2de3585743dd2bb0",
+    "7-1": "0x547fb081e73dc2e22b4aae5c60e2970b008ac4fc3073aebc27d41ace9c4f53e9",
+    "8-0": "0xa5e255d4c65af201b97210ff4cd9521a46427654",
+    "8-1": "0xc8c53657e41a8d669349fc287f57457bd746cb1fcfc38cf94d235deb2cfca81b",
+    "9-0": "0x0489a3fff1930b85f1d73eff8a4699281aadb558",
+    "9-1": "0x87e0eba9c86c494d98353800571089f316740b0cb84c9a7cdf2fe5c9997c7966"
+  },
+  "cols": 2,
+  "rows": 10
+}
+[/block]
+[Address.csv](https://gist.github.com/mirei83/91f32dce375a6d88c997eb10e9529172#file-addresses-csv) hosted by [Github](https://github.com/) 
+
+Click the wallets symbol in the upper right, then import
+
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/4a64f9d-667CCD26-5D27-4A65-A403-783F9A4CA97A.png",
+        "667CCD26-5D27-4A65-A403-783F9A4CA97A.png",
+        2002,
+        1386,
+        "#f9f9f8"
+      ]
+    }
+  ]
+}
+[/block]
+Choose “Private Key” and enter one of the private keys from the table above.
+
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/82f5068-0_TWNPDAsUMh8xVwr2.png",
+        "0_TWNPDAsUMh8xVwr2.png",
+        1000,
+        700,
+        "#eeefef"
+      ]
+    }
+  ]
+}
+[/block]
+Give the wallet a name and a password and click “import”
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/3ebb520-0_bBKx-9QpzbKQQT9v.png",
+        "0_bBKx-9QpzbKQQT9v.png",
+        1000,
+        700,
+        "#f1f1f1"
+      ]
+    }
+  ]
+}
+[/block]
+A wallet should now be visible in Sync
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/75659b5-0_ToAnmKIn2QmYJ_pL.png",
+        "0_ToAnmKIn2QmYJ_pL.png",
+        1000,
+        700,
+        "#f7f7f8"
+      ],
+      "caption": "VeChain Thor SOLO MasterWallet"
+    }
+  ]
+}
+[/block]
+## Part 3 — Interact with the SOLO Node using Sync
+
+## Part 3.1 — Send VET/VTHOR using Sync
+This will show the basic usage of the two native tokens on VeChain. Vet and Vthor.
+
+**Send VET using Sync**
+Choose an imported Masterwallet and click “Transfer”.
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/19719a4-0_1nhWBmTmHGIJMx1d.png",
+        "0_1nhWBmTmHGIJMx1d.png",
+        1000,
+        700,
+        "#f7f7f7"
+      ]
+    }
+  ]
+}
+[/block]
+Enter the recipient addess and the amount to sent.
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/9431adf-0_PVphpPlIUpPfWdAQ.png",
+        "0_PVphpPlIUpPfWdAQ.png",
+        1000,
+        700,
+        "#f6f7f8"
+      ]
+    }
+  ]
+}
+[/block]
+Enter the Password given to the MasterWallet where VET is send from and sign
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/fd355a2-0_L0wBqcEb8Ll7sL5G.png",
+        "0_L0wBqcEb8Ll7sL5G.png",
+        1000,
+        700,
+        "#e8e9ea"
+      ]
+    }
+  ]
+}
+[/block]
+After Switching to “insight”, the new transaction should be visible under “Recent Transfers”
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/94bdd26-0_v9sw_DDu888zuZbO.png",
+        "0_v9sw_DDu888zuZbO.png",
+        1000,
+        700,
+        "#edeeee"
+      ]
+    }
+  ]
+}
+[/block]
+**Send VTHOR using Sync**
+To send VTHOR, the destination address needs to be opened in Insight. In this example, 0xD3ae78222BEADB038203bE21eD5ce7C9B1BfF602 will be the destination.
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/fdcb89a-0_qMe-R9JQxiKvZpsY.png",
+        "0_qMe-R9JQxiKvZpsY.png",
+        1000,
+        700,
+        "#f3f4f4"
+      ]
+    }
+  ]
+}
+[/block]
+Enter the destination address into the searchbar and press enter.
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/faf8541-0_epH0pNFVk32cwg8k.png",
+        "0_epH0pNFVk32cwg8k.png",
+        1000,
+        700,
+        "#bbbfc3"
+      ]
+    }
+  ]
+}
+[/block]
+
+[block:image]
+{
+  "images": [
+    {
+      "image": []
+    }
+  ]
+}
+[/block]
+Click on “Deposit” and enter the VTHO amount.
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/22b9bb8-0_a4UZ_ZrbewM9jcS0.png",
+        "0_a4UZ_ZrbewM9jcS0.png",
+        1000,
+        700,
+        "#eaeced"
+      ]
+    }
+  ]
+}
+[/block]
+Sign the transaction.
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/03f7671-0_8bl_Z5a75XIOGeiK.png",
+        "0_8bl_Z5a75XIOGeiK.png",
+        1000,
+        700,
+        "#dddfe0"
+      ]
+    }
+  ]
+}
+[/block]
+## Part 3.2 — Deploy a smart contract to the SOLO network through Sync
+
+Sync can also deploy smart contracts to the blockchain. For that the ABI and the ByteCode are needed. This is specific to Solidity and will be done in this guide with a simple [Token contract](https://github.com/mirei83/Issue-your-own-ERC20-token/blob/master/contracts/erc20_tutorial.sol) as an example.
+
+**Import SourceCode into Remix**
+The smart contract source code needs to be converted to ABI und ByteCode. Since VeChain is 100% ERC20 compatible, the most convinient way of doing this, is through [Remix](http://remix.ethereum.org/).
+
+  * Compiler Version needs to be set to 0.4.24
+  * Code just needs to be imported to a file called SimpleToken.sol and then be compiled (warnings can be ignored) 
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/9974c3a-0_cG3r2sfAmKHoC9B4.png",
+        "0_cG3r2sfAmKHoC9B4.png",
+        1468,
+        667,
+        "#edeceb"
+      ]
+    }
+  ]
+}
+[/block]
+**Get ByteCode and ABI**
+The ByteCode is needed to deploy the smart contract. To get it in the format compatible with sync, click “Details” and scroll to ByteCode”.
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/1d50156-0_MZ3cHJqYu9aKRRxM.png",
+        "0_MZ3cHJqYu9aKRRxM.png",
+        1064,
+        245,
+        "#bec3ce"
+      ]
+    }
+  ]
+}
+[/block]
+To make the ByteCode work with Sync “0x” needs to be added in front of it, resulting in the [string](https://gist.githubusercontent.com/mirei83/555aedba071e355359157e173a2fcd99/raw/61537a94f4c4356a8e48736d77d6604ac4fc5095/bytecode.txt). 
+
+The ABI can be recived by simply clicking “ABI” right next to “Details” and looks like this:
+
+
+[block:code]
+{
+  "codes": [
+    {
+      "code": "\n[\n    {\n        \"constant\": true,\n        \"inputs\": [],\n        \"name\": \"name\",\n        \"outputs\": [\n            {\n                \"name\": \"\",\n                \"type\": \"string\"\n            }\n        ],\n        \"payable\": false,\n        \"stateMutability\": \"view\",\n        \"type\": \"function\"\n    },\n    {\n        \"constant\": false,\n        \"inputs\": [\n            {\n                \"name\": \"spender\",\n                \"type\": \"address\"\n            },\n            {\n                \"name\": \"tokens\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"name\": \"approve\",\n        \"outputs\": [\n            {\n                \"name\": \"success\",\n                \"type\": \"bool\"\n            }\n        ],\n        \"payable\": false,\n        \"stateMutability\": \"nonpayable\",\n        \"type\": \"function\"\n    },\n    {\n        \"constant\": true,\n        \"inputs\": [],\n        \"name\": \"totalSupply\",\n        \"outputs\": [\n            {\n                \"name\": \"\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"payable\": false,\n        \"stateMutability\": \"view\",\n        \"type\": \"function\"\n    },\n    {\n        \"constant\": false,\n        \"inputs\": [\n            {\n                \"name\": \"from\",\n                \"type\": \"address\"\n            },\n            {\n                \"name\": \"to\",\n                \"type\": \"address\"\n            },\n            {\n                \"name\": \"tokens\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"name\": \"transferFrom\",\n        \"outputs\": [\n            {\n                \"name\": \"success\",\n                \"type\": \"bool\"\n            }\n        ],\n        \"payable\": false,\n        \"stateMutability\": \"nonpayable\",\n        \"type\": \"function\"\n    },\n    {\n        \"constant\": true,\n        \"inputs\": [],\n        \"name\": \"decimals\",\n        \"outputs\": [\n            {\n                \"name\": \"\",\n                \"type\": \"uint8\"\n            }\n        ],\n        \"payable\": false,\n        \"stateMutability\": \"view\",\n        \"type\": \"function\"\n    },\n    {\n        \"constant\": true,\n        \"inputs\": [],\n        \"name\": \"_totalSupply\",\n        \"outputs\": [\n            {\n                \"name\": \"\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"payable\": false,\n        \"stateMutability\": \"view\",\n        \"type\": \"function\"\n    },\n    {\n        \"constant\": true,\n        \"inputs\": [\n            {\n                \"name\": \"tokenOwner\",\n                \"type\": \"address\"\n            }\n        ],\n        \"name\": \"balanceOf\",\n        \"outputs\": [\n            {\n                \"name\": \"balance\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"payable\": false,\n        \"stateMutability\": \"view\",\n        \"type\": \"function\"\n    },\n    {\n        \"constant\": false,\n        \"inputs\": [],\n        \"name\": \"acceptOwnership\",\n        \"outputs\": [],\n        \"payable\": false,\n        \"stateMutability\": \"nonpayable\",\n        \"type\": \"function\"\n    },\n    {\n        \"constant\": true,\n        \"inputs\": [],\n        \"name\": \"owner\",\n        \"outputs\": [\n            {\n                \"name\": \"\",\n                \"type\": \"address\"\n            }\n        ],\n        \"payable\": false,\n        \"stateMutability\": \"view\",\n        \"type\": \"function\"\n    },\n    {\n        \"constant\": true,\n        \"inputs\": [],\n        \"name\": \"symbol\",\n        \"outputs\": [\n            {\n                \"name\": \"\",\n                \"type\": \"string\"\n            }\n        ],\n        \"payable\": false,\n        \"stateMutability\": \"view\",\n        \"type\": \"function\"\n    },\n    {\n        \"constant\": true,\n        \"inputs\": [\n            {\n                \"name\": \"a\",\n                \"type\": \"uint256\"\n            },\n            {\n                \"name\": \"b\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"name\": \"safeSub\",\n        \"outputs\": [\n            {\n                \"name\": \"c\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"payable\": false,\n        \"stateMutability\": \"pure\",\n        \"type\": \"function\"\n    },\n    {\n        \"constant\": false,\n        \"inputs\": [\n            {\n                \"name\": \"to\",\n                \"type\": \"address\"\n            },\n            {\n                \"name\": \"tokens\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"name\": \"transfer\",\n        \"outputs\": [\n            {\n                \"name\": \"success\",\n                \"type\": \"bool\"\n            }\n        ],\n        \"payable\": false,\n        \"stateMutability\": \"nonpayable\",\n        \"type\": \"function\"\n    },\n    {\n        \"constant\": true,\n        \"inputs\": [\n            {\n                \"name\": \"a\",\n                \"type\": \"uint256\"\n            },\n            {\n                \"name\": \"b\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"name\": \"safeDiv\",\n        \"outputs\": [\n            {\n                \"name\": \"c\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"payable\": false,\n        \"stateMutability\": \"pure\",\n        \"type\": \"function\"\n    },\n    {\n        \"constant\": false,\n        \"inputs\": [\n            {\n                \"name\": \"spender\",\n                \"type\": \"address\"\n            },\n            {\n                \"name\": \"tokens\",\n                \"type\": \"uint256\"\n            },\n            {\n                \"name\": \"data\",\n                \"type\": \"bytes\"\n            }\n        ],\n        \"name\": \"approveAndCall\",\n        \"outputs\": [\n            {\n                \"name\": \"success\",\n                \"type\": \"bool\"\n            }\n        ],\n        \"payable\": false,\n        \"stateMutability\": \"nonpayable\",\n        \"type\": \"function\"\n    },\n    {\n        \"constant\": true,\n        \"inputs\": [\n            {\n                \"name\": \"a\",\n                \"type\": \"uint256\"\n            },\n            {\n                \"name\": \"b\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"name\": \"safeMul\",\n        \"outputs\": [\n            {\n                \"name\": \"c\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"payable\": false,\n        \"stateMutability\": \"pure\",\n        \"type\": \"function\"\n    },\n    {\n        \"constant\": true,\n        \"inputs\": [],\n        \"name\": \"newOwner\",\n        \"outputs\": [\n            {\n                \"name\": \"\",\n                \"type\": \"address\"\n            }\n        ],\n        \"payable\": false,\n        \"stateMutability\": \"view\",\n        \"type\": \"function\"\n    },\n    {\n        \"constant\": false,\n        \"inputs\": [\n            {\n                \"name\": \"tokenAddress\",\n                \"type\": \"address\"\n            },\n            {\n                \"name\": \"tokens\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"name\": \"transferAnyERC20Token\",\n        \"outputs\": [\n            {\n                \"name\": \"success\",\n                \"type\": \"bool\"\n            }\n        ],\n        \"payable\": false,\n        \"stateMutability\": \"nonpayable\",\n        \"type\": \"function\"\n    },\n    {\n        \"constant\": true,\n        \"inputs\": [\n            {\n                \"name\": \"tokenOwner\",\n                \"type\": \"address\"\n            },\n            {\n                \"name\": \"spender\",\n                \"type\": \"address\"\n            }\n        ],\n        \"name\": \"allowance\",\n        \"outputs\": [\n            {\n                \"name\": \"remaining\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"payable\": false,\n        \"stateMutability\": \"view\",\n        \"type\": \"function\"\n    },\n    {\n        \"constant\": true,\n        \"inputs\": [\n            {\n                \"name\": \"a\",\n                \"type\": \"uint256\"\n            },\n            {\n                \"name\": \"b\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"name\": \"safeAdd\",\n        \"outputs\": [\n            {\n                \"name\": \"c\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"payable\": false,\n        \"stateMutability\": \"pure\",\n        \"type\": \"function\"\n    },\n    {\n        \"constant\": false,\n        \"inputs\": [\n            {\n                \"name\": \"_newOwner\",\n                \"type\": \"address\"\n            }\n        ],\n        \"name\": \"transferOwnership\",\n        \"outputs\": [],\n        \"payable\": false,\n        \"stateMutability\": \"nonpayable\",\n        \"type\": \"function\"\n    },\n    {\n        \"inputs\": [],\n        \"payable\": false,\n        \"stateMutability\": \"nonpayable\",\n        \"type\": \"constructor\"\n    },\n    {\n        \"payable\": true,\n        \"stateMutability\": \"payable\",\n        \"type\": \"fallback\"\n    },\n    {\n        \"anonymous\": false,\n        \"inputs\": [\n            {\n                \"indexed\": true,\n                \"name\": \"_from\",\n                \"type\": \"address\"\n            },\n            {\n                \"indexed\": true,\n                \"name\": \"_to\",\n                \"type\": \"address\"\n            }\n        ],\n        \"name\": \"OwnershipTransferred\",\n        \"type\": \"event\"\n    },\n    {\n        \"anonymous\": false,\n        \"inputs\": [\n            {\n                \"indexed\": true,\n                \"name\": \"from\",\n                \"type\": \"address\"\n            },\n            {\n                \"indexed\": true,\n                \"name\": \"to\",\n                \"type\": \"address\"\n            },\n            {\n                \"indexed\": false,\n                \"name\": \"tokens\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"name\": \"Transfer\",\n        \"type\": \"event\"\n    },\n    {\n        \"anonymous\": false,\n        \"inputs\": [\n            {\n                \"indexed\": true,\n                \"name\": \"tokenOwner\",\n                \"type\": \"address\"\n            },\n            {\n                \"indexed\": true,\n                \"name\": \"spender\",\n                \"type\": \"address\"\n            },\n            {\n                \"indexed\": false,\n                \"name\": \"tokens\",\n                \"type\": \"uint256\"\n            }\n        ],\n        \"name\": \"Approval\",\n        \"type\": \"event\"\n    }\n]",
+      "language": "text",
+      "name": null
+    }
+  ]
+}
+[/block]
+**Deploy a Smart Contract using Sync**
+If ByteCode and ABI are available, the ByteCode needs to be sent to the SOLO network. This can be done with “Inspector”, available in the AppHub included in Sync.
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/1e7f588-0_rVJiQz29av_gi4CB.png",
+        "0_rVJiQz29av_gi4CB.png",
+        1000,
+        700,
+        "#f0f1f2"
+      ],
+      "caption": "Open Inspector"
+    }
+  ]
+}
+[/block]
+Open “Inspector”, click “Deploy”, paste the appropriate ByteCode and click “Send”.
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/179a05d-0_Rbv3pxttfZkx6-Lp.png",
+        "0_Rbv3pxttfZkx6-Lp.png",
+        1086,
+        783,
+        "#eaeaea"
+      ],
+      "caption": "Send ByteCode through VeChain Sync Inspector"
+    }
+  ]
+}
+[/block]
+The wallet that signs the transaction **HAS TO BE **0x7567d83b7b8d80addcb281a71d54fc7b3364ffed to work with the pre-compiled ByteCode provided above.
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/4eff13a-0_vJZQGyrCAFl2-TJV.png",
+        "0_vJZQGyrCAFl2-TJV.png",
+        1086,
+        783,
+        "#dcdcdd"
+      ],
+      "caption": "Sign transaction to create SmartContract"
+    }
+  ]
+}
+[/block]
+The new SmartContract address can be found by clicking on the arrow in the upper right and inspecting the latest transaction.
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/c21dab3-0_tSmWmPAYTTNMas_w.png",
+        "0_tSmWmPAYTTNMas_w.png",
+        1086,
+        783,
+        "#ebecec"
+      ],
+      "caption": "Find new SmartContract address"
+    }
+  ]
+}
+[/block]
+
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/1dbb165-0_8QxlX2nJDbmDe3ZL.png",
+        "0_8QxlX2nJDbmDe3ZL.png",
+        1086,
+        783,
+        "#ebecee"
+      ],
+      "caption": "Find new SmartContract address"
+    }
+  ]
+}
+[/block]
+**Import Smart Contract to Sync**
+
+To be able to interact with the new smart contract, Sync (Inspector) has to be made aware of it. This can be done by opening “Inspector”, clicking “Contracts” and then “Add”. The address is the smart contract addres, that was checked in the previous image.
+
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/f135300-0_fQrFGerPNGdWSRwq.png",
+        "0_fQrFGerPNGdWSRwq.png",
+        1086,
+        783,
+        "#878888"
+      ],
+      "caption": "Add ABI to VeChain Inspector"
+    }
+  ]
+}
+[/block]
+## Part 3.3 — Interact with the Smart Contract
+
+The “SimpleToken” contract is now visible in “Inspector” and Sync can interact with it.
+
+**Get the Token name from the contract**
+
+The first interaction with the smart contract is simply getting the name of the Smart Contract token. Since this is a “read”, there is no update needed and no transaction is needed for this. This can be done by expanding the “name” routine and clicking “Call”. The result of this call is shown in HEX at the “data” field and decoded for humans in the “decoded” field.
+
+
+
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/03aa764-0_J0kohFazlBHyi7r3.png",
+        "0_J0kohFazlBHyi7r3.png",
+        1086,
+        783,
+        "#eaeaea"
+      ]
+    }
+  ]
+}
+[/block]
+**Check token balance of an empty wallet**
+
+To verify that the state of the smart contract can be changed, an address (in this guide 0xd3ae78222beadb038203be21ed5ce7c9b1bff602) is checked that should have 0 token now. This can be done with the “balanceOf” function.
+
+
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/339609b-0_9HCH8oSFRv-Nusuq.png",
+        "0_9HCH8oSFRv-Nusuq.png",
+        1086,
+        783,
+        "#eaeaea"
+      ]
+    }
+  ]
+}
+[/block]
+**Send token to an empty wallet**
+
+Now a contract “write” is needed. Inspector seperates “reads” and “writes”.
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/d9569a4-0_y0Dx4GSl5g6SIN8u.png",
+        "0_y0Dx4GSl5g6SIN8u.png",
+        1086,
+        783,
+        "#eaeae9"
+      ]
+    }
+  ]
+}
+[/block]
+The “transfer” function can be found in the “writes” tab. As destination, the previously checked empty wallet is entered. The token has 18 decimal digits. So 18 zeros needs to be added to the actual amount. In this guide, 10 tokens will be send, resulting in a value of 10000000000000000000.
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/22a1461-0_NqYyrKzJ9GMYUt_7.png",
+        "0_NqYyrKzJ9GMYUt_7.png",
+        1086,
+        783,
+        "#eaebeb"
+      ]
+    }
+  ]
+}
+[/block]
+Now the transaction can be executed
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/f95c19c-0_HNx-hbXnS8okHQWO.png",
+        "0_HNx-hbXnS8okHQWO.png",
+        1086,
+        783,
+        "#dcdddd"
+      ]
+    }
+  ]
+}
+[/block]
+**Check destination wallet**
+
+If the transaction is executed successfully, a new check of the token balance should show the appropriate value.
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/c69079d-0_KCXmXvKRKHiH-1YR.png",
+        "0_KCXmXvKRKHiH-1YR.png",
+        1086,
+        783,
+        "#e9eaea"
+      ]
+    }
+  ]
+}
+[/block]

@@ -1,0 +1,227 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; VeChain Documentation Legacy 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> VeChain Documentation Legacy
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul class="simple">
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">VeChain Documentation Legacy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/letvego-2020-4-13/v1.1/VeChainThor Blockchain/built-in-smart-contracts.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>—
+title: “Built-in Smart Contracts”
+slug: “built-in-smart-contracts”
+hidden: false
+createdAt: “2019-02-22T02:09:53.766Z”
+updatedAt: “2019-04-10T08:18:30.916Z”
+—
+There are six smart contracts deployed in VeChainThor’s genesis block. Their source code can be found [here](<a class="reference external" href="https://github.com/vechain/thor/tree/master/builtin/gen">https://github.com/vechain/thor/tree/master/builtin/gen</a>). We describe briefly what they do as follows:</p>
+<ul class="simple">
+<li><cite>authority.sol</cite></li>
+</ul>
+<blockquote>
+<div>facilitates the Proof of Authority consensus algorithm. The contract manages a list of candidate proposers for generating new blocks. They are authorized by the steering committee of the VeChain Foundation. Only the first 101 of them in the list, the so-called authority masternodes, can generate new blocks at the moment. Information of a candidate proposer stored in the system includes the signer address, endorsor address and identity. They need to use the private key corresponding to the signer address to sign any block they assemble and put sufficient VET as a deposit at the endorsor address. The identity is the hash of the proposer’s real identity.</div></blockquote>
+<ul class="simple">
+<li><cite>energy.sol</cite></li>
+</ul>
+<blockquote>
+<div>is the smart contract that creates the VTHO on VeChainThor. It conforms the VIP180 standard. The smallest unit of VTHO is wei where 1 VTHO = 1e18 wei.</div></blockquote>
+<ul class="simple">
+<li><cite>executor.sol</cite></li>
+</ul>
+<blockquote>
+<div>contains the core code for on-chain governance. The contract enables a proposal to be executed automatically on VeChainThor if it is approved by at least two-third of the steering committee members. A proposal can be registered either by an approver (a steering committee member) or by an authorized voting contract.</div></blockquote>
+<ul class="simple">
+<li><cite>extension.sol</cite></li>
+</ul>
+<blockquote>
+<div>defines functions to get information of a certain block or transaction.</div></blockquote>
+<ul class="simple">
+<li><cite>params.sol</cite></li>
+</ul>
+<blockquote>
+<div>defines functions to get and set the governance parameters of VeChainThor. Note that only the built-in “Executor” contract is allowed to set new values for the parameters. You can find the list of the governance parameters in [<cite>params.go</cite>](<a class="reference external" href="https://github.com/vechain/thor/blob/master/thor/params.go">https://github.com/vechain/thor/blob/master/thor/params.go</a>).</div></blockquote>
+<ul class="simple">
+<li><cite>prototype.sol</cite></li>
+</ul>
+<blockquote>
+<div>is the smart contract that implements the [multi-party payment protocol](<a class="reference external" href="https://doc.vechainworld.io/docs/multi-party-payment-protocol-mpp">https://doc.vechainworld.io/docs/multi-party-payment-protocol-mpp</a>) which will be discussed in details.</div></blockquote>
+<p>Examples of how to use the built-in contracts can be found [How to use built-in contracts - parameter /authority](doc:test).</p>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VeChain Developers
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,319 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>title: “VeChain-IDE by Tran” slug: “develop-and-deploy-smart-contract-in-ide” excerpt: “Author: Tran\nURL: https://github.com/mobileteamdev/vide-web” hidden: false createdAt: “2019-04-04T03:32:32.856Z” updatedAt: “2019-04-30T03:14:35.024Z” &mdash; VeChain Documentation Legacy 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VeChain Documentation Legacy
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ch1/index.html">VeChainThor Blockchain</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/overview.html">What is VeChainThor?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ch1/overview.html#business-friendly-meta-transaction-features">Business Friendly Meta-transaction Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ch1/overview.html#proof-of-authority-poa">Proof of Authority (“PoA”)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ch1/overview.html#governance">Governance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ch1/overview.html#economic-model">Economic Model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/two.html">Two-token design</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ch1/two.html#vet">VET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ch1/two.html#vtho">VTHO</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/block.html">Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/tx-model.html">Transaction Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/mpp.html">Multi-party Payment Protocol (MPP)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ch1/mpp.html#functions-related-to-user">Functions related to <em>User</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ch1/mpp.html#functions-related-to-the-credit-plan">Functions related to the <em>credit plan</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ch1/mpp.html#functions-related-master">Functions related <em>Master</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ch1/mpp.html#functions-related-to-sponsor">Functions related to <em>Sponsor</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/poa.html">Proof of Authority (PoA)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ch1/poa.html#when">When</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ch1/poa.html#who">Who</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ch1/poa.html#am-status-updating">AM Status Updating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ch1/poa.html#trunk">Trunk</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ch1/built-in.html">Built-in Smart Contracts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ch2/index.html">Get Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/how-to-node.html">How to deploy a VeChainThor node</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ch2/docker.html">Docker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/docker.html#run-vechainthor-authority-masternode-in-docker">Run VeChainThor Authority Masternode in docker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/docker.html#run-node-in-docker">Run node in docker</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../ch2/aws.html">AWS Marketplace</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/aws.html#this-is-an-example-of-solo-node-deployment">This is an example of “solo node” deployment.</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../ch2/source.html">Source code</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/source.html#installation">Installation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/public.html">Public VeChainThor nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/how-to-deploy.html">How to deploy a smart contract</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ch2/how-to-deploy.html#quick-start">Quick Start</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/how-to-develop.html">How to develop a dApp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ch2/how-to-1.html">Intro</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-1.html#whats-web-application"><strong>What’s Web Application?</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-1.html#what-is-dapp"><strong>What is DApp?</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-1.html#write-a-dapp-sync-and-connex"><strong>Write a DApp: Sync and Connex</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-1.html#token-transfer-a-simple-dapp-in-javascript"><strong>Token Transfer: A Simple DApp in Javascript</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../ch2/how-to-2.html">Components and Coding</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-2.html#preparation"><strong>Preparation</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-2.html#setup-in-3-minutes"><strong>Setup in 3 minutes</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-2.html#coding"><strong>Coding</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-2.html#put-things-together"><strong>Put Things Together</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-2.html#test-the-app"><strong>Test the App</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-2.html#one-more-thing"><strong>One More Thing</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../ch2/how-to-3.html">Setup &amp; Walk Around</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-3.html#setup-in-3-minutes"><strong>Setup in 3 minutes</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-3.html#poke-around-familiar-with-sync"><strong>Poke around: Familiar with Sync</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-3.html#play-with-connex-js-apis"><strong>Play with Connex.js APIs</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-3.html#summary"><strong>Summary</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VeChain Documentation Legacy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>title: “VeChain-IDE by Tran”
+slug: “develop-and-deploy-smart-contract-in-ide”
+excerpt: “Author: Tran\nURL: https://github.com/mobileteamdev/vide-web”
+hidden: false
+createdAt: “2019-04-04T03:32:32.856Z”
+updatedAt: “2019-04-30T03:14:35.024Z”</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Development Tools/develop-and-deploy-smart-contract-in-ide.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <hr class="docutils" />
+<div class="section" id="title-vechain-ide-by-tran-slug-develop-and-deploy-smart-contract-in-ide-excerpt-author-tran-nurl-https-github-com-mobileteamdev-vide-web-hidden-false-createdat-2019-04-04t03-32-32-856z-updatedat-2019-04-30t03-14-35-024z">
+<h1>title: “VeChain-IDE by Tran”
+slug: “develop-and-deploy-smart-contract-in-ide”
+excerpt: “Author: Tran\nURL: https://github.com/mobileteamdev/vide-web”
+hidden: false
+createdAt: “2019-04-04T03:32:32.856Z”
+updatedAt: “2019-04-30T03:14:35.024Z”<a class="headerlink" href="#title-vechain-ide-by-tran-slug-develop-and-deploy-smart-contract-in-ide-excerpt-author-tran-nurl-https-github-com-mobileteamdev-vide-web-hidden-false-createdat-2019-04-04t03-32-32-856z-updatedat-2019-04-30t03-14-35-024z" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="vide-vechain-ide">
+<h1>VIDE (VeChain-IDE)<a class="headerlink" href="#vide-vechain-ide" title="Permalink to this headline">¶</a></h1>
+<p>VIDE is a browser-based compiler and IDE that enables users to build <strong>VeChainThor contracts with Solidity language</strong> and to debug transactions. (VIDE “Beta version” is developed based on Remix)</p>
+<p>To try it out, visit <a class="reference external" href="https://vechainstore.com/ide">https://vechainstore.com/ide</a>.
+[block:image]
+{
+“images”: [
+{
+“image”: [
+“https://files.readme.io/7a9d5eb-VIDE_editor.png”,
+“VIDE_editor.png”,
+1897,
+936,
+“#e6e6e9”
+]
+}
+]
+}
+[/block]</p>
+<div class="section" id="installation">
+<h2>INSTALLATION:<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Install <strong>npm</strong> and <strong>node.js</strong> (see https://docs.npmjs.com/getting-started/installing-node), then do:</p>
+<p>Clone the github repository (<code class="docutils literal notranslate"><span class="pre">wget</span></code> need to be installed first) :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/mobileteamdev/vide-web.git
+<span class="nb">cd</span> vide-web
+npm install
+npm run build
+</pre></div>
+</div>
+</div>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<p>To see details about how to use VIDE for developing and/or debugging Solidity contracts, please see <a class="reference external" href="https://vide.readthedocs.io">our documentation page</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VeChain Developers
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+---
+title: "Example Connex app"
+slug: "demo"
+hidden: false
+createdAt: "2019-02-27T05:36:04.261Z"
+updatedAt: "2019-04-04T03:31:50.781Z"
+---
+Below is a list of apps that compatible with Connex
+* [Insight](doc:vechain-insight) 
+* [Inspector](doc:inspector) 
+* [Buy me a coffee](doc:buy-me-a-coffee) 
+* [Energy Station (testnet only)](doc:energy-station)

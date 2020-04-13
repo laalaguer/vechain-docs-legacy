@@ -1,0 +1,14 @@
+---
+title: "Sample Code"
+slug: "sample-code-1"
+hidden: true
+createdAt: "2019-07-17T13:43:10.143Z"
+updatedAt: "2019-07-17T13:44:15.411Z"
+---
+Example Code to create a VIP 191 TX:
+
+**[Javascript](https://gist.github.com/libotony/329993f2f427099ee84bb1716cbdcf9b)**
+
+**[Java](https://github.com/vechain/thor-client-sdk4j/blob/b54b9df22837dfd2eed2475245c21c1f05c24db8/src/test/java/com/vechain/thorclient/clients/TransactionClientTest.java#L225)**
+
+**[Golang](https://gist.github.com/qianbin/d1136da1ed7f1d798ef571a912278651)**

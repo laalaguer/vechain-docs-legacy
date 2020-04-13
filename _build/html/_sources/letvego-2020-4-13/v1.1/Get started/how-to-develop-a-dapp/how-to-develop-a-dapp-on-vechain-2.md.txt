@@ -1,0 +1,257 @@
+---
+title: "Components and Coding"
+slug: "how-to-develop-a-dapp-on-vechain-2"
+excerpt: "Author: A Byte Ahead\nhttps://medium.com/@laalaguer/how-to-develop-a-dapp-on-vechain-iii-components-coding-8c4eea965684"
+hidden: false
+createdAt: "2019-04-04T03:43:36.124Z"
+updatedAt: "2019-04-04T04:01:26.693Z"
+---
+Congratulations! You have made to the last episode of this tutorial. Here we will put everything we know together and make a useful program: a VTHO token transfer tool. The official [Sync](https://env.vechain.org/) only provides the VET transfer functionality, our VTHO tools is a very good supplement to the status quo.
+
+## **Preparation** 
+
+Make sure you have the following things ready:
+
+  * [Sync](https://env.vechain.org/) set up and running on your computer.
+  * A testing account, which is already presented in Sync.
+  * Some VET and VTHO in your testing account.
+  * Sync running on test net. 
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/e3d2843-1_5sGTMuzQ8gaIiPG9COavjw.jpeg",
+        "1_5sGTMuzQ8gaIiPG9COavjw.jpeg",
+        1600,
+        1359,
+        "#eceaea"
+      ]
+    }
+  ]
+}
+[/block]
+> *If you don’t know how above requirements are done, check the previous episode: https://medium.com/@laalaguer/how-to-develop-a-dapp-on-vechain-ii-setup-walk-around-109a01bf7ae9* 
+
+## **Setup in 3 minutes** 
+
+Great! Now we start to build the real web page DApp. Let us set up the project and necessities first. We will use [Vue](https://vuejs.org/).js and [BootstrapVue](https://bootstrap-vue.js.org/) as our foundation.
+[block:code]
+{
+  "codes": [
+    {
+      "code": "> mkdir vtho-transfer\n> cd vtho-transfer/\n> npm install -g @vue/cli # Install vue-cli.\n\n> vue create -b -n my-project # Create a clean Vue project.\n> cd my-project # Now you are in a Vue workspace!\n> npm install vue bootstrap-vue bootstrap # Install BootstrapVue.\n> npm install bignumber.js # Math library.\n> npm run serve # Start development server on background.",
+      "language": "text",
+      "name": null
+    }
+  ]
+}
+[/block]
+We are all set! Now let us view our precious project in Sync. Open a tab and navigate to http://localhost:8080. It should be like this:
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/20a7a0d-1_Sg-YkK-8W-WWbt8WV4F_uA.jpeg",
+        "1_Sg-YkK-8W-WWbt8WV4F_uA.jpeg",
+        1600,
+        1335,
+        "#f1f2f2"
+      ]
+    }
+  ]
+}
+[/block]
+## **Coding**
+
+Due to the length of this tutorial, we write **one core component** and demo the key functions. The rest of the code and a more complicated example can be found **at the bottom of this tutorial**.
+
+### **The Appearance** 
+The app must be stylish! Clean up the default **main.js** and add a BootstrapVue library, quite simple:
+[block:code]
+{
+  "codes": [
+    {
+      "code": "import Vue from 'vue'\nimport BootstrapVue from 'bootstrap-vue' // Here\nimport 'bootstrap/dist/css/bootstrap.css' // Here\nimport 'bootstrap-vue/dist/bootstrap-vue.css' // Here\nimport App from './App.vue'\n\nVue.use(BootstrapVue) // Here\n\nVue.config.productionTip = false\n\nnew Vue({\n  render: h => h(App),\n}).$mount('#app')",
+      "language": "javascript"
+    }
+  ]
+}
+[/block]
+Put the component on the radar screen by editing the **App.vue**:
+[block:code]
+{
+  "codes": [
+    {
+      "code": "<template>\n  <div id=\"app\">\n    <div>\n      <b-card style=\"max-width: 30rem;\" header=\"My Address Here\">\n        <p>My Amount Here <span class=\"text-primary\">VTHO</span></p>\n\n        <b-form-group label=\"To Address:\" label-for=\"toaddress\">\n          <b-form-input id=\"toaddress\" v-model.trim=\"toaddress\"></b-form-input>\n        </b-form-group>\n\n        <b-form-group label=\"Transfer Amount\" label-for=\"toamount\">\n          <b-input-group append=\"VTHO\">\n            <b-form-input id=\"toamount\" type=\"number\" min=\"0\" v-model.number=\"toamount\">\n            </b-form-input>\n          </b-input-group>\n        </b-form-group>\n\n        <b-button variant=\"primary\" v-on:click=\"transfer\">\n          Transfer\n        </b-button>\n      </b-card>\n    </div>\n  </div>\n</template>\n\n<script>\nexport default {\n  \n}\n</script>",
+      "language": "javascript"
+    }
+  ]
+}
+[/block]
+Great! Now save both the files and refresh the Sync tab, the dummy web page pretty much looks like this now:
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/b7cbb6e-1_MiQdFr5KYgT8NglI_f6_qg.jpeg",
+        "1_MiQdFr5KYgT8NglI_f6_qg.jpeg",
+        1600,
+        1434,
+        "#f6f6f7"
+      ]
+    }
+  ]
+}
+[/block]
+Now that we have the skeleton, let’s move on to make the functions to make the app alive. Create a separate empty file alongside the **main.js**, name it **operations.js**, then put several functions into it.
+
+### **Query the VTHO Balance**
+Okay, let us first create a function queries the VTHO balance from the VTHO contract on test net, actually, it can be used to query any contract that is VIP180 compatible. It should be like this:
+[block:code]
+{
+  "codes": [
+    {
+      "code": "/**\n * Get token amount of holder from a contract.\n * @param {String} addressContract 0x started address.\n * @param {String} addressHolder 0x started address.\n */\nasync function getTokenBalance (addressContract, addressHolder) {\n  const balanceOfABI = {\n      'constant': true,\n      'inputs': [\n      {\n          'name': '_owner',\n          'type': 'address'\n      }\n      ],\n      'name': 'balanceOf',\n      'outputs': [\n      {\n          'name': 'balance',\n          'type': 'uint256'\n      }\n      ],\n      'payable': false,\n      'stateMutability': 'view',\n      'type': 'function'\n  }\n  // eslint-disable-next-line\n  const balanceOfMethod = connex.thor.account(addressContract).method(balanceOfABI)\n  const balanceInfo = await balanceOfMethod.call(addressHolder)\n  return balanceInfo\n}",
+      "language": "javascript"
+    }
+  ]
+}
+[/block]
+Quite self-explanatory, this `getTokenBalance` function queries the contract about how much token the user holds, when we call it, we feed it with the actual contract address and user’s account address. Notice that we used the `call()` function of connex.js, which we introduced in the previous episode.
+
+### **Sign Transaction and Send VTHO** 
+
+How to sign the transaction and send it to the other person? Simple, we just use the sign-and-send API embedded in the **connex.js**. Let’s create a function for that, too. Still, in the **operation.js**, append this code:
+[block:code]
+{
+  "codes": [
+    {
+      "code": "/**\n * Transfer token from one to another.\n * @param {String} addressContract Contract address.\n * @param {String} signerAddress Enforce who signs the transaction.\n * @param {String} toAddress Receiver of transfer.\n * @param {String} amountEVM Big number in string.\n * @param {Number} amountHuman Normal number in Javascript.\n * @param {String} symbol Symbol of token.\n */\nasync function transferToken (addressContract, signerAddress, toAddress, amountEVM, amountHuman, symbol) {\n    const transferABI = {\n      'constant': false,\n      'inputs': [\n        {\n          'name': '_to',\n          'type': 'address'\n        },\n        {\n          'name': '_value',\n          'type': 'uint256'\n        }\n      ],\n      'name': 'transfer',\n      'outputs': [\n        {\n          'name': '',\n          'type': 'bool'\n        }\n      ],\n      'payable': false,\n      'stateMutability': 'nonpayable',\n      'type': 'function'\n    }\n    // eslint-disable-next-line\n    const transferMethod = connex.thor.account(addressContract).method(transferABI)\n    const transferClause = transferMethod.asClause(toAddress, amountEVM)\n    // eslint-disable-next-line\n    const signingService = connex.vendor.sign('tx')\n    signingService\n      .signer(signerAddress) // Enforce signer\n      .comment('Token transfer: ' + amountHuman.toString() + ' ' + symbol)\n  \n    let transactionInfo = await signingService.request([\n      {\n        comment: 'Hello! Transfer Demo!',\n        ...transferClause\n      }\n    ])\n    return transactionInfo\n  }",
+      "language": "javascript"
+    }
+  ]
+}
+[/block]
+The above snippet is mainly about `transferToken`, which is a general purpose transfer action. It takes the contract address, sender address, receiver address, amount of transfer, then asks the **connex** to sign the transaction and send out!
+
+Now finish the **operations.js** file with the export section as usual:
+[block:code]
+{
+  "codes": [
+    {
+      "code": "  export {\n    getTokenBalance,\n    transferToken\n  }",
+      "language": "javascript"
+    }
+  ]
+}
+[/block]
+### **Formatting Numbers**
+
+In the smart contract, the decimals don’t exist. All numbers are integers. To present the numbers right to the decimal, we power it with 10 times precision. So when we say: **123.456** in human language, it should be presented in:
+
+> *123.456 * (10 ^ 18) and then send to EVM. And vice versa.*
+
+So we need some utilities as a broker to help us with number formatting. Create a new file **utils.js** and place the following content inside:
+[block:code]
+{
+  "codes": [
+    {
+      "code": "const BigNumber = require('bignumber.js')\nconst DECIMALS = function (points) {\n  return new BigNumber(10 ** points) // Decimals = 18 on VTHO and most contracts.\n}\n\n/**\n * Turn a string to big number.\n * @param {String} aString a number string.\n */\nconst makeBN = function (aString) {\n  return BigNumber(aString)\n}\n\n/**\n * Turn a BigNumber into a printable string.\n * @param {BigNumer} aBigNumber A big number.\n * @param {Integer} dp An integer of percision, default is 2.\n */\nconst printBN = function (aBigNumber, dp = 2) {\n  return aBigNumber.toFixed(dp)\n}\n\n/**\n * Turn an EVM big number into normal human understandable percision.\n * @param {BigNumber} aBigNumber An EVM big number.\n * @param {Number} decimals Percisions that EVM number has. Default is 18.\n */\nconst evmToHuman = function (aBigNumber, decimals = 18) {\n  return aBigNumber.dividedBy(DECIMALS(decimals))\n}\n\n/**\n * Turn a human understandable number to an EVM Big number.\n * @param {String} aNumber A normal float/int from user input.\n * @param {Number} decimals Percisions that EVM number has. Default is 18.\n * @returns {String} String represented number.\n */\nconst humanToEVM = function (aNumber, decimals = 18) {\n  const a = makeBN(aNumber)\n  return a.multipliedBy(DECIMALS(decimals)).toString(10)\n}\n\n/**\n * Shortcut turing EVM big number string into human readable short format.\n * @param {String} aString String representing the EVM big number.\n * @param {Number} decimals Percisions that EVM number has. Default is 18.\n * @param {BigNumber} dp decimal points that result shall keep.\n */\nconst evmToPrintable = function (aString, decimals = 18, dp = 2) {\n  const evmNumber = makeBN(aString)\n  const humanNumber = evmToHuman(evmNumber, decimals)\n  return printBN(humanNumber, dp)\n}\n\nexport {\n  makeBN,\n  printBN,\n  evmToHuman,\n  humanToEVM,\n  evmToPrintable\n}",
+      "language": "javascript"
+    }
+  ]
+}
+[/block]
+Great! All is done, now we put things together and make our app alive!
+
+## **Put Things Together** 
+
+Time to go back to **App.vue** to fill up the Javascript section.
+
+Firstly, let’s call the VTHO contract and display our VTHO balance, here is what I did in code:
+
+  * Fix in the VTHO smart contract address.
+  * Fix in my account address. (Generated from the previous episode of tutorials)
+  * Initialization the VTHO balance query before the component is mounted. 
+[block:code]
+{
+  "codes": [
+    {
+      "code": "<!-- Continue with the App.vue -->\n<script>\nconst operations = require('./operations.js')\nconst utils = require('./utils.js')\n\nexport default {\n  data() {\n    return {\n      myaddress: '0xa7a609b928c4eac077d0e5640f3fa650746c4fcf',\n      myamount: 0,\n      contract: '0x0000000000000000000000000000456e65726779'\n    }\n  },\n  beforeMount () {\n    this.refreshTokenBalance()\n  },\n  methods: {\n    refreshTokenBalance () {\n      operations.getTokenBalance(this.contract, this.myaddress)\n        .then(result => {\n          this.myamount = utils.evmToPrintable(result['decoded']['balance'], this.decimals)\n        })\n        .then(() => {\n          // eslint-disable-next-line\n          const ticker = connex.thor.ticker()\n          ticker.next().then(() => { this.refreshTokenBalance() })\n        })\n    }\n  }\n}\n</script>",
+      "language": "javascript"
+    }
+  ]
+}
+[/block]
+> *Note: you can always use ticker() instead of setTimeout() to recursively query the balance of your account. 😉* 
+
+Secondly, we add the function of sending VTHO token transactions to the button, so we can get alert whenever it succeeds or fails.
+[block:code]
+{
+  "codes": [
+    {
+      "code": "<script>\nmethods: {\n // ... add after refreshTokenBalance()\n  transfer () { // Confrim and send out a transfer.\n    const evmAmount = utils.humanToEVM(this.toamount.toString(), 18)\n    operations.transferToken(this.contract, this.myaddress, this.toaddress, evmAmount, this.toamount, 'VTHO')\n      .then(result => {alert('success!')})\n      .catch(e => {alert('failed!')})\n  }\n}\n</script>",
+      "language": "javascript"
+    }
+  ]
+}
+[/block]
+Great! Now update our template to bind to those data:
+[block:code]
+{
+  "codes": [
+    {
+      "code": "<template>\n  <div id=\"app\">\n    <div>\n      <b-card style=\"max-width: 30rem;\" :header=\"myaddress\">\n        <p>{{myamount}} <span class=\"text-primary\">VTHO</span></p>\n\n        <b-form-group label=\"To Address:\" label-for=\"toaddress\">\n          <b-form-input id=\"toaddress\" v-model.trim=\"toaddress\"></b-form-input>\n        </b-form-group>\n\n        <b-form-group label=\"Transfer Amount\" label-for=\"toamount\">\n          <b-input-group append=\"VTHO\">\n            <b-form-input id=\"toamount\" type=\"number\" min=\"0\" v-model.number=\"toamount\">\n            </b-form-input>\n          </b-input-group>\n        </b-form-group>\n\n        <b-button variant=\"primary\" v-on:click=\"transfer\">\n          Transfer\n        </b-button>\n      </b-card>\n    </div>\n  </div>\n</template>",
+      "language": "javascript"
+    }
+  ]
+}
+[/block]
+Now all the code is finished, make sure you have saved the same:
+
+> *GitHub repo of all the source code: [[GitHub Link](https://github.com/laalaguer/token-transfer-demo)]* 
+
+## **Test the App** 
+
+Now let us view our first triumph on the VeChain DApp journey!
+
+On Sync browser, visit http://localhost:8080, then do the following:
+
+1. Input a receiver: 0x422D582C08d7965cD5Fefef1572faaA15783f473
+2. Input the amount: 10 VTHO
+3. Clicking the little “Transfer” blue button.
+
+Then wait for it…. the magic time! Sync prompts me to unlock my account to send the transaction:
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/2fa3faf-1_1g_INpWjOspyEiFR_x2zdQ.png",
+        "1_1g_INpWjOspyEiFR_x2zdQ.png",
+        1600,
+        1200,
+        "#e7e8e8"
+      ]
+    }
+  ]
+}
+[/block]
+Of course, I input the password correctly, and you can see the transaction details on test net here:
+
+[![](https://files.readme.io/840d6d9-WeChat_Image_20190322112559.png)](https://testnet.veforge.com/transactions/0xcd46a2ae14d44b612d9ee628770d4a65932352a9bb9861ca32ece4811878a5c8/)
+
+Finally, our example has finished! Thanks for hard working!
+
+
+## **One More Thing**
+If you are interested, this source code also is available at the GitHub below:
+
+https://github.com/laalaguer/token-transfer-demo
+
+The full VeChain token transfer is more complicated, the GitHub is below:
+
+https://github.com/laalaguer/vechain-token-transfer

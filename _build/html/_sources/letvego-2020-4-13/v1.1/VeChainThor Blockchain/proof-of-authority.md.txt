@@ -1,0 +1,75 @@
+---
+title: "Proof of Authority (PoA)"
+slug: "proof-of-authority"
+hidden: false
+createdAt: "2019-02-22T02:31:05.240Z"
+updatedAt: "2019-03-01T02:34:54.997Z"
+---
+One of the biggest decisions when designing a public blockchain system is about designing the consensus algorithm. The protocol not only dictates how blockchain participants agree on the blockchain grows but embodies the governance model imposed upon the system. 
+
+Recall that the underlying design philosophy of our governance model is that 
+
+*neither a total centralization nor a total decentralization would be the correct answer, but a compromise from and balance of both would*. 
+
+VeChainThor implements the Proof of Authority (PoA) consensus algorithm which suits our governance model which states that there would not be anonymous block producers, but a fixed number of known validators (Authority Masternodes) authorized by the steering committee of the VeChain Foundation. 
+
+> “It takes twenty years to build a reputation and five minutes to ruin it. If you think about that, you’ll do things differently.” – Warren Buffet
+
+To be an Authority Masternode (AM), the individual or entity voluntarily discloses who they are (identity and reputation by extension) to the VeChain Foundation in exchange for the right to validate and produce blocks. It is their identities and reputations placed at stake that give all the AMs additional incentives to behave and keep the network secure. In VeChainThor, each AM has to go through a strict know-your-customer (KYC) procedure and satisfy the minimum requirements set by the Foundation.
+
+When discussing a consensus algorithm, we must answer the following questions: 
+
+- When is a new block produced? 
+- Who generates the block? 
+- How to choose the "trunk" from two legitimate blockchain branches?
+[block:api-header]
+{
+  "title": "When"
+}
+[/block]
+VeChainThor schedules a new block to be generated once every ![$\Delta$](https://files.readme.io/5825a0b-delta.PNG) seconds. We set ![$\Delta=10$](https://files.readme.io/219eb51-delta10.PNG), which is based on our estimation of the usage of VeChainThor.  Let ![$t_0$](https://files.readme.io/b518391-t0.PNG) be the timestamp of the genesis block. The timestamp of the block with height ![$h>0$](https://files.readme.io/6c53611-h-0.PNG), ![$t_h$](https://files.readme.io/79f7844-th.PNG), must satisfy ![$t_h=t_0+m\Delta$](https://files.readme.io/8ba41ac-th_formula.PNG) where ![$m\in \mathbb{N}^+$](https://files.readme.io/c44a258-m_n.PNG) and ![$m\geq h$](https://files.readme.io/ee1c38b-m--h.PNG). 
+[block:api-header]
+{
+  "title": "Who"
+}
+[/block]
+PoA allows every available AM to have an equal opportunity to be selected to produce blocks. To do that, we introduce a deterministic pseudo-random process (DPRP) and the “active/inactive” AM status to decide whether a particular AM ***a*** is legitimate for producing a block ***B(h,t)*** with height ***h*** (`uint32`) and timestamp ***t*** (`uint64`). Here ***t*** must satisfy ![](https://files.readme.io/2a7864f-t-t0.PNG). We first define the DPRP to generate a pseudo-random number ![$\gamma(h,t)$](https://files.readme.io/8849993-garma.PNG) as:
+
+![](https://files.readme.io/57a2f24-gamma_formula.PNG)
+
+where ![$\circ$](https://files.readme.io/7d0cc4a-circle.png) denotes the operation that concatenates two byte arrays. 
+
+Let ![$A_B$](https://files.readme.io/6674073-AB.PNG) denote the sorted set of AMs with the “active” status in the state associated with block ***B***. Note that in VeChainThor each AM is given a fixed index number and the numbers are used to sort elements in ![$A_B$](https://files.readme.io/6674073-AB.PNG). To verify whether ***a*** is the legitimate AM for producing ***B(h,t)***, we first define 
+
+![$A_{B(h,t)}^a=sort\big(A_{PA(B(h,t))} \cup a\big)$](https://files.readme.io/03e777d-AAB.PNG)
+
+where ![$PA(\cdot)$](https://files.readme.io/e87edf5-PA.PNG) returns the parent block. We then compute index ![$i^a(h,t)$](https://files.readme.io/96446bb-iaht.PNG) as:
+
+![$i^a (h,t)=\gamma(h,t)\,\textrm{mod}\,\|A_{B(h,t)}^a\|$](https://files.readme.io/ce66c7e-iaht_formula.PNG)
+
+AM ***a*** is the legitimate producer of ***B(h,t)*** if and only if ![$A_{B(h,t)}^a\big[i^a (h,t)\big]=a$](https://files.readme.io/47fc086-aabht_formula.PNG). Note that we put double quotes around the word “active” to emphasize that the status does not directly reflect the physical condition of a certain AM, but merely a status derived from the incoming information from the network. 
+[block:api-header]
+{
+  "title": "AM Status Updating"
+}
+[/block]
+Given the latest block ![$B(h,t_1)$](https://files.readme.io/5f15b73-bht1.PNG) and its parent ![$B(h-1,t_0)$](https://files.readme.io/c11155f-bh-1.PNG), for any ![$t_0<t<t_1$](https://files.readme.io/9526240-t0-t-t1.PNG) and ![](https://files.readme.io/2a7864f-t-t0.PNG), the system computes AM ![$a_t$](https://files.readme.io/4f359ef-at.PNG) such that 
+
+![](https://files.readme.io/4f392f1-aa1bhtformula.PNG)
+
+and mark ![$a_t$](https://files.readme.io/4f359ef-at.PNG) as "inactive" in the state associated with ![$B(h,t_1)$](https://files.readme.io/5f15b73-bht1.PNG). In addition, the system always sets the status of the AM that generates ![$B(h,t_1)$](https://files.readme.io/5f15b73-bht1.PNG) as "active". Note that we set all the AMs as "active" from the beginning.
+
+[block:api-header]
+{
+  "title": "Trunk"
+}
+[/block]
+The final question we need to answer is how to choose the “trunk” from two legitimate blockchain branches. Since there is no computational competition in PoA, the “longest chain” rule does not apply. Instead, we consider the better branch as the one witnessed by more AMs. 
+
+To do that, we compute the accumulated witness number (AWN),*π*, for block ![$B(h,t)$](https://files.readme.io/8778653-bht.PNG) as:
+
+![](https://files.readme.io/1a5f86f-paibht.PNG)
+
+with ![](https://files.readme.io/c2a434b-paibgenesis.PNG). Since ![$\|A_{B(h,t)}\|$](https://files.readme.io/f3df345-abht.PNG) computes the number of AMs with “active” status associated with ![$B(h,t)$](https://files.readme.io/8778653-bht.PNG), it can be viewed as the number of AMs that witness the generation of ![$B(h,t)$](https://files.readme.io/8778653-bht.PNG). Therefore, we select the branch with the larger AWN as the trunk. If the AWNs are the same, we choose the branch with less length. Note that the AWN is stored in the block header as `TotalScore`.
+
+Formally, given two branches ![β1](https://files.readme.io/50e44f5-1.PNG) and ![β2](https://files.readme.io/5dfa040-2.PNG) with their latest blocks ![$B_1(h_1,t_1)$](https://files.readme.io/3fe3920-b1h1t1.PNG) and ![$B_2(h_2,t_2)$](https://files.readme.io/3e56e97-bht2.PNG), respectively, we first calculate their AWNs ![](https://files.readme.io/3e9e34c-B1.PNG) and ![](https://files.readme.io/739356a-B2.PNG). The system then makes the following decision: choose ![β1](https://files.readme.io/50e44f5-1.PNG)  as the trunk if ![$\pi_{B_1}>\pi_{B_2}$](https://files.readme.io/9913d7d-B1-B2.PNG), or ![β2](https://files.readme.io/5dfa040-2.PNG) if ![$\pi_{B_1}<\pi_{B_2}$](https://files.readme.io/f6dee27-B1--B2.PNG). In case ![$\pi_{B_1}=\pi_{B_2}$](https://files.readme.io/6fbe6bc-B1B2.PNG), choose ![$\mathcal{B}_1$ if $h_1<h_2$ or $\mathcal{B}_2$ if $h_1>h_2$](https://files.readme.io/62a15e1-1-_2.PNG). If ![$h_1=h_2$](https://files.readme.io/454a4c5-h1h2.PNG), keep the current trunk.

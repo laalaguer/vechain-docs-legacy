@@ -1,0 +1,225 @@
+# VeKey Bridge Tool Manual (Mac)
+**1. About VeKey Bridge Tool**
+
+VeKey Bridge Tool is a connection bridge between VeKey and Web application powered by VeChain. Through restful api you can get VeKey serial number list, public information (address, public key), device information (hardware version, firmware version, alias), signature of VeKey.
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/0c89482-2-1.png",
+        "2-1.png",
+        412,
+        554,
+        "#f6f7f3"
+      ]
+    }
+  ]
+}
+[/block]
+**2. VeKey Bridge Tool Overview**
+
+#### 2.1. Tool Feature List
+
+1. Offering Local Http service
+2. Display VeKey device information
+3. Offering related restful API
+4. VeKey Bridge Tool upgrade on-line
+5. Support VeKey device firmware upgrade on-line
+
+#### 2.2. Requirements
+1. Platform: Mac OSX 10.13+
+2. Hardware: VeKey I (for test only) or VeKey II
+3. Software: VeKey Bridge tool
+
+
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/9b01c2c-1-4.png",
+        "1-4.png",
+        233,
+        270,
+        "#e6e7e7"
+      ],
+      "caption": "VeKey I (for test only)"
+    }
+  ]
+}
+[/block]
+
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/4ce9fbd-1-3.png",
+        "1-3.png",
+        572,
+        283,
+        "#cec2b9"
+      ],
+      "caption": "VeKey II"
+    }
+  ]
+}
+[/block]
+**3. Instructions for VeKey Bridge Tool**
+#### 3.1. Install VeKey Bridge Tool
+1. Download and install VeKey Bridge Tool (VeKeyBridge.dmg)
+[VeKeyBridge.dmg](http://bbs-prd.oss-cn-hongkong.aliyuncs.com/c6f9d160-154f-4ece-b61d-afeaca6f2c9a.dmg) 
+
+2. Double click VeKeyBridge.dmg and drag the VeKey Bridge app into the Applications folder
+
+
+#### 3.2. VeKey Bridge Tool Operation
+1. Launch VeKey Bridge Tool, central button can enable(default) or disable http service. The local http service provids lots of restful APIs, which you can communicate with the VeKey device. More detail about restful APIs, please contact bd@vechain.com
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/9aac7c2-1-6.png",
+        "1-6.png",
+        1056,
+        704,
+        "#f8f9f7"
+      ]
+    }
+  ]
+}
+[/block]
+2. Plug in VeKey device, then input password and let VeKey device be in signature mode. VeKey Bridge Tool can show VeKey device type and address in the bottom zone, and you can click![99b8a465-2a70-4573-a102-f9de63e93d7d-image.png](http://bbs-prd.oss-cn-hongkong.aliyuncs.com/287697a3-b420-4476-bf40-9587a05eb3f6.png) to copy the address. 
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/3d0f4bc-2-2.png",
+        "2-2.png",
+        706,
+        472,
+        "#bec0bf"
+      ]
+    }
+  ]
+}
+[/block]
+#### 3.3. VeKey device firmware upgrade
+1. At the bottom of left-hand corner, you can find yellow icon (optional upgrade mode) or red icon (force upgrade mode) when new firmware version of VeKey device is available on remote server. 
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/dde2c6c-2-3.png",
+        "2-3.png",
+        787,
+        518,
+        "#f3f6f2"
+      ]
+    }
+  ]
+}
+[/block]
+2. At optional upgrade mode, you can skip current upgrade. At force upgrade mode, you have to quit application or upgrade directly. 
+
+#### 3.4. VeKey Bridge Tool upgrade
+
+If new version of VeKey Bridge Tool is available on remote server, upgrade message window will pop up when you open the tool or click the “Check for updates” menu. If the VeKey Bridge Tool upgrade is optional , you can skip. Otherwise, you have to quit application or upgrade directly. 
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/cb24322-2-4.png",
+        "2-4.png",
+        1262,
+        482,
+        "#f5f4f3"
+      ]
+    }
+  ]
+}
+[/block]
+Finally you need to drag the VeKey Bridge app into the Applications folder. 
+
+#### 3.5. VeKey Bridge Tool Menu
+1. Click the menu shows "About VeKey Bridge", "Check for updates","Port Setting" and "QuitVeKey Bridge". 
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/6a7c744-2-6.png",
+        "2-6.png",
+        381,
+        216,
+        "#9ab8d9"
+      ]
+    }
+  ]
+}
+[/block]
+2.  “About VeKey Bridge”menu shows the current VeKey Bridge Tool version. 
+
+
+3. “Check for updates”menu shows the latest VeKey Bridge Tool version on remote server. 
+
+
+4. “Port Setting”menu shows the current http service port. The default port is 8099. If the port is conflict to other service, you can modify it between 0-65535. 
+
+5. Click “Quit VeKey Bridge” menu to quit the application.
+
+
+#### 3.6. Other settings
+1. When you press Control + Option + D, debug mode is open or close. You can find log file in the path (~/Library/Containers/com.vechain.usbkey/Data/Documents/logs.txt) for the further analysis.
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/5d965c5-2-5.png",
+        "2-5.png",
+        318,
+        412,
+        "#f3f5f1"
+      ]
+    }
+  ]
+}
+[/block]
+2. TEST icon will be shown in the top right-hand corner when VeKey I plugs in and in signature mode. 
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/929a76c-2-7.png",
+        "2-7.png",
+        341,
+        445,
+        "#f6f9f4"
+      ]
+    }
+  ]
+}
+[/block]
+3. After VeKey II plugs in and in signature mode, you can click icon at the bottom of right-hand corner to get VeKey device information and modify alias. 
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/5372dd9-2-8.png",
+        "2-8.png",
+        414,
+        552,
+        "#f2f4f1"
+      ]
+    }
+  ]
+}
+[/block]

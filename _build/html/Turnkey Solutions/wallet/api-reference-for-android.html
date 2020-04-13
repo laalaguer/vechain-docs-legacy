@@ -1,0 +1,837 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>title: “API Reference for Android” slug: “api-reference-for-android” hidden: true createdAt: “2019-04-15T10:45:47.936Z” updatedAt: “2019-08-16T07:51:15.250Z” &mdash; VeChain Documentation Legacy 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> VeChain Documentation Legacy
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../ch1/index.html">VeChainThor Blockchain</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../ch1/overview.html">What is VeChainThor?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ch1/overview.html#business-friendly-meta-transaction-features">Business Friendly Meta-transaction Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ch1/overview.html#proof-of-authority-poa">Proof of Authority (“PoA”)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ch1/overview.html#governance">Governance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ch1/overview.html#economic-model">Economic Model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ch1/two.html">Two-token design</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ch1/two.html#vet">VET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ch1/two.html#vtho">VTHO</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ch1/block.html">Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ch1/tx-model.html">Transaction Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ch1/mpp.html">Multi-party Payment Protocol (MPP)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ch1/mpp.html#functions-related-to-user">Functions related to <em>User</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ch1/mpp.html#functions-related-to-the-credit-plan">Functions related to the <em>credit plan</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ch1/mpp.html#functions-related-master">Functions related <em>Master</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ch1/mpp.html#functions-related-to-sponsor">Functions related to <em>Sponsor</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ch1/poa.html">Proof of Authority (PoA)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ch1/poa.html#when">When</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ch1/poa.html#who">Who</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ch1/poa.html#am-status-updating">AM Status Updating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ch1/poa.html#trunk">Trunk</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ch1/built-in.html">Built-in Smart Contracts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../ch2/index.html">Get Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../ch2/how-to-node.html">How to deploy a VeChainThor node</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ch2/docker.html">Docker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ch2/docker.html#run-vechainthor-authority-masternode-in-docker">Run VeChainThor Authority Masternode in docker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ch2/docker.html#run-node-in-docker">Run node in docker</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../ch2/aws.html">AWS Marketplace</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ch2/aws.html#this-is-an-example-of-solo-node-deployment">This is an example of “solo node” deployment.</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../ch2/source.html">Source code</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ch2/source.html#installation">Installation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ch2/public.html">Public VeChainThor nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ch2/how-to-deploy.html">How to deploy a smart contract</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ch2/how-to-deploy.html#quick-start">Quick Start</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../ch2/how-to-develop.html">How to develop a dApp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ch2/how-to-1.html">Intro</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ch2/how-to-1.html#whats-web-application"><strong>What’s Web Application?</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ch2/how-to-1.html#what-is-dapp"><strong>What is DApp?</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ch2/how-to-1.html#write-a-dapp-sync-and-connex"><strong>Write a DApp: Sync and Connex</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ch2/how-to-1.html#token-transfer-a-simple-dapp-in-javascript"><strong>Token Transfer: A Simple DApp in Javascript</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../ch2/how-to-2.html">Components and Coding</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ch2/how-to-2.html#preparation"><strong>Preparation</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ch2/how-to-2.html#setup-in-3-minutes"><strong>Setup in 3 minutes</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ch2/how-to-2.html#coding"><strong>Coding</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ch2/how-to-2.html#put-things-together"><strong>Put Things Together</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ch2/how-to-2.html#test-the-app"><strong>Test the App</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ch2/how-to-2.html#one-more-thing"><strong>One More Thing</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../ch2/how-to-3.html">Setup &amp; Walk Around</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ch2/how-to-3.html#setup-in-3-minutes"><strong>Setup in 3 minutes</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ch2/how-to-3.html#poke-around-familiar-with-sync"><strong>Poke around: Familiar with Sync</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ch2/how-to-3.html#play-with-connex-js-apis"><strong>Play with Connex.js APIs</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ch2/how-to-3.html#summary"><strong>Summary</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">VeChain Documentation Legacy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>title: “API Reference for Android”
+slug: “api-reference-for-android”
+hidden: true
+createdAt: “2019-04-15T10:45:47.936Z”
+updatedAt: “2019-08-16T07:51:15.250Z”</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/Turnkey Solutions/wallet/api-reference-for-android.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <hr class="docutils" />
+<div class="section" id="title-api-reference-for-android-slug-api-reference-for-android-hidden-true-createdat-2019-04-15t10-45-47-936z-updatedat-2019-08-16t07-51-15-250z">
+<h1>title: “API Reference for Android”
+slug: “api-reference-for-android”
+hidden: true
+createdAt: “2019-04-15T10:45:47.936Z”
+updatedAt: “2019-08-16T07:51:15.250Z”<a class="headerlink" href="#title-api-reference-for-android-slug-api-reference-for-android-hidden-true-createdat-2019-04-15t10-45-47-936z-updatedat-2019-08-16t07-51-15-250z" title="Permalink to this headline">¶</a></h1>
+<p>The wallet function is implemented by calling SDK tool class: com.vechain.base.WalletUtils.</p>
+<div class="section" id="sdk-initialization">
+<h2>SDK initialization<a class="headerlink" href="#sdk-initialization" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>SDK initialization
+Inherit the android.app.Application class and implement the following methods:</div></blockquote>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">attachBaseContext</span><span class="o">(</span><span class="n">Context</span> <span class="n">base</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">attachBaseContext</span><span class="o">(</span><span class="n">LanguageManager</span><span class="o">.</span><span class="na">setLocale</span><span class="o">(</span><span class="n">base</span><span class="o">));</span>
+        <span class="n">SdkManager</span><span class="o">.</span><span class="na">initSdkManager</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+
+        <span class="c1">//Set it as a test environment</span>
+        <span class="n">WalletUtils</span><span class="o">.</span><span class="na">setNodeUrl</span><span class="o">(</span><span class="n">NodeUrl</span><span class="o">.</span><span class="na">TEST</span><span class="o">);</span>
+ <span class="o">}</span>
+</pre></div>
+</div>
+<p>This code is required：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">SdkManager</span><span class="o">.</span><span class="na">initSdkManager</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+</pre></div>
+</div>
+<div class="section" id="set-node-url">
+<h3>Set node url<a class="headerlink" href="#set-node-url" title="Permalink to this headline">¶</a></h3>
+<p>When app is released, it is set as a release environment:WalletUtils.setNodeUrl(NodeUrl.RELEASE);</p>
+<p>Or if you have a corresponding node server, you can change it to your own node server:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">NodeUrl</span><span class="o">.</span><span class="na">CUSTOM</span><span class="o">.</span><span class="na">setUrl</span><span class="o">(</span><span class="n">coustomUrl</span><span class="o">);</span>
+<span class="n">WalletUtils</span><span class="o">.</span><span class="na">setNodeUrl</span><span class="o">(</span><span class="n">NodeUrl</span><span class="o">.</span><span class="na">CUSTOM</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>Switching test node url:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">WalletUtils</span><span class="o">.</span><span class="na">setNodeUrl</span><span class="o">(</span><span class="n">NodeUrl</span><span class="o">.</span><span class="na">TEST</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>If nodeUrl is not set, the default value is NodeUrl.RELEASE.</p>
+</div>
+</div>
+<div class="section" id="get-node-url">
+<h2>Get node url<a class="headerlink" href="#get-node-url" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">nodeUrl</span> <span class="o">=</span> <span class="n">WalletUtils</span><span class="o">.</span><span class="na">getNodeUrl</span><span class="o">();</span>
+</pre></div>
+</div>
+<div class="section" id="create-wallet">
+<h3>Create Wallet<a class="headerlink" href="#create-wallet" title="Permalink to this headline">¶</a></h3>
+<p>After entering the wallet password, the user can create the wallet through the following methods:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">WalletUtils</span><span class="o">.</span><span class="na">OnCreateWalletCallback</span> <span class="n">callback</span> <span class="o">=</span> <span class="k">new</span> <span class="n">WalletUtils</span><span class="o">.</span><span class="na">OnCreateWalletCallback</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">WalletUtils</span><span class="o">.</span><span class="na">Wallet</span> <span class="n">wallet</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="n">closeDialog</span><span class="o">();</span>
+
+        <span class="k">if</span> <span class="o">(</span><span class="n">wallet</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">//fail</span>
+            <span class="n">createFail</span><span class="o">();</span>
+
+        <span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+            <span class="c1">//success</span>
+            <span class="n">words</span> <span class="o">=</span> <span class="n">wallet</span><span class="o">.</span><span class="na">getWords</span><span class="o">();</span>
+            <span class="n">keystore</span> <span class="o">=</span> <span class="n">wallet</span><span class="o">.</span><span class="na">getKeystore</span><span class="o">();</span>
+            <span class="n">String</span> <span class="n">privateKey</span> <span class="o">=</span> <span class="n">wallet</span><span class="o">.</span><span class="na">getPrivateKey</span><span class="o">();</span>
+            <span class="n">String</span> <span class="n">address</span> <span class="o">=</span> <span class="n">wallet</span><span class="o">.</span><span class="na">getAddress</span><span class="o">();</span>
+
+            <span class="c1">//Keystore is saved in files or databases</span>
+            <span class="n">FileUtils</span><span class="o">.</span><span class="na">writeCache</span><span class="o">(</span><span class="n">CreateWalletActivity</span><span class="o">.</span><span class="na">this</span><span class="o">,</span> <span class="n">FileUtils</span><span class="o">.</span><span class="na">KEYSTORE_NAME</span><span class="o">,</span> <span class="n">keystore</span><span class="o">);</span>
+
+            <span class="n">createSuccess</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">};</span>
+
+<span class="n">WalletUtils</span><span class="o">.</span><span class="na">createWallet</span><span class="o">(</span><span class="n">password</span><span class="o">,</span> <span class="n">callback</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>When the wallet is created successfully, the wallet object is obtained:com.vechain.base.WalletUtils.Wallet.If the creation fails, WalletUtils.Wallet wallet is null.
+After successful creation, keystore security can be cached to local files or databases.</p>
+</div>
+<div class="section" id="create-wallet-with-mnemonic-words">
+<h3>Create wallet with mnemonic words<a class="headerlink" href="#create-wallet-with-mnemonic-words" title="Permalink to this headline">¶</a></h3>
+<p>When the user has mnemonic words, enter the mnemonic words and the password of the keystore of the wallet to import the wallet. The method of using the mnemonic words as follows:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">WalletUtils</span><span class="o">.</span><span class="na">createWallet</span><span class="o">(</span><span class="n">words</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span> <span class="k">new</span> <span class="n">WalletUtils</span><span class="o">.</span><span class="na">OnCreateWalletCallback</span><span class="o">()</span> <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">WalletUtils</span><span class="o">.</span><span class="na">Wallet</span> <span class="n">wallet</span><span class="o">)</span> <span class="o">{</span>
+
+                <span class="n">closeLoading</span><span class="o">();</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">wallet</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">keystore</span> <span class="o">=</span> <span class="n">wallet</span><span class="o">.</span><span class="na">getKeystore</span><span class="o">();</span>
+                    <span class="k">if</span> <span class="o">(!</span><span class="n">TextUtils</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">(</span><span class="n">keystore</span><span class="o">))</span>
+                       
+                       <span class="c1">//Keystore is saved in files or databases</span>
+                       <span class="c1">//FileUtils.writeCache(getContext(), FileUtils.KEYSTORE_NAME, keystore);</span>
+
+                    <span class="c1">//success</span>
+                    <span class="n">onImportSuccess</span><span class="o">();</span>
+                <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+                    <span class="c1">//errors</span>
+                    <span class="n">onImportWalletError</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+
+        <span class="o">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="verify-the-mnemonic-words">
+<h3>Verify the mnemonic words<a class="headerlink" href="#verify-the-mnemonic-words" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * Whether mnemonic words is valid or not</span>
+<span class="cm"> *</span>
+<span class="cm"> * @param The range of mnemonic words is limited to 12, 15, 18, 21 and 24.</span>
+<span class="cm"> * @return Is it valid or not</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isValidMnemonicWords</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">words</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="verify-keystore-format">
+<h3>Verify keystore format<a class="headerlink" href="#verify-keystore-format" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * Whether keystore for JSON format is correct or not</span>
+<span class="cm"> *</span>
+<span class="cm"> * @param keystore JSON encryption format for user wallet private key</span>
+<span class="cm"> * @return Is the format correct or not?</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isValidKeystore</span><span class="o">(</span><span class="n">String</span> <span class="n">keystore</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-address-from-keystore">
+<h3>Get address from keystore<a class="headerlink" href="#get-address-from-keystore" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * Get the address from the keystore</span>
+<span class="cm"> *</span>
+<span class="cm"> * @param keystoreJson</span>
+<span class="cm"> * @return wallet address</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">getAddress</span><span class="o">(</span><span class="n">String</span> <span class="n">keystoreJson</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="verify-the-keystore-with-password">
+<h3>Verify the keystore with password<a class="headerlink" href="#verify-the-keystore-with-password" title="Permalink to this headline">¶</a></h3>
+<p>Verify that the keystore password is correct or not when the keystore is cached into local file or database.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">WalletUtils</span><span class="o">.</span><span class="na">verifyKeystorePassword</span><span class="o">(</span><span class="n">keystoreJson</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span> <span class="k">new</span> <span class="n">WalletUtils</span><span class="o">.</span><span class="na">OnVerifyPasswordCallback</span><span class="o">()</span> <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCheckPassword</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">success</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">success</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="c1">//success</span>
+                    <span class="n">onImportSuccess</span><span class="o">();</span>
+                   
+                   <span class="c1">//Keystore is saved in files or databases</span>
+                   <span class="c1">//FileUtils.writeCache(getActivity(), FileUtils.KEYSTORE_NAME, keystoreJson);</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                    <span class="c1">//errors</span>
+                    <span class="n">onImportWalletError</span><span class="o">();</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="modify-password-of-keystore">
+<h3>Modify password of keystore<a class="headerlink" href="#modify-password-of-keystore" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">WalletUtils</span><span class="o">.</span><span class="na">modifyKeystorePassword</span><span class="o">(</span><span class="n">keystoreJson</span><span class="o">,</span> <span class="n">oldPassword</span><span class="o">,</span> <span class="n">newPassword</span><span class="o">,</span>
+                <span class="k">new</span> <span class="n">WalletUtils</span><span class="o">.</span><span class="na">OnModifyKeystorePasswordCallback</span><span class="o">()</span> <span class="o">{</span>
+                    <span class="nd">@Override</span>
+                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onModifyResult</span><span class="o">(</span><span class="n">String</span> <span class="n">newKeystore</span><span class="o">)</span> <span class="o">{</span>
+
+                        <span class="k">if</span> <span class="o">(!</span><span class="n">TextUtils</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">(</span><span class="n">newKeystore</span><span class="o">))</span> <span class="o">{</span>
+                            <span class="n">keystoreJson</span> <span class="o">=</span> <span class="n">newKeystore</span><span class="o">;</span>
+                           
+                        <span class="c1">//Keystore is saved in files or databases</span>
+                        <span class="c1">//FileUtils.writeCache(getBaseContext(), FileUtils.KEYSTORE_NAME, newKeystore);</span>
+
+                            <span class="c1">//success</span>
+                            <span class="n">onModifyPasswordSuccess</span><span class="o">();</span>
+                        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                            <span class="c1">//errors</span>
+                            <span class="n">onModifyPasswordError</span><span class="o">();</span>
+                        <span class="o">}</span>
+                    <span class="o">}</span>
+                <span class="o">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="decrypt-keystore">
+<h3>Decrypt keystore<a class="headerlink" href="#decrypt-keystore" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">* Keystore decrypts private key</span>
+<span class="cm">*</span>
+<span class="cm">* @param keystoreJson</span>
+<span class="cm">* @param password</span>
+<span class="cm">* @param callback private key</span>
+<span class="cm">*/</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">decryptKeystore</span><span class="o">(</span><span class="kd">final</span> <span class="n">String</span> <span class="n">keystoreJson</span><span class="o">,</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">password</span><span class="o">,</span>
+                               <span class="kd">final</span> <span class="n">DecryptKeystoreCallback</span> <span class="n">callback</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="encrypted-private-key">
+<h3>Encrypted private key<a class="headerlink" href="#encrypted-private-key" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">* Private key encryption generates keystore</span>
+<span class="cm">*</span>
+<span class="cm">* @param privateKey</span>
+<span class="cm">* @param password</span>
+<span class="cm">* @param callback keystore</span>
+<span class="cm">*/</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">encryptPrivateKey</span><span class="o">(</span><span class="kd">final</span> <span class="n">String</span> <span class="n">privateKey</span><span class="o">,</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">password</span><span class="o">,</span>
+                                 <span class="kd">final</span> <span class="n">EncryptPrivateKeyCallback</span> <span class="n">callback</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-checksum-address">
+<h3>Get checksum address<a class="headerlink" href="#get-checksum-address" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * Generate wallet addresses in check format</span>
+<span class="cm"> *</span>
+<span class="cm"> * @param address Wallet address</span>
+<span class="cm"> * @return Address with Check Format</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">getChecksumAddress</span><span class="o">(</span><span class="n">String</span> <span class="n">address</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sign-message">
+<h3>Sign Message<a class="headerlink" href="#sign-message" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * Wallet signature of information</span>
+<span class="cm"> *</span>
+<span class="cm"> * @param keystore Wallet keystore JSON format</span>
+<span class="cm"> * @param password Keystore password</span>
+<span class="cm"> * @param message Prepare the message to be signed</span>
+<span class="cm"> * @return Signature information of byte [] of length 65</span>
+<span class="cm"> * @throws CipherException</span>
+<span class="cm"> * @throws ValidationException</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">byte</span><span class="o">[]</span> <span class="nf">sign</span><span class="o">(</span><span class="n">String</span> <span class="n">keystore</span><span class="o">,</span> <span class="n">String</span> <span class="n">password</span><span class="o">,</span>
+                               <span class="kt">byte</span><span class="o">[]</span> <span class="n">message</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">CipherException</span><span class="o">,</span> <span class="n">ValidationException</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="recover-address">
+<h3>Recover address<a class="headerlink" href="#recover-address" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * Recovering the address through the message and signature</span>
+<span class="cm"> *</span>
+<span class="cm"> * @param message   Data to be signed</span>
+<span class="cm"> * @param signature  length is 65 bytes</span>
+<span class="cm"> * @return Wallet address</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">recoverAddress</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">message</span><span class="o">,</span> <span class="kt">byte</span><span class="o">[]</span> <span class="n">signature</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-reference-of-block-chain">
+<h3>Get reference of block chain<a class="headerlink" href="#get-reference-of-block-chain" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">WalletUtils</span><span class="o">.</span><span class="na">getBlockReference</span><span class="o">(</span><span class="k">new</span> <span class="n">WalletUtils</span><span class="o">.</span><span class="na">OnGetBlockReferenceCallback</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onGetBlockReferenceResult</span><span class="o">(</span><span class="n">String</span> <span class="n">blockRef</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">blockReference</span> <span class="o">=</span> <span class="n">blockRef</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-chaintag-of-block-chain">
+<h3>Get chainTag of block chain<a class="headerlink" href="#get-chaintag-of-block-chain" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">WalletUtils</span><span class="o">.</span><span class="na">getChainTag</span><span class="o">(</span><span class="k">new</span> <span class="n">WalletUtils</span><span class="o">.</span><span class="na">OnGetChainTagCallback</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onGetChainTagResult</span><span class="o">(</span><span class="n">String</span> <span class="n">chainTag</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">chainTag</span> <span class="o">=</span> <span class="n">chainTag</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sign-and-send-transaction">
+<h3>Sign and send Transaction<a class="headerlink" href="#sign-and-send-transaction" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">WalletUtils</span><span class="o">.</span><span class="na">signAndSendTransfer</span><span class="o">(</span><span class="n">keystoreJson</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span> <span class="n">transferParameter</span><span class="o">,</span> <span class="k">new</span> <span class="n">WalletUtils</span><span class="o">.</span><span class="na">OnSignCallback</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSignResult</span><span class="o">(</span><span class="n">String</span> <span class="n">txId</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="k">if</span> <span class="o">(</span><span class="n">transferResultListener</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
+            <span class="n">transferResultListener</span><span class="o">.</span><span class="na">onTransferResult</span><span class="o">(</span><span class="n">txId</span><span class="o">);</span>
+
+
+    <span class="o">}</span>
+<span class="o">});</span>
+</pre></div>
+</div>
+<p>After the transaction is sent, txId can be acquired. Through txId, the transaction status can be further acquired, and the success of the transaction can be confirmed by multiple blocks.</p>
+<div class="section" id="examples-of-transaction-parameter-construction">
+<h4>Examples of transaction parameter construction<a class="headerlink" href="#examples-of-transaction-parameter-construction" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">hexNonce</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="kt">byte</span><span class="o">[]</span> <span class="n">nonceBytes</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="mi">8</span><span class="o">];</span>
+<span class="n">Random</span> <span class="n">random</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Random</span><span class="o">();</span>
+<span class="n">random</span><span class="o">.</span><span class="na">nextBytes</span><span class="o">(</span><span class="n">nonceBytes</span><span class="o">);</span>
+<span class="n">hexNonce</span> <span class="o">=</span> <span class="n">Numeric</span><span class="o">.</span><span class="na">toHexString</span><span class="o">(</span><span class="n">nonceBytes</span><span class="o">);</span>
+
+<span class="n">TransferParameter</span><span class="o">.</span><span class="na">Builder</span> <span class="n">builder</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TransferParameter</span><span class="o">.</span><span class="na">Builder</span><span class="o">();</span>
+<span class="n">TransferParameter</span> <span class="n">transferParameter</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="k">try</span> <span class="o">{</span>
+    <span class="n">transferParameter</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="na">setClauseList</span><span class="o">(</span><span class="n">clauseList</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">setGas</span><span class="o">(</span><span class="n">gas</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">setChainTag</span><span class="o">(</span><span class="n">chainTag</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">setBlockReference</span><span class="o">(</span><span class="n">blockReference</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">setNonce</span><span class="o">(</span><span class="n">hexNonce</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">ParameterException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>TransferParameter attribute description：</p>
+<ul class="simple">
+<li>clauses : List<Clause> - Multi-transaction information</li>
+<li>gas : String  - Enforces the specified number as the maximum gas that can be consumed for the transaction</li>
+<li>chainTag : String - Genesis block ID last byte hexadecimal</li>
+<li>blockReference : String - Refer to the last 8 bytes of blockId in hexadecimal</li>
+<li>nonce : String  - The random number of trading entities. Changing Nonce can make the transaction have different IDs, which can be used to accelerate the trader.</li>
+<li>gasPriceCoef : String - This value adjusts the priority of the transaction, and the current value range is between 0 and 255 (decimal),The default value is “0”</li>
+<li>expiration : String - Deal expiration/expiration time in blocks,The default value is “720”</li>
+<li>dependsOn :String - The ID of the dependent transaction. If the field is not empty, the transaction will be executed only if the transaction specified by it already exists.The default value is null.</li>
+<li>reserveds: List  -  Currently empty, reserve fields. Reserved fields for backward compatibility,The default value is null</li>
+</ul>
+</div>
+</div>
+<div class="section" id="sign-transaction">
+<h3>Sign transaction<a class="headerlink" href="#sign-transaction" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">WalletUtils</span><span class="o">.</span><span class="na">signTransfer</span><span class="o">(</span><span class="n">keystoreJson</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span> <span class="n">transferParameter</span><span class="o">,</span> <span class="k">new</span> <span class="n">WalletUtils</span><span class="o">.</span><span class="na">OnSignCallback</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSignResult</span><span class="o">(</span><span class="n">String</span> <span class="n">raw</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//raw: RLP encode data and signature</span>
+    <span class="o">}</span>
+<span class="o">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="support-dapp-development-environment-in-webview">
+<h3>Support DApp development environment in Webview<a class="headerlink" href="#support-dapp-development-environment-in-webview" title="Permalink to this headline">¶</a></h3>
+<p>To support the Dapp function, WebView needs the following initialization before opening Dapp.
+Initialization is mainly JS injected into connex and web3.
+<a class="reference external" href="https://github.com/vechain/connex/blob/master/docs/api.md/">connex reference.</a></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">WebSettings</span> <span class="n">set</span> <span class="o">=</span> <span class="n">webView</span><span class="o">.</span><span class="na">getSettings</span><span class="o">();</span>
+<span class="n">set</span><span class="o">.</span><span class="na">setJavaScriptEnabled</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+<span class="n">set</span><span class="o">.</span><span class="na">setDomStorageEnabled</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+<span class="n">String</span> <span class="n">appCachePath</span> <span class="o">=</span> <span class="n">getApplication</span><span class="o">().</span><span class="na">getCacheDir</span><span class="o">().</span><span class="na">getAbsolutePath</span><span class="o">();</span>
+<span class="n">set</span><span class="o">.</span><span class="na">setAppCachePath</span><span class="o">(</span><span class="n">appCachePath</span><span class="o">);</span>
+<span class="n">set</span><span class="o">.</span><span class="na">setDatabaseEnabled</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+<span class="n">CookieSyncManager</span><span class="o">.</span><span class="na">createInstance</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+<span class="n">CookieManager</span> <span class="n">cookieManager</span> <span class="o">=</span> <span class="n">CookieManager</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
+<span class="n">cookieManager</span><span class="o">.</span><span class="na">setAcceptCookie</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+<span class="n">webView</span><span class="o">.</span><span class="na">setWebChromeClient</span><span class="o">(</span><span class="k">new</span> <span class="n">MyWebChromeClient</span><span class="o">());</span>
+</pre></div>
+</div>
+<p>MyWebChromeClient is implemented as follows. If you want to implement WebChromeClient, your WebChromeClient must inherit DappWebChromeClient.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">MyWebChromeClient</span> <span class="kd">extends</span> <span class="n">DappWebChromeClient</span> <span class="o">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onReceivedTitle</span><span class="o">(</span><span class="n">WebView</span> <span class="n">view</span><span class="o">,</span> <span class="n">String</span> <span class="n">title</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//must be implemented to support the DApp environment</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onReceivedTitle</span><span class="o">(</span><span class="n">view</span><span class="o">,</span><span class="n">title</span><span class="o">);</span>
+
+        <span class="c1">//......</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">onJsPrompt</span><span class="o">(</span><span class="n">WebView</span> <span class="n">view</span><span class="o">,</span> <span class="n">String</span> <span class="n">url</span><span class="o">,</span> <span class="n">String</span> <span class="n">message</span><span class="o">,</span> <span class="n">String</span> <span class="n">defaultValue</span><span class="o">,</span> <span class="n">JsPromptResult</span> <span class="n">result</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="c1">//must be implemented to support the DApp environment</span>
+        <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">onJsPrompt</span><span class="o">(</span><span class="n">view</span><span class="o">,</span><span class="n">url</span><span class="o">,</span><span class="n">message</span><span class="o">,</span><span class="n">defaultValue</span><span class="o">,</span><span class="n">result</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>At the same time, the wallet must be initialized before calling WebView to open Url’s corresponding Dapp, as follows：Implementing DAppAction Interface</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DAppWebActivity</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="kd">implements</span> <span class="n">DAppAction</span><span class="o">{</span>
+    
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="o">...</span>
+        <span class="c1">//Support for DApp must be initialized</span>
+        <span class="n">WalletUtils</span><span class="o">.</span><span class="na">initDApp</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+    
+    <span class="o">...</span>
+    
+       <span class="cm">/**</span>
+<span class="cm">     *  Interfaces that must be implemented to support the DApp environment</span>
+<span class="cm">     *  App developer implementation when dapp calls checkOwn address function</span>
+<span class="cm">     * @param address Address from dapp</span>
+<span class="cm">     * @param callback Callback after the end</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCheckOwnAddress</span><span class="o">(</span><span class="n">String</span> <span class="n">address</span><span class="o">,</span> <span class="n">OwnedAddressCallback</span> <span class="n">callback</span><span class="o">){</span>
+
+        <span class="c1">//Read the wallet keystore from a file or database</span>
+        <span class="n">String</span> <span class="n">keystore</span> <span class="o">=</span> <span class="n">FileUtils</span><span class="o">.</span><span class="na">readCache</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">FileUtils</span><span class="o">.</span><span class="na">KEYSTORE_NAME</span><span class="o">);</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">walletAddress</span> <span class="o">=</span> <span class="n">WalletUtils</span><span class="o">.</span><span class="na">getAddress</span><span class="o">(</span><span class="n">keystore</span><span class="o">);</span>
+        <span class="kt">boolean</span> <span class="n">isOwn</span> <span class="o">=</span> <span class="n">walletAddress</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">address</span><span class="o">);</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">callback</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span>
+            <span class="n">callback</span><span class="o">.</span><span class="na">onOwned</span><span class="o">(</span><span class="n">isOwn</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Interfaces that must be implemented to support the DApp environment</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param message  Information to be signed</span>
+<span class="cm">     * @param callback Callback method after signature information is completed</span>
+<span class="cm">     */</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCertificate</span><span class="o">(</span><span class="kd">final</span> <span class="n">String</span> <span class="n">message</span><span class="o">,</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">signer</span><span class="o">,</span><span class="kd">final</span> <span class="n">CertificateCallback</span> <span class="n">callback</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//Interfaces that must be implemented to support the DApp environment</span>
+        <span class="c1">//Read the wallet keystore from a file or database</span>
+        <span class="n">String</span> <span class="n">keystore</span> <span class="o">=</span> <span class="n">FileUtils</span><span class="o">.</span><span class="na">readCache</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">FileUtils</span><span class="o">.</span><span class="na">KEYSTORE_NAME</span><span class="o">);</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">walletAddress</span> <span class="o">=</span> <span class="n">WalletUtils</span><span class="o">.</span><span class="na">getAddress</span><span class="o">(</span><span class="n">keystore</span><span class="o">);</span>
+
+        <span class="c1">// if signer not null, Enforces the specified address to sign the certificate</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">signer</span><span class="o">!=</span><span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">signer</span><span class="o">.</span><span class="na">equalsIgnoreCase</span><span class="o">(</span><span class="n">walletAddress</span><span class="o">)){</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">callback</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="n">callback</span><span class="o">.</span><span class="na">onCertificate</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span><span class="kc">null</span><span class="o">);</span>
+            <span class="k">return</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">//Prompt user to enter wallet password</span>
+        <span class="n">CertificatePasswordDialog</span><span class="o">.</span><span class="na">takePassword</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">keystore</span><span class="o">,</span> <span class="k">new</span> <span class="n">CertificateSignListener</span><span class="o">()</span> <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">deliverCertificate</span><span class="o">(</span><span class="n">String</span> <span class="n">signature</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// notify DApp</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">callback</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span><span class="n">callback</span><span class="o">.</span><span class="na">onCertificate</span><span class="o">(</span><span class="n">walletAddress</span><span class="o">,</span><span class="n">signature</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">});</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Interfaces that must be implemented to support the DApp environment</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param clauses</span>
+<span class="cm">     * @param gas</span>
+<span class="cm">     * @param callback Transaction Sending Completion Callback Method</span>
+<span class="cm">     */</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onTransfer</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Clause</span><span class="o">&gt;</span> <span class="n">clauses</span><span class="o">,</span> <span class="n">String</span> <span class="n">gas</span><span class="o">,</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">signer</span><span class="o">,</span><span class="kd">final</span> <span class="n">TransferResultCallback</span> <span class="n">callback</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="c1">//Read the wallet keystore from a file or database</span>
+        <span class="n">String</span> <span class="n">keystore</span> <span class="o">=</span> <span class="n">FileUtils</span><span class="o">.</span><span class="na">readCache</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">FileUtils</span><span class="o">.</span><span class="na">KEYSTORE_NAME</span><span class="o">);</span>
+        <span class="kd">final</span> <span class="n">String</span> <span class="n">address</span> <span class="o">=</span> <span class="n">WalletUtils</span><span class="o">.</span><span class="na">getAddress</span><span class="o">(</span><span class="n">keystore</span><span class="o">);</span>
+
+        <span class="c1">// if signer not null, Enforces the specified address to sign the transaction</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">signer</span><span class="o">!=</span><span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">signer</span><span class="o">.</span><span class="na">equalsIgnoreCase</span><span class="o">(</span><span class="n">address</span><span class="o">)){</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">callback</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span><span class="n">callback</span><span class="o">.</span><span class="na">onTransferResult</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span><span class="kc">null</span><span class="o">);</span>
+            <span class="k">return</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="n">PasswordDialog</span><span class="o">.</span><span class="na">showInputPassword</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">keystore</span><span class="o">,</span> <span class="n">clauses</span><span class="o">,</span> <span class="n">gas</span><span class="o">,</span> <span class="k">new</span> <span class="n">TransferResultListener</span><span class="o">()</span> <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onTransferResult</span><span class="o">(</span><span class="n">String</span> <span class="n">result</span><span class="o">)</span> <span class="o">{</span>
+
+                <span class="k">if</span><span class="o">(</span><span class="n">callback</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span><span class="n">callback</span><span class="o">.</span><span class="na">onTransferResult</span><span class="o">(</span><span class="n">address</span><span class="o">,</span><span class="n">result</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">});</span>
+
+    <span class="o">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Interfaces that must be implemented to support the DApp environment</span>
+<span class="cm">     *</span>
+<span class="cm">     * Get a list of wallet addresses from a local file or database</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param callback Address list to DApp</span>
+<span class="cm">     */</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onGetWalletAddress</span><span class="o">(</span><span class="n">GetWalletAddressCallback</span> <span class="n">callback</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//Get the wallet keystore from the local database or file cache</span>
+        <span class="n">String</span> <span class="n">keystore</span> <span class="o">=</span> <span class="n">FileUtils</span><span class="o">.</span><span class="na">readCache</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">FileUtils</span><span class="o">.</span><span class="na">KEYSTORE_NAME</span><span class="o">);</span>
+        <span class="n">String</span> <span class="n">address</span> <span class="o">=</span> <span class="n">WalletUtils</span><span class="o">.</span><span class="na">getAddress</span><span class="o">(</span><span class="n">keystore</span><span class="o">);</span>
+
+        <span class="c1">//DApp must set addresses</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">addresses</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="n">addresses</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">address</span><span class="o">);</span>
+
+        <span class="c1">//Callback method must be executed after completion</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">callback</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="n">callback</span><span class="o">.</span><span class="na">setWalletAddress</span><span class="o">(</span><span class="n">addresses</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="o">....</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>When closing WebView, you can do the following:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">webView</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
+            <span class="n">webView</span><span class="o">.</span><span class="na">destroy</span><span class="o">();</span>
+        <span class="n">webView</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="c1">//Memory Recycling to Prevent Memory Leakage</span>
+        <span class="n">WalletUtils</span><span class="o">.</span><span class="na">onDAppDestroy</span><span class="o">();</span>
+
+        <span class="kd">super</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>
+    <span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="several-main-data-structures">
+<h1>Several main data structures<a class="headerlink" href="#several-main-data-structures" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="keystore">
+<h2>1.keystore<a class="headerlink" href="#keystore" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">*  Keystore is a json string. Its file structure is as follows:</span>
+<span class="cm">*</span>
+<span class="cm">*  — — — — — — — — — — — — — — — — — — — — — — — — — — ——</span>
+<span class="cm">*      {</span>
+<span class="cm">*          &quot;version&quot;: 3,</span>
+<span class="cm">*          &quot;id&quot;: &quot;F56FDA19-FB1B-4752-8EF6-E2F50A93BFB8&quot;,</span>
+<span class="cm">*          &quot;kdf&quot;: &quot;scrypt&quot;,</span>
+<span class="cm">*          &quot;mac&quot;: &quot;9a1a1db3b2735c36015a3893402b361d151b4d2152770f4a51729e3ac416d79f&quot;,</span>
+<span class="cm">*          &quot;cipher&quot;: &quot;aes-128-ctr&quot;</span>
+<span class="cm">*          &quot;address&quot;: &quot;ea8a62180562ab3eac1e55ed6300ea7b786fb27d&quot;</span>
+<span class="cm">*          &quot;crypto&quot;: {</span>
+<span class="cm">*                      &quot;ciphertext&quot;: &quot;d2820582d2434751b83c2b4ba9e2e61d50fa9a8c9bb6af64564fc6df2661f4e0&quot;,</span>
+<span class="cm">*                      &quot;cipherparams&quot;: {</span>
+<span class="cm">*                                          &quot;iv&quot;: &quot;769ef3174114a270f4a2678f6726653d&quot;</span>
+<span class="cm">*                                      },</span>
+<span class="cm">*                      &quot;kdfparams&quot;: {</span>
+<span class="cm">*                              &quot;r&quot;: 8,</span>
+<span class="cm">*                              &quot;p&quot;: 1,</span>
+<span class="cm">*                              &quot;n&quot;: 262144,</span>
+<span class="cm">*                              &quot;dklen&quot;: 32,</span>
+<span class="cm">*                              &quot;salt&quot;: &quot;67b84c3b75f9c0bdf863ea8be1ac8ab830698dd75056b8133350f0f6f7a20590&quot;</span>
+<span class="cm">*                      },</span>
+<span class="cm">*          },</span>
+<span class="cm">*      }</span>
+<span class="cm">*</span>
+<span class="cm">*  — — — — — — — — — — — — — — — — — — — — — — — — — — ——</span>
+<span class="cm">*  Field description:</span>
+<span class="cm">*          version: This is a version information, when you decryption, you should use the same version.</span>
+<span class="cm">*          id: You can ignore.</span>
+<span class="cm">*          Kdf: This is a encryption function.</span>
+<span class="cm">*          mac: This is the mac deveice infomation.</span>
+<span class="cm">*          cipher: Describes the encryption algorithm used.</span>
+<span class="cm">*          address：The wallet address.</span>
+<span class="cm">*          crypto: This section is the main encryption area.</span>
+<span class="cm">*</span>
+<span class="cm">*  If you want to recover a wallet by keystore, you should have the correct password.</span>
+<span class="cm">*</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hexadecimal-must-start-with-0x">
+<h2>2.Hexadecimal must start with 0x.<a class="headerlink" href="#hexadecimal-must-start-with-0x" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="address-20-bytes-hex-string-and-start-with-0x">
+<h2>3.Address : 20 bytes hex string and start with 0x.<a class="headerlink" href="#address-20-bytes-hex-string-and-start-with-0x" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VeChain Developers
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>``` &mdash; VeChain Documentation Legacy 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> VeChain Documentation Legacy
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">```</a></li>
+<li><a class="reference internal" href="#vip-191">VIP-191</a></li>
+<li><a class="reference internal" href="#id14">```</a></li>
+<li><a class="reference internal" href="#mpp-add-user">MPP - Add User</a></li>
+<li><a class="reference internal" href="#id21">```</a></li>
+<li><a class="reference internal" href="#mpp-user-sends-tx">MPP - User Sends TX</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">VeChain Documentation Legacy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>```</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/letvego-2020-4-13/v1.1/VeChainThor Blockchain/designated-gas-payer-vip-191/demo-1.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>—
+title: “Demo”
+slug: “demo-1”
+excerpt: “source: <a class="reference external" href="https://bbs.vechainworld.io/topic/242/what-you-might-not-know-about-vechainthor-yet-part-iii-transaction-fee-delegation-vip-191/2">https://bbs.vechainworld.io/topic/242/what-you-might-not-know-about-vechainthor-yet-part-iii-transaction-fee-delegation-vip-191/2</a>”
+hidden: true
+createdAt: “2019-07-17T13:44:45.570Z”
+updatedAt: “2019-07-17T13:48:44.217Z”
+—
+The demo is built using tools [connex-framework](<a class="reference external" href="https://github.com/vechain/connex-framework">https://github.com/vechain/connex-framework</a>) and [connex.driver-nodejs](<a class="reference external" href="https://github.com/vechain/connex.driver-nodejs">https://github.com/vechain/connex.driver-nodejs</a>) that implement the [Connex ](<a class="reference external" href="https://github.com/vechain/connex)interface">https://github.com/vechain/connex)interface</a> in a NodeJS environment. The source code can be downloaded [here](<a class="reference external" href="https://github.com/zzGHzz/ThorDemo3">https://github.com/zzGHzz/ThorDemo3</a>).</p>
+<p>### A Walk-Through
+There are three accounts used in the demo:</p>
+<ol class="arabic simple">
+<li><cite>SENDER</cite> whose address begins with <cite>0xd551</cite>,</li>
+<li><cite>DELEGATOR</cite> (or gas-payer) whose address begins with <cite>0xe466</cite>, and</li>
+<li><cite>RECIPIENT</cite> whose address begins with <cite>0x9143</cite>.</li>
+</ol>
+<p>To demonstrate VIP-191, l created one TX from <cite>SENDER</cite> to <cite>RECIPIENT</cite>. The TX was co-signed by <cite>SENDER</cite> and <cite>DELEGATOR</cite> to allow TX fee paid by <cite>DELEGATOR</cite>.</p>
+<p>To demonstrate MPP, I created two TXs sent from <cite>DELEGATOR</cite> to call functions of the built-in contract <cite>Prototype</cite> to add a payer-user relation and funding plan as described above. I then created one TX from <cite>SENDER</cite> to <cite>DELEGATOR</cite> to demonstrate the effect of MPP. Note that <cite>DELEGATOR</cite> is the master of itself since it is a normal account rather than a contract. The TX can only be sent to <cite>DELEGATOR</cite> or otherwise it wouldn’t be funded by <cite>DELEGATOR</cite> according to the rules set by MPP.</p>
+<p>### Connex Interface for VIP-191
+The Connex interface has been updated to support VIP-191. I want to show you that it is pretty easy to use Connex to construct a VIP-191 enabled TX.</p>
+<p>There are two extra things you need to do on top of the normal procedure of constructing a TX:</p>
+<ol class="arabic">
+<li><p class="first">Create your own function with the following definition:</p>
+<blockquote>
+<div><p><cite>function (unsignedTx: { raw: string, origin: string }): Promise&lt;{ signature: string }&gt;</cite></p>
+<p>This function is typically responsible for send data to the gas-payer, waiting for its response and returns a <cite>Promise</cite>, if resolved, carrying the gas-payer’s digital signature on the corresponding TXID.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Pass the function to the instance of <cite>Connex.Vendor.TxSigningService</cite>, as you’ve already created for TX construction, via the <cite>delegate</cite> method. For instance, you may add a line such as:</p>
+<blockquote>
+<div><p><cite>signingService.delegate(MyFunc);</cite></p>
+</div></blockquote>
+</li>
+</ol>
+<p>That’s it!</p>
+<p>Note that the function I made in the demo code is NOT a typical function you would see in a real application. It is created purely for this demo and should not be considered as an example of creating such a function.</p>
+<p>### Results
+Here I copy-paste the results output by the demo code after I ran it.</p>
+<div class="section" id="id5">
+<h1><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="vip-191">
+<h1>VIP-191<a class="headerlink" href="#vip-191" title="Permalink to this headline">¶</a></h1>
+<p>TXID       = 0xb58e1d1bf9da3414c24df51926003ebcbac7eb10246dd25548ccfd9202d4276e
+From       = 0xd55100eedb61f1e553a38c33a234ce07952c43f2
+To         = 0x91436f1E5008B2E6093E114A25842F060012685d
+GasPayer   = 0xe4660c72dea1d9fc2a0dc2b3a42107d37edc6327
+GasUsed    = 21000
+…
+<a href="#id6"><span class="problematic" id="id7">``</span></a><a href="#id8"><span class="problematic" id="id9">`</span></a></p>
+<p>The first part shows information of the VIP-191 enabled TX. It can be seen that the actual gas-payer was indeed <cite>DELEGATOR</cite> rather than <cite>SENDER</cite>.</p>
+</div>
+<div class="section" id="id14">
+<h1><a href="#id10"><span class="problematic" id="id11">``</span></a><a href="#id12"><span class="problematic" id="id13">`</span></a><a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="mpp-add-user">
+<h1>MPP - Add User<a class="headerlink" href="#mpp-add-user" title="Permalink to this headline">¶</a></h1>
+<p>TXID       = 0x508f50692c88054c5f8df982937b2871cae3cde002a4bc58e975277acca53c87
+From       = 0xe4660c72dea1d9fc2a0dc2b3a42107d37edc6327
+To         = 0x000000000000000000000050726f746f74797065
+GasPayer   = 0xe4660c72dea1d9fc2a0dc2b3a42107d37edc6327
+GasUsed    = 25074
+…
+————————–
+MPP - Add Credit Plan
+————————–
+TXID       = 0x57329507daadb47a8ea68375577f9699fce3f1329df4703451be36d3804aa853
+From       = 0xe4660c72dea1d9fc2a0dc2b3a42107d37edc6327
+To         = 0x000000000000000000000050726f746f74797065
+GasPayer   = 0xe4660c72dea1d9fc2a0dc2b3a42107d37edc6327
+GasUsed    = 44811
+…
+<a href="#id15"><span class="problematic" id="id16">``</span></a>`
+The second part shows information of the two TXs <cite>DELEGATOR</cite> sent to the built-in contract <cite>Prototype</cite> to activate MPP for <cite>SENDER</cite>. The overhead costs for adding a user and a credit plan are 25k and 45k gas, respectively.</p>
+</div>
+<div class="section" id="id21">
+<h1><a href="#id17"><span class="problematic" id="id18">``</span></a><a href="#id19"><span class="problematic" id="id20">`</span></a><a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="mpp-user-sends-tx">
+<h1>MPP - User Sends TX<a class="headerlink" href="#mpp-user-sends-tx" title="Permalink to this headline">¶</a></h1>
+<p>TXID       = 0x87b68a65105f2cc5746b88e1e0fd5e1cf4f6d2dbf8459bb8ef2599957ffcb655
+From       = 0xd55100eedb61f1e553a38c33a234ce07952c43f2
+To         = 0xe4660c72dea1d9fc2a0dc2b3a42107d37edc6327
+GasPayer   = 0xe4660c72dea1d9fc2a0dc2b3a42107d37edc6327
+GasUsed    = 21000
+<a href="#id22"><span class="problematic" id="id23">``</span></a><a href="#id24"><span class="problematic" id="id25">`</span></a></p>
+<p>The last part shows the TX sent from <cite>SENDER</cite> to <cite>DELEGATOR</cite> is indeed paid by <cite>DELEGATOR</cite> under MPP.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VeChain Developers
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

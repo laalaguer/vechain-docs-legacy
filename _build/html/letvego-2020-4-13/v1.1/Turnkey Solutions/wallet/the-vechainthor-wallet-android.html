@@ -1,0 +1,978 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>} &mdash; VeChain Documentation Legacy 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> VeChain Documentation Legacy
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">}</a></li>
+<li><a class="reference internal" href="#id184">}</a></li>
+<li><a class="reference internal" href="#id189">}</a></li>
+<li><a class="reference internal" href="#id202">}</a></li>
+<li><a class="reference internal" href="#id221">}</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">VeChain Documentation Legacy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>}</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/letvego-2020-4-13/v1.1/Turnkey Solutions/wallet/the-vechainthor-wallet-android.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>—
+title: “The VeChainThor Wallet - Android”
+slug: “the-vechainthor-wallet-android”
+hidden: false
+createdAt: “2019-07-29T13:18:41.920Z”
+updatedAt: “2019-08-15T05:39:54.289Z”
+—
+# Get Started</p>
+<p>###  Gradle compiler environment（Android Studio）</p>
+<p>Reference library</p>
+<p><code class="docutils literal notranslate"><span class="pre">`groovy</span>
+<span class="pre">implementation</span> <span class="pre">'com.vechain:wallet:1.0.0'</span>
+<span class="pre">`</span></code></p>
+<p>The main module build.gradle configuration is as follows:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`groovy</span>
+<span class="pre">minSdkVersion</span> <span class="pre">21</span>
+<span class="pre">`</span></code></p>
+<p>Android SDK requires minimum system version API 19(Android 5.0).</p>
+<p>SDK initialization
+Inherit the android.app.Application class and implement the following methods:</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>java
+protected void attachBaseContext(Context base) {</p>
+<blockquote>
+<div><blockquote>
+<div><p>super.attachBaseContext(LanguageManager.setLocale(base));
+SdkManager.initSdkManager(this);</p>
+<p>//Set it as a main_net environment
+WalletUtils.setNodeUrl(NodeUrl.MAIN_NODE);</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">When</span> <span class="pre">app</span> <span class="pre">is</span> <span class="pre">test,</span> <span class="pre">it</span> <span class="pre">is</span> <span class="pre">set</span> <span class="pre">as</span> <span class="pre">a</span> <span class="pre">test</span> <span class="pre">net</span> <span class="pre">environment:</span>
+<span class="pre">```java</span>
+<span class="pre">WalletUtils.setNodeUrl(NodeUrl.TEST_NODE);</span>
+<span class="pre">`</span></code></p>
+<p>Or if you have a corresponding node server, you can change it to your own node server:
+<code class="docutils literal notranslate"><span class="pre">`java</span>
+<span class="pre">String</span> <span class="pre">customUrl</span> <span class="pre">=</span> <span class="pre">&quot;https://www.yourCustomNodeUrl.com&quot;;</span>
+<span class="pre">NodeUrl.CUSTOM_NODE.setUrl(customUrl);</span>
+<span class="pre">WalletUtils.setNodeUrl(NodeUrl.CUSTOM_NODE);</span>
+<span class="pre">`</span></code></p>
+<p>Refer to the following API for more detailed usage</p>
+<p># API Reference：</p>
+<p>The wallet function is implemented by calling class: <strong>com.vechain.wallet.WalletUtils.</strong></p>
+<p>### SDK initialization</p>
+<p>SDK initialization
+Inherit the android.app.Application class and implement the following methods:</p>
+<p><a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a>java
+protected void attachBaseContext(Context base) {</p>
+<blockquote>
+<div><blockquote>
+<div><p>super.attachBaseContext(LanguageManager.setLocale(base));</p>
+<p>//Set it as a main_net environment
+WalletUtils.setNodeUrl(NodeUrl.MAIN_NODE);</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p><a href="#id9"><span class="problematic" id="id10">``</span></a><a href="#id11"><span class="problematic" id="id12">`</span></a></p>
+<p>#### Set node url</p>
+<p>&gt; Annotation
+&gt;
+&gt; Node: Any form of server in a block chain network.
+&gt;
+&gt; Node url: Unified resource location address for participating block chain servers.</p>
+<p>When app is released, it is set as a main_net environment:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`java</span>
+<span class="pre">WalletUtils.setNodeUrl(NodeUrl.MAIN_NODE);</span>
+<span class="pre">`</span></code></p>
+<p>Or if you have a corresponding node url, you can change it to your own node url:
+<code class="docutils literal notranslate"><span class="pre">`java</span>
+<span class="pre">//String</span> <span class="pre">customUrl</span> <span class="pre">=</span> <span class="pre">&quot;https://www.yourCustomNodeUrl.com&quot;;</span>
+<span class="pre">NodeUrl.CUSTOM_NODE.setUrl(customUrl);</span>
+<span class="pre">WalletUtils.setNodeUrl(NodeUrl.CUSTOM_NODE);</span>
+<span class="pre">`</span></code></p>
+<p>Switching test_net environment:
+<code class="docutils literal notranslate"><span class="pre">`java</span>
+<span class="pre">WalletUtils.setNodeUrl(NodeUrl.TEST_NODE);</span>
+<span class="pre">`</span></code>
+If nodeUrl is not set, the default value is NodeUrl.MAIN_NODE.</p>
+<p>### Get node url
+<code class="docutils literal notranslate"><span class="pre">`java</span>
+<span class="pre">String</span> <span class="pre">nodeUrl</span> <span class="pre">=</span> <span class="pre">WalletUtils.getNodeUrl();</span>
+<span class="pre">`</span></code></p>
+<p>#### Create Wallet
+After entering the wallet password, the user can create the wallet through the following methods:</p>
+<p><a href="#id13"><span class="problematic" id="id14">``</span></a><a href="#id15"><span class="problematic" id="id16">`</span></a>java
+WalletUtils.OnCreateWalletCallback callback = new WalletUtils.OnCreateWalletCallback() {</p>
+<blockquote>
+<div><p>&#64;Override
+public void onCreate(WalletUtils.Wallet wallet) {</p>
+<blockquote>
+<div><p>closeDialog();</p>
+<dl class="docutils">
+<dt>if (wallet == null) {</dt>
+<dd>//fail
+createFail();</dd>
+<dt>}else {</dt>
+<dd><p class="first">//success
+words = wallet.getWords();
+keystore = wallet.getKeystore();
+String privateKey = wallet.getPrivateKey();
+String address = wallet.getAddress();</p>
+<p>//Keystore is saved in files or databases
+FileUtils.writeCache(CreateWalletActivity.this, FileUtils.KEYSTORE_NAME, keystore);</p>
+<p class="last">createSuccess();</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>};</p>
+<p>WalletUtils.createWallet(password, callback);
+<a href="#id17"><span class="problematic" id="id18">``</span></a>`
+When the wallet is created successfully, the wallet object is obtained:com.vechain.wallet.WalletUtils.Wallet.If the creation fails, WalletUtils.Wallet wallet is null.
+After successful creation, keystore security can be cached to local files or databases.</p>
+<p>####  Create wallet with mnemonic words</p>
+<p>When the user has mnemonic words, enter the mnemonic words and the password of the keystore of the wallet to import the wallet. The method of using the mnemonic words as follows:</p>
+<p><a href="#id19"><span class="problematic" id="id20">``</span></a><a href="#id21"><span class="problematic" id="id22">`</span></a>java
+WalletUtils.OnCreateWalletCallback callback = new WalletUtils.OnCreateWalletCallback() {</p>
+<blockquote>
+<div><p>&#64;Override
+public void onCreate(WalletUtils.Wallet wallet) {</p>
+<blockquote>
+<div><p>closeLoading();
+if(wallet!=null) {</p>
+<blockquote>
+<div><p>keystore = wallet.getKeystore();
+if (!TextUtils.isEmpty(keystore))</p>
+<blockquote>
+<div>//Keystore is saved in files or databases
+//FileUtils.writeCache(getContext(), FileUtils.KEYSTORE_NAME, keystore);</div></blockquote>
+<p>//success
+onImportSuccess();</p>
+</div></blockquote>
+<dl class="docutils">
+<dt>}else{</dt>
+<dd>//errors
+onImportWalletError(false);</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>};
+WalletUtils.createWallet(words, password, callback);
+<a href="#id23"><span class="problematic" id="id24">``</span></a><a href="#id25"><span class="problematic" id="id26">`</span></a></p>
+<p>#### Verify the mnemonic words</p>
+<p><a href="#id27"><span class="problematic" id="id28">``</span></a><a href="#id29"><span class="problematic" id="id30">`</span></a>java
+/**</p>
+<blockquote>
+<div><ul class="simple">
+<li>Whether mnemonic words is valid or not</li>
+<li></li>
+<li>&#64;param The range of mnemonic words is limited to 12, 15, 18, 21 and 24.</li>
+<li>&#64;return Is it valid or not</li>
+</ul>
+<p><a href="#id31"><span class="problematic" id="id32">*</span></a>/</p>
+</div></blockquote>
+<p>public static boolean isValidMnemonicWords(List&lt;String&gt; words)
+<a href="#id33"><span class="problematic" id="id34">``</span></a><a href="#id35"><span class="problematic" id="id36">`</span></a></p>
+<p>Eg.
+<a href="#id37"><span class="problematic" id="id38">``</span></a><a href="#id39"><span class="problematic" id="id40">`</span></a>java
+String words = “enact again rate alone congress scheme solid theory flush length twenty head”;
+List&lt;String&gt; mnemonicWords = new ArrayList&lt;&gt;();
+String[] strings = words.split(” “);</p>
+<dl class="docutils">
+<dt>for (String item <span class="classifier-delimiter">:</span> <span class="classifier">strings) {</span></dt>
+<dd>mnemonicWords.add(item);</dd>
+</dl>
+<p>}
+boolean isValid = WalletUtils.isValidMnemonicWords(mnemonicWords);
+//isValid:true</p>
+<p><a href="#id41"><span class="problematic" id="id42">``</span></a><a href="#id43"><span class="problematic" id="id44">`</span></a></p>
+<p>#### Verify keystore format</p>
+<p><a href="#id45"><span class="problematic" id="id46">``</span></a><a href="#id47"><span class="problematic" id="id48">`</span></a>java
+/**</p>
+<blockquote>
+<div><ul class="simple">
+<li>Whether keystore for JSON format is correct or not</li>
+<li></li>
+<li>&#64;param keystore JSON encryption format for user wallet private key</li>
+<li>&#64;return Is the format correct or not?</li>
+</ul>
+<p><a href="#id49"><span class="problematic" id="id50">*</span></a>/</p>
+</div></blockquote>
+<p>public static boolean isValidKeystore(String keystore)
+<a href="#id51"><span class="problematic" id="id52">``</span></a>`
+Eg.</p>
+<p><a href="#id53"><span class="problematic" id="id54">``</span></a><a href="#id55"><span class="problematic" id="id56">`</span></a>java
+String keystoreJson = “{“address”:”36d7189625587d7c4c806e0856b6926af8d36fea”,”crypto”:{“cipher”:”aes-128-ctr”,”cipherparams”:{“iv”:”c4a723d57e1325a99d88572651959a9d”},”ciphertext”:”73a4a3a6e8706d099b536e41f6799e71ef9ff3a9f115e21c58d9e81ade036705”,”kdf”:”scrypt”,”kdfparams”:{“dklen”:32,”n”:262144,”p”:1,”r”:8,”salt”:”a322d4dce0f075f95a7748c008048bd3f80dbb5645dee37576ea93fd119feda2”},”mac”:”66744cc5967ff5858266c247dbb088e0986c6f1d50156b5e2ce2a19afdc0e498”},”id”:”0fe540de-1957-4bfe-a326-16772e61f677”,”version”:3}”;</p>
+<p>boolean isValid = WalletUtils.isValidKeystore(keystoreJson);
+//isValid:true
+<a href="#id57"><span class="problematic" id="id58">``</span></a><a href="#id59"><span class="problematic" id="id60">`</span></a></p>
+<p>#### Get address from keystore</p>
+<p><a href="#id61"><span class="problematic" id="id62">``</span></a><a href="#id63"><span class="problematic" id="id64">`</span></a>java
+/**</p>
+<blockquote>
+<div><ul class="simple">
+<li>Get the address from the keystore</li>
+<li></li>
+<li>&#64;param keystoreJson</li>
+<li>&#64;return wallet address</li>
+</ul>
+<p><a href="#id65"><span class="problematic" id="id66">*</span></a>/</p>
+</div></blockquote>
+<p>public static String getAddress(String keystoreJson)
+<a href="#id67"><span class="problematic" id="id68">``</span></a>`
+Eg.</p>
+<p><a href="#id69"><span class="problematic" id="id70">``</span></a><a href="#id71"><span class="problematic" id="id72">`</span></a>java
+String keystoreJson = “{“address”:”36d7189625587d7c4c806e0856b6926af8d36fea”,”crypto”:{“cipher”:”aes-128-ctr”,”cipherparams”:{“iv”:”c4a723d57e1325a99d88572651959a9d”},”ciphertext”:”73a4a3a6e8706d099b536e41f6799e71ef9ff3a9f115e21c58d9e81ade036705”,”kdf”:”scrypt”,”kdfparams”:{“dklen”:32,”n”:262144,”p”:1,”r”:8,”salt”:”a322d4dce0f075f95a7748c008048bd3f80dbb5645dee37576ea93fd119feda2”},”mac”:”66744cc5967ff5858266c247dbb088e0986c6f1d50156b5e2ce2a19afdc0e498”},”id”:”0fe540de-1957-4bfe-a326-16772e61f677”,”version”:3}”;</p>
+<p>String address = WalletUtils.getAddress(keystoreJson);</p>
+<p>//address:0x36D7189625587D7C4c806E0856b6926Af8d36FEa
+<a href="#id73"><span class="problematic" id="id74">``</span></a><a href="#id75"><span class="problematic" id="id76">`</span></a></p>
+<p>#### Verify the keystore with password</p>
+<blockquote>
+<div>Verify that the keystore password is correct or not when the keystore is cached into local file or database.</div></blockquote>
+<p><a href="#id77"><span class="problematic" id="id78">``</span></a><a href="#id79"><span class="problematic" id="id80">`</span></a>java
+WalletUtils.OnVerifyPasswordCallback callback = new WalletUtils.OnVerifyPasswordCallback() {</p>
+<blockquote>
+<div><p>&#64;Override
+public void onCheckPassword(boolean success) {</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>if (success) {</dt>
+<dd><blockquote class="first">
+<div>//success
+onImportSuccess();</div></blockquote>
+<p class="last">//Keystore is saved in files or databases
+//FileUtils.writeCache(getActivity(), FileUtils.KEYSTORE_NAME, keystoreJson);</p>
+</dd>
+<dt>} else {</dt>
+<dd>//errors
+onImportWalletError();</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>};
+WalletUtils.verifyKeystorePassword(keystoreJson, password, callback);
+<a href="#id81"><span class="problematic" id="id82">``</span></a><a href="#id83"><span class="problematic" id="id84">`</span></a></p>
+<p>####  Modify password of keystore</p>
+<p><a href="#id85"><span class="problematic" id="id86">``</span></a><a href="#id87"><span class="problematic" id="id88">`</span></a>java
+WalletUtils.OnModifyKeystorePasswordCallback callback = new WalletUtils.OnModifyKeystorePasswordCallback() {</p>
+<blockquote>
+<div><p>&#64;Override
+public void onModifyResult(String newKeystore) {</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>if (!TextUtils.isEmpty(newKeystore)) {</dt>
+<dd>keystoreJson = newKeystore;</dd>
+</dl>
+<p>//Keystore is saved in files or databases
+//FileUtils.writeCache(getBaseContext(), FileUtils.KEYSTORE_NAME, newKeystore);</p>
+<blockquote>
+<div>//success
+onModifyPasswordSuccess();</div></blockquote>
+<dl class="docutils">
+<dt>} else {</dt>
+<dd>//errors
+onModifyPasswordError();</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>};
+WalletUtils.modifyKeystorePassword(keystoreJson, oldPassword, newPassword, callback);
+<a href="#id89"><span class="problematic" id="id90">``</span></a><a href="#id91"><span class="problematic" id="id92">`</span></a></p>
+<p>####  Decrypt keystore</p>
+<p><a href="#id93"><span class="problematic" id="id94">``</span></a><a href="#id95"><span class="problematic" id="id96">`</span></a>java
+/**
+* Keystore decrypts private key
+*
+* &#64;param keystoreJson
+* &#64;param password
+* &#64;param callback private key
+<a href="#id97"><span class="problematic" id="id98">*</span></a>/
+public static void decryptKeystore(final String keystoreJson, final String password,</p>
+<blockquote>
+<div>final DecryptKeystoreCallback callback)</div></blockquote>
+<p><a href="#id99"><span class="problematic" id="id100">``</span></a>`
+Eg.</p>
+<p><a href="#id101"><span class="problematic" id="id102">``</span></a><a href="#id103"><span class="problematic" id="id104">`</span></a>java
+String keystoreJson = “{“address”:”36d7189625587d7c4c806e0856b6926af8d36fea”,”crypto”:{“cipher”:”aes-128-ctr”,”cipherparams”:{“iv”:”c4a723d57e1325a99d88572651959a9d”},”ciphertext”:”73a4a3a6e8706d099b536e41f6799e71ef9ff3a9f115e21c58d9e81ade036705”,”kdf”:”scrypt”,”kdfparams”:{“dklen”:32,”n”:262144,”p”:1,”r”:8,”salt”:”a322d4dce0f075f95a7748c008048bd3f80dbb5645dee37576ea93fd119feda2”},”mac”:”66744cc5967ff5858266c247dbb088e0986c6f1d50156b5e2ce2a19afdc0e498”},”id”:”0fe540de-1957-4bfe-a326-16772e61f677”,”version”:3}”;</p>
+<dl class="docutils">
+<dt>WalletUtils.DecryptKeystoreCallback callback = new WalletUtils.DecryptKeystoreCallback() {</dt>
+<dd><p class="first">&#64;Override
+public void decryptResult(String privateKey) {</p>
+<blockquote>
+<div>Log.v(“TAG”, privateKey);
+//privateKey:0xbc9fe2428a8faec37674412c113f4a9a66b2e40076014547bfe7bbdc2c5a85ee</div></blockquote>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>};
+WalletUtils.decryptKeystore(keystoreJson, “123456”, callback);
+<a href="#id105"><span class="problematic" id="id106">``</span></a><a href="#id107"><span class="problematic" id="id108">`</span></a></p>
+<p>#### Encrypted private key</p>
+<p><a href="#id109"><span class="problematic" id="id110">``</span></a><a href="#id111"><span class="problematic" id="id112">`</span></a>java
+/**
+* Private key encryption generates keystore
+*
+* &#64;param privateKey
+* &#64;param password
+* &#64;param callback keystore
+<a href="#id113"><span class="problematic" id="id114">*</span></a>/
+public static void encryptPrivateKey(final String privateKey, final String password,</p>
+<blockquote>
+<div>final EncryptPrivateKeyCallback callback)</div></blockquote>
+<p><a href="#id115"><span class="problematic" id="id116">``</span></a>`
+Eg.</p>
+<p><a href="#id117"><span class="problematic" id="id118">``</span></a><a href="#id119"><span class="problematic" id="id120">`</span></a>java
+String privateKey = “0xbc9fe2428a8faec37674412c113f4a9a66b2e40076014547bfe7bbdc2c5a85ee”;
+WalletUtils.EncryptPrivateKeyCallback callback = new WalletUtils.EncryptPrivateKeyCallback() {</p>
+<blockquote>
+<div><p>&#64;Override
+public void encryptPrivateKeyResult(String keystoreJson) {</p>
+<blockquote>
+<div>String address = WalletUtils.getAddress(keystoreJson);
+//address:0x36D7189625587D7C4c806E0856b6926Af8d36FEa</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>};
+WalletUtils.encryptPrivateKey(privateKey, “123”, callback);
+<a href="#id121"><span class="problematic" id="id122">``</span></a><a href="#id123"><span class="problematic" id="id124">`</span></a></p>
+<p>#### Get checksum address</p>
+<p><a href="#id125"><span class="problematic" id="id126">``</span></a><a href="#id127"><span class="problematic" id="id128">`</span></a>java
+/**</p>
+<blockquote>
+<div><ul class="simple">
+<li>Generate wallet addresses in check format</li>
+<li></li>
+<li>&#64;param address Wallet address</li>
+<li>&#64;return Address with Check Format</li>
+</ul>
+<p><a href="#id129"><span class="problematic" id="id130">*</span></a>/</p>
+</div></blockquote>
+<p>public static String getChecksumAddress(String address)
+<a href="#id131"><span class="problematic" id="id132">``</span></a>`
+Eg.</p>
+<p><a href="#id133"><span class="problematic" id="id134">``</span></a><a href="#id135"><span class="problematic" id="id136">`</span></a>java
+String address = “0x36d7189625587d7c4c806e0856b6926af8d36fea”;</p>
+<p>String checkSumAddress = WalletUtils.getChecksumAddress(address);</p>
+<p>//checkSumAddress:0x36D7189625587D7C4c806E0856b6926Af8d36FEa
+<a href="#id137"><span class="problematic" id="id138">``</span></a><a href="#id139"><span class="problematic" id="id140">`</span></a></p>
+<p>####  Get reference of block chain</p>
+<p>Get the last eight bytes of the latest block ID and output it with a hexadecimal string (blockRef).</p>
+<p><a href="#id141"><span class="problematic" id="id142">``</span></a><a href="#id143"><span class="problematic" id="id144">`</span></a>java
+WalletUtils.OnGetBlockReferenceCallback callback = new WalletUtils.OnGetBlockReferenceCallback() {</p>
+<blockquote>
+<div><p>&#64;Override
+public void onGetBlockReferenceResult(String blockRef) {</p>
+<blockquote>
+<div>blockReference = blockRef;</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>};
+WalletUtils.getBlockReference(callback);
+<a href="#id145"><span class="problematic" id="id146">``</span></a>`
+####  Get chainTag of block chain</p>
+<p>Get the tag of the current block chain,Tag is used to distinguish different chains</p>
+<p><a href="#id147"><span class="problematic" id="id148">``</span></a><a href="#id149"><span class="problematic" id="id150">`</span></a>java
+WalletUtils.OnGetChainTagCallback callback = new WalletUtils.OnGetChainTagCallback() {</p>
+<blockquote>
+<div><p>&#64;Override
+public void onGetChainTagResult(String chainTag) {</p>
+<blockquote>
+<div>this.chainTag = chainTag;
+//MAIN_NODE chainTag:0x4a
+//TEST_NODE chainTag:0x27</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>};
+WalletUtils.getChainTag(callback);
+<a href="#id151"><span class="problematic" id="id152">``</span></a><a href="#id153"><span class="problematic" id="id154">`</span></a></p>
+<p>####  Sign and send Transaction</p>
+<p>Sign the transaction and send it to the block chain.</p>
+<p><a href="#id155"><span class="problematic" id="id156">``</span></a><a href="#id157"><span class="problematic" id="id158">`</span></a>java
+WalletUtils.OnSignCallback callback = new WalletUtils.OnSignCallback() {</p>
+<blockquote>
+<div><p>&#64;Override
+public void onSignResult(String txId) {</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>if (transferResultListener != null)</dt>
+<dd>transferResultListener.onTransferResult(txId);</dd>
+</dl>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>};
+WalletUtils.signAndSendTransfer(keystoreJson, password, transferParameter, callback);
+<a href="#id159"><span class="problematic" id="id160">``</span></a>`
+After the transaction is sent, txId can be acquired. Through txId, the transaction status can be further acquired, and the success of the transaction can be confirmed by multiple blocks.</p>
+<ul class="simple">
+<li>keystoreJson: JSON format for private key encryption</li>
+<li>password: keystore password</li>
+<li>transferParameter:</li>
+</ul>
+<p><a href="#id161"><span class="problematic" id="id162">``</span></a><a href="#id163"><span class="problematic" id="id164">`</span></a>java
+String hexNonce = null;
+byte[] nonceBytes = new byte[8];
+Random random = new Random();
+random.nextBytes(nonceBytes);
+hexNonce = HexUtils.toHexString(nonceBytes);</p>
+<p>TransferParameter.Builder builder = new TransferParameter.Builder();
+TransferParameter transferParameter = null;
+try {</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>transferParameter = builder.setClauseList(clauseList)</dt>
+<dd>.setGas(gas)
+.setChainTag(chainTag)
+.setBlockRef(blockRef)
+.setNonce(hexNonce)
+.build();</dd>
+</dl>
+</div></blockquote>
+<dl class="docutils">
+<dt>} catch (ParameterException e) {</dt>
+<dd>e.printStackTrace();</dd>
+</dl>
+<div class="section" id="id165">
+<h1>}<a class="headerlink" href="#id165" title="Permalink to this headline">¶</a></h1>
+<p>TransferParameter attribute description：</p>
+<ul class="simple">
+<li>clauses : List&lt;Clause&gt; - Multi-transaction information</li>
+<li>gas : long  - Enforces the specified number as the maximum gas that can be consumed for the transaction</li>
+<li>chainTag : String - Genesis block ID last byte hexadecimal.Reference: WalletUtils.getChainTag().</li>
+<li>blockRef : String - Refer to the last 8 bytes of blockId in hexadecimal.Reference: WalletUtils.getBlockReference().</li>
+<li>nonce : String  - The random number of trading entities. Changing Nonce can make the transaction have different IDs, which can be used to accelerate the trader.</li>
+<li>gasPriceCoef : int - This value adjusts the priority of the transaction, and the current value range is between 0 and 255 (decimal),The default value is “0”</li>
+<li>expiration : String - Deal expiration/expiration time in blocks,The default value is “720”</li>
+<li>dependsOn :String - The ID of the dependent transaction. If the field is not empty, the transaction will be executed only if the transaction specified by it already exists.The default value is null.</li>
+<li>reserveds: List  -  Currently empty, reserve fields. Reserved fields for backward compatibility,The default value is null</li>
+</ul>
+<p>####  Sign transaction</p>
+<p>RLP encoding and signature of transactions will not be sent to the block chain.The result is retrieved by callback, which retrieves the raw is hexadecimal string.</p>
+<p><a href="#id166"><span class="problematic" id="id167">``</span></a><a href="#id168"><span class="problematic" id="id169">`</span></a>java
+WalletUtils.OnSignCallback callback = new WalletUtils.OnSignCallback() {</p>
+<blockquote>
+<div><p>&#64;Override
+public void onSignResult(String raw) {</p>
+<blockquote>
+<div>//raw: RLP encode data and signature</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>};
+WalletUtils.signTransfer(keystoreJson, password, transferParameter, callback);</p>
+<p><a href="#id170"><span class="problematic" id="id171">``</span></a><a href="#id172"><span class="problematic" id="id173">`</span></a></p>
+<p>####  Support DApp development environment in Webview
+To support the Dapp function, WebView needs the following initialization before opening Dapp.
+Initialization is mainly JS injected into connex and web3.
+[connex reference.](<a class="reference external" href="https://github.com/vechain/connex/blob/master/docs/api.md/">https://github.com/vechain/connex/blob/master/docs/api.md/</a>)</p>
+<p><a href="#id174"><span class="problematic" id="id175">``</span></a><a href="#id176"><span class="problematic" id="id177">`</span></a>java
+WebSettings set = webView.getSettings();
+set.setJavaScriptEnabled(true);</p>
+<dl class="docutils">
+<dt>if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.LOLLIPOP) {</dt>
+<dd>set.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);</dd>
+</dl>
+<p>}</p>
+<p>webView.setWebViewClient(new MyWebClient());
+webView.setWebChromeClient(new MyWebChromeClient(pluginManager));</p>
+<p><a href="#id178"><span class="problematic" id="id179">``</span></a>`
+MyWebChromeClient is implemented as follows. If you want to implement WebChromeClient, your WebChromeClient must inherit DappWebChromeClient.</p>
+<p><a href="#id180"><span class="problematic" id="id181">``</span></a><a href="#id182"><span class="problematic" id="id183">`</span></a>java
+class MyWebChromeClient extends DAppWebChromeClient {</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>public MyWebChromeClient(PluginManager pluginManager){</dt>
+<dd>super(pluginManager);</dd>
+</dl>
+<p>}
+&#64;Override
+public void onReceivedTitle(WebView view, String title) {</p>
+<blockquote>
+<div>//must be implemented to support the DApp environment
+super.onReceivedTitle(view, title);
+….</div></blockquote>
+<p>}
+&#64;Override
+public boolean onJsPrompt(WebView view, String url, String message, String defaultValue, JsPromptResult result) {</p>
+<blockquote>
+<div>//must be implemented to support the DApp environment
+return super.onJsPrompt(view,url,message,defaultValue,result);</div></blockquote>
+<p>}</p>
+</div></blockquote>
+</div>
+<div class="section" id="id184">
+<h1>}<a class="headerlink" href="#id184" title="Permalink to this headline">¶</a></h1>
+<p>MyWebClient is implemented as follows. If you want to implement WebViewClient, your WebViewClient must inherit DAppWebViewClient.</p>
+<p><a href="#id185"><span class="problematic" id="id186">``</span></a><a href="#id187"><span class="problematic" id="id188">`</span></a>java
+class MyWebClient extends DAppWebViewClient {</p>
+<blockquote>
+<div><p>&#64;Override
+public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {</p>
+<blockquote>
+<div>//must be implemented to support the DApp environment
+return super.shouldInterceptRequest(view, request);</div></blockquote>
+<p>}</p>
+</div></blockquote>
+</div>
+<div class="section" id="id189">
+<h1>}<a class="headerlink" href="#id189" title="Permalink to this headline">¶</a></h1>
+<p>At the same time, the wallet must be initialized before calling WebView to open Url’s corresponding Dapp, as follows：Implementing DAppAction Interface</p>
+<p><a href="#id190"><span class="problematic" id="id191">``</span></a><a href="#id192"><span class="problematic" id="id193">`</span></a>java
+public class DAppWebActivity extends Activity implements DAppAction{</p>
+<blockquote>
+<div><p>&#64;Override
+public void onCreate(Bundle savedInstanceState) {</p>
+<blockquote>
+<div>super.onCreate(savedInstanceState);
+…
+//Support for DApp must be initialized
+pluginManager = new PluginManager();
+pluginManager.setdAppAction(this);
+…</div></blockquote>
+<p>}</p>
+<p>…</p>
+<dl class="docutils">
+<dt>/**</dt>
+<dd><ul class="first simple">
+<li>Interfaces that must be implemented to support the DApp environment</li>
+<li>App developer implementation when dapp calls checkOwn address function</li>
+<li></li>
+<li>When will this method be called? When DAPP needs to know if it has address locally</li>
+<li></li>
+<li>&#64;param address Address from dapp</li>
+<li>&#64;param dAppCallback Callback after the end，notify DAP if the address is locally owned</li>
+</ul>
+<p class="last"><a href="#id194"><span class="problematic" id="id195">*</span></a>/</p>
+</dd>
+</dl>
+<p>public void onCheckOwnAddress(String address, OwnedAddressCallback dAppCallback){</p>
+<blockquote>
+<div><p>//Read the wallet keystore from a file or database
+String keystore = FileUtils.readCache(this, FileUtils.KEYSTORE_NAME);
+final String walletAddress = WalletUtils.getAddress(keystore);
+boolean isOwn = walletAddress.equalsIgnoreCase(address);
+if(dAppCallback!=null)</p>
+<blockquote>
+<div>dAppCallback.onOwned(isOwn);</div></blockquote>
+</div></blockquote>
+<p>}</p>
+<blockquote>
+<div><blockquote>
+<div>/**</div></blockquote>
+<ul class="simple">
+<li>Interfaces that must be implemented to support the DApp environment</li>
+<li></li>
+<li>When will this method be called? This method is called when DAPP needs to issue certificate using a local Wallet</li>
+<li></li>
+<li>&#64;param message  Information to be signed</li>
+<li>&#64;param dAppCallback Callback method after signature information is completed，notify DAPP when the result is completed</li>
+</ul>
+<p><a href="#id196"><span class="problematic" id="id197">*</span></a>/</p>
+</div></blockquote>
+<p>&#64;Override
+public void onCertificate(final String message, final String signer,final CertificateCallback dAppCallback) {</p>
+<blockquote>
+<div><p>//Interfaces that must be implemented to support the DApp environment
+//Read the wallet keystore from a file or database
+String keystore = FileUtils.readCache(this, FileUtils.KEYSTORE_NAME);
+final String walletAddress = WalletUtils.getAddress(keystore);</p>
+<p>String certificateMessage = message;
+// if signer not null, Enforces the specified address to sign the certificate
+if(signer!=null &amp;&amp; !signer.equalsIgnoreCase(walletAddress)){</p>
+<blockquote>
+<div>if (dAppCallback != null) dAppCallback.onCertificate(null,null);
+return;</div></blockquote>
+<dl class="docutils">
+<dt>}else{</dt>
+<dd><p class="first">// if signer is null,Add signer for certificate information
+if(signer==null)</p>
+<blockquote class="last">
+<div>certificateMessage = WalletUtils.addSigner(message,walletAddress.toLowerCase());</div></blockquote>
+</dd>
+</dl>
+<p>}</p>
+<p>//Prompt user to enter wallet password
+CertificatePasswordDialog.takePassword(this, keystore, certificateMessage,new CertificateSignListener() {</p>
+<blockquote>
+<div><p>&#64;Override
+public void deliverCertificate(String signature) {</p>
+<blockquote>
+<div>// notify DApp
+if(dAppCallback!=null)dAppCallback.onCertificate(walletAddress,signature);</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>});</p>
+</div></blockquote>
+<p>}</p>
+<dl class="docutils">
+<dt>/**</dt>
+<dd><ul class="first simple">
+<li>Interfaces that must be implemented to support the DApp environment</li>
+<li></li>
+<li>When will this method be called? When DAPP needs to use a local wallet to send transactions</li>
+<li></li>
+<li>&#64;param clauses Dapp group of transaction parameters</li>
+<li>&#64;param gas Miners’Fees Needed by Exchanges</li>
+<li>&#64;param dAppCallback Transaction Sending Completion Callback Method,notify Dapp the results of the transaction and the address of the wallet that sent the transaction</li>
+</ul>
+<p class="last"><a href="#id198"><span class="problematic" id="id199">*</span></a>/</p>
+</dd>
+</dl>
+<p>&#64;Override
+public void onTransfer(List&lt;Clause&gt; clauses, long gas, final String signer,final TransferResultCallback dAppCallback) {</p>
+<blockquote>
+<div><p>//Read the wallet keystore from a file or database
+String keystore = FileUtils.readCache(this, FileUtils.KEYSTORE_NAME);
+final String address = WalletUtils.getAddress(keystore);</p>
+<p>// if signer not null, Enforces the specified address to sign the transaction
+if(signer!=null &amp;&amp; !signer.equalsIgnoreCase(address)){</p>
+<blockquote>
+<div>if(dAppCallback!=null)dAppCallback.onTransferResult(null,null);
+return;</div></blockquote>
+<p>}</p>
+<dl class="docutils">
+<dt>PasswordDialog.showInputPassword(this, keystore, clauses, gas, new TransferResultListener() {</dt>
+<dd><p class="first">&#64;Override
+public void onTransferResult(String result) {</p>
+<blockquote>
+<div>if(dAppCallback!=null)dAppCallback.onTransferResult(address,result);</div></blockquote>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>});</p>
+</div></blockquote>
+<p>}</p>
+<dl class="docutils">
+<dt>/**</dt>
+<dd><ul class="first simple">
+<li>Interfaces that must be implemented to support the DApp environment</li>
+<li></li>
+<li>When will this method be called? When DAPP needs to get a list of local wallet addresses</li>
+<li></li>
+<li>Get a list of wallet addresses from a local file or database</li>
+<li></li>
+<li>&#64;param dAppCallback Address list to DApp</li>
+</ul>
+<p class="last"><a href="#id200"><span class="problematic" id="id201">*</span></a>/</p>
+</dd>
+</dl>
+<p>&#64;Override
+public void onGetWalletAddress(GetWalletAddressCallback dAppCallback) {</p>
+<blockquote>
+<div><p>//Get the wallet keystore from the local database or file cache
+String keystore = FileUtils.readCache(this, FileUtils.KEYSTORE_NAME);
+String address = WalletUtils.getAddress(keystore);</p>
+<p>//DApp must set addresses
+List&lt;String&gt; addresses = new ArrayList&lt;&gt;();
+addresses.add(address.toLowerCase());</p>
+<p>//Callback method must be executed after completion
+if (dAppCallback != null) dAppCallback.setWalletAddress(addresses);</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+</div>
+<div class="section" id="id202">
+<h1>}<a class="headerlink" href="#id202" title="Permalink to this headline">¶</a></h1>
+<p>When closing WebView, you can do the following:</p>
+<p><a href="#id203"><span class="problematic" id="id204">``</span></a><a href="#id205"><span class="problematic" id="id206">`</span></a>java
+protected void onDestroy() {</p>
+<blockquote>
+<div><blockquote>
+<div><dl class="docutils">
+<dt>if (webView != null)</dt>
+<dd>webView.destroy();</dd>
+</dl>
+<p>webView = null;
+//Memory Recycling to Prevent Memory Leakage
+pluginManager.setdAppAction(null);
+pluginManager.clearWebView();
+pluginManager = null;
+super.onDestroy();</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p><a href="#id207"><span class="problematic" id="id208">``</span></a>`
+#### Tips：
+Before the release of DApp, it is recommended that different versions of WebView be adapted to ensure the reliable and stable operation of HTML 5 pages.</p>
+<p>## Several main data structures</p>
+<p>### 1.keystore</p>
+<p><a href="#id209"><span class="problematic" id="id210">``</span></a><a href="#id211"><span class="problematic" id="id212">`</span></a>java
+/**
+*  Keystore is a json string. Its file structure is as follows:
+*
+*  — — — — — — — — — — — — — — — — — — — — — — — — — — ——
+*      {
+*          “version”: 3,
+*          “id”: “F56FDA19-FB1B-4752-8EF6-E2F50A93BFB8”,
+*          “kdf”: “scrypt”,
+*          “mac”: “9a1a1db3b2735c36015a3893402b361d151b4d2152770f4a51729e3ac416d79f”,
+*          “cipher”: “aes-128-ctr”
+*          “address”: “ea8a62180562ab3eac1e55ed6300ea7b786fb27d”
+*          “crypto”: {
+*                      “ciphertext”: “d2820582d2434751b83c2b4ba9e2e61d50fa9a8c9bb6af64564fc6df2661f4e0”,
+*                      “cipherparams”: {
+*                                          “iv”: “769ef3174114a270f4a2678f6726653d”
+*                                      },
+*                      “kdfparams”: {
+*                              “r”: 8,
+*                              “p”: 1,
+*                              “n”: 262144,
+*                              “dklen”: 32,
+*                              “salt”: “67b84c3b75f9c0bdf863ea8be1ac8ab830698dd75056b8133350f0f6f7a20590”
+*                      },
+*          },
+*      }
+*
+*  — — — — — — — — — — — — — — — — — — — — — — — — — — ——
+*  Field description:
+*          version: This is a version information, when you decryption, you should use the same version.
+*          id: You can ignore.
+*          Kdf: This is a encryption function.
+*          mac: This is the mac deveice infomation.
+*          cipher: Describes the encryption algorithm used.
+*          address：The wallet address.
+*          crypto: This section is the main encryption area.
+*
+*  If you want to recover a wallet by keystore, you should have the correct password.
+*
+<a href="#id213"><span class="problematic" id="id214">*</span></a>/</p>
+<p># Packing confusion instructions</p>
+<p>Add the following in the Proguard obfuscation configuration file:</p>
+<p><a href="#id215"><span class="problematic" id="id216">``</span></a><a href="#id217"><span class="problematic" id="id218">`</span></a>bash
+-keep class com.vechain.**{<a href="#id219"><span class="problematic" id="id220">*</span></a>;}</p>
+<p>#Gson
+-keepattributes Signature
+-keepattributes <em>Annotation</em>
+-keep class sun.misc.Unsafe { <em>; }
+-keep class com.google.gson.stream.*</em> { <em>; }
+-keep class com.google.gson.examples.android.model.*</em> { <em>; }
+-keep class com.google.gson.</em> { <em>;}
+-dontwarn com.google.gson.*</em></p>
+<p>#okhttp
+-dontwarn okhttp3.**
+-dontwarn okio.**
+-dontwarn javax.annotation.**
+-dontwarn org.conscrypt.**
+#A resource is loaded with a relative path so the package of this class must be preserved.
+-keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase</p>
+<p>#Retrofit
+#Retain generic type information for use by reflection by converters and adapters.
+-keepattributes Signature
+#Retain service method parameters.
+-keepclassmembernames,allowobfuscation interface * {</p>
+<blockquote>
+<div>&#64;retrofit2.http.* &lt;methods&gt;;</div></blockquote>
+<p>}
+#Ignore annotation used for build tooling.
+-dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement</p>
+<p>#Retrofit
+-dontwarn retrofit2.**
+-keep class retrofit2.** { <em>; }
+#-keepattributes Signature-keepattributes Exceptions
+#RxJava RxAndroid
+-dontwarn sun.misc.*</em>
+-keepclassmembers class rx.internal.util.unsafe.*ArrayQueue*Field* {</p>
+<blockquote>
+<div>long producerIndex;
+long consumerIndex;</div></blockquote>
+<p>}
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueProducerNodeRef {</p>
+<blockquote>
+<div>rx.internal.util.atomic.LinkedQueueNode producerNode;</div></blockquote>
+<p>}
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueConsumerNodeRef {</p>
+<blockquote>
+<div>rx.internal.util.atomic.LinkedQueueNode consumerNode;</div></blockquote>
+</div>
+<div class="section" id="id221">
+<h1>}<a class="headerlink" href="#id221" title="Permalink to this headline">¶</a></h1>
+<p>Resource
+[<a class="reference external" href="https://github.com/vechain/wallet-Android-sdk](https://github.com/vechain/wallet-Android-sdk">https://github.com/vechain/wallet-Android-sdk](https://github.com/vechain/wallet-Android-sdk</a>)</p>
+<p>## License</p>
+<p>The VechainThor Wallet SDK is licensed under the <code class="docutils literal notranslate"><span class="pre">`MIT</span> <span class="pre">LICENSE`</span></code>, also included
+in <em>LICENSE</em> file in the repository.</p>
+<p>Copyright (c) 2019 VeChain &lt;<a class="reference external" href="mailto:support&#37;&#52;&#48;vechain&#46;com">support<span>&#64;</span>vechain<span>&#46;</span>com</a>&gt;</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VeChain Developers
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

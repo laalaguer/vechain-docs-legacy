@@ -1,0 +1,451 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Multi-party Payment Protocol (MPP) &mdash; VeChain Documentation Legacy 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Proof of Authority (PoA)" href="poa.html" />
+    <link rel="prev" title="Transaction Model" href="tx-model.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VeChain Documentation Legacy
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">VeChainThor Blockchain</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="overview.html">What is VeChainThor?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#business-friendly-meta-transaction-features">Business Friendly Meta-transaction Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#proof-of-authority-poa">Proof of Authority (“PoA”)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#governance">Governance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#economic-model">Economic Model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="two.html">Two-token design</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="two.html#vet">VET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="two.html#vtho">VTHO</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="block.html">Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tx-model.html">Transaction Model</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Multi-party Payment Protocol (MPP)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#functions-related-to-user">Functions related to <em>User</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions-related-to-the-credit-plan">Functions related to the <em>credit plan</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions-related-master">Functions related <em>Master</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions-related-to-sponsor">Functions related to <em>Sponsor</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="poa.html">Proof of Authority (PoA)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="poa.html#when">When</a></li>
+<li class="toctree-l3"><a class="reference internal" href="poa.html#who">Who</a></li>
+<li class="toctree-l3"><a class="reference internal" href="poa.html#am-status-updating">AM Status Updating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="poa.html#trunk">Trunk</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="built-in.html">Built-in Smart Contracts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ch2/index.html">Get Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/how-to-node.html">How to deploy a VeChainThor node</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ch2/docker.html">Docker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/docker.html#run-vechainthor-authority-masternode-in-docker">Run VeChainThor Authority Masternode in docker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/docker.html#run-node-in-docker">Run node in docker</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../ch2/aws.html">AWS Marketplace</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/aws.html#this-is-an-example-of-solo-node-deployment">This is an example of “solo node” deployment.</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../ch2/source.html">Source code</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/source.html#installation">Installation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/public.html">Public VeChainThor nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/how-to-deploy.html">How to deploy a smart contract</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ch2/how-to-deploy.html#quick-start">Quick Start</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ch2/how-to-develop.html">How to develop a dApp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ch2/how-to-1.html">Intro</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-1.html#whats-web-application"><strong>What’s Web Application?</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-1.html#what-is-dapp"><strong>What is DApp?</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-1.html#write-a-dapp-sync-and-connex"><strong>Write a DApp: Sync and Connex</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-1.html#token-transfer-a-simple-dapp-in-javascript"><strong>Token Transfer: A Simple DApp in Javascript</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../ch2/how-to-2.html">Components and Coding</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-2.html#preparation"><strong>Preparation</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-2.html#setup-in-3-minutes"><strong>Setup in 3 minutes</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-2.html#coding"><strong>Coding</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-2.html#put-things-together"><strong>Put Things Together</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-2.html#test-the-app"><strong>Test the App</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-2.html#one-more-thing"><strong>One More Thing</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../ch2/how-to-3.html">Setup &amp; Walk Around</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-3.html#setup-in-3-minutes"><strong>Setup in 3 minutes</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-3.html#poke-around-familiar-with-sync"><strong>Poke around: Familiar with Sync</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-3.html#play-with-connex-js-apis"><strong>Play with Connex.js APIs</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ch2/how-to-3.html#summary"><strong>Summary</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VeChain Documentation Legacy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">VeChainThor Blockchain</a> &raquo;</li>
+        
+      <li>Multi-party Payment Protocol (MPP)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/ch1/mpp.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="multi-party-payment-protocol-mpp">
+<h1>Multi-party Payment Protocol (MPP)<a class="headerlink" href="#multi-party-payment-protocol-mpp" title="Permalink to this headline">¶</a></h1>
+<p>One of the major obstacles for ordinary people, or even enterprises, to adopt a public blockchain is the uncertainty and complexity in dealing with crypto assets. On one hand, users have to face the high price volatility when acquiring crypto from the market; on the other hand, they need to understand related concepts and get familiar with various tools to be able to use, manage, store, and secure their crypto assets.</p>
+<p>Can we find a way around the above-mentioned difficulties? For the existing blockchain networks such as Bitcoin and Ethereum, the answer is most likely negative. This is due to the fact that for those systems transaction fees must be paid by whomever sends the transaction and sending transactions is the way to interact with a public blockchain.</p>
+<p>In VeChainThor, we came up with the multi-party payment protocol (MPP) to tackle this problem. Basically, MPP says that transaction fees can be paid by someone other than who sends the transaction if certain conditions are met. In this way, users can interact with VeChainThor without holding any crypto-assets.</p>
+<p>Let us first define the terminology to be used to describe MPP as follows:</p>
+<ul class="simple">
+<li><em>Sender</em> - account that signs the transaction;</li>
+<li><em>Recipient</em> - account to which the transaction is sent;</li>
+<li><em>Sponsor</em> - account that sponsors the recipient to pay for the transaction fee;</li>
+<li><em>User</em> - VeChainTor allows any account to register other accounts as its users and conditionally pay for the cost of the transactions sent them;</li>
+<li><em>Credit</em> - available VHTO for paying for transaction cost for a particular user of a particular account.</li>
+</ul>
+<p><img alt="https://files.readme.io/d5f9847-MPP.png" src="https://files.readme.io/d5f9847-MPP.png" /></p>
+<p>The above figure shows the decision-making flow within MPP. When it comes to the question of who should pay for a transaction, VeChainThor first checks the usership and sponsorship associated with the <em>Sender</em> and <em>Recipient</em>. It then tries to deduct the transaction fee from the corresponding account. For instance, if both the usership and sponsorship are in place, the system will first try to deduct the transaction fee from the <em>Sponsor</em>’s balance; if it fails, then from the <em>Recipient</em>’s balance; and if it fails again, from the <em>Sender</em>’s balance.</p>
+<p>In practice, a dApp is most likely built upon multiple smart contracts deployed on VeChainThor. Its users interact with our public blockchain through sending transactions to the smart contracts to call a certain function. With MPP, the dApp owner can register its users’ accounts as the <em>User</em> of the smart contracts such that all the legit transactions from the dApp users can be paid by the owner. In this way, people can use the dApp almost in the same way they use other apps without dealing with crypto. Moreover, the owner can set up a single account to sponsor all related smart contracts, which makes the maintenance a lot easier.
+[block:api-header]
+{
+“title”: “Credit Plan”
+}
+[/block]
+To prevent MPP from being abused by malicious users, the owner of a smart contract can set a credit plan for the contract to set up rules on how to pay for the transactions from users. In particular, a credit plan can be defined as:
+[block:code]
+{
+“codes”: [
+{
+“code”: “type creditPlan struct {\n\tCredit       *big.Int\n\tRecoveryRate *big.Int\n}”,
+“language”: “text”
+}
+]
+}
+[/block]
+where <code class="docutils literal notranslate"><span class="pre">RecoveryRate</span></code> is the amount of VTHO (in wei) accumulated per block to pay for transactions for each user and <code class="docutils literal notranslate"><span class="pre">Credit</span></code> the maximum amount of VTHO (in wei) that can be accumulated.</p>
+<p>When the system checks whether an account’s user has a sufficient amount of credit to pay for the transaction, it calculates the available credit <em><strong>c</strong></em> as:</p>
+<p><img alt="https://files.readme.io/08306f9-c_formula.PNG" src="https://files.readme.io/08306f9-c_formula.PNG" /></p>
+<p>where <em><strong>C</strong></em> denotes <code class="docutils literal notranslate"><span class="pre">Credit</span></code>, <em><strong>r</strong></em> <code class="docutils literal notranslate"><span class="pre">RecoverRate</span></code>, <em><strong>h</strong></em> the current block height, <img alt="$h_0$" src="https://files.readme.io/db3ef5d-h0.PNG" /> the block height when the user uses credit last time and <img alt="$u_{\textrm{used}}$" src="https://files.readme.io/8a675b8-u-used.PNG" /> the amount of credit consumed after the user’s last transaction is paid by the account. Note that <img alt="$C-c_{\textrm{used}}$" src="https://files.readme.io/38a489c-c-cused.PNG" /> is the remaining credit after the last transaction is paid.
+[block:api-header]
+{
+“title”: “Master Account”
+}
+[/block]
+In VeChainThor, we introduce the concept of the master account to make it easier for dApp owners to use MPP and manage their dApps. Specifically, every account, including a smart contract, can have a <em>Master</em> account which is allowed by the system to register/remove <em>Users</em>, set a credit plan, and select the active <em>Sponsor</em> for the account. Note that the account that deploys a smart contract becomes the <em>Master</em> of the contract by default. A normal account can also set its <em>Master</em> through calling function <code class="docutils literal notranslate"><span class="pre">setMaster</span></code> implemented in the built-in contract <code class="docutils literal notranslate"><span class="pre">Prototype</span></code>. We will describe the implementation of MPP shortly.</p>
+<p>In practice, we may most likely build a dapp based on multiple smart contracts. Each contract may have its own <em>Users</em> and be sponsored by multiple <em>Sponsors</em>. How to manage these accounts suddenly becomes a challenging task the dapp owner has to think about. With the <em>Master</em> mechanism and built-in contract <code class="docutils literal notranslate"><span class="pre">Prototype</span></code>, the owner does not have to implement anything on the contract code level to user MPP. He/she can now use even a single <em>Master</em> to manage all the contracts through calling functions of contract <code class="docutils literal notranslate"><span class="pre">Prototype</span></code>.
+[block:api-header]
+{
+“title”: “MPP Implementation”
+}
+[/block]
+The multi-party payment protocol is implemented by the built-in smart contract <code class="docutils literal notranslate"><span class="pre">Prototype</span></code> deployed at <code class="docutils literal notranslate"><span class="pre">0x000000000000000000000050726f746f74797065</span></code> in the genesis block of VeChainThor.</p>
+<div class="section" id="functions-related-to-user">
+<h2>Functions related to <em>User</em><a class="headerlink" href="#functions-related-to-user" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">isUser</span></code></p>
+<p>Check whether an account is a registered <em>User</em> of another account.</p>
+<p>Input:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">address</span> <span class="pre">_self</span></code>: account address</li>
+<li><code class="docutils literal notranslate"><span class="pre">address</span> <span class="pre">_user</span></code>: <em>User</em> address</li>
+</ul>
+<p>Return:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">true</span></code> if <code class="docutils literal notranslate"><span class="pre">_user</span></code> is a <em>User</em> of <code class="docutils literal notranslate"><span class="pre">_self</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise</li>
+</ul>
+<hr class="docutils" />
+<p><code class="docutils literal notranslate"><span class="pre">addUser</span></code> / <code class="docutils literal notranslate"><span class="pre">removeUser</span></code></p>
+<p>Add / remove a <em>User</em> for an account. The transaction sender has to be the account itself or its current <em>Master</em>.</p>
+<p>Input:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">address</span> <span class="pre">_self</span></code>: account address</li>
+<li><code class="docutils literal notranslate"><span class="pre">address</span> <span class="pre">_user</span></code>: <em>User</em> address</li>
+</ul>
+</div>
+<div class="section" id="functions-related-to-the-credit-plan">
+<h2>Functions related to the <em>credit plan</em><a class="headerlink" href="#functions-related-to-the-credit-plan" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">creditPlan</span></code></p>
+<p>Get the credit plan associated with an account.</p>
+<p>Input:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">address</span> <span class="pre">_self</span></code>: account address</li>
+</ul>
+<p>Return:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">uint256</span> <span class="pre">credit</span></code>: maximum amount of credit (VTHO in wei) allowed for each  <em>User</em> of the account</li>
+<li><code class="docutils literal notranslate"><span class="pre">uint256</span> <span class="pre">recoveryRate</span></code>: amount of credit (VTHO in wei) generated per block for  each <em>User</em> of the account</li>
+</ul>
+<hr class="docutils" />
+<p><code class="docutils literal notranslate"><span class="pre">setCreditPlan</span></code></p>
+<p>Set a credit plan for an account. The transaction sender has to be either the account itself and its current <em>Master</em>.</p>
+<p>Input:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">address</span> <span class="pre">_self</span></code>: account address</li>
+<li><code class="docutils literal notranslate"><span class="pre">uint256</span> <span class="pre">credit</span></code>: maximum amount of credit (VTHO in wei) allowed for each  <em>User</em> of the account</li>
+<li><code class="docutils literal notranslate"><span class="pre">uint256</span> <span class="pre">recoveryRate</span></code>: amount of credit (VTHO in wei) generated per block for  each <em>User</em> of the account</li>
+</ul>
+<hr class="docutils" />
+<p><code class="docutils literal notranslate"><span class="pre">userCredit</span></code></p>
+<p>Get the available credit for a particular <em>User</em> of an account.</p>
+<p>Input:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">address</span> <span class="pre">_self</span></code>: account address</li>
+<li><code class="docutils literal notranslate"><span class="pre">address</span> <span class="pre">_user</span></code>: <em>User</em> address</li>
+</ul>
+<p>Return:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">uint256</span></code>: available credit (VTHO in wei) for the <em>User</em></li>
+</ul>
+</div>
+<div class="section" id="functions-related-master">
+<h2>Functions related <em>Master</em><a class="headerlink" href="#functions-related-master" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">master</span></code></p>
+<p>Get the <em>Master</em> address of the given account address.</p>
+<p>Input:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">address</span> <span class="pre">_self</span></code>: account address</li>
+</ul>
+<p>Return:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">address</span></code>: address of the <em>Master</em> of <code class="docutils literal notranslate"><span class="pre">_self</span></code>.</li>
+</ul>
+<hr class="docutils" />
+<p><code class="docutils literal notranslate"><span class="pre">setMaster</span></code></p>
+<p>Set the <em>Master</em> for a particular account. The transaction sender has to be either the account itself or its current <em>Master</em>.</p>
+<p>Input:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">address</span> <span class="pre">_self</span></code>: account address</li>
+<li><code class="docutils literal notranslate"><span class="pre">address</span> <span class="pre">_newMaster</span></code>: address of the new <em>Master</em> of <code class="docutils literal notranslate"><span class="pre">_self</span></code></li>
+</ul>
+</div>
+<div class="section" id="functions-related-to-sponsor">
+<h2>Functions related to <em>Sponsor</em><a class="headerlink" href="#functions-related-to-sponsor" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">sponsor</span></code> / <code class="docutils literal notranslate"><span class="pre">unsponsor</span></code></p>
+<p>Sponsor / unsponsor an account. The transaction sender has to be the <em>Sponsor</em> account.</p>
+<p>Input:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">address</span> <span class="pre">_self</span></code>: address of the account to be sponsored / unsponsored</li>
+</ul>
+<hr class="docutils" />
+<p><code class="docutils literal notranslate"><span class="pre">isSponsor</span></code></p>
+<p>Check whether an input account is a <em>Sponsor</em> of another account.</p>
+<p>Input:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">address</span> <span class="pre">_self</span></code>: account address</li>
+<li><code class="docutils literal notranslate"><span class="pre">address</span> <span class="pre">_sponsor</span></code>: <em>Sponsor</em> address</li>
+</ul>
+<p>Return:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">true</span></code> if <code class="docutils literal notranslate"><span class="pre">_sponsor</span></code> is a <em>Sponsor</em> of <code class="docutils literal notranslate"><span class="pre">_self</span></code></li>
+</ul>
+<hr class="docutils" />
+<p><code class="docutils literal notranslate"><span class="pre">selectSponsor</span></code></p>
+<p>Select a <em>Sponsor</em>. The transaction sender has to be either the sponsored account or its <em>Master</em>.</p>
+<p>Input:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">address</span> <span class="pre">_self</span></code>: account address</li>
+<li><code class="docutils literal notranslate"><span class="pre">address</span> <span class="pre">_sponsor</span></code>: <em>Sponsor</em> address</li>
+</ul>
+<hr class="docutils" />
+<p><code class="docutils literal notranslate"><span class="pre">currentSponsor</span></code></p>
+<p>Get the current active <em>Sponsor</em>.</p>
+<p>Input:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">address</span> <span class="pre">_self</span></code>: account address</li>
+</ul>
+<p>Return:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">address</span></code>: address of the current active <em>Sponsor</em> of <code class="docutils literal notranslate"><span class="pre">_self</span></code>.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="poa.html" class="btn btn-neutral float-right" title="Proof of Authority (PoA)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="tx-model.html" class="btn btn-neutral float-left" title="Transaction Model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, VeChain Developers
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
