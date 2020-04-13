@@ -1,0 +1,17 @@
+{
+    "meta": {
+        "api_url": "https://readthedocs.org/api/v2/"
+    },
+    "banner": {
+        "html": "\n    <div id=\"version-warning-banner\" class=\"admonition warning\">\n        <p class=\"first admonition-title\">Warning</p>\n            <p class=\"last\">\n                This site no longer updated, check the new site https://docs.vechain.org/\n            </p>\n    </div>",
+        "id_div": "version-warning-banner",
+        "body_selector": "div.body",
+        "custom": false
+    },
+    "project": {
+        "slug": null
+    },
+    "version": {
+        "slug": null
+    }
+}

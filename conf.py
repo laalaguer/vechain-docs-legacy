@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = u'VeChain Documentation Legacy'
+project = u'VeChain Documentation (Old)'
 copyright = u'2020, VeChain Developers'
 author = 'VeChain Developers'
 
@@ -41,6 +41,7 @@ release = '1.0.0'
 extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.githubpages',
+    'versionwarning.extension',
     'recommonmark'
 ]
 
@@ -82,14 +83,18 @@ pygments_style = None
 # a list of builtin themes.
 #
 html_theme = 'sphinx_rtd_theme'
+# html_theme = 'classic'
 
 # Read The Docs (rtd) theme options
 # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html
 html_theme_options = {
-    'display_version': True,
-    'collapse_navigation': False,
+    'navigation_depth': 2,
+    'titles_only': True,
+    'display_version': False,
+    'collapse_navigation': True,
+    'sticky_navigation': True,
     'style_external_links': True,
-    'titles_only': False
+    'titles_only': True,
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -184,3 +189,5 @@ epub_exclude_files = ['search.html']
 
 
 # -- Extension configuration -------------------------------------------------
+versionwarning_admonition_type = 'warning'
+versionwarning_default_message = 'This site no longer updated, check the new site https://docs.vechain.org/'
