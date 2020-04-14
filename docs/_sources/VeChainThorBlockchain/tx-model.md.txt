@@ -24,21 +24,21 @@ Fields within the transaction *body*, **Ω**, are defined as:
 - `Reserved` - *reserved* Object contains two fields: `Features` and `Unused`. 
   - `Feature` as 32-bit unsigned integer and default set as `0`.For Designated Gas Payer(VIP191) must be set as `1`
   - `Unused` : an array of reserved field for backward compatibility,it **MUST** be set empty as empty array for now otherwise the transaction will be considered invalid.
-- `Signature` - transaction signature, ![](https://files.readme.io/d290d0c-sig.PNG) where ![](https://files.readme.io/36c3b06-sk.PNG) is the transaction sender's private key.
+- `Signature` - transaction signature, ![](https://doc.vechainworld.io/images//d290d0c-sig.PNG) where ![](https://doc.vechainworld.io/images//36c3b06-sk.PNG) is the transaction sender's private key.
 [block:api-header]
 {
   "title": "Transaction ID"
 }
 [/block]
-Every blockchain system must find a way to uniquely identify each transaction. Otherwise the system would be vulnerable to the transaction replay attack. In VeChainThor, we give every transaction a unique ID to identify itself. In particular, the transaction ID, ![](https://files.readme.io/b2076fb-TxID.PNG), can be calculated as:
+Every blockchain system must find a way to uniquely identify each transaction. Otherwise the system would be vulnerable to the transaction replay attack. In VeChainThor, we give every transaction a unique ID to identify itself. In particular, the transaction ID, ![](https://doc.vechainworld.io/images//b2076fb-TxID.PNG), can be calculated as:
 
-![](https://files.readme.io/5537ac7-TxID_formula.PNG)
+![](https://doc.vechainworld.io/images//5537ac7-TxID_formula.PNG)
 
-When validating a given transaction, VeChainThor computes its ![](https://files.readme.io/b2076fb-TxID.PNG) and checks whether it has been used before. 
+When validating a given transaction, VeChainThor computes its ![](https://doc.vechainworld.io/images//b2076fb-TxID.PNG) and checks whether it has been used before. 
 
 Suppose Alice has signed a transaction that sends 10 VET to Bob and Bob wants to re-use the transaction to get 10 VET from Alice. Obviously, this is not going to work for Bob. Since the two transactions have exactly the same ID, the one broadcast by Bob would be rejected due to the existing transaction ID. 
 
-For any two transactions, as long as they had a field in ![](https://files.readme.io/7c0f622-omega.PNG) with different values, their transaction IDs would be different. Moreover, we can always adjust the *Nonce* field to result in a new ID. In contrast to Ethereum, VeChainThor users can easily assemble multiple transactions sent from the same account with different IDs, which means that they can be sent off at the same time and would be processed by VeChainThor independently.
+For any two transactions, as long as they had a field in ![](https://doc.vechainworld.io/images//7c0f622-omega.PNG) with different values, their transaction IDs would be different. Moreover, we can always adjust the *Nonce* field to result in a new ID. In contrast to Ethereum, VeChainThor users can easily assemble multiple transactions sent from the same account with different IDs, which means that they can be sent off at the same time and would be processed by VeChainThor independently.
 [block:api-header]
 {
   "title": "Multi-Task Transaction"
@@ -78,19 +78,19 @@ The multi-task mechanism provides us a secure and efficient way to handle, for i
   "title": "Transaction Gas Calculation"
 }
 [/block]
-The total gas, ![$g_{\textrm{total}}$](https://files.readme.io/f09fcd6-gtotal.PNG), required for a transaction can be computed as:
+The total gas, ![$g_{\textrm{total}}$](https://doc.vechainworld.io/images//f09fcd6-gtotal.PNG), required for a transaction can be computed as:
 
-![$g_{\textrm{total}}=g_0+\sum_i\big(g_{\textrm{type}}^i+g_{\textrm{data}}^i+g_{\textrm{vm}}^i\big)$](https://files.readme.io/d51e669-gidataformula.PNG)
+![$g_{\textrm{total}}=g_0+\sum_i\big(g_{\textrm{type}}^i+g_{\textrm{data}}^i+g_{\textrm{vm}}^i\big)$](https://doc.vechainworld.io/images//d51e669-gidataformula.PNG)
 
 where 
 
-![g0-5,000](https://files.readme.io/840442f-g0.PNG), 
+![g0-5,000](https://doc.vechainworld.io/images//840442f-g0.PNG), 
 
-![$g_{\textrm{type}}^i=48,000$](https://files.readme.io/62e9c77-gitype.PNG) if the ![$i^{\textrm{th}}$](https://files.readme.io/5b822be-i-th.PNG)clause is to create a contract or ![$g_{\textrm{type}}^i=16,000$](https://files.readme.io/ba5cb6d-gitype-16000.PNG) otherwise,
+![$g_{\textrm{type}}^i=48,000$](https://doc.vechainworld.io/images//62e9c77-gitype.PNG) if the ![$i^{\textrm{th}}$](https://doc.vechainworld.io/images//5b822be-i-th.PNG)clause is to create a contract or ![$g_{\textrm{type}}^i=16,000$](https://doc.vechainworld.io/images//ba5cb6d-gitype-16000.PNG) otherwise,
 
-![$g_{\textrm{data}}^i = 4 * n_{z}^i + 68 * n_{nz}^i$](https://files.readme.io/d1fc598-gtotal_formula.PNG) where ![$n_{z}^i$](https://files.readme.io/b5f1270-n-iz.PNG) is the number of bytes equal to zero within the data in the ![$i^{\,\textrm{th}}$](https://files.readme.io/5b822be-i-th.PNG) clause and ![$n_{nz}^i$](https://files.readme.io/b5f1270-n-iz.PNG) the number of bytes not equal to zero,
+![$g_{\textrm{data}}^i = 4 * n_{z}^i + 68 * n_{nz}^i$](https://doc.vechainworld.io/images//d1fc598-gtotal_formula.PNG) where ![$n_{z}^i$](https://doc.vechainworld.io/images//b5f1270-n-iz.PNG) is the number of bytes equal to zero within the data in the ![$i^{\,\textrm{th}}$](https://doc.vechainworld.io/images//5b822be-i-th.PNG) clause and ![$n_{nz}^i$](https://doc.vechainworld.io/images//b5f1270-n-iz.PNG) the number of bytes not equal to zero,
 
-and ![$g_{\textrm{data}}^i$](https://files.readme.io/5b2601f-gidata.PNG) is the gas cost returned by the virtual machine for executing the ![$i^{\,\textrm{th}}$](https://files.readme.io/5b822be-i-th.PNG) clause.
+and ![$g_{\textrm{data}}^i$](https://doc.vechainworld.io/images//5b2601f-gidata.PNG) is the gas cost returned by the virtual machine for executing the ![$i^{\,\textrm{th}}$](https://doc.vechainworld.io/images//5b822be-i-th.PNG) clause.
 [block:api-header]
 {
   "title": "Other New Features"
@@ -121,7 +121,7 @@ The PoW, *w*, is defined as:
   "images": [
     {
       "image": [
-        "https://files.readme.io/8150440-gif_1.gif",
+        "https://doc.vechainworld.io/images//8150440-gif_1.gif",
         "gif (1).gif",
         332,
         69,
@@ -139,7 +139,7 @@ The extra gas price, &Delta;<i>P</i>, is computed as:
   "images": [
     {
       "image": [
-        "https://files.readme.io/c1b820e-gif.gif",
+        "https://doc.vechainworld.io/images//c1b820e-gif.gif",
         "gif.gif",
         338,
         55,
@@ -155,7 +155,7 @@ with the following constraint
   "images": [
     {
       "image": [
-        "https://files.readme.io/150291e-gif_2.gif",
+        "https://doc.vechainworld.io/images//150291e-gif_2.gif",
         "gif (2).gif",
         91,
         19,
@@ -171,7 +171,7 @@ The VTHO reward <i>r</i> for packing the TX into a new block is computed as:
   "images": [
     {
       "image": [
-        "https://files.readme.io/8474d5b-gif_3.gif",
+        "https://doc.vechainworld.io/images//8474d5b-gif_3.gif",
         "gif (3).gif",
         213,
         38,
@@ -195,12 +195,12 @@ From the above equations, we know that
 [/block]
 The total gas price for the transaction sender is computed as:
 
-![ptotal](https://files.readme.io/2bd048f-ptotal.PNG)
+![ptotal](https://doc.vechainworld.io/images//2bd048f-ptotal.PNG)
 
 and the total price for block generators as 
 
-![ptotal2](https://files.readme.io/5b806bf-Ptotal2.PNG)
+![ptotal2](https://doc.vechainworld.io/images//5b806bf-Ptotal2.PNG)
 
-where ![$\phi$](https://files.readme.io/eb1891c-theta.PNG) is the value of field `GasPriceCoef` and ![\Delta p](https://files.readme.io/b78045e-delta_P.PNG) the extra gas price converted from the proven local computational work. 
+where ![$\phi$](https://doc.vechainworld.io/images//eb1891c-theta.PNG) is the value of field `GasPriceCoef` and ![\Delta p](https://doc.vechainworld.io/images//b78045e-delta_P.PNG) the extra gas price converted from the proven local computational work. 
 
 It can be seen that the gas price used to calculate the transaction cost depends solely on the input gas-price coefficient while the reward for packing the transaction into a block varies due to the transaction-level proof-of-work mechanism.

@@ -39,9 +39,9 @@ where `RecoveryRate` is the amount of VTHO (in wei) accumulated per block to pay
 
 When the system checks whether an account's user has a sufficient amount of credit to pay for the transaction, it calculates the available credit ***c*** as:
 
-![](https://files.readme.io/08306f9-c_formula.PNG)
+![](https://doc.vechainworld.io/images//08306f9-c_formula.PNG)
 
-where ***C*** denotes `Credit`, ***r*** `RecoverRate`, ***h*** the current block height, ![$h_0$](https://files.readme.io/db3ef5d-h0.PNG) the block height when the user uses credit last time and ![$u_{\textrm{used}}$](https://files.readme.io/8a675b8-u-used.PNG) the amount of credit consumed after the user's last transaction is paid by the account. Note that ![$C-c_{\textrm{used}}$](https://files.readme.io/38a489c-c-cused.PNG) is the remaining credit after the last transaction is paid.
+where ***C*** denotes `Credit`, ***r*** `RecoverRate`, ***h*** the current block height, ![$h_0$](https://doc.vechainworld.io/images//db3ef5d-h0.PNG) the block height when the user uses credit last time and ![$u_{\textrm{used}}$](https://doc.vechainworld.io/images//8a675b8-u-used.PNG) the amount of credit consumed after the user's last transaction is paid by the account. Note that ![$C-c_{\textrm{used}}$](https://doc.vechainworld.io/images//38a489c-c-cused.PNG) is the remaining credit after the last transaction is paid.
 [block:api-header]
 {
   "title": "Master Account"

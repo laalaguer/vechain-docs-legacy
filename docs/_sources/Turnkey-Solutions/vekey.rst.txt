@@ -17,7 +17,7 @@ VeKey is an easy to use, certified secure hardware solution for the storage of p
   "images": [
     {
       "image": [
-        "https://files.readme.io/807daec-VeKey.jpeg",
+        "https://doc.vechainworld.io/images//807daec-VeKey.jpeg",
         "VeKey.jpeg",
         1920,
         1080,

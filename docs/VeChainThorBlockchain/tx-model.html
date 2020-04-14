@@ -191,18 +191,18 @@ Fields within the transaction <em>body</em>, <strong>Ω</strong>, are defined as
 <li><code class="docutils literal notranslate"><span class="pre">Unused</span></code> : an array of reserved field for backward compatibility,it <strong>MUST</strong> be set empty as empty array for now otherwise the transaction will be considered invalid.</li>
 </ul>
 </li>
-<li><code class="docutils literal notranslate"><span class="pre">Signature</span></code> - transaction signature, <img alt="https://files.readme.io/d290d0c-sig.PNG" src="https://files.readme.io/d290d0c-sig.PNG" /> where <img alt="https://files.readme.io/36c3b06-sk.PNG" src="https://files.readme.io/36c3b06-sk.PNG" /> is the transaction sender’s private key.
+<li><code class="docutils literal notranslate"><span class="pre">Signature</span></code> - transaction signature, <img alt="https://doc.vechainworld.io/images//d290d0c-sig.PNG" src="https://doc.vechainworld.io/images//d290d0c-sig.PNG" /> where <img alt="https://doc.vechainworld.io/images//36c3b06-sk.PNG" src="https://doc.vechainworld.io/images//36c3b06-sk.PNG" /> is the transaction sender’s private key.
 [block:api-header]
 {
 “title”: “Transaction ID”
 }
 [/block]
-Every blockchain system must find a way to uniquely identify each transaction. Otherwise the system would be vulnerable to the transaction replay attack. In VeChainThor, we give every transaction a unique ID to identify itself. In particular, the transaction ID, <img alt="https://files.readme.io/b2076fb-TxID.PNG" src="https://files.readme.io/b2076fb-TxID.PNG" />, can be calculated as:</li>
+Every blockchain system must find a way to uniquely identify each transaction. Otherwise the system would be vulnerable to the transaction replay attack. In VeChainThor, we give every transaction a unique ID to identify itself. In particular, the transaction ID, <img alt="https://doc.vechainworld.io/images//b2076fb-TxID.PNG" src="https://doc.vechainworld.io/images//b2076fb-TxID.PNG" />, can be calculated as:</li>
 </ul>
-<p><img alt="https://files.readme.io/5537ac7-TxID_formula.PNG" src="https://files.readme.io/5537ac7-TxID_formula.PNG" /></p>
-<p>When validating a given transaction, VeChainThor computes its <img alt="https://files.readme.io/b2076fb-TxID.PNG" src="https://files.readme.io/b2076fb-TxID.PNG" /> and checks whether it has been used before.</p>
+<p><img alt="https://doc.vechainworld.io/images//5537ac7-TxID_formula.PNG" src="https://doc.vechainworld.io/images//5537ac7-TxID_formula.PNG" /></p>
+<p>When validating a given transaction, VeChainThor computes its <img alt="https://doc.vechainworld.io/images//b2076fb-TxID.PNG" src="https://doc.vechainworld.io/images//b2076fb-TxID.PNG" /> and checks whether it has been used before.</p>
 <p>Suppose Alice has signed a transaction that sends 10 VET to Bob and Bob wants to re-use the transaction to get 10 VET from Alice. Obviously, this is not going to work for Bob. Since the two transactions have exactly the same ID, the one broadcast by Bob would be rejected due to the existing transaction ID.</p>
-<p>For any two transactions, as long as they had a field in <img alt="https://files.readme.io/7c0f622-omega.PNG" src="https://files.readme.io/7c0f622-omega.PNG" /> with different values, their transaction IDs would be different. Moreover, we can always adjust the <em>Nonce</em> field to result in a new ID. In contrast to Ethereum, VeChainThor users can easily assemble multiple transactions sent from the same account with different IDs, which means that they can be sent off at the same time and would be processed by VeChainThor independently.
+<p>For any two transactions, as long as they had a field in <img alt="https://doc.vechainworld.io/images//7c0f622-omega.PNG" src="https://doc.vechainworld.io/images//7c0f622-omega.PNG" /> with different values, their transaction IDs would be different. Moreover, we can always adjust the <em>Nonce</em> field to result in a new ID. In contrast to Ethereum, VeChainThor users can easily assemble multiple transactions sent from the same account with different IDs, which means that they can be sent off at the same time and would be processed by VeChainThor independently.
 [block:api-header]
 {
 “title”: “Multi-Task Transaction”
@@ -241,13 +241,13 @@ We then define <code class="docutils literal notranslate"><span class="pre">Clau
 “title”: “Transaction Gas Calculation”
 }
 [/block]
-The total gas, <img alt="$g_{\textrm{total}}$" src="https://files.readme.io/f09fcd6-gtotal.PNG" />, required for a transaction can be computed as:</p>
-<p><img alt="$g_{\textrm{total}}=g_0+\sum_i\big(g_{\textrm{type}}^i+g_{\textrm{data}}^i+g_{\textrm{vm}}^i\big)$" src="https://files.readme.io/d51e669-gidataformula.PNG" /></p>
+The total gas, <img alt="$g_{\textrm{total}}$" src="https://doc.vechainworld.io/images//f09fcd6-gtotal.PNG" />, required for a transaction can be computed as:</p>
+<p><img alt="$g_{\textrm{total}}=g_0+\sum_i\big(g_{\textrm{type}}^i+g_{\textrm{data}}^i+g_{\textrm{vm}}^i\big)$" src="https://doc.vechainworld.io/images//d51e669-gidataformula.PNG" /></p>
 <p>where</p>
-<p><img alt="g0-5,000" src="https://files.readme.io/840442f-g0.PNG" />,</p>
-<p><img alt="$g_{\textrm{type}}^i=48,000$" src="https://files.readme.io/62e9c77-gitype.PNG" /> if the <img alt="$i^{\textrm{th}}$" src="https://files.readme.io/5b822be-i-th.PNG" />clause is to create a contract or <img alt="$g_{\textrm{type}}^i=16,000$" src="https://files.readme.io/ba5cb6d-gitype-16000.PNG" /> otherwise,</p>
-<p><img alt="$g_{\textrm{data}}^i = 4 * n_{z}^i + 68 * n_{nz}^i$" src="https://files.readme.io/d1fc598-gtotal_formula.PNG" /> where <img alt="$n_{z}^i$" src="https://files.readme.io/b5f1270-n-iz.PNG" /> is the number of bytes equal to zero within the data in the <img alt="$i^{,\textrm{th}}$" src="https://files.readme.io/5b822be-i-th.PNG" /> clause and <img alt="$n_{nz}^i$" src="https://files.readme.io/b5f1270-n-iz.PNG" /> the number of bytes not equal to zero,</p>
-<p>and <img alt="$g_{\textrm{data}}^i$" src="https://files.readme.io/5b2601f-gidata.PNG" /> is the gas cost returned by the virtual machine for executing the <img alt="$i^{,\textrm{th}}$" src="https://files.readme.io/5b822be-i-th.PNG" /> clause.
+<p><img alt="g0-5,000" src="https://doc.vechainworld.io/images//840442f-g0.PNG" />,</p>
+<p><img alt="$g_{\textrm{type}}^i=48,000$" src="https://doc.vechainworld.io/images//62e9c77-gitype.PNG" /> if the <img alt="$i^{\textrm{th}}$" src="https://doc.vechainworld.io/images//5b822be-i-th.PNG" />clause is to create a contract or <img alt="$g_{\textrm{type}}^i=16,000$" src="https://doc.vechainworld.io/images//ba5cb6d-gitype-16000.PNG" /> otherwise,</p>
+<p><img alt="$g_{\textrm{data}}^i = 4 * n_{z}^i + 68 * n_{nz}^i$" src="https://doc.vechainworld.io/images//d1fc598-gtotal_formula.PNG" /> where <img alt="$n_{z}^i$" src="https://doc.vechainworld.io/images//b5f1270-n-iz.PNG" /> is the number of bytes equal to zero within the data in the <img alt="$i^{,\textrm{th}}$" src="https://doc.vechainworld.io/images//5b822be-i-th.PNG" /> clause and <img alt="$n_{nz}^i$" src="https://doc.vechainworld.io/images//b5f1270-n-iz.PNG" /> the number of bytes not equal to zero,</p>
+<p>and <img alt="$g_{\textrm{data}}^i$" src="https://doc.vechainworld.io/images//5b2601f-gidata.PNG" /> is the gas cost returned by the virtual machine for executing the <img alt="$i^{,\textrm{th}}$" src="https://doc.vechainworld.io/images//5b822be-i-th.PNG" /> clause.
 [block:api-header]
 {
 “title”: “Other New Features”
@@ -274,7 +274,7 @@ VeChainThor allows the transaction-level proof of work and converts the proved w
 “images”: [
 {
 “image”: [
-“https://files.readme.io/8150440-gif_1.gif”,
+“https://doc.vechainworld.io/images//8150440-gif_1.gif”,
 “gif (1).gif”,
 332,
 69,
@@ -290,7 +290,7 @@ VeChainThor allows the transaction-level proof of work and converts the proved w
 “images”: [
 {
 “image”: [
-“https://files.readme.io/c1b820e-gif.gif”,
+“https://doc.vechainworld.io/images//c1b820e-gif.gif”,
 “gif.gif”,
 338,
 55,
@@ -306,7 +306,7 @@ with the following constraint
 “images”: [
 {
 “image”: [
-“https://files.readme.io/150291e-gif_2.gif”,
+“https://doc.vechainworld.io/images//150291e-gif_2.gif”,
 “gif (2).gif”,
 91,
 19,
@@ -322,7 +322,7 @@ The VTHO reward <i>r</i> for packing the TX into a new block is computed as:
 “images”: [
 {
 “image”: [
-“https://files.readme.io/8474d5b-gif_3.gif”,
+“https://doc.vechainworld.io/images//8474d5b-gif_3.gif”,
 “gif (3).gif”,
 213,
 38,
@@ -345,10 +345,10 @@ where <i>φ</i> ∈ [0, 1] is the gas price coefficient and <i>g</i><sup>*</sup>
 [/block]
 The total gas price for the transaction sender is computed as:</li>
 </ol>
-<p><img alt="ptotal" src="https://files.readme.io/2bd048f-ptotal.PNG" /></p>
+<p><img alt="ptotal" src="https://doc.vechainworld.io/images//2bd048f-ptotal.PNG" /></p>
 <p>and the total price for block generators as</p>
-<p><img alt="ptotal2" src="https://files.readme.io/5b806bf-Ptotal2.PNG" /></p>
-<p>where <img alt="$\phi$" src="https://files.readme.io/eb1891c-theta.PNG" /> is the value of field <code class="docutils literal notranslate"><span class="pre">GasPriceCoef</span></code> and <img alt="\Delta p" src="https://files.readme.io/b78045e-delta_P.PNG" /> the extra gas price converted from the proven local computational work.</p>
+<p><img alt="ptotal2" src="https://doc.vechainworld.io/images//5b806bf-Ptotal2.PNG" /></p>
+<p>where <img alt="$\phi$" src="https://doc.vechainworld.io/images//eb1891c-theta.PNG" /> is the value of field <code class="docutils literal notranslate"><span class="pre">GasPriceCoef</span></code> and <img alt="\Delta p" src="https://doc.vechainworld.io/images//b78045e-delta_P.PNG" /> the extra gas price converted from the proven local computational work.</p>
 <p>It can be seen that the gas price used to calculate the transaction cost depends solely on the input gas-price coefficient while the reward for packing the transaction into a block varies due to the transaction-level proof-of-work mechanism.</p>
 </div>
 

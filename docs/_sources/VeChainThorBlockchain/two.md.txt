@@ -5,11 +5,11 @@ To tackle the problem, we designed a two-token system that includes the VET and 
 
 Let ***V*** be the amount of VET, ***G*** the amount of gas, ***t*** the amount of time (in terms of the number of blocks), ***p*** the gas price in VTHO and last but not least, ***v*** the VTHO generation speed. Mathematically, we can write
 
-![Formula1](https://files.readme.io/72fe534-Formula1.PNG)
+![Formula1](https://doc.vechainworld.io/images//72fe534-Formula1.PNG)
 
-where ![E_{\textrm{gen}}](https://files.readme.io/c3df5ac-Egenerate.PNG) denotes the amount of VTHO generated from holding ***V*** VET and ![E_{\textrm{gen}}](https://files.readme.io/c3df5ac-Egenerate.PNG)  the amount of VTHO consumed after conducting on-chain operations that require  ***G*** gas. 
+where ![E_{\textrm{gen}}](https://doc.vechainworld.io/images//c3df5ac-Egenerate.PNG) denotes the amount of VTHO generated from holding ***V*** VET and ![E_{\textrm{gen}}](https://doc.vechainworld.io/images//c3df5ac-Egenerate.PNG)  the amount of VTHO consumed after conducting on-chain operations that require  ***G*** gas. 
 
-Velocity ***V*** is a constant equal to ![$5\times10^{-8}$](https://files.readme.io/d54b634-5_times_10.PNG) VTHO per VET per block. In other words, if you had 10K VET, you would be given 4.32 VTHO every 24 hours. The gas price ***p*** can vary in the range ![Pbase1](https://files.readme.io/f0c087b-pbase1.PNG) where ![Pbase2](https://files.readme.io/31acab4-pbase2.PNG) is a parameter that can be adjusted according to the market supply and demand of VTHO. Currently, we set ![](https://files.readme.io/53d208c-vtho_kgas.PNG).
+Velocity ***V*** is a constant equal to ![$5\times10^{-8}$](https://doc.vechainworld.io/images//d54b634-5_times_10.PNG) VTHO per VET per block. In other words, if you had 10K VET, you would be given 4.32 VTHO every 24 hours. The gas price ***p*** can vary in the range ![Pbase1](https://doc.vechainworld.io/images//f0c087b-pbase1.PNG) where ![Pbase2](https://doc.vechainworld.io/images//31acab4-pbase2.PNG) is a parameter that can be adjusted according to the market supply and demand of VTHO. Currently, we set ![](https://doc.vechainworld.io/images//53d208c-vtho_kgas.PNG).
 
 ## VET
 **Type**: coin
