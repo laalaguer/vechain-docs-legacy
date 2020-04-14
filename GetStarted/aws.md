@@ -9,7 +9,7 @@ It is easy to deploy VeChainThor node in AWS as there are AMIs for solo node, ma
   "images": [
     {
       "image": [
-        "https://files.readme.io/fece2eb-Picture1.png",
+        "https://doc.vechainworld.io/images/fece2eb-Picture1.png",
         "Picture1.png",
         939,
         358,
@@ -25,7 +25,7 @@ It is easy to deploy VeChainThor node in AWS as there are AMIs for solo node, ma
   "images": [
     {
       "image": [
-        "https://files.readme.io/c091596-2.png",
+        "https://doc.vechainworld.io/images/c091596-2.png",
         "2.png",
         939,
         424,
@@ -41,7 +41,7 @@ It is easy to deploy VeChainThor node in AWS as there are AMIs for solo node, ma
   "images": [
     {
       "image": [
-        "https://files.readme.io/892e325-3.png",
+        "https://doc.vechainworld.io/images/892e325-3.png",
         "3.png",
         939,
         316,
@@ -57,7 +57,7 @@ It is easy to deploy VeChainThor node in AWS as there are AMIs for solo node, ma
   "images": [
     {
       "image": [
-        "https://files.readme.io/e3388e1-AWS_Marketplace__Search_Results1.jpg",
+        "https://doc.vechainworld.io/images/e3388e1-AWS_Marketplace__Search_Results1.jpg",
         "AWS_Marketplace__Search_Results1.jpg",
         2168,
         1374,
@@ -73,7 +73,7 @@ It is easy to deploy VeChainThor node in AWS as there are AMIs for solo node, ma
   "images": [
     {
       "image": [
-        "https://files.readme.io/0d2610b-5.png",
+        "https://doc.vechainworld.io/images/0d2610b-5.png",
         "5.png",
         939,
         183,
@@ -89,7 +89,7 @@ It is easy to deploy VeChainThor node in AWS as there are AMIs for solo node, ma
   "images": [
     {
       "image": [
-        "https://files.readme.io/2d2ed0b-6.png",
+        "https://doc.vechainworld.io/images/2d2ed0b-6.png",
         "6.png",
         939,
         527,
@@ -105,7 +105,7 @@ It is easy to deploy VeChainThor node in AWS as there are AMIs for solo node, ma
   "images": [
     {
       "image": [
-        "https://files.readme.io/cfab785-7.png",
+        "https://doc.vechainworld.io/images/cfab785-7.png",
         "7.png",
         939,
         385,
@@ -121,7 +121,7 @@ It is easy to deploy VeChainThor node in AWS as there are AMIs for solo node, ma
   "images": [
     {
       "image": [
-        "https://files.readme.io/967e3c6-8.png",
+        "https://doc.vechainworld.io/images/967e3c6-8.png",
         "8.png",
         939,
         464,
@@ -137,7 +137,7 @@ It is easy to deploy VeChainThor node in AWS as there are AMIs for solo node, ma
   "images": [
     {
       "image": [
-        "https://files.readme.io/98ddff3-9.png",
+        "https://doc.vechainworld.io/images/98ddff3-9.png",
         "9.png",
         939,
         779,

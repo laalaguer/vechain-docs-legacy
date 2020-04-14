@@ -16,7 +16,7 @@ def extractImages(filename):
         # print(len( f.readlines()))
         lines.extend(f.readlines())
     
-    p = re.compile('http(.*?)(png|jpg|jpeg)', re.IGNORECASE)
+    p = re.compile('http(.*?)(png|jpg|jpeg|gif)', re.IGNORECASE)
     for line in lines:
         m = p.search(line)
         if m and 'readme' in m.group():

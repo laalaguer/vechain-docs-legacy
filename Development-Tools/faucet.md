@@ -13,7 +13,7 @@
   "images": [
     {
       "image": [
-        "https://files.readme.io/57fca27-faucet-1.png",
+        "https://doc.vechainworld.io/images/57fca27-faucet-1.png",
         "faucet-1.png",
         997,
         696,
@@ -29,7 +29,7 @@
   "images": [
     {
       "image": [
-        "https://files.readme.io/948e797-faucet-2.png",
+        "https://doc.vechainworld.io/images/948e797-faucet-2.png",
         "faucet-2.png",
         999,
         698,
@@ -45,7 +45,7 @@
   "images": [
     {
       "image": [
-        "https://files.readme.io/81b8490-faucet-3.png",
+        "https://doc.vechainworld.io/images/81b8490-faucet-3.png",
         "faucet-3.png",
         972,
         671,
@@ -61,7 +61,7 @@
   "images": [
     {
       "image": [
-        "https://files.readme.io/e7d0852-faucet-4.png",
+        "https://doc.vechainworld.io/images/e7d0852-faucet-4.png",
         "faucet-4.png",
         993,
         694,
@@ -77,7 +77,7 @@
   "images": [
     {
       "image": [
-        "https://files.readme.io/941487d-faucet-5.png",
+        "https://doc.vechainworld.io/images/941487d-faucet-5.png",
         "faucet-5.png",
         1919,
         1016,

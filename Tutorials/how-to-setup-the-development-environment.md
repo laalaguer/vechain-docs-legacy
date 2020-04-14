@@ -12,7 +12,7 @@ This guide assumes you are using MacOS with `homebrew` and `pip3` installed. We 
 
 ## Development Stack
 
-![VeChain Development Stack](https://files.readme.io/9aa24f6-development-stack.jpg)
+![VeChain Development Stack](https://doc.vechainworld.io/images/9aa24f6-development-stack.jpg)
 
 ## Installing
 

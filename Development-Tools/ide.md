@@ -8,7 +8,7 @@ To try it out, visit [https://vechainstore.com/ide](https://vechainstore.com/ide
   "images": [
     {
       "image": [
-        "https://files.readme.io/7a9d5eb-VIDE_editor.png",
+        "https://doc.vechainworld.io/images/7a9d5eb-VIDE_editor.png",
         "VIDE_editor.png",
         1897,
         936,

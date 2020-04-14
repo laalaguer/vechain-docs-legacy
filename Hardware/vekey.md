@@ -16,7 +16,7 @@ When you receive your VeKey and turn it on for the first time, you need to set a
   "images": [
     {
       "image": [
-        "https://files.readme.io/fbf38ef-VeKey_-2.png",
+        "https://doc.vechainworld.io/images/fbf38ef-VeKey_-2.png",
         "VeKey -2.png",
         216,
         333,
@@ -32,7 +32,7 @@ Enter OK to begin setting up a new PIN code.
   "images": [
     {
       "image": [
-        "https://files.readme.io/8e54f27-VeKey_-3.png",
+        "https://doc.vechainworld.io/images/8e54f27-VeKey_-3.png",
         "VeKey -3.png",
         737,
         200,
@@ -51,7 +51,7 @@ Enter OK to begin setting up a new PIN code.
   "images": [
     {
       "image": [
-        "https://files.readme.io/ffa6be0-VeKey_-4.png",
+        "https://doc.vechainworld.io/images/ffa6be0-VeKey_-4.png",
         "VeKey -4.png",
         974,
         485,
@@ -70,7 +70,7 @@ After setting your PIN code, you must set your fingerprint.
   "images": [
     {
       "image": [
-        "https://files.readme.io/43f90f1-VeKey_-5.png",
+        "https://doc.vechainworld.io/images/43f90f1-VeKey_-5.png",
         "VeKey -5.png",
         974,
         210,
@@ -92,7 +92,7 @@ It happens in a scenario where PIN code authentication is required.
   "images": [
     {
       "image": [
-        "https://files.readme.io/d7e60e2-VeKey_-6.png",
+        "https://doc.vechainworld.io/images/d7e60e2-VeKey_-6.png",
         "VeKey -6.png",
         316,
         150,
@@ -114,7 +114,7 @@ It happens in a scenario where Fingerprint authentication is required.
   "images": [
     {
       "image": [
-        "https://files.readme.io/94b38c6-VeKey_-7.png",
+        "https://doc.vechainworld.io/images/94b38c6-VeKey_-7.png",
         "VeKey -7.png",
         293,
         143,
@@ -136,7 +136,7 @@ After setting the new PIN code and fingerprint, you can generate your private ke
   "images": [
     {
       "image": [
-        "https://files.readme.io/e1c5d36-VeKey_-8.png",
+        "https://doc.vechainworld.io/images/e1c5d36-VeKey_-8.png",
         "VeKey -8.png",
         575,
         422,
@@ -154,7 +154,7 @@ After setting the new PIN code and fingerprint, you can generate your private ke
   "images": [
     {
       "image": [
-        "https://files.readme.io/0052da0-VeKey_-9.png",
+        "https://doc.vechainworld.io/images/0052da0-VeKey_-9.png",
         "VeKey -9.png",
         597,
         395,
@@ -170,7 +170,7 @@ After setting the new PIN code and fingerprint, you can generate your private ke
   "images": [
     {
       "image": [
-        "https://files.readme.io/2128b66-VeKey_-10.png",
+        "https://doc.vechainworld.io/images/2128b66-VeKey_-10.png",
         "VeKey -10.png",
         974,
         402,
@@ -187,7 +187,7 @@ After setting the new PIN code and fingerprint, you can generate your private ke
   "images": [
     {
       "image": [
-        "https://files.readme.io/52630d9-VeKey_-11.png",
+        "https://doc.vechainworld.io/images/52630d9-VeKey_-11.png",
         "VeKey -11.png",
         421,
         100,
@@ -212,7 +212,7 @@ When you have successfully set the correct PIN code and Fingerprint, you should 
   "images": [
     {
       "image": [
-        "https://files.readme.io/7697944-VeKey_-12.png",
+        "https://doc.vechainworld.io/images/7697944-VeKey_-12.png",
         "VeKey -12.png",
         931,
         343,
@@ -234,7 +234,7 @@ When you have successfully set the correct PIN code and Fingerprint, you should 
   "images": [
     {
       "image": [
-        "https://files.readme.io/f31e3ca-VeKey_-13.png",
+        "https://doc.vechainworld.io/images/f31e3ca-VeKey_-13.png",
         "VeKey -13.png",
         943,
         245,
@@ -257,7 +257,7 @@ When you have successfully set the correct PIN code and Fingerprint, you should 
   "images": [
     {
       "image": [
-        "https://files.readme.io/df2c426-VeKey_-14.png",
+        "https://doc.vechainworld.io/images/df2c426-VeKey_-14.png",
         "VeKey -14.png",
         868,
         331,
@@ -279,7 +279,7 @@ When you have successfully set the correct PIN code and Fingerprint, you should 
   "images": [
     {
       "image": [
-        "https://files.readme.io/095eb37-VeKey_-15.png",
+        "https://doc.vechainworld.io/images/095eb37-VeKey_-15.png",
         "VeKey -15.png",
         970,
         306,
@@ -305,7 +305,7 @@ When you have successfully set the correct PIN code and Fingerprint, you should 
   "images": [
     {
       "image": [
-        "https://files.readme.io/694e94a-VeKey_-16.png",
+        "https://doc.vechainworld.io/images/694e94a-VeKey_-16.png",
         "VeKey -16.png",
         974,
         162,
@@ -325,7 +325,7 @@ When you have successfully set the correct PIN code and Fingerprint, you should 
   "images": [
     {
       "image": [
-        "https://files.readme.io/c4ef3ea-VeKey_-17.png",
+        "https://doc.vechainworld.io/images/c4ef3ea-VeKey_-17.png",
         "VeKey -17.png",
         974,
         245,
@@ -348,7 +348,7 @@ When you have successfully set the correct PIN code and Fingerprint, you should 
   "images": [
     {
       "image": [
-        "https://files.readme.io/41940a5-VeKey_-18.png",
+        "https://doc.vechainworld.io/images/41940a5-VeKey_-18.png",
         "VeKey -18.png",
         974,
         202,

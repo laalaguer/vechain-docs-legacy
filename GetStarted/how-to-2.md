@@ -17,7 +17,7 @@ Make sure you have the following things ready:
   "images": [
     {
       "image": [
-        "https://files.readme.io/e3d2843-1_5sGTMuzQ8gaIiPG9COavjw.jpeg",
+        "https://doc.vechainworld.io/images/e3d2843-1_5sGTMuzQ8gaIiPG9COavjw.jpeg",
         "1_5sGTMuzQ8gaIiPG9COavjw.jpeg",
         1600,
         1359,
@@ -49,7 +49,7 @@ We are all set! Now let us view our precious project in Sync. Open a tab and nav
   "images": [
     {
       "image": [
-        "https://files.readme.io/20a7a0d-1_Sg-YkK-8W-WWbt8WV4F_uA.jpeg",
+        "https://doc.vechainworld.io/images/20a7a0d-1_Sg-YkK-8W-WWbt8WV4F_uA.jpeg",
         "1_Sg-YkK-8W-WWbt8WV4F_uA.jpeg",
         1600,
         1335,
@@ -92,7 +92,7 @@ Great! Now save both the files and refresh the Sync tab, the dummy web page pret
   "images": [
     {
       "image": [
-        "https://files.readme.io/b7cbb6e-1_MiQdFr5KYgT8NglI_f6_qg.jpeg",
+        "https://doc.vechainworld.io/images/b7cbb6e-1_MiQdFr5KYgT8NglI_f6_qg.jpeg",
         "1_MiQdFr5KYgT8NglI_f6_qg.jpeg",
         1600,
         1434,
@@ -226,7 +226,7 @@ Then wait for it…. the magic time! Sync prompts me to unlock my account to sen
   "images": [
     {
       "image": [
-        "https://files.readme.io/2fa3faf-1_1g_INpWjOspyEiFR_x2zdQ.png",
+        "https://doc.vechainworld.io/images/2fa3faf-1_1g_INpWjOspyEiFR_x2zdQ.png",
         "1_1g_INpWjOspyEiFR_x2zdQ.png",
         1600,
         1200,
@@ -238,7 +238,7 @@ Then wait for it…. the magic time! Sync prompts me to unlock my account to sen
 [/block]
 Of course, I input the password correctly, and you can see the transaction details on test net here:
 
-[![](https://files.readme.io/840d6d9-WeChat_Image_20190322112559.png)](https://testnet.veforge.com/transactions/0xcd46a2ae14d44b612d9ee628770d4a65932352a9bb9861ca32ece4811878a5c8/)
+[![](https://doc.vechainworld.io/images/840d6d9-WeChat_Image_20190322112559.png)](https://testnet.veforge.com/transactions/0xcd46a2ae14d44b612d9ee628770d4a65932352a9bb9861ca32ece4811878a5c8/)
 
 Finally, our example has finished! Thanks for hard working!
 

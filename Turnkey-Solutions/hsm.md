@@ -12,7 +12,7 @@ Enterprises need a solution that solves the shortcomings of existing private key
   "images": [
     {
       "image": [
-        "https://files.readme.io/f286631-6.png",
+        "https://doc.vechainworld.io/images/f286631-6.png",
         "6.png",
         800,
         451,
@@ -36,7 +36,7 @@ HSM based key escrow turnkey solution, developed based on the hardware products 
   "images": [
     {
       "image": [
-        "https://files.readme.io/0e75e68-hsm.jpg",
+        "https://doc.vechainworld.io/images/0e75e68-hsm.jpg",
         "hsm.jpg",
         746,
         174,
@@ -58,7 +58,7 @@ Enterprises use hardware security modules to protect transactions, identities, a
   "images": [
     {
       "image": [
-        "https://files.readme.io/c59c89f-image2019-3-12_16-35-46.png",
+        "https://doc.vechainworld.io/images/c59c89f-image2019-3-12_16-35-46.png",
         "image2019-3-12_16-35-46.png",
         1068,
         294,

@@ -27,7 +27,7 @@ For more details or business inquiries, please contact [bd@vechain.com](mailto:b
   "images": [
     {
       "image": [
-        "https://files.readme.io/436940b-Picture1.png",
+        "https://doc.vechainworld.io/images/436940b-Picture1.png",
         "Picture1.png",
         229,
         229,
@@ -47,7 +47,7 @@ For more details or business inquiries, please contact [bd@vechain.com](mailto:b
   "images": [
     {
       "image": [
-        "https://files.readme.io/8039307-2.png",
+        "https://doc.vechainworld.io/images/8039307-2.png",
         "2.png",
         652,
         108,
@@ -68,7 +68,7 @@ For more details or business inquiries, please contact [bd@vechain.com](mailto:b
   "images": [
     {
       "image": [
-        "https://files.readme.io/c78cbfd-3.png",
+        "https://doc.vechainworld.io/images/c78cbfd-3.png",
         "3.png",
         370,
         81,
@@ -89,7 +89,7 @@ For more details or business inquiries, please contact [bd@vechain.com](mailto:b
   "images": [
     {
       "image": [
-        "https://files.readme.io/dabffd4-4.png",
+        "https://doc.vechainworld.io/images/dabffd4-4.png",
         "4.png",
         160,
         162,
@@ -110,7 +110,7 @@ For more details or business inquiries, please contact [bd@vechain.com](mailto:b
   "images": [
     {
       "image": [
-        "https://files.readme.io/c7c0419-5.png",
+        "https://doc.vechainworld.io/images/c7c0419-5.png",
         "5.png",
         258,
         85,
@@ -130,7 +130,7 @@ For more details or business inquiries, please contact [bd@vechain.com](mailto:b
   "images": [
     {
       "image": [
-        "https://files.readme.io/9c5ec45-6.png",
+        "https://doc.vechainworld.io/images/9c5ec45-6.png",
         "6.png",
         427,
         150,
@@ -151,7 +151,7 @@ For more details or business inquiries, please contact [bd@vechain.com](mailto:b
   "images": [
     {
       "image": [
-        "https://files.readme.io/752a2ba-image007.png",
+        "https://doc.vechainworld.io/images/752a2ba-image007.png",
         "image007.png",
         192,
         304,
@@ -172,7 +172,7 @@ For more details or business inquiries, please contact [bd@vechain.com](mailto:b
   "images": [
     {
       "image": [
-        "https://files.readme.io/60ca534-image008.png",
+        "https://doc.vechainworld.io/images/60ca534-image008.png",
         "image008.png",
         237,
         136,

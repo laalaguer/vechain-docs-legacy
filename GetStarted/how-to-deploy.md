@@ -15,7 +15,7 @@ A sample contract is available (ballot.sol), this contract is very basic. The go
   "images": [
     {
       "image": [
-        "https://files.readme.io/cf3d32d-VIDE_editor.png",
+        "https://doc.vechainworld.io/images/cf3d32d-VIDE_editor.png",
         "VIDE_editor.png",
         1897,
         936,
@@ -35,7 +35,7 @@ A sample contract is available (ballot.sol), this contract is very basic. The go
   "images": [
     {
       "image": [
-        "https://files.readme.io/924f36e-VIDE_runtab.png",
+        "https://doc.vechainworld.io/images/924f36e-VIDE_runtab.png",
         "VIDE_runtab.png",
         380,
         575,

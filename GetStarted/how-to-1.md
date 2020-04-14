@@ -10,7 +10,7 @@ To answer that, we first look at what a traditional ***web application*** looks 
   "images": [
     {
       "image": [
-        "https://files.readme.io/f64d775-Web_app_client_server_and_database.jpeg",
+        "https://doc.vechainworld.io/images/f64d775-Web_app_client_server_and_database.jpeg",
         "Web app, client, server and database.jpeg",
         1600,
         930,
@@ -43,7 +43,7 @@ Simple. It looks like a web app, except we have one add-on: Blockchain.
   "images": [
     {
       "image": [
-        "https://files.readme.io/b4fa0f8-DAPP_webblockchain.jpeg",
+        "https://doc.vechainworld.io/images/b4fa0f8-DAPP_webblockchain.jpeg",
         "DAPP web+blockchain.jpeg",
         1600,
         1265,
@@ -78,7 +78,7 @@ Great, now you know what does a DApp do and where the data is coming from, let u
   "images": [
     {
       "image": [
-        "https://files.readme.io/e50c4b4-1_rbq_5MkZBujA3qDGsvsvWw.png",
+        "https://doc.vechainworld.io/images/e50c4b4-1_rbq_5MkZBujA3qDGsvsvWw.png",
         "1_rbq_5MkZBujA3qDGsvsvWw.png",
         1600,
         1164,

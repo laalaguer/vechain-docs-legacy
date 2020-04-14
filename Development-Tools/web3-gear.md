@@ -64,7 +64,7 @@ You can change its default behavior with the following parameters:
 
 Change the Remix environment to Web3 provide.
 
-![image](https://files.readme.io/66753dd-USE_REMIX.jpg)
+![image](https://doc.vechainworld.io/images/66753dd-USE_REMIX.jpg)
 
 ## Use Truffle
 
