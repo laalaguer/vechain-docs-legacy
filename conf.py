@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = u'VeChain Documentation (Old)'
+project = u'VeChain Documentation (Legacy)'
 copyright = u'2020, VeChain Developers'
 author = 'VeChain Developers'
 
@@ -94,7 +94,6 @@ html_theme_options = {
     'collapse_navigation': True,
     'sticky_navigation': True,
     'style_external_links': True,
-    'titles_only': True,
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,

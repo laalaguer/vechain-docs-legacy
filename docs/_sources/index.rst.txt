@@ -1,19 +1,18 @@
 .. VeChain Documentation Legacy documentation master file, created by
    laalaguer on Mon Apr 13 12:10:45 2020.
 
-Welcome to VeChain Developer documentation! (Old)
+VeChain Developer documentation (Legacy)
 ========================================================
 
 .. Danger::
 
-   This site is read-only mode, no new updates will be added.
+   This site is deprecated, no new updates will be added.
 
    For newest documentation please visit: https://docs.vechain.org/
 
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
    VeChainThorBlockchain/index.rst
    GetStarted/index.rst

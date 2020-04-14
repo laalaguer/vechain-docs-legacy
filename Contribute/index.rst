@@ -1,7 +1,7 @@
 Contribute
 ==========
 
-This version of documentation is read-only.
+This site of documentation is deprecated.
 
 Contribute to https://docs.vechain.org/ for new changes.
 

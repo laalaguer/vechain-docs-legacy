@@ -1,7 +1,0 @@
----
-title: "Welcome to Innovationlab"
-slug: "welcome-to-innovationlab"
-createdAt: "2018-12-11T09:51:47.715Z"
-hidden: true
----
-Welcome to the developer hub and documentation for Innovationlab!

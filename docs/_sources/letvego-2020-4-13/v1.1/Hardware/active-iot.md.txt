@@ -1,9 +1,0 @@
----
-title: "Active IoT"
-slug: "active-iot"
-hidden: true
-createdAt: "2019-02-21T09:46:39.485Z"
-updatedAt: "2019-04-04T07:45:57.076Z"
----
-At present, active IoT device which has passed fully test and validation to ensure the reliability is as follows:
-  * [Temperature logger ](https://doc.vechainworld.io/docs/iot-device-1)

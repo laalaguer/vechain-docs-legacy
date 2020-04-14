@@ -1,4 +1,0 @@
-# Example Connex app
-
-Below is a list of apps that compatible with Connex
-
