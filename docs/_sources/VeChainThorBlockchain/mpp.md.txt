@@ -14,7 +14,7 @@ Let us first define the terminology to be used to describe MPP as follows:
 - *User* - VeChainTor allows any account to register other accounts as its users and conditionally pay for the cost of the transactions sent them;
 - *Credit* - available VHTO for paying for transaction cost for a particular user of a particular account. 
 
-![](https://files.readme.io/d5f9847-MPP.png)
+![](https://doc.vechainworld.io/images/d5f9847-MPP.png)
 
 The above figure shows the decision-making flow within MPP. When it comes to the question of who should pay for a transaction, VeChainThor first checks the usership and sponsorship associated with the *Sender* and *Recipient*. It then tries to deduct the transaction fee from the corresponding account. For instance, if both the usership and sponsorship are in place, the system will first try to deduct the transaction fee from the *Sponsor*’s balance; if it fails, then from the *Recipient*'s balance; and if it fails again, from the *Sender*’s balance. 
 
