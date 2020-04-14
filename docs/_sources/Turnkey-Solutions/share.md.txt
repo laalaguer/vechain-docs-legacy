@@ -19,7 +19,7 @@ VeChain's turnkey solution for enterprises to manage their own crypto assets is 
   "images": [
     {
       "image": [
-        "https://files.readme.io/0af2587-Screen_Shot_2019-04-22_at_15.24.51.png",
+        "https://doc.vechainworld.io/images/0af2587-Screen_Shot_2019-04-22_at_15.24.51.png",
         "Screen Shot 2019-04-22 at 15.24.51.png",
         698,
         380,

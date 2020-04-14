@@ -66,7 +66,7 @@ document.querySelector('body').append(el)
   "images": [
     {
       "image": [
-        "https://files.readme.io/a1bbedc-architecture.png",
+        "https://doc.vechainworld.io/images/a1bbedc-architecture.png",
         "architecture.png",
         431,
         643,

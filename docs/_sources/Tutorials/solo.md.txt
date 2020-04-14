@@ -83,7 +83,7 @@ After this command, the following output should appear:
   "images": [
     {
       "image": [
-        "https://files.readme.io/7e6142e-AF27EFFD-8CA1-4B48-9266-6712CA1677B2.png",
+        "https://doc.vechainworld.io/images/7e6142e-AF27EFFD-8CA1-4B48-9266-6712CA1677B2.png",
         "AF27EFFD-8CA1-4B48-9266-6712CA1677B2.png",
         1952,
         1028,
@@ -118,7 +118,7 @@ After the installation, Sync should look like this:
   "images": [
     {
       "image": [
-        "https://files.readme.io/1e09e19-D2B0C123-A0CB-48FA-A901-6A2AACF0A5C3.png",
+        "https://doc.vechainworld.io/images/1e09e19-D2B0C123-A0CB-48FA-A901-6A2AACF0A5C3.png",
         "D2B0C123-A0CB-48FA-A901-6A2AACF0A5C3.png",
         1998,
         1400,
@@ -136,7 +136,7 @@ To change the Sync-Server, the green “Main” button and the gearwheel needs t
   "images": [
     {
       "image": [
-        "https://files.readme.io/7e31d8d-A3F3F972-9899-42BA-A552-C5141397916D.png",
+        "https://doc.vechainworld.io/images/7e31d8d-A3F3F972-9899-42BA-A552-C5141397916D.png",
         "A3F3F972-9899-42BA-A552-C5141397916D.png",
         2006,
         1382,
@@ -154,7 +154,7 @@ Through “add Node” the connection details can be entered.
   "images": [
     {
       "image": [
-        "https://files.readme.io/ce90bc1-0E1F3B7B-EDC3-4AB0-B996-459EB8718FDD.png",
+        "https://doc.vechainworld.io/images/ce90bc1-0E1F3B7B-EDC3-4AB0-B996-459EB8718FDD.png",
         "0E1F3B7B-EDC3-4AB0-B996-459EB8718FDD.png",
         1986,
         1396,
@@ -174,7 +174,7 @@ The SOLO node can be activated by clicking the green “Main” and choose the n
   "images": [
     {
       "image": [
-        "https://files.readme.io/38f80f6-2DDA3A40-684D-4753-AA85-75ED25ABF23B.png",
+        "https://doc.vechainworld.io/images/38f80f6-2DDA3A40-684D-4753-AA85-75ED25ABF23B.png",
         "2DDA3A40-684D-4753-AA85-75ED25ABF23B.png",
         1996,
         1388,
@@ -190,7 +190,7 @@ If done correctly, insight will display blocks from the solo node
   "images": [
     {
       "image": [
-        "https://files.readme.io/626355f-4A31833E-BE38-416F-A328-7B84887ACD68.png",
+        "https://doc.vechainworld.io/images/626355f-4A31833E-BE38-416F-A328-7B84887ACD68.png",
         "4A31833E-BE38-416F-A328-7B84887ACD68.png",
         1998,
         1392,
@@ -242,7 +242,7 @@ Click the wallets symbol in the upper right, then import
   "images": [
     {
       "image": [
-        "https://files.readme.io/4a64f9d-667CCD26-5D27-4A65-A403-783F9A4CA97A.png",
+        "https://doc.vechainworld.io/images/4a64f9d-667CCD26-5D27-4A65-A403-783F9A4CA97A.png",
         "667CCD26-5D27-4A65-A403-783F9A4CA97A.png",
         2002,
         1386,
@@ -259,7 +259,7 @@ Choose “Private Key” and enter one of the private keys from the table above.
   "images": [
     {
       "image": [
-        "https://files.readme.io/82f5068-0_TWNPDAsUMh8xVwr2.png",
+        "https://doc.vechainworld.io/images/82f5068-0_TWNPDAsUMh8xVwr2.png",
         "0_TWNPDAsUMh8xVwr2.png",
         1000,
         700,
@@ -275,7 +275,7 @@ Give the wallet a name and a password and click “import”
   "images": [
     {
       "image": [
-        "https://files.readme.io/3ebb520-0_bBKx-9QpzbKQQT9v.png",
+        "https://doc.vechainworld.io/images/3ebb520-0_bBKx-9QpzbKQQT9v.png",
         "0_bBKx-9QpzbKQQT9v.png",
         1000,
         700,
@@ -291,7 +291,7 @@ A wallet should now be visible in Sync
   "images": [
     {
       "image": [
-        "https://files.readme.io/75659b5-0_ToAnmKIn2QmYJ_pL.png",
+        "https://doc.vechainworld.io/images/75659b5-0_ToAnmKIn2QmYJ_pL.png",
         "0_ToAnmKIn2QmYJ_pL.png",
         1000,
         700,
@@ -314,7 +314,7 @@ Choose an imported Masterwallet and click “Transfer”.
   "images": [
     {
       "image": [
-        "https://files.readme.io/19719a4-0_1nhWBmTmHGIJMx1d.png",
+        "https://doc.vechainworld.io/images/19719a4-0_1nhWBmTmHGIJMx1d.png",
         "0_1nhWBmTmHGIJMx1d.png",
         1000,
         700,
@@ -330,7 +330,7 @@ Enter the recipient addess and the amount to sent.
   "images": [
     {
       "image": [
-        "https://files.readme.io/9431adf-0_PVphpPlIUpPfWdAQ.png",
+        "https://doc.vechainworld.io/images/9431adf-0_PVphpPlIUpPfWdAQ.png",
         "0_PVphpPlIUpPfWdAQ.png",
         1000,
         700,
@@ -346,7 +346,7 @@ Enter the Password given to the MasterWallet where VET is send from and sign
   "images": [
     {
       "image": [
-        "https://files.readme.io/fd355a2-0_L0wBqcEb8Ll7sL5G.png",
+        "https://doc.vechainworld.io/images/fd355a2-0_L0wBqcEb8Ll7sL5G.png",
         "0_L0wBqcEb8Ll7sL5G.png",
         1000,
         700,
@@ -362,7 +362,7 @@ After Switching to “insight”, the new transaction should be visible under �
   "images": [
     {
       "image": [
-        "https://files.readme.io/94bdd26-0_v9sw_DDu888zuZbO.png",
+        "https://doc.vechainworld.io/images/94bdd26-0_v9sw_DDu888zuZbO.png",
         "0_v9sw_DDu888zuZbO.png",
         1000,
         700,
@@ -379,7 +379,7 @@ To send VTHOR, the destination address needs to be opened in Insight. In this ex
   "images": [
     {
       "image": [
-        "https://files.readme.io/fdcb89a-0_qMe-R9JQxiKvZpsY.png",
+        "https://doc.vechainworld.io/images/fdcb89a-0_qMe-R9JQxiKvZpsY.png",
         "0_qMe-R9JQxiKvZpsY.png",
         1000,
         700,
@@ -395,7 +395,7 @@ Enter the destination address into the searchbar and press enter.
   "images": [
     {
       "image": [
-        "https://files.readme.io/faf8541-0_epH0pNFVk32cwg8k.png",
+        "https://doc.vechainworld.io/images/faf8541-0_epH0pNFVk32cwg8k.png",
         "0_epH0pNFVk32cwg8k.png",
         1000,
         700,
@@ -421,7 +421,7 @@ Click on “Deposit” and enter the VTHO amount.
   "images": [
     {
       "image": [
-        "https://files.readme.io/22b9bb8-0_a4UZ_ZrbewM9jcS0.png",
+        "https://doc.vechainworld.io/images/22b9bb8-0_a4UZ_ZrbewM9jcS0.png",
         "0_a4UZ_ZrbewM9jcS0.png",
         1000,
         700,
@@ -437,7 +437,7 @@ Sign the transaction.
   "images": [
     {
       "image": [
-        "https://files.readme.io/03f7671-0_8bl_Z5a75XIOGeiK.png",
+        "https://doc.vechainworld.io/images/03f7671-0_8bl_Z5a75XIOGeiK.png",
         "0_8bl_Z5a75XIOGeiK.png",
         1000,
         700,
@@ -461,7 +461,7 @@ The smart contract source code needs to be converted to ABI und ByteCode. Since 
   "images": [
     {
       "image": [
-        "https://files.readme.io/9974c3a-0_cG3r2sfAmKHoC9B4.png",
+        "https://doc.vechainworld.io/images/9974c3a-0_cG3r2sfAmKHoC9B4.png",
         "0_cG3r2sfAmKHoC9B4.png",
         1468,
         667,
@@ -478,7 +478,7 @@ The ByteCode is needed to deploy the smart contract. To get it in the format com
   "images": [
     {
       "image": [
-        "https://files.readme.io/1d50156-0_MZ3cHJqYu9aKRRxM.png",
+        "https://doc.vechainworld.io/images/1d50156-0_MZ3cHJqYu9aKRRxM.png",
         "0_MZ3cHJqYu9aKRRxM.png",
         1064,
         245,
@@ -511,7 +511,7 @@ If ByteCode and ABI are available, the ByteCode needs to be sent to the SOLO net
   "images": [
     {
       "image": [
-        "https://files.readme.io/1e7f588-0_rVJiQz29av_gi4CB.png",
+        "https://doc.vechainworld.io/images/1e7f588-0_rVJiQz29av_gi4CB.png",
         "0_rVJiQz29av_gi4CB.png",
         1000,
         700,
@@ -528,7 +528,7 @@ Open “Inspector”, click “Deploy”, paste the appropriate ByteCode and cli
   "images": [
     {
       "image": [
-        "https://files.readme.io/179a05d-0_Rbv3pxttfZkx6-Lp.png",
+        "https://doc.vechainworld.io/images/179a05d-0_Rbv3pxttfZkx6-Lp.png",
         "0_Rbv3pxttfZkx6-Lp.png",
         1086,
         783,
@@ -545,7 +545,7 @@ The wallet that signs the transaction **HAS TO BE **0x7567d83b7b8d80addcb281a71d
   "images": [
     {
       "image": [
-        "https://files.readme.io/4eff13a-0_vJZQGyrCAFl2-TJV.png",
+        "https://doc.vechainworld.io/images/4eff13a-0_vJZQGyrCAFl2-TJV.png",
         "0_vJZQGyrCAFl2-TJV.png",
         1086,
         783,
@@ -562,7 +562,7 @@ The new SmartContract address can be found by clicking on the arrow in the upper
   "images": [
     {
       "image": [
-        "https://files.readme.io/c21dab3-0_tSmWmPAYTTNMas_w.png",
+        "https://doc.vechainworld.io/images/c21dab3-0_tSmWmPAYTTNMas_w.png",
         "0_tSmWmPAYTTNMas_w.png",
         1086,
         783,
@@ -579,7 +579,7 @@ The new SmartContract address can be found by clicking on the arrow in the upper
   "images": [
     {
       "image": [
-        "https://files.readme.io/1dbb165-0_8QxlX2nJDbmDe3ZL.png",
+        "https://doc.vechainworld.io/images/1dbb165-0_8QxlX2nJDbmDe3ZL.png",
         "0_8QxlX2nJDbmDe3ZL.png",
         1086,
         783,
@@ -599,7 +599,7 @@ To be able to interact with the new smart contract, Sync (Inspector) has to be m
   "images": [
     {
       "image": [
-        "https://files.readme.io/f135300-0_fQrFGerPNGdWSRwq.png",
+        "https://doc.vechainworld.io/images/f135300-0_fQrFGerPNGdWSRwq.png",
         "0_fQrFGerPNGdWSRwq.png",
         1086,
         783,
@@ -625,7 +625,7 @@ The first interaction with the smart contract is simply getting the name of the 
   "images": [
     {
       "image": [
-        "https://files.readme.io/03aa764-0_J0kohFazlBHyi7r3.png",
+        "https://doc.vechainworld.io/images/03aa764-0_J0kohFazlBHyi7r3.png",
         "0_J0kohFazlBHyi7r3.png",
         1086,
         783,
@@ -645,7 +645,7 @@ To verify that the state of the smart contract can be changed, an address (in th
   "images": [
     {
       "image": [
-        "https://files.readme.io/339609b-0_9HCH8oSFRv-Nusuq.png",
+        "https://doc.vechainworld.io/images/339609b-0_9HCH8oSFRv-Nusuq.png",
         "0_9HCH8oSFRv-Nusuq.png",
         1086,
         783,
@@ -663,7 +663,7 @@ Now a contract “write” is needed. Inspector seperates “reads” and “wri
   "images": [
     {
       "image": [
-        "https://files.readme.io/d9569a4-0_y0Dx4GSl5g6SIN8u.png",
+        "https://doc.vechainworld.io/images/d9569a4-0_y0Dx4GSl5g6SIN8u.png",
         "0_y0Dx4GSl5g6SIN8u.png",
         1086,
         783,
@@ -679,7 +679,7 @@ The “transfer” function can be found in the “writes” tab. As destination
   "images": [
     {
       "image": [
-        "https://files.readme.io/22a1461-0_NqYyrKzJ9GMYUt_7.png",
+        "https://doc.vechainworld.io/images/22a1461-0_NqYyrKzJ9GMYUt_7.png",
         "0_NqYyrKzJ9GMYUt_7.png",
         1086,
         783,
@@ -695,7 +695,7 @@ Now the transaction can be executed
   "images": [
     {
       "image": [
-        "https://files.readme.io/f95c19c-0_HNx-hbXnS8okHQWO.png",
+        "https://doc.vechainworld.io/images/f95c19c-0_HNx-hbXnS8okHQWO.png",
         "0_HNx-hbXnS8okHQWO.png",
         1086,
         783,
@@ -713,7 +713,7 @@ If the transaction is executed successfully, a new check of the token balance sh
   "images": [
     {
       "image": [
-        "https://files.readme.io/c69079d-0_KCXmXvKRKHiH-1YR.png",
+        "https://doc.vechainworld.io/images/c69079d-0_KCXmXvKRKHiH-1YR.png",
         "0_KCXmXvKRKHiH-1YR.png",
         1086,
         783,

@@ -39,7 +39,7 @@ ToolChain Partner Version, a turnkey solution designed specifically for VeChain 
   "images": [
     {
       "image": [
-        "https://files.readme.io/bb33b8d-image2019-3-15_14-25-0.png",
+        "https://doc.vechainworld.io/images/bb33b8d-image2019-3-15_14-25-0.png",
         "image2019-3-15_14-25-0.png",
         1082,
         369,
@@ -63,7 +63,7 @@ ToolChain immediately uploads data to blockchain, making it immutable. With othe
   "images": [
     {
       "image": [
-        "https://files.readme.io/57a85b3-image2019-3-15_15-18-41.png",
+        "https://doc.vechainworld.io/images/57a85b3-image2019-3-15_15-18-41.png",
         "image2019-3-15_15-18-41.png",
         959,
         436,

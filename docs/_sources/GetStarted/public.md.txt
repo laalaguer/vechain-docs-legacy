@@ -5,7 +5,7 @@ Public VeChainThor mainnet and testnet nodes are embedded in the [Sync](doc:sdk)
   "images": [
     {
       "image": [
-        "https://files.readme.io/6564796-Screen_Shot_2019-04-22_at_16.58.21.png",
+        "https://doc.vechainworld.io/images/6564796-Screen_Shot_2019-04-22_at_16.58.21.png",
         "Screen Shot 2019-04-22 at 16.58.21.png",
         518,
         374,
@@ -26,7 +26,7 @@ You can just open it in the browser and a swagger page will appear, which will e
   "images": [
     {
       "image": [
-        "https://files.readme.io/6207061-Swagger_UI.jpg",
+        "https://doc.vechainworld.io/images/6207061-Swagger_UI.jpg",
         "Swagger_UI.jpg",
         2898,
         1602,

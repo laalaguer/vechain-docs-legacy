@@ -7,7 +7,7 @@ Author: A Byte Ahead https://medium.com/@laalaguer/how-to-develop-a-dapp-on-vech
   "images": [
     {
       "image": [
-        "https://files.readme.io/34f7ee7-1_c2uuq00IOapunjTMQN3scw.png",
+        "https://doc.vechainworld.io/images/34f7ee7-1_c2uuq00IOapunjTMQN3scw.png",
         "1_c2uuq00IOapunjTMQN3scw.png",
         1600,
         692,
@@ -40,7 +40,7 @@ When you see the Sync electron window popping up, we are all set!
   "images": [
     {
       "image": [
-        "https://files.readme.io/0eef449-1_FacLnaprgduDltjvHP4w_w.png",
+        "https://doc.vechainworld.io/images/0eef449-1_FacLnaprgduDltjvHP4w_w.png",
         "1_FacLnaprgduDltjvHP4w_w.png",
         1600,
         1094,
@@ -63,7 +63,7 @@ First, Let us set up a testing wallet for ourselves:
   "images": [
     {
       "image": [
-        "https://files.readme.io/0b2e702-1_vfVH2dlr_32_sno4-0HZLg.jpeg",
+        "https://doc.vechainworld.io/images/0b2e702-1_vfVH2dlr_32_sno4-0HZLg.jpeg",
         "1_vfVH2dlr_32_sno4-0HZLg.jpeg",
         1600,
         1296,
@@ -80,7 +80,7 @@ Great, now click on the upper-right “**wallets**” icon, if you are on test n
   "images": [
     {
       "image": [
-        "https://files.readme.io/9e6c9cf-WeChat_Image_20190322104818.png",
+        "https://doc.vechainworld.io/images/9e6c9cf-WeChat_Image_20190322104818.png",
         "WeChat Image_20190322104818.png",
         1805,
         645,
@@ -106,7 +106,7 @@ Go on, visit the web URL: https://faucet.vecha.in in Sync, and you will see an i
   "images": [
     {
       "image": [
-        "https://files.readme.io/8721f65-WeChat_Image_20190322105508.png",
+        "https://doc.vechainworld.io/images/8721f65-WeChat_Image_20190322105508.png",
         "WeChat Image_20190322105508.png",
         1807,
         696,
@@ -123,7 +123,7 @@ Follow the “**Claim Tokens**” button in the middle of the web page and let�
   "images": [
     {
       "image": [
-        "https://files.readme.io/c120b33-1_tMo5kR-BoY9ATD7AEb1XxA.jpeg",
+        "https://doc.vechainworld.io/images/c120b33-1_tMo5kR-BoY9ATD7AEb1XxA.jpeg",
         "1_tMo5kR-BoY9ATD7AEb1XxA.jpeg",
         908,
         864,
@@ -141,7 +141,7 @@ Now that we have money on test net, let's move on to explore the blockchain func
   "images": [
     {
       "image": [
-        "https://files.readme.io/bc75f06-WeChat_Image_20190322105751.png",
+        "https://doc.vechainworld.io/images/bc75f06-WeChat_Image_20190322105751.png",
         "WeChat Image_20190322105751.png",
         1801,
         647,

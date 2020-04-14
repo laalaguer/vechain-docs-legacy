@@ -28,7 +28,7 @@ The project includes the following files:
   "images": [
     {
       "image": [
-        "https://files.readme.io/eed8e62-ContracOverview.png",
+        "https://doc.vechainworld.io/images/eed8e62-ContracOverview.png",
         "ContracOverview.png",
         627,
         374,
@@ -57,7 +57,7 @@ The smart contracts are split into modules.
   "images": [
     {
       "image": [
-        "https://files.readme.io/a4801f4-TokenAuction.png",
+        "https://doc.vechainworld.io/images/a4801f4-TokenAuction.png",
         "TokenAuction.png",
         960,
         1199,
@@ -79,7 +79,7 @@ The smart contracts are split into modules.
   "images": [
     {
       "image": [
-        "https://files.readme.io/b363b5e-ClockAuction.png",
+        "https://doc.vechainworld.io/images/b363b5e-ClockAuction.png",
         "ClockAuction.png",
         1069,
         659,

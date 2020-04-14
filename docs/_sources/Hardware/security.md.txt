@@ -12,7 +12,7 @@ management. Data is stored in its persistent memory. The VeKey has no embedded b
   "images": [
     {
       "image": [
-        "https://files.readme.io/fe26a3a-vekey.png",
+        "https://doc.vechainworld.io/images/fe26a3a-vekey.png",
         "vekey.png",
         683,
         383,
@@ -34,7 +34,7 @@ management. Data is stored in its persistent memory. The VeKey has no embedded b
   "images": [
     {
       "image": [
-        "https://files.readme.io/6a577c5-webwxgetmsgimg.jpg",
+        "https://doc.vechainworld.io/images/6a577c5-webwxgetmsgimg.jpg",
         "webwxgetmsgimg.jpg",
         3750,
         2500,
@@ -101,7 +101,7 @@ More details, please contact: support@vechain.com
   "images": [
     {
       "image": [
-        "https://files.readme.io/78b9498-9d958fb-WeChat_Image_20190114135046.png",
+        "https://doc.vechainworld.io/images/78b9498-9d958fb-WeChat_Image_20190114135046.png",
         "9d958fb-WeChat_Image_20190114135046.png",
         232,
         198,
